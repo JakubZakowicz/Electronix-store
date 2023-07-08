@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  client:
+    build: ./client
+    ports:
+      - 3000:3000
+    volumes:
+      - ./client:/app
+      - /app/node_modules
+  
+  server:
+    build: ./server
+    ports:
+    - 5000:5000
+    volumes:
+      - ./server:/app
+      - /app/node_modules
+  
+  db:
+    image: mysql
+    ports:
+      - 3306:3306
+    restart: always
+    environment:
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: password
+      MYSQL_DATABASE: ecommerce
+      MYSQL_ROOT_PASSWORD: password
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
