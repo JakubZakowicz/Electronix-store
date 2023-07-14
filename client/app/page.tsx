@@ -1,95 +1,113 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+'use client';
+
+import Image from 'next/image';
+import React from 'react';
+import {
+  Box,
+  Button,
+  Card,
+  CardContent,
+  Grid,
+  Typography,
+} from '@mui/material';
+import StarIcon from '@mui/icons-material/Star';
+import Vision from '../images/vision.png';
+import VRHeadset from '../images/HP_Reverb.png';
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <Box>
+      <Card
+        sx={{
+          background: 'rgba(255, 255, 255, 0.1)',
+          borderRadius: '20px',
+          border: '1px solid white',
+        }}
+        variant="outlined"
+      >
+        <CardContent>
+          <Grid
+            container
+            display="flex"
+            justifyContent="space-around"
+            alignItems="center"
           >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+            <Grid item sm={12} lg={6}>
+              <Image src={Vision} alt="vision" />
+            </Grid>
+            <Grid item sm={12} lg={6}>
+              <Box color="white" textAlign="center" width="500px">
+                <Typography marginBottom="10px" color="#ACACAC">
+                  Special Offer
+                </Typography>
+                <Typography paragraph fontSize={30} fontWeight="bold">
+                  Apple Vision Pro
+                </Typography>
+                <Typography paragraph fontSize={30} fontWeight="bold">
+                  $3499
+                </Typography>
+                <Button
+                  variant="contained"
+                  sx={{ background: 'rgba(255, 255, 255, 0.2)' }}
+                >
+                  Buy Now
+                </Button>
+              </Box>
+            </Grid>
+          </Grid>
+        </CardContent>
+      </Card>
+      <Typography
+        marginTop="50px"
+        variant="h2"
+        fontSize="30px"
+        fontWeight="bold"
+      >
+        Top Products
+      </Typography>
+      <Grid container marginTop="-30px" spacing={2} rowSpacing={6}>
+        {[
+          'HP Reverb G2',
+          'HP Reverb G2',
+          'HP Reverb G2',
+          'HP Reverb G2',
+          'HP Reverb G2',
+        ].map(text => (
+          <Grid key={text} item sm={12} lg={4} xl={3}>
+            <Card
+              sx={{
+                padding: '5px',
+                background: 'rgba(255, 255, 255, 0.1)',
+                borderRadius: '20px',
+                border: '1px solid white',
+                marginTop: '10px',
+                color: 'white',
+                width: '300px',
+              }}
+            >
+              <CardContent>
+                <Image
+                  src={VRHeadset}
+                  width="250"
+                  height="200"
+                  alt="VR headset"
+                />
+                <Typography fontSize="20px" marginTop="10px">
+                  {text}
+                </Typography>
+                <Box marginTop="10px" color="yellow">
+                  <StarIcon />
+                  <StarIcon />
+                  <StarIcon />
+                  <StarIcon />
+                  <StarIcon />
+                </Box>
+                <Typography marginTop="10px">$39.68</Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+        ))}
+      </Grid>
+    </Box>
+  );
 }
