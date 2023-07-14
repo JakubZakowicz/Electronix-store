@@ -4,6 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import {
   Box,
+  Grid,
   List,
   ListItem,
   ListItemButton,
@@ -22,21 +23,20 @@ import Link from 'next/link';
 
 const Footer = () => {
   return (
-    <Box
+    <Grid
+      container
       component="section"
       id="footer"
       borderTop="1px solid white"
       marginTop="100px"
-      display="flex"
-      justifyContent="center"
-      padding="50px 0"
-      gap="150px"
+      padding="70px 20px"
+      columnSpacing={20}
     >
-      <Box alignSelf="center" textAlign="center">
+      <Grid item alignSelf="center" textAlign="center" xs={12} md={3}>
         <Image src={Logo} width={80} alt="logo" />
         <Typography marginTop="10px">Jz inc.</Typography>
-      </Box>
-      <Box>
+      </Grid>
+      <Grid item xs={12} md={3}>
         <Typography borderBottom="1px solid white" paddingBottom="10px">
           Contact Us
         </Typography>
@@ -69,8 +69,8 @@ const Footer = () => {
             </ListItemButton>
           </ListItem>
         </List>
-      </Box>
-      <Box>
+      </Grid>
+      <Grid item xs={12} md={3}>
         <Typography borderBottom="1px solid white" paddingBottom="10px">
           Informations
         </Typography>
@@ -91,10 +91,10 @@ const Footer = () => {
             </ListItemButton>
           </ListItem>
         </List>
-      </Box>
-      <Box textAlign="center" alignSelf="center">
+      </Grid>
+      <Grid item textAlign="center" alignSelf="center" xs={12} md={3}>
         <Typography>Follow Us</Typography>
-        <Box display="flex" gap="40px" marginTop="20px">
+        <Box display="flex" gap="40px" marginTop="20px" justifyContent="center">
           <Link href="https://instagram.com" style={{ color: 'white' }}>
             <InstagramIcon fontSize="large" />
           </Link>
@@ -105,8 +105,8 @@ const Footer = () => {
             <TwitterIcon fontSize="large" />
           </Link>
         </Box>
-      </Box>
-    </Box>
+      </Grid>
+    </Grid>
   );
 };
 

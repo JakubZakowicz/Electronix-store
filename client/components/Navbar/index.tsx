@@ -18,7 +18,6 @@ import PersonIcon from '@mui/icons-material/Person';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import GridViewIcon from '@mui/icons-material/GridView';
 import { ExpandLess, ExpandMore } from '@mui/icons-material';
-import styles from '../../app/page.module.css';
 
 interface NavbarProps {
   children: React.ReactNode;
@@ -43,10 +42,17 @@ const Navbar = ({ children }: NavbarProps) => {
         <Box width="700px">
           <TextField
             hiddenLabel
-            className={styles.textfield}
             variant="standard"
             fullWidth
             placeholder="Search"
+            sx={{
+              backgroundColor: 'rgba(255, 255, 255, 0.1)',
+              padding: '5px 15px',
+              borderRadius: '20px',
+              '& input': {
+                color: 'white',
+              },
+            }}
             InputProps={{
               disableUnderline: true,
               startAdornment: (
