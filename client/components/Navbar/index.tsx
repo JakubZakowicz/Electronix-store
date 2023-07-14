@@ -1,10 +1,11 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import Logo from '../../public/logo.svg';
 import {
   Box,
+  Button,
   Collapse,
   Drawer,
   List,
@@ -12,23 +13,32 @@ import {
   ListItemIcon,
   ListItemText,
   TextField,
+  useMediaQuery,
+  useTheme,
 } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import PersonIcon from '@mui/icons-material/Person';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import GridViewIcon from '@mui/icons-material/GridView';
 import { ExpandLess, ExpandMore } from '@mui/icons-material';
+import MenuIcon from '@mui/icons-material/Menu';
 
 interface NavbarProps {
   children: React.ReactNode;
 }
 
 const Navbar = ({ children }: NavbarProps) => {
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = useState(true);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   const handleClick = () => {
     setOpen(!open);
   };
+
+  const toggleDrawer = () => setIsDrawerOpen(prevState => !prevState)
+
+  const theme = useTheme();
+  const isMobileView = useMediaQuery(theme.breakpoints.down('md'));
 
   return (
     <Box>
@@ -38,6 +48,14 @@ const Navbar = ({ children }: NavbarProps) => {
         justifyContent="space-between"
         alignItems="center"
       >
+        {isMobileView && (
+          <Button
+            onClick={toggleDrawer}
+            sx={{ color: 'white', zIndex: 100 }}
+          >
+            <MenuIcon />
+          </Button>
+        )}
         <Image src={Logo} width={60} alt="logo" />
         <Box width="700px">
           <TextField
@@ -67,10 +85,11 @@ const Navbar = ({ children }: NavbarProps) => {
         </Box>
       </Box>
       <Drawer
+        open={isMobileView && isDrawerOpen}
+        onClose={toggleDrawer}
         sx={{
           width: 300,
           flexShrink: 0,
-
           '& .MuiDrawer-paper': {
             width: 300,
             boxSizing: 'border-box',
@@ -79,7 +98,7 @@ const Navbar = ({ children }: NavbarProps) => {
             marginTop: 15,
           },
         }}
-        variant="permanent"
+        variant={isMobileView ? 'temporary' : 'permanent'}
         anchor="left"
       >
         <List>
@@ -99,7 +118,7 @@ const Navbar = ({ children }: NavbarProps) => {
           </Collapse>
         </List>
       </Drawer>
-      <Box width="80%" marginLeft="350px">
+      <Box width="80%" marginLeft={isMobileView ? '50px' : '350px'}>
         {children}
       </Box>
     </Box>

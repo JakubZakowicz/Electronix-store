@@ -26,26 +26,35 @@ export default function Home() {
         variant="outlined"
       >
         <CardContent>
-          <Box display="flex" justifyContent="space-around" alignItems="center">
-            <Image src={Vision} alt="vision" />
-            <Box color="white" textAlign="center" width="500px">
-              <Typography marginBottom="10px" color="#ACACAC">
-                Special Offer
-              </Typography>
-              <Typography paragraph fontSize={30} fontWeight="bold">
-                Apple Vision Pro
-              </Typography>
-              <Typography paragraph fontSize={30} fontWeight="bold">
-                $3499
-              </Typography>
-              <Button
-                variant="contained"
-                sx={{ background: 'rgba(255, 255, 255, 0.2)' }}
-              >
-                Buy Now
-              </Button>
-            </Box>
-          </Box>
+          <Grid
+            container
+            display="flex"
+            justifyContent="space-around"
+            alignItems="center"
+          >
+            <Grid item sm={12} lg={6}>
+              <Image src={Vision} alt="vision" />
+            </Grid>
+            <Grid item sm={12} lg={6}>
+              <Box color="white" textAlign="center" width="500px">
+                <Typography marginBottom="10px" color="#ACACAC">
+                  Special Offer
+                </Typography>
+                <Typography paragraph fontSize={30} fontWeight="bold">
+                  Apple Vision Pro
+                </Typography>
+                <Typography paragraph fontSize={30} fontWeight="bold">
+                  $3499
+                </Typography>
+                <Button
+                  variant="contained"
+                  sx={{ background: 'rgba(255, 255, 255, 0.2)' }}
+                >
+                  Buy Now
+                </Button>
+              </Box>
+            </Grid>
+          </Grid>
         </CardContent>
       </Card>
       <Typography
