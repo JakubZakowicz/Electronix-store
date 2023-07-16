@@ -1,0 +1,25 @@
+name: Run eslint, prettier and tests
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  eslint-prettier-tests:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18.15.0
+    - name: Install pnpm
+      run: npm install -g pnpm
+    - name: Run linter
+      run: pnpm run lint
+    - name: Run prettier
+      run: pnpm run prettier
+    - name: Run tests
+      run: pnpm run test
