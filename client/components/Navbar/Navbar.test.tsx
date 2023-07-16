@@ -5,8 +5,12 @@ import Navbar from '.';
 
 describe('Footer', () => {
   it('Renders Footer correctly', () => {
-    const text = 'PageContent'
-    render(<Navbar><p>{text}</p></Navbar>);
+    const text = 'PageContent';
+    render(
+      <Navbar>
+        <p>{text}</p>
+      </Navbar>
+    );
     const textElement = screen.getByText(text);
     expect(textElement).toBeInTheDocument();
   });

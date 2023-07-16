@@ -72,7 +72,7 @@ export default function Home() {
           'HP Reverb G2',
           'HP Reverb G2',
           'HP Reverb G2',
-        ].map(text => (
+        ].map((text) => (
           <Grid key={text} item sm={12} lg={4} xl={3}>
             <Card
               sx={{
