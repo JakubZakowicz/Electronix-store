@@ -1,0 +1,48 @@
+name: Run eslint, prettier and tests
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  eslint-prettier-tests-frontend:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: client
+    steps:
+    - uses: actions/checkout@v3
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18.15.0
+    - name: Install pnpm
+      run: npm install -g pnpm
+    - name: Run linter
+      run: pnpm run lint
+    - name: Run prettier
+      run: pnpm run format
+    - name: Run tests
+      run: pnpm run test
+
+  eslint-prettier-tests-backend:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: server
+    steps:
+    - uses: actions/checkout@v3
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18.15.0
+    - name: Install pnpm
+      run: npm install -g pnpm
+    - name: Run linter
+      run: pnpm run lint
+    - name: Run prettier
+      run: pnpm run format
+    - name: Run tests
+      run: pnpm run test
