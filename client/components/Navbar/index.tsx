@@ -22,6 +22,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import GridViewIcon from '@mui/icons-material/GridView';
 import { ExpandLess, ExpandMore } from '@mui/icons-material';
 import MenuIcon from '@mui/icons-material/Menu';
+import Link from 'next/link';
 
 interface NavbarProps {
   children: React.ReactNode;
@@ -53,7 +54,9 @@ const Navbar = ({ children }: NavbarProps) => {
             <MenuIcon />
           </Button>
         )}
-        <Image src={Logo} width={60} alt="logo" />
+        <Link href="/">
+          <Image src={Logo} width={60} alt="logo" />
+        </Link>
         <Box width="700px">
           <TextField
             hiddenLabel
@@ -90,7 +93,7 @@ const Navbar = ({ children }: NavbarProps) => {
           '& .MuiDrawer-paper': {
             width: 300,
             boxSizing: 'border-box',
-            backgroundColor: 'transparent',
+            backgroundColor: isMobileView ? "black" : 'transparent',
             color: 'white',
             marginTop: 15,
           },
@@ -107,7 +110,12 @@ const Navbar = ({ children }: NavbarProps) => {
             {open ? <ExpandLess /> : <ExpandMore />}
           </ListItemButton>
           <Collapse in={open} timeout="auto" unmountOnExit>
-            <List component="div" disablePadding>
+            <List
+              component={Link}
+              href="/categories/virtual-reality"
+              disablePadding
+              sx={{ color: 'white', textDecoration: 'none' }}
+            >
               <ListItemButton sx={{ pl: 4 }}>
                 <ListItemText primary="Virtual Reality" />
               </ListItemButton>

@@ -14,3 +14,10 @@ body {
   color: white;
   background: #141414;
 }
+
+.main {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: space-between;
+}
