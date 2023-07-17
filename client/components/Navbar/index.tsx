@@ -35,7 +35,7 @@ const Navbar = ({ children }: NavbarProps) => {
     setOpen(!open);
   };
 
-  const toggleDrawer = () => setIsDrawerOpen(prevState => !prevState)
+  const toggleDrawer = () => setIsDrawerOpen((prevState) => !prevState);
 
   const theme = useTheme();
   const isMobileView = useMediaQuery(theme.breakpoints.down('md'));
@@ -49,10 +49,7 @@ const Navbar = ({ children }: NavbarProps) => {
         alignItems="center"
       >
         {isMobileView && (
-          <Button
-            onClick={toggleDrawer}
-            sx={{ color: 'white', zIndex: 100 }}
-          >
+          <Button onClick={toggleDrawer} sx={{ color: 'white', zIndex: 100 }}>
             <MenuIcon />
           </Button>
         )}
