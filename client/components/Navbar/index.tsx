@@ -95,7 +95,7 @@ const Navbar = ({ children }: NavbarProps) => {
             boxSizing: 'border-box',
             backgroundColor: isMobileView ? "black" : 'transparent',
             color: 'white',
-            marginTop: 15,
+            marginTop: isMobileView ? 0: 15,
           },
         }}
         variant={isMobileView ? 'temporary' : 'permanent'}
