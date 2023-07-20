@@ -46,8 +46,12 @@ export default function Home() {
                   $3499
                 </Typography>
                 <Button
-                  variant="contained"
-                  sx={{ background: 'rgba(255, 255, 255, 0.2)' }}
+                  sx={{
+                    color: 'white',
+                    padding: '6px 15px',
+                    border: '1px solid white',
+                    background: 'rgba(255, 255, 255, 0.2)',
+                  }}
                 >
                   Buy Now
                 </Button>
@@ -56,7 +60,7 @@ export default function Home() {
           </Grid>
         </CardContent>
       </Card>
-     <Products name="Top Products" />
+      <Products name="Top Products" />
     </Box>
   );
 }
