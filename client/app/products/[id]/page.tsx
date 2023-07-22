@@ -1,9 +1,10 @@
 'use client';
 
 import React from 'react';
-import { Box, Grid, Tab, Tabs, Typography } from '@mui/material';
+import { Box, Grid, Tab, Typography } from '@mui/material';
 import ProductCounter from '@/components/ProductCounter';
 import { TabContext, TabList, TabPanel } from '@mui/lab';
+import SwiperGallery from '@/components/Swiper';
 
 const ProductPage = () => {
   const [value, setValue] = React.useState('1');
@@ -13,9 +14,13 @@ const ProductPage = () => {
   };
 
   return (
-    <Box>
+    <Box color="white">
       <Grid container marginTop={10}>
-        <Grid item xl={6}></Grid>
+        <Grid item xl={6}>
+          <Box padding="0 50px">
+            <SwiperGallery />
+          </Box>
+        </Grid>
         <Grid item xl={6}>
           <Typography variant="h1" fontSize={26} fontWeight="bold">
             Meta Quest 2 — Advanced All-In-One Virtual Reality Headset — 128 GB
