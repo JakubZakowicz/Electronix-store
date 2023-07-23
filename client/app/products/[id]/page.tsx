@@ -4,7 +4,7 @@ import React from 'react';
 import { Box, Grid, Rating, Tab, Typography } from '@mui/material';
 import ProductCounter from '@/components/ProductCounter';
 import { TabContext, TabList, TabPanel } from '@mui/lab';
-import SwiperGallery from '@/components/Swiper';
+import SwiperGallery from '@/components/SwiperGallery';
 
 const ProductPage = () => {
   const [value, setValue] = React.useState('1');
