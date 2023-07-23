@@ -19,11 +19,12 @@ import VR5 from '../../images/vr5.png';
 // import required modules
 import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
 import Image from 'next/image';
+import { Box } from '@mui/material';
 
 const SwiperGallery = () => {
   const [thumbsSwiper, setThumbsSwiper] = useState<SwiperClass | null>(null);
   return (
-    <div>
+    <Box>
       <Swiper
         style={{
           '--swiper-navigation-color': '#fff',
@@ -76,7 +77,7 @@ const SwiperGallery = () => {
           <Image src={VR5} alt="VR" />
         </SwiperSlide>
       </Swiper>
-    </div>
+    </Box>
   );
 };
 

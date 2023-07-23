@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Box, Grid, Tab, Typography } from '@mui/material';
+import { Box, Grid, Rating, Tab, Typography } from '@mui/material';
 import ProductCounter from '@/components/ProductCounter';
 import { TabContext, TabList, TabPanel } from '@mui/lab';
 import SwiperGallery from '@/components/Swiper';
@@ -15,9 +15,9 @@ const ProductPage = () => {
 
   return (
     <Box color="white">
-      <Grid container marginTop={10}>
+      <Grid container marginTop={10} columnSpacing={6}>
         <Grid item xl={6}>
-          <Box padding="0 50px">
+          <Box maxWidth="730px" width="100vw">
             <SwiperGallery />
           </Box>
         </Grid>
@@ -94,7 +94,41 @@ const ProductPage = () => {
             </TabList>
           </Box>
           <TabPanel value="1">Item One</TabPanel>
-          <TabPanel value="2">Item Two</TabPanel>
+          <TabPanel value="2">
+            {/* <Box display="flex" gap="30px"> */}
+            <Grid container>
+              <Grid item xl={2}>
+                <Rating name="read-only" value={5} readOnly />
+                <Typography marginTop="10px">Domynyq</Typography>
+                <Typography fontSize={15} color="#B9B9B9" marginTop="10px">
+                  July 21st 2023
+                </Typography>
+              </Grid>
+              <Grid item xl={10}>
+                <Typography variant="h3" fontSize={25} fontWeight="semibold">
+                  Excellent Experience
+                </Typography>
+                <Typography marginTop="10px">
+                  TV wygląda bardzo ładnie, głośniki zadziwiająco dobre
+                  (szczególnie w trybie muzyka), lecz muszę się przyczepić do
+                  wielkości TV. Może i ma wąskie ramki, ale tak naprawdę to nie
+                  - po prostu pod przednią szybą/pleksi czy jak to tam nazwać
+                  jest faktyczny ekran, który jest mniejszy o około cala na
+                  całej długości przekątnej. Efektem jest wąska biała ramka plus
+                  czarna obramówka wokół ekranu. W tym momencie sam ekran nie ma
+                  32 cali, tylko ta szybka/pleksi na przodzie TV. Dodatkowo
+                  obraz wyświetlany na ekranie lekko się odbija od tej szyby z
+                  przodu TV - widać to w okolicy tej obramówki jak się patrzy z
+                  boku, na wprost TV jest ok. Ale poza tym jestem bardzo
+                  zadowolony z TV, świetnie komponuje się w pokoju, do jakości
+                  obrazu brak zastrzeżeń, bo używam go z kablówką. Mediabox HD
+                  UPC idealnie wchodzi pod TV ;)
+                </Typography>
+              </Grid>
+            </Grid>
+
+            {/* </Box> */}
+          </TabPanel>
         </TabContext>
       </Box>
     </Box>
