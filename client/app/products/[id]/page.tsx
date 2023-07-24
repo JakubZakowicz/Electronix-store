@@ -67,7 +67,7 @@ const ProductPage = () => {
             intuitive controls, a built-in battery, easy setup and no PC or
             console needed*
           </Typography>
-          <ProductCounter />
+          <ProductCounter isAddToCartOption />
         </Grid>
       </Grid>
       <Box sx={{ width: '100%', typography: 'body1', marginTop: '100px' }}>
@@ -126,8 +126,6 @@ const ProductPage = () => {
                 </Typography>
               </Grid>
             </Grid>
-
-            {/* </Box> */}
           </TabPanel>
         </TabContext>
       </Box>
