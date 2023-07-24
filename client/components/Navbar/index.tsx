@@ -81,7 +81,9 @@ const Navbar = ({ children }: NavbarProps) => {
         </Box>
         <Box display="flex" alignItems="center" gap="40px">
           <PersonIcon sx={{ fontSize: '40px' }} />
-          <ShoppingCartIcon fontSize="large" />
+          <Link href="/cart">
+            <ShoppingCartIcon fontSize="large" sx={{ color: 'white' }} />
+          </Link>
         </Box>
       </Box>
       <Drawer
@@ -93,9 +95,9 @@ const Navbar = ({ children }: NavbarProps) => {
           '& .MuiDrawer-paper': {
             width: 300,
             boxSizing: 'border-box',
-            backgroundColor: isMobileView ? "black" : 'transparent',
+            backgroundColor: isMobileView ? 'black' : 'transparent',
             color: 'white',
-            marginTop: isMobileView ? 0: 15,
+            marginTop: isMobileView ? 0 : 15,
           },
         }}
         variant={isMobileView ? 'temporary' : 'permanent'}

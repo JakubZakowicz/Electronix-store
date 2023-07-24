@@ -6,7 +6,11 @@ import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
-const ProductCounter = () => {
+interface ProductCounterProps {
+  isAddToCartOption?: boolean;
+}
+
+const ProductCounter = ({ isAddToCartOption }: ProductCounterProps) => {
   const [count, setCount] = useState(1);
 
   const increaseCount = () => setCount((prevState) => prevState + 1);
@@ -51,18 +55,20 @@ const ProductCounter = () => {
       >
         <AddIcon fontSize="small" sx={{ color: 'white' }} />
       </IconButton>
-      <Button
-        startIcon={<ShoppingCartIcon />}
-        sx={{
-          color: 'white',
-          padding: '6px 15px',
-          border: '1px solid white',
-          borderRadius: '0',
-          background: 'rgba(255, 255, 255, 0.2)',
-        }}
-      >
-        Add to cart
-      </Button>
+      {isAddToCartOption && (
+        <Button
+          startIcon={<ShoppingCartIcon />}
+          sx={{
+            color: 'white',
+            padding: '6px 15px',
+            border: '1px solid white',
+            borderRadius: '0',
+            background: 'rgba(255, 255, 255, 0.2)',
+          }}
+        >
+          Add to cart
+        </Button>
+      )}
     </Box>
   );
 };

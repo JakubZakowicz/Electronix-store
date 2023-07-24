@@ -6,7 +6,7 @@ import ProductCounter from '.';
 describe('ProductCounter', () => {
   it('Renders ProductCounter correctly', () => {
     render(
-      <ProductCounter />
+      <ProductCounter isAddToCartOption />
       
     );
     const textElement = screen.getByText(/add to cart/i);
