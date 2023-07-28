@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormControl, Input, InputLabel, TextField } from '@mui/material';
+import { TextField } from '@mui/material';
 
 interface InputFieldProps {
   labelName?: string
@@ -11,6 +11,7 @@ const InputField = ({ labelName = 'Name' }: InputFieldProps) => {
       id="outlined-basic"
       label={labelName}
       variant="outlined"
+      fullWidth
       sx={{
         '& .MuiInputLabel-root': { color: 'white' },
         '& label.Mui-focused': {
