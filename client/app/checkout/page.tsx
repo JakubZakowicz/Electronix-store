@@ -14,8 +14,68 @@ import {
 } from '@mui/material';
 import Image from 'next/image';
 import VR from '@/images/vr1.png';
+import { Controller, SubmitHandler, useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { CheckoutFormSchema } from '@/utils/types';
+import { checkoutSchema } from '@/utils/validationSchemat';
 
-const page = () => {
+const inputs: {
+  fieldName:
+    | 'firstName'
+    | 'lastName'
+    | 'email'
+    | 'phoneNumber'
+    | 'country'
+    | 'city'
+    | 'street'
+    | 'postalCode';
+  labelName: string;
+}[] = [
+  {
+    fieldName: 'firstName',
+    labelName: 'First Name',
+  },
+  {
+    fieldName: 'lastName',
+    labelName: 'Last Name',
+  },
+  {
+    fieldName: 'email',
+    labelName: 'Email address',
+  },
+  {
+    fieldName: 'phoneNumber',
+    labelName: 'Phone number',
+  },
+  {
+    fieldName: 'country',
+    labelName: 'Country',
+  },
+  {
+    fieldName: 'city',
+    labelName: 'City',
+  },
+  {
+    fieldName: 'street',
+    labelName: 'Street',
+  },
+  {
+    fieldName: 'postalCode',
+    labelName: 'Postal dode',
+  },
+];
+
+
+
+const CheckoutPage = () => {
+  const { control, handleSubmit } = useForm<CheckoutFormSchema>({
+    resolver: zodResolver(checkoutSchema),
+  });
+
+  const onSubmit: SubmitHandler<CheckoutFormSchema> = (data) => {
+    console.log(data);
+  };
+
   return (
     <Box>
       <Typography variant="h1" fontSize="25px">
@@ -23,52 +83,46 @@ const page = () => {
       </Typography>
       <Grid container spacing={8}>
         <Grid item xl={8}>
-          <Grid container marginTop="20px" rowSpacing={5} columnSpacing={10}>
-            <Grid item md={6}>
-              <InputField labelName="First Name" />
-            </Grid>
-            <Grid item md={6}>
-              <InputField labelName="Last Name" />
-            </Grid>
-            <Grid item md={6}>
-              <InputField labelName="Email address" />
-            </Grid>
-            <Grid item md={6}>
-              <InputField labelName="Phone number" />
-            </Grid>
-            <Grid item md={6}>
-              <InputField labelName="Country" />
-            </Grid>
-            <Grid item md={6}>
-              <InputField labelName="City" />
-            </Grid>
-            <Grid item md={6}>
-              <InputField labelName="Street" />
-            </Grid>
-            <Grid item md={6}>
-              <InputField labelName="Postal Code" />
-            </Grid>
-            <Grid
-              item
-              sm={12}
-              sx={{ display: 'flex', justifyContent: 'center' }}
-            >
-              <Button
-                sx={{
-                  color: 'white',
-                  padding: '6px 50px',
-                  border: '1px solid white',
-                  background: 'rgba(255, 255, 255, 0.2)',
-                  borderRadius: '0',
-                  marginTop: '10px',
-                  fontSize: '18px',
-                  textTransform: 'capitalize',
-                }}
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <Grid container marginTop="20px" rowSpacing={5} columnSpacing={10}>
+              {inputs.map(({ fieldName, labelName }) => (
+                <Grid key={fieldName} item md={6}>
+                  <Controller
+                    name={fieldName}
+                    control={control}
+                    render={({ field, fieldState: { error } }) => (
+                      <InputField
+                        labelName={labelName}
+                        helperText={error ? error.message : null}
+                        {...field}
+                      />
+                    )}
+                  />
+                </Grid>
+              ))}
+              <Grid
+                item
+                sm={12}
+                sx={{ display: 'flex', justifyContent: 'center' }}
               >
-                Pay
-              </Button>
+                <Button
+                  type="submit"
+                  sx={{
+                    color: 'white',
+                    padding: '6px 50px',
+                    border: '1px solid white',
+                    background: 'rgba(255, 255, 255, 0.2)',
+                    borderRadius: '0',
+                    marginTop: '10px',
+                    fontSize: '18px',
+                    textTransform: 'capitalize',
+                  }}
+                >
+                  Pay
+                </Button>
+              </Grid>
             </Grid>
-          </Grid>
+          </form>
         </Grid>
         <Grid item xl={4}>
           <Card
@@ -140,4 +194,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default CheckoutPage;

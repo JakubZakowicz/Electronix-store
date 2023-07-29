@@ -2,10 +2,11 @@ import React from 'react';
 import { TextField } from '@mui/material';
 
 interface InputFieldProps {
-  labelName?: string
+  labelName?: string;
+  [restProps: string]: any
 }
 
-const InputField = ({ labelName = 'Name' }: InputFieldProps) => {
+const InputField = ({ labelName = 'Name', ...restProps }: InputFieldProps) => {
   return (
     <TextField
       id="outlined-basic"
@@ -24,8 +25,15 @@ const InputField = ({ labelName = 'Name' }: InputFieldProps) => {
         '& input': {
           color: 'white',
           backgroundColor: 'rgba(255, 255, 255, 0.1)',
+        },
+        '& .MuiFormHelperText-root': {
+          color: 'red',
+          position: 'absolute',
+          top: '60px',
+          left: '-10px'
         }
       }}
+      {...restProps}
     />
   );
 };
