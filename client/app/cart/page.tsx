@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link'
 import {
   Box,
   Button,
@@ -97,6 +98,7 @@ const CartPage = () => {
             <Typography>Total</Typography>
             <Typography>$299.00</Typography>
           </Box>
+          <Link href="/checkout">
           <Button
             sx={{
               color: 'white',
@@ -112,6 +114,7 @@ const CartPage = () => {
           >
             Checkout
           </Button>
+          </Link>
         </Box>
       </Box>
     </Box>
