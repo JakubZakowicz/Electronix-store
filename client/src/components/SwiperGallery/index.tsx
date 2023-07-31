@@ -10,11 +10,11 @@ import 'swiper/css/thumbs';
 
 import './styles.css';
 
-import VR1 from '@/images/vr1.png';
-import VR2 from '@/images/vr2.png';
-import VR3 from '@/images/vr3.png';
-import VR4 from '@/images/vr4.png';
-import VR5 from '@/images/vr5.png';
+import VR1 from '@/src/images/vr1.png';
+import VR2 from '@/src/images/vr2.png';
+import VR3 from '@/src/images/vr3.png';
+import VR4 from '@/src/images/vr4.png';
+import VR5 from '@/src/images/vr5.png';
 
 // import required modules
 import { FreeMode, Navigation, Thumbs } from 'swiper/modules';

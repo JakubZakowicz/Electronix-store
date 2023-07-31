@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import InputField from '@/components/InputField';
+import InputField from '@/src/components/InputField';
 import {
   Box,
   Button,
@@ -13,11 +13,11 @@ import {
   Typography,
 } from '@mui/material';
 import Image from 'next/image';
-import VR from '@/images/vr1.png';
+import VR from '@/src/images/vr1.png';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { CheckoutFormSchema } from '@/utils/types';
-import { checkoutSchema } from '@/utils/validationSchemat';
+import { CheckoutFormSchema } from '@/src/utils/types';
+import { checkoutSchema } from '@/src/utils/validationSchemat';
 
 const inputs: {
   fieldName:
@@ -64,8 +64,6 @@ const inputs: {
     labelName: 'Postal dode',
   },
 ];
-
-
 
 const CheckoutPage = () => {
   const { control, handleSubmit } = useForm<CheckoutFormSchema>({
