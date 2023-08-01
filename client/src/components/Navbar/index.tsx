@@ -80,7 +80,9 @@ const Navbar = ({ children }: NavbarProps) => {
           />
         </Box>
         <Box display="flex" alignItems="center" gap="40px">
-          <PersonIcon sx={{ fontSize: '40px' }} />
+          <Link href="/sign-in">
+            <PersonIcon sx={{ fontSize: '40px', color: 'white' }} />
+          </Link>
           <Link href="/cart">
             <ShoppingCartIcon fontSize="large" sx={{ color: 'white' }} />
           </Link>
