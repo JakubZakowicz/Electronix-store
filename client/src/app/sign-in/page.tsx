@@ -3,8 +3,24 @@
 import React from 'react';
 import { Box, Button, Grid, Typography } from '@mui/material';
 import InputField from '@/src/components/InputField';
+import { Controller, SubmitHandler, useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { signInSchema } from '@/src/utils/validationSchemat';
+
+interface SignInFormSchema {
+  email: string;
+  password: string;
+}
 
 const SignInPage = () => {
+  const { control, handleSubmit } = useForm<SignInFormSchema>({
+    resolver: zodResolver(signInSchema),
+  });
+
+  const onSubmit: SubmitHandler<SignInFormSchema> = (data) => {
+    console.log(data);
+  };
+
   return (
     <Box>
       <Typography
@@ -17,10 +33,30 @@ const SignInPage = () => {
       </Typography>
       <Grid container spacing={20} sx={{ marginTop: '-50px' }}>
         <Grid item xs={12} lg={6}>
-          <form>
-            <InputField labelName="Email" />
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <Controller
+              name="email"
+              control={control}
+              render={({ field, fieldState: { error } }) => (
+                <InputField
+                  helperText={error ? error.message : null}
+                  labelName="Email"
+                  {...field}
+                />
+              )}
+            />
             <Box marginTop="50px">
-              <InputField labelName="Password" />
+              <Controller
+                name="password"
+                control={control}
+                render={({ field, fieldState: { error } }) => (
+                  <InputField
+                    helperText={error ? error.message : null}
+                    labelName="Password"
+                    {...field}
+                  />
+                )}
+              />
             </Box>
             <Grid
               item
@@ -47,7 +83,9 @@ const SignInPage = () => {
               >
                 Sign in
               </Button>
-              <Typography sx={{ marginTop: '10px' }}>Forgot Password?</Typography>
+              <Typography sx={{ marginTop: '10px' }}>
+                Forgot Password?
+              </Typography>
             </Grid>
           </form>
         </Grid>
