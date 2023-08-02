@@ -11,7 +11,7 @@ import {
   Typography,
 } from '@mui/material';
 import Vision from '../images/vision.png';
-import Products from '@/components/Products';
+import Products from '@/src/components/Products';
 
 export default function Home() {
   return (

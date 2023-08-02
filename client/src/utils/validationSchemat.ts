@@ -10,3 +10,8 @@ export const checkoutSchema = z.object({
   street: z.string(),
   postalCode: z.string(),
 });
+
+export const signInSchema = z.object({
+  email: z.string({ required_error: 'Email is a required field!' }).email(),
+  password: z.string({ required_error: 'Password is a required field!' }),
+});

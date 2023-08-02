@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
-import Logo from '../../public/logo.svg';
+import Logo from '@/public/logo.svg';
 import {
   Box,
   Button,
@@ -80,7 +80,9 @@ const Navbar = ({ children }: NavbarProps) => {
           />
         </Box>
         <Box display="flex" alignItems="center" gap="40px">
-          <PersonIcon sx={{ fontSize: '40px' }} />
+          <Link href="/sign-in">
+            <PersonIcon sx={{ fontSize: '40px', color: 'white' }} />
+          </Link>
           <Link href="/cart">
             <ShoppingCartIcon fontSize="large" sx={{ color: 'white' }} />
           </Link>

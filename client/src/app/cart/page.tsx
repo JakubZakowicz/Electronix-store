@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
-import Link from 'next/link'
+import Link from 'next/link';
 import {
   Box,
   Button,
@@ -15,8 +15,8 @@ import {
   TableRow,
   Typography,
 } from '@mui/material';
-import VR from '@/images/vr1.png';
-import ProductCounter from '@/components/ProductCounter';
+import VR from '@/src/images/vr1.png';
+import ProductCounter from '@/src/components/ProductCounter';
 
 function createData(
   productName: string,
@@ -99,21 +99,21 @@ const CartPage = () => {
             <Typography>$299.00</Typography>
           </Box>
           <Link href="/checkout">
-          <Button
-            sx={{
-              color: 'white',
-              padding: '6px 50px',
-              border: '1px solid white',
-              background: 'rgba(255, 255, 255, 0.2)',
-              borderRadius: '0',
-              marginTop: '30px',
-              float: 'right',
-              fontSize: '18px',
-              textTransform: 'capitalize',
-            }}
-          >
-            Checkout
-          </Button>
+            <Button
+              sx={{
+                color: 'white',
+                padding: '6px 50px',
+                border: '1px solid white',
+                background: 'rgba(255, 255, 255, 0.2)',
+                borderRadius: '0',
+                marginTop: '30px',
+                float: 'right',
+                fontSize: '18px',
+                textTransform: 'capitalize',
+              }}
+            >
+              Checkout
+            </Button>
           </Link>
         </Box>
       </Box>

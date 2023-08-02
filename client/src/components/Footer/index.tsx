@@ -12,7 +12,7 @@ import {
   ListItemText,
   Typography,
 } from '@mui/material';
-import Logo from '../../public/logo.svg';
+import Logo from '@/public/logo.svg';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import WatchLaterIcon from '@mui/icons-material/WatchLater';
