@@ -1,16 +1,13 @@
 'use client';
 
 import React from 'react';
-import { Box, Button, Grid, Typography } from '@mui/material';
+import { Box, Button, Grid, Link, Typography } from '@mui/material';
 import InputField from '@/src/components/InputField';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { signInSchema } from '@/src/utils/validationSchemat';
-
-interface SignInFormSchema {
-  email: string;
-  password: string;
-}
+import { routes } from '@/src/utils/routes';
+import { SignInFormSchema } from '@/src/utils/types';
 
 const SignInPage = () => {
   const { control, handleSubmit } = useForm<SignInFormSchema>({
@@ -41,6 +38,7 @@ const SignInPage = () => {
                 <InputField
                   helperText={error ? error.message : null}
                   labelName="Email"
+                  type="email"
                   {...field}
                 />
               )}
@@ -53,6 +51,7 @@ const SignInPage = () => {
                   <InputField
                     helperText={error ? error.message : null}
                     labelName="Password"
+                    type="password"
                     {...field}
                   />
                 )}
@@ -124,19 +123,21 @@ const SignInPage = () => {
               marginTop: '30px',
             }}
           >
-            <Button
-              sx={{
-                color: 'white',
-                padding: '6px 50px',
-                border: '1px solid white',
-                background: 'rgba(255, 255, 255, 0.2)',
-                borderRadius: '0',
-                fontSize: '18px',
-                textTransform: 'capitalize',
-              }}
-            >
-              Create Account
-            </Button>
+            <Link href={routes.signUp()}>
+              <Button
+                sx={{
+                  color: 'white',
+                  padding: '6px 50px',
+                  border: '1px solid white',
+                  background: 'rgba(255, 255, 255, 0.2)',
+                  borderRadius: '0',
+                  fontSize: '18px',
+                  textTransform: 'capitalize',
+                }}
+              >
+                Create Account
+              </Button>
+            </Link>
           </Grid>
         </Grid>
       </Grid>
