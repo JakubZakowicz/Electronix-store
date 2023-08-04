@@ -8,3 +8,14 @@ export interface CheckoutFormSchema {
   street: string;
   postalCode: string;
 }
+
+export interface SignInFormSchema {
+  email: string;
+  password: string;
+}
+
+export interface SignUpFormSchema {
+  email: string;
+  password: string;
+  confirmPassword: string;
+}

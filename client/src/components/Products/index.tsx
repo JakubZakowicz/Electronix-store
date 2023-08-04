@@ -6,6 +6,7 @@ import { Box, Card, CardContent, Grid, Typography } from '@mui/material';
 import StarIcon from '@mui/icons-material/Star';
 import VRHeadset from '../../images/HP_Reverb.png';
 import Link from 'next/link';
+import { routes } from '@/src/utils/routes';
 
 interface ProductsInterface {
   name: string;
@@ -31,7 +32,7 @@ const Products = ({ name }: ProductsInterface) => {
           'HP Reverb G2',
         ].map((text) => (
           <Grid key={text} item sm={12} lg={4} xl={3}>
-            <Link href="/products/1" style={{ textDecoration: 'none' }}>
+            <Link href={routes.products(1)} style={{ textDecoration: 'none' }}>
               <Card
                 sx={{
                   padding: '5px',

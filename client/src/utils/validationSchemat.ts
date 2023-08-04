@@ -15,3 +15,16 @@ export const signInSchema = z.object({
   email: z.string({ required_error: 'Email is a required field!' }).email(),
   password: z.string({ required_error: 'Password is a required field!' }),
 });
+
+export const signUpSchema = z
+  .object({
+    email: z.string({ required_error: 'Email is a required field!' }).email(),
+    password: z.string({ required_error: 'Password is a required field!' }),
+    confirmPassword: z.string({
+      required_error: 'Password must be confirmed!',
+    }),
+  })
+  .refine((data) => data.password === data.confirmPassword, {
+    message: "Passwords don't match!",
+    path: ['confirmPassword'],
+  });

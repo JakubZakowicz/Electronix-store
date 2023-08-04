@@ -17,6 +17,7 @@ import {
 } from '@mui/material';
 import VR from '@/src/images/vr1.png';
 import ProductCounter from '@/src/components/ProductCounter';
+import { routes } from '@/src/utils/routes';
 
 function createData(
   productName: string,
@@ -98,7 +99,7 @@ const CartPage = () => {
             <Typography>Total</Typography>
             <Typography>$299.00</Typography>
           </Box>
-          <Link href="/checkout">
+          <Link href={routes.checkout()}>
             <Button
               sx={{
                 color: 'white',

@@ -23,6 +23,7 @@ import GridViewIcon from '@mui/icons-material/GridView';
 import { ExpandLess, ExpandMore } from '@mui/icons-material';
 import MenuIcon from '@mui/icons-material/Menu';
 import Link from 'next/link';
+import { routes } from '@/src/utils/routes';
 
 interface NavbarProps {
   children: React.ReactNode;
@@ -54,7 +55,7 @@ const Navbar = ({ children }: NavbarProps) => {
             <MenuIcon />
           </Button>
         )}
-        <Link href="/">
+        <Link href={routes.root()}>
           <Image src={Logo} width={60} alt="logo" />
         </Link>
         <Box width="700px">
@@ -80,10 +81,10 @@ const Navbar = ({ children }: NavbarProps) => {
           />
         </Box>
         <Box display="flex" alignItems="center" gap="40px">
-          <Link href="/sign-in">
+          <Link href={routes.singIn()}>
             <PersonIcon sx={{ fontSize: '40px', color: 'white' }} />
           </Link>
-          <Link href="/cart">
+          <Link href={routes.cart()}>
             <ShoppingCartIcon fontSize="large" sx={{ color: 'white' }} />
           </Link>
         </Box>
