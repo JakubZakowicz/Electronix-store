@@ -5,5 +5,6 @@ export const routes = {
   singIn: () => "/sign-in",
   signUp: () => "/sign-up",
   cart: () => "/cart",
-  checkout: () => "/checkout"
+  checkout: () => "/checkout",
+  forgotPassword: () => "/forgot-password"
 }
