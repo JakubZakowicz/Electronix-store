@@ -1,6 +1,8 @@
 'use client';
 
+import { routes } from '@/src/utils/routes';
 import { Box, Button, Grid, Typography } from '@mui/material';
+import Link from 'next/link';
 import React from 'react';
 
 const AccountDetails = () => {
@@ -9,46 +11,50 @@ const AccountDetails = () => {
       <Typography variant="h1" fontSize={30}>
         Account details
       </Typography>
-      {accountDetails.map(({ label, value }) => (
-        <Grid
-          container
-          key={label}
-          sx={{
-            display: 'flex',
-            gap: '50px',
-            marginTop: '30px',
-            paddingBottom: '30px',
-            borderBottom: '1px solid white',
-            width: '800px',
-          }}
-        >
-          <Grid item xs={2} sm={4}>
-            <Typography variant="h2" fontSize={20} fontWeight="bold">
-              {label}
-            </Typography>
+      <Box marginTop={8}>
+        {accountDetails.map(({ label, value }) => (
+          <Grid
+            container
+            key={label}
+            sx={{
+              display: 'flex',
+              gap: '50px',
+              marginTop: '30px',
+              paddingBottom: '30px',
+              borderBottom: '1px solid white',
+              width: '800px',
+            }}
+          >
+            <Grid item xs={2} sm={4}>
+              <Typography variant="h2" fontSize={20} fontWeight="bold">
+                {label}
+              </Typography>
+            </Grid>
+            <Grid item xs={2} sm={4}>
+              <Typography fontWeight="lighter" fontSize={18}>
+                {value}
+              </Typography>
+            </Grid>
           </Grid>
-          <Grid item xs={2} sm={4}>
-            <Typography fontWeight="lighter" fontSize={18}>
-              {value}
-            </Typography>
-          </Grid>
-        </Grid>
-      ))}
-      <Button
-        type="submit"
-        sx={{
-          color: 'white',
-          padding: '6px 50px',
-          border: '1px solid white',
-          background: 'rgba(255, 255, 255, 0.2)',
-          borderRadius: '0',
-          fontSize: '18px',
-          textTransform: 'capitalize',
-          marginTop: '40px'
-        }}
-      >
-        Edit
-      </Button>
+        ))}
+        <Link href={routes.editAccountDetails()}>
+          <Button
+            type="submit"
+            sx={{
+              color: 'white',
+              padding: '6px 50px',
+              border: '1px solid white',
+              background: 'rgba(255, 255, 255, 0.2)',
+              borderRadius: '0',
+              fontSize: '18px',
+              textTransform: 'capitalize',
+              marginTop: '40px',
+            }}
+          >
+            Edit
+          </Button>
+        </Link>
+      </Box>
     </Box>
   );
 };
@@ -83,5 +89,9 @@ const accountDetails: { label: string; value: string }[] = [
   {
     label: 'Address',
     value: 'Camp Nou 10/9',
+  },
+  {
+    label: 'Postal Code',
+    value: '12-345',
   },
 ];

@@ -1,4 +1,4 @@
-export const checkoutInputs: {
+export const personalInfoInputs: {
   fieldName:
     | 'firstName'
     | 'lastName'
@@ -9,6 +9,7 @@ export const checkoutInputs: {
     | 'street'
     | 'postalCode';
   labelName: string;
+  type?: string
 }[] = [
   {
     fieldName: 'firstName',
@@ -21,6 +22,7 @@ export const checkoutInputs: {
   {
     fieldName: 'email',
     labelName: 'Email address',
+    type: 'email'
   },
   {
     fieldName: 'phoneNumber',

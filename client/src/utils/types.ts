@@ -1,4 +1,4 @@
-export interface CheckoutFormSchema {
+export interface PersonalInfoFormSchema {
   firstName: string;
   lastName: string;
   email: string;
