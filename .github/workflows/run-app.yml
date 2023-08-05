@@ -22,6 +22,8 @@ jobs:
       run: npm install -g pnpm
     - name: Install dependencies
       run: pnpm install
+    - name: Build client
+      run: pnpm pnpm run build
     - name: Run client
       run: pnpm run start
 
@@ -40,5 +42,7 @@ jobs:
       run: npm install -g pnpm
     - name: Install dependencies
       run: pnpm install
+    - name: Build server
+      run: pnpm run build
     - name: Run server
       run: pnpm run start
