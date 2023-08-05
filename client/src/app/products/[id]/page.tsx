@@ -95,7 +95,6 @@ const ProductPage = () => {
           </Box>
           <TabPanel value="1">Item One</TabPanel>
           <TabPanel value="2">
-            {/* <Box display="flex" gap="30px"> */}
             <Grid container>
               <Grid item xl={2}>
                 <Rating name="read-only" value={5} readOnly />
