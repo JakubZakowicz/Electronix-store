@@ -31,7 +31,7 @@ const CheckoutForm = () => {
                   labelName={labelName}
                   helperText={error ? error.message : null}
                   {...field}
-                  type={type ? type : null}
+                  type={type}
                 />
               )}
             />
