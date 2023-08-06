@@ -1,13 +1,14 @@
 'use client';
 
 import React from 'react';
-import { Box, Button, Grid, Link, Typography } from '@mui/material';
+import { Box, Button, Grid, Typography } from '@mui/material';
 import InputField from '@/src/components/InputField';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { signInSchema } from '@/src/utils/validationSchemat';
 import { routes } from '@/src/utils/routes';
 import { SignInFormSchema } from '@/src/utils/types';
+import Link from 'next/link';
 
 const SignInPage = () => {
   const { control, handleSubmit } = useForm<SignInFormSchema>({
@@ -82,9 +83,12 @@ const SignInPage = () => {
               >
                 Sign in
               </Button>
-              <Typography sx={{ marginTop: '10px' }}>
+              <Link
+                href={routes.forgotPassword()}
+                style={{ color: 'white', marginTop: '10px' }}
+              >
                 Forgot Password?
-              </Typography>
+              </Link>
             </Grid>
           </form>
         </Grid>

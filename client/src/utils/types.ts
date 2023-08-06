@@ -19,3 +19,7 @@ export interface SignUpFormSchema {
   password: string;
   confirmPassword: string;
 }
+
+export interface ForgotPasswordSchema {
+  email: string;
+}
