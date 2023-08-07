@@ -46,7 +46,7 @@ const EditAccountDetails = () => {
               control={control}
               render={({ field, fieldState: { error } }) => (
                 <InputField
-                  labelName={labelName}
+                  label={labelName}
                   helperText={error ? error.message : null}
                   {...field}
                   type={type}

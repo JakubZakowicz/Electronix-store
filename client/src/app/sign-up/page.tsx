@@ -3,7 +3,7 @@
 import React from 'react';
 import InputField from '@/src/components/InputField';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Box, Button, Grid, Link, Typography } from '@mui/material';
+import { Box, Grid, Link, Typography } from '@mui/material';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { signUpSchema } from '@/src/utils/validationSchemat';
 import { SignUpFormSchema } from '@/src/utils/types';
@@ -43,7 +43,7 @@ const SignUpPage = () => {
               render={({ field, fieldState: { error } }) => (
                 <InputField
                   helperText={error ? error.message : null}
-                  labelName="Email"
+                  label="Email"
                   type="email"
                   {...field}
                 />
@@ -56,7 +56,7 @@ const SignUpPage = () => {
                 render={({ field, fieldState: { error } }) => (
                   <InputField
                     helperText={error ? error.message : null}
-                    labelName="Password"
+                    label="Password"
                     type="password"
                     {...field}
                   />
@@ -70,7 +70,7 @@ const SignUpPage = () => {
                 render={({ field, fieldState: { error } }) => (
                   <InputField
                     helperText={error ? error.message : null}
-                    labelName="Confirm Password"
+                    label="Confirm Password"
                     type="password"
                     {...field}
                   />

@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Grid, Button } from '@mui/material';
+import { Grid } from '@mui/material';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { PersonalInfoFormSchema } from '@/src/utils/types';
@@ -29,7 +29,7 @@ const CheckoutForm = () => {
               control={control}
               render={({ field, fieldState: { error } }) => (
                 <InputField
-                  labelName={labelName}
+                  label={labelName}
                   helperText={error ? error.message : null}
                   {...field}
                   type={type}

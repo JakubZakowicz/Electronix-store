@@ -39,7 +39,7 @@ const SignInPage = () => {
               render={({ field, fieldState: { error } }) => (
                 <InputField
                   helperText={error ? error.message : null}
-                  labelName="Email"
+                  label="Email"
                   type="email"
                   {...field}
                 />
@@ -52,7 +52,7 @@ const SignInPage = () => {
                 render={({ field, fieldState: { error } }) => (
                   <InputField
                     helperText={error ? error.message : null}
-                    labelName="Password"
+                    label="Password"
                     type="password"
                     {...field}
                   />
