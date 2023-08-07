@@ -18,6 +18,7 @@ import {
 import VR from '@/src/images/vr1.png';
 import ProductCounter from '@/src/components/ProductCounter';
 import { routes } from '@/src/utils/routes';
+import DefaultButton from '@/src/components/DefaultButton';
 
 function createData(
   productName: string,
@@ -100,21 +101,10 @@ const CartPage = () => {
             <Typography>$299.00</Typography>
           </Box>
           <Link href={routes.checkout()}>
-            <Button
-              sx={{
-                color: 'white',
-                padding: '6px 50px',
-                border: '1px solid white',
-                background: 'rgba(255, 255, 255, 0.2)',
-                borderRadius: '0',
-                marginTop: '30px',
-                float: 'right',
-                fontSize: '18px',
-                textTransform: 'capitalize',
-              }}
-            >
-              Checkout
-            </Button>
+            <DefaultButton
+              name="Checkout"
+              style={{ float: 'right', marginTop: '30px' }}
+            />
           </Link>
         </Box>
       </Box>

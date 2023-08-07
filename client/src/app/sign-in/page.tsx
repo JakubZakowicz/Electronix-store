@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Box, Button, Grid, Typography } from '@mui/material';
+import { Box, Grid, Typography } from '@mui/material';
 import InputField from '@/src/components/InputField';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -9,6 +9,7 @@ import { signInSchema } from '@/src/utils/validationSchemat';
 import { routes } from '@/src/utils/routes';
 import { SignInFormSchema } from '@/src/utils/types';
 import Link from 'next/link';
+import DefaultButton from '@/src/components/DefaultButton';
 
 const SignInPage = () => {
   const { control, handleSubmit } = useForm<SignInFormSchema>({
@@ -69,20 +70,7 @@ const SignInPage = () => {
                 marginTop: '30px',
               }}
             >
-              <Button
-                type="submit"
-                sx={{
-                  color: 'white',
-                  padding: '6px 50px',
-                  border: '1px solid white',
-                  background: 'rgba(255, 255, 255, 0.2)',
-                  borderRadius: '0',
-                  fontSize: '18px',
-                  textTransform: 'capitalize',
-                }}
-              >
-                Sign in
-              </Button>
+              <DefaultButton type="submit" name="Sign in" />
               <Link
                 href={routes.forgotPassword()}
                 style={{ color: 'white', marginTop: '10px' }}
@@ -128,19 +116,7 @@ const SignInPage = () => {
             }}
           >
             <Link href={routes.signUp()}>
-              <Button
-                sx={{
-                  color: 'white',
-                  padding: '6px 50px',
-                  border: '1px solid white',
-                  background: 'rgba(255, 255, 255, 0.2)',
-                  borderRadius: '0',
-                  fontSize: '18px',
-                  textTransform: 'capitalize',
-                }}
-              >
-                Create Account
-              </Button>
+              <DefaultButton name="Create Account" />
             </Link>
           </Grid>
         </Grid>
