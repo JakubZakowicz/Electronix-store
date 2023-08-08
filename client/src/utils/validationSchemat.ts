@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-export const checkoutSchema = z.object({
+export const personalInfoSchema = z.object({
   firstName: z.string().min(3).max(48),
   lastName: z.string().min(3).max(48),
   email: z.string().email(),
