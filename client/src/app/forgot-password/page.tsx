@@ -1,10 +1,11 @@
 'use client';
 
+import DefaultButton from '@/src/components/DefaultButton';
 import InputField from '@/src/components/InputField';
 import { ForgotPasswordSchema } from '@/src/utils/types';
 import { signInSchema } from '@/src/utils/validationSchemat';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Box, Button, Container, Typography } from '@mui/material';
+import { Box, Container, Typography } from '@mui/material';
 import React from 'react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 
@@ -40,27 +41,13 @@ const ForgotPasswordPage = () => {
             render={({ field, fieldState: { error } }) => (
               <InputField
                 helperText={error ? error.message : null}
-                labelName="Email"
+                label="Email"
                 type="email"
                 {...field}
               />
             )}
           />
-          <Button
-            type="submit"
-            sx={{
-              color: 'white',
-              padding: '6px 50px',
-              border: '1px solid white',
-              background: 'rgba(255, 255, 255, 0.2)',
-              borderRadius: '0',
-              fontSize: '18px',
-              textTransform: 'capitalize',
-              width: '300px',
-            }}
-          >
-            Resset Password
-          </Button>
+          <DefaultButton name="Reset Password" style={{ width: '300px' }} />
         </Box>
       </form>
     </Container>

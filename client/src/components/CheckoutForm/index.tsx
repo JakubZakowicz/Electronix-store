@@ -1,13 +1,14 @@
 'use client';
 
 import React from 'react';
-import { Grid, Button } from '@mui/material';
+import { Grid } from '@mui/material';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { PersonalInfoFormSchema } from '@/src/utils/types';
 import { personalInfoSchema } from '@/src/utils/validationSchemat';
 import InputField from '../InputField';
 import { personalInfoInputs } from '@/src/utils/personalInfoInputs';
+import DefaultButton from '../DefaultButton';
 
 const CheckoutForm = () => {
   const { control, handleSubmit } = useForm<PersonalInfoFormSchema>({
@@ -28,7 +29,7 @@ const CheckoutForm = () => {
               control={control}
               render={({ field, fieldState: { error } }) => (
                 <InputField
-                  labelName={labelName}
+                  label={labelName}
                   helperText={error ? error.message : null}
                   {...field}
                   type={type}
@@ -38,21 +39,7 @@ const CheckoutForm = () => {
           </Grid>
         ))}
         <Grid item sm={12} sx={{ display: 'flex', justifyContent: 'center' }}>
-          <Button
-            type="submit"
-            sx={{
-              color: 'white',
-              padding: '6px 50px',
-              border: '1px solid white',
-              background: 'rgba(255, 255, 255, 0.2)',
-              borderRadius: '0',
-              marginTop: '10px',
-              fontSize: '18px',
-              textTransform: 'capitalize',
-            }}
-          >
-            Pay
-          </Button>
+          <DefaultButton name="Pay" style={{ marginTop: '10px' }} />
         </Grid>
       </Grid>
     </form>

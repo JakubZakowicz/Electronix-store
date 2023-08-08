@@ -3,11 +3,12 @@
 import React from 'react';
 import InputField from '@/src/components/InputField';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Box, Button, Grid, Link, Typography } from '@mui/material';
+import { Box, Grid, Link, Typography } from '@mui/material';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { signUpSchema } from '@/src/utils/validationSchemat';
 import { SignUpFormSchema } from '@/src/utils/types';
 import { routes } from '@/src/utils/routes';
+import DefaultButton from '@/src/components/DefaultButton';
 
 const SignUpPage = () => {
   const { control, handleSubmit } = useForm<SignUpFormSchema>({
@@ -42,7 +43,7 @@ const SignUpPage = () => {
               render={({ field, fieldState: { error } }) => (
                 <InputField
                   helperText={error ? error.message : null}
-                  labelName="Email"
+                  label="Email"
                   type="email"
                   {...field}
                 />
@@ -55,7 +56,7 @@ const SignUpPage = () => {
                 render={({ field, fieldState: { error } }) => (
                   <InputField
                     helperText={error ? error.message : null}
-                    labelName="Password"
+                    label="Password"
                     type="password"
                     {...field}
                   />
@@ -69,7 +70,7 @@ const SignUpPage = () => {
                 render={({ field, fieldState: { error } }) => (
                   <InputField
                     helperText={error ? error.message : null}
-                    labelName="Confirm Password"
+                    label="Confirm Password"
                     type="password"
                     {...field}
                   />
@@ -86,24 +87,15 @@ const SignUpPage = () => {
               }}
             >
               <Box>
-                <Button
-                  type="submit"
-                  sx={{
-                    color: 'white',
-                    padding: '6px 50px',
-                    border: '1px solid white',
-                    background: 'rgba(255, 255, 255, 0.2)',
-                    borderRadius: '0',
-                    fontSize: '18px',
-                    textTransform: 'capitalize',
-                    margin: 'auto',
-                  }}
-                >
-                  Create Account
-                </Button>
+                <DefaultButton type="submit" name="Create Account" />
                 <Typography sx={{ marginTop: '10px' }}>
-                  Do you have an account?{' '}
-                  <Link href={routes.singIn()}>Sign in here</Link>
+                  Do you have an account? &nbsp;
+                  <Link
+                    href={routes.singIn()}
+                    style={{ color: 'white', textDecoration: 'underline' }}
+                  >
+                    Sign in here
+                  </Link>
                 </Typography>
               </Box>
             </Box>
