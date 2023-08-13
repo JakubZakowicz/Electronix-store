@@ -1,8 +1,9 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Category } from './category.entity';
-import { CategoryParams } from './category.inteface';
+import { CreateCategoryDto } from './dto/create-category.dto';
+import { UpdateCategoryDto } from './dto/update-category.dto';
 
 @Injectable()
 export class CategoryService {
@@ -11,24 +12,39 @@ export class CategoryService {
     private readonly categoryRepository: Repository<Category>,
   ) {}
 
-  findAll() {
-    return this.categoryRepository.find();
+  async findAll() {
+    return await this.categoryRepository.find();
   }
 
-  findOneById(id: number) {
-    return this.categoryRepository.findOneByOrFail({ id });
+  async findOneById(id: number) {
+    const category = await this.categoryRepository.findOneBy({ id });
+
+    if (!category) {
+      throw new NotFoundException(`There is no category with id: ${id}`);
+    }
+
+    return await category;
   }
 
-  create(categoryDetails: CategoryParams) {
-    const newCategory = this.categoryRepository.create(categoryDetails);
-    return this.categoryRepository.save(newCategory);
+  async create(categoryData: CreateCategoryDto) {
+    const newCategory = this.categoryRepository.create(categoryData);
+    return await this.categoryRepository.save(newCategory);
   }
 
-  update(id: number, updateCategoryDetails: CategoryParams) {
-    return this.categoryRepository.update(id, updateCategoryDetails);
+  async update(id: number, categoryData: UpdateCategoryDto) {
+    const category = await this.categoryRepository.preload({
+      id,
+      ...categoryData,
+    });
+
+    if (!category) {
+      throw new NotFoundException(`There is no category with id: ${id}`);
+    }
+
+    return await this.categoryRepository.save(category);
   }
 
-  delete(id: number) {
-    return this.categoryRepository.delete(id);
+  async delete(id: number) {
+    return await this.categoryRepository.delete(id);
   }
 }
