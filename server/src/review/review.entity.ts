@@ -6,22 +6,19 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 
-@Entity('products')
-export class Product {
+@Entity('reviews')
+export class Review {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column()
-  name: string;
+  title: string;
 
   @Column()
-  summary: string;
+  content: string;
 
   @Column()
-  description: string;
-
-  @Column()
-  price: number;
+  rate: number;
 
   @CreateDateColumn()
   created_at: Date;
