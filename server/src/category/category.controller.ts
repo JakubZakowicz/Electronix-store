@@ -7,6 +7,8 @@ import {
   ParseIntPipe,
   Post,
   Put,
+  UsePipes,
+  ValidationPipe,
 } from '@nestjs/common';
 import { CategoryService } from './category.service';
 import { CreateCategoryDto } from './dto/create-category.dto';
@@ -26,11 +28,13 @@ export class CategoryController {
   }
 
   @Post()
+  @UsePipes(new ValidationPipe())
   create(@Body() categoryData: CreateCategoryDto) {
     return this.categoryService.create(categoryData);
   }
 
   @Put(':id')
+  @UsePipes(new ValidationPipe())
   update(
     @Param('id', ParseIntPipe) id: number,
     @Body() categoryData: UpdateCategoryDto,

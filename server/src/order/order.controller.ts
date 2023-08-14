@@ -7,6 +7,8 @@ import {
   ParseIntPipe,
   Post,
   Put,
+  UsePipes,
+  ValidationPipe,
 } from '@nestjs/common';
 import { OrderService } from './order.service';
 import { CreateOrderDto } from './dto/create-order';
@@ -26,11 +28,13 @@ export class OrderController {
   }
 
   @Post()
+  @UsePipes(new ValidationPipe())
   create(@Body() orderData: CreateOrderDto) {
     return this.orderService.create(orderData);
   }
 
   @Put(':id')
+  @UsePipes(new ValidationPipe())
   update(
     @Param('id', ParseIntPipe) id: number,
     @Body() orderData: UpdateOrderDto,

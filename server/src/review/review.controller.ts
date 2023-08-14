@@ -7,6 +7,8 @@ import {
   ParseIntPipe,
   Post,
   Put,
+  UsePipes,
+  ValidationPipe,
 } from '@nestjs/common';
 import { ReviewService } from './review.service';
 import { CreateReviewDto } from './dto/create-review.dto';
@@ -26,11 +28,13 @@ export class ReviewController {
   }
 
   @Post()
+  @UsePipes(new ValidationPipe())
   create(@Body() reviewData: CreateReviewDto) {
     return this.reviewService.create(reviewData);
   }
 
   @Put(':id')
+  @UsePipes(new ValidationPipe())
   update(
     @Param('id', ParseIntPipe) id: number,
     @Body() reviewData: UpdateReviewDto,

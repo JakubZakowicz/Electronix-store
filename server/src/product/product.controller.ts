@@ -7,6 +7,8 @@ import {
   ParseIntPipe,
   Post,
   Put,
+  UsePipes,
+  ValidationPipe,
 } from '@nestjs/common';
 import { ProductService } from './product.service';
 import { CreateProductDto } from './dto/create-product.dto';
@@ -26,11 +28,13 @@ export class ProductController {
   }
 
   @Post()
+  @UsePipes(new ValidationPipe())
   create(@Body() productData: CreateProductDto) {
     return this.productService.create(productData);
   }
 
   @Put(':id')
+  @UsePipes(new ValidationPipe())
   update(
     @Param('id', ParseIntPipe) id: number,
     @Body() productData: UpdateProductDto,
