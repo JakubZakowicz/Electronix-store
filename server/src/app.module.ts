@@ -12,6 +12,7 @@ import { ReviewModule } from './review/review.module';
 import { Review } from './review/review.entity';
 import { OrderModule } from './order/order.module';
 import { Order } from './order/order.entity';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -30,6 +31,7 @@ import { Order } from './order/order.entity';
     ProductModule,
     ReviewModule,
     OrderModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],

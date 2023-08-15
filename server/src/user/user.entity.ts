@@ -35,6 +35,9 @@ export class User {
   @Column()
   postCode: string;
 
+  @Column()
+  password: string;
+
   @CreateDateColumn()
   created_at: Date;
 
