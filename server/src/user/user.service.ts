@@ -28,10 +28,6 @@ export class UserService {
   async findOneByEmail(email: string) {
     const user = await this.userRepository.findOneBy({ email });
 
-    if (!user) {
-      throw new NotFoundException(`There is no user with email: ${email}`);
-    }
-
     return await user;
   }
 

@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { UserService } from '../user/user.service';
 import { User } from 'src/user/user.entity';
@@ -27,5 +27,25 @@ export class AuthService {
     return {
       access_token: this.jwtService.sign(payload),
     };
+  }
+
+  async signUp(email: string, password: string) {
+    const userExists = !!(await this.userService.findOneByEmail(email));
+
+    if (userExists) {
+      throw new BadRequestException('Email already exists!');
+    } else {
+      return this.userService.create({
+        email,
+        password,
+        firstName: '',
+        lastName: '',
+        phoneNumber: '',
+        country: '',
+        city: '',
+        streetAddress: '',
+        postCode: '',
+      });
+    }
   }
 }
