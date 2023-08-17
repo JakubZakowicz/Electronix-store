@@ -7,12 +7,14 @@ import {
   ParseIntPipe,
   Post,
   Put,
+  UseGuards,
   UsePipes,
   ValidationPipe,
 } from '@nestjs/common';
 import { ProductService } from './product.service';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
+import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 
 @Controller('products')
 export class ProductController {
@@ -27,14 +29,16 @@ export class ProductController {
     return this.productService.findOneById(id);
   }
 
-  @Post()
+  @UseGuards(JwtAuthGuard)
   @UsePipes(new ValidationPipe())
+  @Post()
   create(@Body() productData: CreateProductDto) {
     return this.productService.create(productData);
   }
 
-  @Put(':id')
+  @UseGuards(JwtAuthGuard)
   @UsePipes(new ValidationPipe())
+  @Put(':id')
   update(
     @Param('id', ParseIntPipe) id: number,
     @Body() productData: UpdateProductDto,
@@ -42,6 +46,7 @@ export class ProductController {
     return this.productService.update(id, productData);
   }
 
+  @UseGuards(JwtAuthGuard)
   @Delete(':id')
   delete(@Param('id', ParseIntPipe) id: number) {
     return this.productService.delete(id);

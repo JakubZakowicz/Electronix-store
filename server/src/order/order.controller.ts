@@ -7,12 +7,14 @@ import {
   ParseIntPipe,
   Post,
   Put,
+  UseGuards,
   UsePipes,
   ValidationPipe,
 } from '@nestjs/common';
 import { OrderService } from './order.service';
 import { CreateOrderDto } from './dto/create-order';
 import { UpdateOrderDto } from './dto/update-order';
+import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 
 @Controller('order')
 export class OrderController {
@@ -27,14 +29,16 @@ export class OrderController {
     return this.orderService.findOneById(id);
   }
 
-  @Post()
+  @UseGuards(JwtAuthGuard)
   @UsePipes(new ValidationPipe())
+  @Post()
   create(@Body() orderData: CreateOrderDto) {
     return this.orderService.create(orderData);
   }
 
-  @Put(':id')
+  @UseGuards(JwtAuthGuard)
   @UsePipes(new ValidationPipe())
+  @Put(':id')
   update(
     @Param('id', ParseIntPipe) id: number,
     @Body() orderData: UpdateOrderDto,
@@ -42,6 +46,7 @@ export class OrderController {
     return this.orderService.update(id, orderData);
   }
 
+  @UseGuards(JwtAuthGuard)
   @Delete(':id')
   delete(@Param('id', ParseIntPipe) id: number) {
     return this.orderService.delete(id);
