@@ -23,7 +23,7 @@ export class User {
   @Column({ default: '' })
   phoneNumber: string;
 
-  @Column()
+  @Column({ default: '' })
   country: string;
 
   @Column({ default: '' })
