@@ -44,13 +44,6 @@ export class AuthService {
       return this.userService.create({
         email,
         password: hashedPassword,
-        firstName: '',
-        lastName: '',
-        phoneNumber: '',
-        country: '',
-        city: '',
-        streetAddress: '',
-        postCode: '',
       });
     }
   }

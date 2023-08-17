@@ -11,28 +11,28 @@ export class User {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  @Column({ default: '' })
   firstName: string;
 
-  @Column()
+  @Column({ default: '' })
   lastName: string;
 
-  @Column()
+  @Column({ unique: true })
   email: string;
 
-  @Column()
+  @Column({ default: '' })
   phoneNumber: string;
 
   @Column()
   country: string;
 
-  @Column()
+  @Column({ default: '' })
   city: string;
 
-  @Column()
+  @Column({ default: '' })
   streetAddress: string;
 
-  @Column()
+  @Column({ default: '' })
   postCode: string;
 
   @Column()
