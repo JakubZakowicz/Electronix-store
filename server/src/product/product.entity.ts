@@ -2,9 +2,11 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  ManyToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
+import { Category } from '../category/category.entity';
 
 @Entity('products')
 export class Product {
@@ -22,6 +24,9 @@ export class Product {
 
   @Column()
   price: number;
+
+  @ManyToOne(() => Category, (category) => category.products)
+  category: Category;
 
   @CreateDateColumn()
   created_at: Date;

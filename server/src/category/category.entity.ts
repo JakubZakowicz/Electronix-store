@@ -2,9 +2,11 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
+import { Product } from '../product/product.entity';
 
 @Entity('categories')
 export class Category {
@@ -16,6 +18,9 @@ export class Category {
 
   @Column()
   slug: string;
+
+  @OneToMany(() => Product, (product) => product.category)
+  products: Product[];
 
   @CreateDateColumn()
   created_at: Date;
