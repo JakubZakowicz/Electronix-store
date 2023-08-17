@@ -1,5 +1,6 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
+import * as argon2 from 'argon2';
 import { UserService } from '../user/user.service';
 import { User } from 'src/user/user.entity';
 
@@ -13,9 +14,12 @@ export class AuthService {
   async validateUser(email: string, password: string) {
     const user = await this.userService.findOneByEmail(email);
 
-    if (user && user?.password === password) {
-      const { password, ...result } = user;
-      return result;
+    if (user) {
+      const passwordEquals = await argon2.verify(user.password, password);
+      if (passwordEquals) {
+        const { password, ...result } = user;
+        return result;
+      }
     }
 
     return null;
@@ -35,9 +39,11 @@ export class AuthService {
     if (userExists) {
       throw new BadRequestException('Email already exists!');
     } else {
+      const hashedPassword = await argon2.hash(password);
+
       return this.userService.create({
         email,
-        password,
+        password: hashedPassword,
         firstName: '',
         lastName: '',
         phoneNumber: '',
