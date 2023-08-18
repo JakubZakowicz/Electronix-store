@@ -16,7 +16,7 @@ export class ProductService {
     return await this.productRepository.find({ relations: { category: true } });
   }
 
-  async findOneById(id: number) {
+  async findOneById(id: string) {
     const product = await this.productRepository.findOneBy({ id });
 
     if (!product) {
@@ -31,7 +31,7 @@ export class ProductService {
     return await this.productRepository.save(newProduct);
   }
 
-  async update(id: number, productData: UpdateProductDto) {
+  async update(id: string, productData: UpdateProductDto) {
     const product = await this.productRepository.preload({
       id,
       ...productData,
@@ -44,7 +44,7 @@ export class ProductService {
     return await this.productRepository.save(product);
   }
 
-  async delete(id: number) {
+  async delete(id: string) {
     return await this.productRepository.delete(id);
   }
 }

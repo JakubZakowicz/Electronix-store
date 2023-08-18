@@ -25,7 +25,7 @@ export class ProductController {
   }
 
   @Get(':id')
-  findOneById(@Param('id', ParseIntPipe) id: number) {
+  findOneById(@Param('id') id: string) {
     return this.productService.findOneById(id);
   }
 
@@ -39,16 +39,13 @@ export class ProductController {
   @UseGuards(JwtAuthGuard)
   @UsePipes(new ValidationPipe())
   @Put(':id')
-  update(
-    @Param('id', ParseIntPipe) id: number,
-    @Body() productData: UpdateProductDto,
-  ) {
+  update(@Param('id') id: string, @Body() productData: UpdateProductDto) {
     return this.productService.update(id, productData);
   }
 
   @UseGuards(JwtAuthGuard)
   @Delete(':id')
-  delete(@Param('id', ParseIntPipe) id: number) {
+  delete(@Param('id') id: string) {
     return this.productService.delete(id);
   }
 }

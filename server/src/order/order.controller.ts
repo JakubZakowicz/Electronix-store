@@ -25,7 +25,7 @@ export class OrderController {
   }
 
   @Get(':id')
-  findOneById(@Param('id', ParseIntPipe) id: number) {
+  findOneById(@Param('id') id: string) {
     return this.orderService.findOneById(id);
   }
 
@@ -39,16 +39,13 @@ export class OrderController {
   @UseGuards(JwtAuthGuard)
   @UsePipes(new ValidationPipe())
   @Put(':id')
-  update(
-    @Param('id', ParseIntPipe) id: number,
-    @Body() orderData: UpdateOrderDto,
-  ) {
+  update(@Param('id') id: string, @Body() orderData: UpdateOrderDto) {
     return this.orderService.update(id, orderData);
   }
 
   @UseGuards(JwtAuthGuard)
   @Delete(':id')
-  delete(@Param('id', ParseIntPipe) id: number) {
+  delete(@Param('id') id: string) {
     return this.orderService.delete(id);
   }
 }

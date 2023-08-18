@@ -25,7 +25,7 @@ export class ReviewController {
   }
 
   @Get(':id')
-  findOneById(@Param('id', ParseIntPipe) id: number) {
+  findOneById(@Param('id') id: string) {
     return this.reviewService.findOneById(id);
   }
 
@@ -39,16 +39,13 @@ export class ReviewController {
   @UseGuards(JwtAuthGuard)
   @UsePipes(new ValidationPipe())
   @Put(':id')
-  update(
-    @Param('id', ParseIntPipe) id: number,
-    @Body() reviewData: UpdateReviewDto,
-  ) {
+  update(@Param('id') id: string, @Body() reviewData: UpdateReviewDto) {
     return this.reviewService.update(id, reviewData);
   }
 
   @UseGuards(JwtAuthGuard)
   @Delete(':id')
-  delete(@Param('id', ParseIntPipe) id: number) {
+  delete(@Param('id') id: string) {
     return this.reviewService.delete(id);
   }
 }

@@ -13,10 +13,10 @@ export class Category {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column()
+  @Column({ unique: true })
   name: string;
 
-  @Column()
+  @Column({ unique: true })
   slug: string;
 
   @OneToMany(() => Product, (product: Product) => product.category)

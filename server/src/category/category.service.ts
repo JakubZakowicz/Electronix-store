@@ -18,7 +18,7 @@ export class CategoryService {
     });
   }
 
-  async findOneById(id: number) {
+  async findOneById(id: string) {
     const category = await this.categoryRepository.findOne({
       where: { id },
       relations: { products: true },
@@ -36,7 +36,7 @@ export class CategoryService {
     return await this.categoryRepository.save(newCategory);
   }
 
-  async update(id: number, categoryData: UpdateCategoryDto) {
+  async update(id: string, categoryData: UpdateCategoryDto) {
     const category = await this.categoryRepository.preload({
       id,
       ...categoryData,
@@ -49,7 +49,7 @@ export class CategoryService {
     return await this.categoryRepository.save(category);
   }
 
-  async delete(id: number) {
+  async delete(id: string) {
     return await this.categoryRepository.delete(id);
   }
 }

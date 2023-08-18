@@ -28,7 +28,7 @@ export class UserController {
 
   @UseGuards(JwtAuthGuard)
   @Get(':id')
-  async findOneById(@Param('id', ParseIntPipe) id: number) {
+  async findOneById(@Param('id') id: string) {
     return this.userService.findOneById(id);
   }
 
@@ -42,13 +42,13 @@ export class UserController {
   @UseGuards(JwtAuthGuard)
   @Put(':id')
   @UsePipes(new ValidationPipe())
-  async update(@Param('id') id: number, @Body() userData: UpdateUserDto) {
+  async update(@Param('id') id: string, @Body() userData: UpdateUserDto) {
     return this.userService.update(id, userData);
   }
 
   @UseGuards(JwtAuthGuard)
   @Delete(':id')
-  async delete(@Param('id', ParseIntPipe) id: number) {
+  async delete(@Param('id') id: string) {
     return this.userService.delete(id);
   }
 }

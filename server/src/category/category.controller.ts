@@ -25,7 +25,7 @@ export class CategoryController {
   }
 
   @Get(':id')
-  findOneById(@Param('id', ParseIntPipe) id: number) {
+  findOneById(@Param('id', ParseIntPipe) id: string) {
     return this.categoryService.findOneById(id);
   }
 
@@ -39,16 +39,13 @@ export class CategoryController {
   @UseGuards(JwtAuthGuard)
   @UsePipes(new ValidationPipe())
   @Put(':id')
-  update(
-    @Param('id', ParseIntPipe) id: number,
-    @Body() categoryData: UpdateCategoryDto,
-  ) {
+  update(@Param('id') id: string, @Body() categoryData: UpdateCategoryDto) {
     return this.categoryService.update(id, categoryData);
   }
 
   @UseGuards(JwtAuthGuard)
   @Delete(':id')
-  delete(@Param('id', ParseIntPipe) id: number) {
+  delete(@Param('id') id: string) {
     return this.categoryService.delete(id);
   }
 }
