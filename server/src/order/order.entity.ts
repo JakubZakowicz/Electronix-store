@@ -2,9 +2,13 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  ManyToMany,
+  ManyToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
+import { Product } from '../product/product.entity';
+import { User } from '../user/user.entity';
 
 @Entity('orders')
 export class Order {
@@ -19,6 +23,12 @@ export class Order {
 
   @Column()
   totalPrice: number;
+
+  @ManyToOne(() => User, (user: User) => user.orders)
+  user: User;
+
+  @ManyToMany(() => Product, (product: Product) => product.orders)
+  products: Product[];
 
   @CreateDateColumn()
   created_at: Date;

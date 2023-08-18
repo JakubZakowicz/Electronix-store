@@ -2,9 +2,12 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
+import { Order } from '../order/order.entity';
+import { Review } from '../review/review.entity';
 
 @Entity('users')
 export class User {
@@ -37,6 +40,12 @@ export class User {
 
   @Column()
   password: string;
+
+  @OneToMany(() => Review, (review: Review) => review.user)
+  reviews: Review[];
+
+  @OneToMany(() => Order, (order: Order) => order.user)
+  orders: Order[];
 
   @CreateDateColumn()
   created_at: Date;
