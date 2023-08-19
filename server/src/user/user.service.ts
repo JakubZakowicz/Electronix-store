@@ -15,7 +15,7 @@ export class UserService {
     return this.userRepository.find();
   }
 
-  async findOneById(id: number) {
+  async findOneById(id: string) {
     const user = await this.userRepository.findOneBy({ id });
 
     if (!user) {
@@ -36,7 +36,7 @@ export class UserService {
     return this.userRepository.save(newUser);
   }
 
-  async update(id: number, userData: UpdateUserDto) {
+  async update(id: string, userData: UpdateUserDto) {
     const user = await this.userRepository.preload({ id, ...userData });
 
     if (!user) {
@@ -46,7 +46,7 @@ export class UserService {
     return await this.userRepository.save(user);
   }
 
-  async delete(id: number) {
+  async delete(id: string) {
     return await this.userRepository.delete(id);
   }
 }

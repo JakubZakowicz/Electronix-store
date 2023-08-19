@@ -16,7 +16,7 @@ export class ReviewService {
     return await this.reviewRepository.find();
   }
 
-  async findOneById(id: number) {
+  async findOneById(id: string) {
     const review = await this.reviewRepository.findOneBy({ id });
 
     if (!review) {
@@ -31,7 +31,7 @@ export class ReviewService {
     return await this.reviewRepository.save(newReview);
   }
 
-  async update(id: number, reviewData: UpdateReviewDto) {
+  async update(id: string, reviewData: UpdateReviewDto) {
     const review = await this.reviewRepository.preload({
       id,
       ...reviewData,
@@ -44,7 +44,7 @@ export class ReviewService {
     return await this.reviewRepository.save(review);
   }
 
-  async delete(id: number) {
+  async delete(id: string) {
     return await this.reviewRepository.delete(id);
   }
 }

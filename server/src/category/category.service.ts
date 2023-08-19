@@ -13,11 +13,16 @@ export class CategoryService {
   ) {}
 
   async findAll() {
-    return await this.categoryRepository.find();
+    return await this.categoryRepository.find({
+      relations: { products: true },
+    });
   }
 
-  async findOneById(id: number) {
-    const category = await this.categoryRepository.findOneBy({ id });
+  async findOneById(id: string) {
+    const category = await this.categoryRepository.findOne({
+      where: { id },
+      relations: { products: true },
+    });
 
     if (!category) {
       throw new NotFoundException(`There is no category with id: ${id}`);
@@ -31,7 +36,7 @@ export class CategoryService {
     return await this.categoryRepository.save(newCategory);
   }
 
-  async update(id: number, categoryData: UpdateCategoryDto) {
+  async update(id: string, categoryData: UpdateCategoryDto) {
     const category = await this.categoryRepository.preload({
       id,
       ...categoryData,
@@ -44,7 +49,7 @@ export class CategoryService {
     return await this.categoryRepository.save(category);
   }
 
-  async delete(id: number) {
+  async delete(id: string) {
     return await this.categoryRepository.delete(id);
   }
 }
