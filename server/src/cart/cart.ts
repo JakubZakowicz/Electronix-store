@@ -19,7 +19,7 @@ export const addProduct = (cart: CartInterface, product: Product) => {
   setSubtotalAndTotalPrices(cart);
 };
 
-const setSubtotalAndTotalPrices = (cart: CartInterface) => {
+export const setSubtotalAndTotalPrices = (cart: CartInterface) => {
   cart.products.forEach((product) => {
     cart.subtotal += product.price;
   });

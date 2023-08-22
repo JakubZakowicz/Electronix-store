@@ -1,6 +1,13 @@
-import { Controller, Param, Post, Session } from '@nestjs/common';
+import {
+  Controller,
+  Delete,
+  NotFoundException,
+  Param,
+  Post,
+  Session,
+} from '@nestjs/common';
 import { ProductService } from '../product/product.service';
-import { addProduct, defaultCart } from './cart';
+import { addProduct, defaultCart, setSubtotalAndTotalPrices } from './cart';
 import { CartSession } from './cart-session.interface';
 
 @Controller('cart')
@@ -26,6 +33,32 @@ export class CartController {
 
     return {
       message: 'Product added successfully to cart',
+      cart: session.cart,
+    };
+  }
+
+  @Delete(':id')
+  async deleteProductFromCart(
+    @Param('id') productId: string,
+    @Session() session: CartSession,
+  ) {
+    const cart = session.cart;
+    const itemExists = cart.products.find(
+      (product) => product.id === productId,
+    );
+
+    if (!itemExists) {
+      throw new NotFoundException('No cart item found.');
+    }
+
+    cart.products = cart.products.filter((product) => product.id !== productId);
+
+    setSubtotalAndTotalPrices(cart);
+
+    session.cart = cart;
+
+    return {
+      message: 'Product deleted successfully from cart',
       cart: session.cart,
     };
   }
