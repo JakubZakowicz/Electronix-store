@@ -4,6 +4,7 @@ import {
   NotFoundException,
   Param,
   ParseIntPipe,
+  Patch,
   Post,
   Query,
   Session,
@@ -46,12 +47,46 @@ export class CartController {
     };
   }
 
+  @Patch('edit/:productId')
+  async editCartProduct(
+    @Param('productId') productId: string,
+    @Query('quantity') quantity: number,
+    @Session() session: CartSession,
+  ) {
+    const cart = session.cart;
+
+    if (!cart) {
+      throw new NotFoundException('There is no cart session');
+    }
+
+    const productIndex = cart.products.findIndex(
+      (product) => product.id === productId,
+    );
+
+    if (productIndex === -1) {
+      throw new NotFoundException('There is no product with that id');
+    }
+
+    cart.products[productIndex].quantity = quantity;
+
+    setSubtotalAndTotalPrices(cart);
+
+    session.cart = cart;
+
+    return { message: 'Cart updated successfully', cart: session.cart };
+  }
+
   @Delete(':id')
   async deleteProductFromCart(
     @Param('id') productId: string,
     @Session() session: CartSession,
   ) {
     const cart = session.cart;
+
+    if (!cart) {
+      throw new NotFoundException('There is no cart session');
+    }
+
     const itemExists = cart.products.find(
       (product) => product.id === productId,
     );

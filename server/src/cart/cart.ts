@@ -33,6 +33,9 @@ export const addProduct = (cart: CartInterface, newProduct: CartProduct) => {
 };
 
 export const setSubtotalAndTotalPrices = (cart: CartInterface) => {
+  cart.subtotal = 0;
+  cart.total = 0;
+
   cart.products.forEach((product) => {
     cart.subtotal += product.price * product.quantity;
   });
