@@ -3,11 +3,18 @@ import {
   Delete,
   NotFoundException,
   Param,
+  ParseIntPipe,
   Post,
+  Query,
   Session,
 } from '@nestjs/common';
 import { ProductService } from '../product/product.service';
-import { addProduct, defaultCart, setSubtotalAndTotalPrices } from './cart';
+import {
+  CartProduct,
+  addProduct,
+  defaultCart,
+  setSubtotalAndTotalPrices,
+} from './cart';
 import { CartSession } from './cart-session.interface';
 
 @Controller('cart')
@@ -17,15 +24,17 @@ export class CartController {
   @Post('add/:productId')
   async addProductToCart(
     @Param('productId') productId: string,
+    @Query('quantity', ParseIntPipe) quantity: number,
     @Session() session: CartSession,
   ) {
     const product = await this.productService.findOneById(productId);
+    const cartProduct: CartProduct = { ...product, quantity: quantity ?? 1 };
 
     const cart = session.cart ?? defaultCart;
 
     console.log(cart);
 
-    addProduct(cart, product);
+    addProduct(cart, cartProduct);
 
     session.cart = cart;
 
