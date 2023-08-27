@@ -1,7 +1,7 @@
 import {
   Controller,
   Delete,
-  NotFoundException,
+  Get,
   Param,
   ParseIntPipe,
   Patch,
@@ -10,17 +10,22 @@ import {
   Session,
 } from '@nestjs/common';
 import { ProductService } from '../product/product.service';
-import {
-  CartProduct,
-  addProduct,
-  defaultCart,
-  setSubtotalAndTotalPrices,
-} from './cart';
-import { CartSession } from './cart-session.interface';
+import { CartProduct, CartSession } from './cart.interface';
+import { CartService } from './cart.service';
 
 @Controller('cart')
 export class CartController {
-  constructor(private readonly productService: ProductService) {}
+  constructor(
+    private readonly cartService: CartService,
+    private readonly productService: ProductService,
+  ) {}
+
+  @Get()
+  async getCartData(@Session() session: CartSession) {
+    const cart = session.cart ?? this.cartService.defaultCart;
+
+    return cart;
+  }
 
   @Post('add/:productId')
   async addProductToCart(
@@ -31,49 +36,28 @@ export class CartController {
     const product = await this.productService.findOneById(productId);
     const cartProduct: CartProduct = { ...product, quantity: quantity ?? 1 };
 
-    const cart = session.cart ?? defaultCart;
+    const cart = session.cart ?? this.cartService.defaultCart;
 
-    console.log(cart);
-
-    addProduct(cart, cartProduct);
-
-    session.cart = cart;
-
-    console.log(session.cart);
+    session.cart = this.cartService.addProduct(cart, cartProduct);
 
     return {
       message: 'Product added successfully to cart',
-      cart: session.cart,
     };
   }
 
   @Patch('edit/:productId')
   async editCartProduct(
     @Param('productId') productId: string,
-    @Query('quantity') quantity: number,
+    @Query('quantity', ParseIntPipe) quantity: number,
     @Session() session: CartSession,
   ) {
-    const cart = session.cart;
-
-    if (!cart) {
-      throw new NotFoundException('There is no cart session');
-    }
-
-    const productIndex = cart.products.findIndex(
-      (product) => product.id === productId,
+    session.cart = this.cartService.editProduct(
+      session.cart,
+      productId,
+      quantity,
     );
 
-    if (productIndex === -1) {
-      throw new NotFoundException('There is no product with that id');
-    }
-
-    cart.products[productIndex].quantity = quantity;
-
-    setSubtotalAndTotalPrices(cart);
-
-    session.cart = cart;
-
-    return { message: 'Cart updated successfully', cart: session.cart };
+    return { message: 'Cart updated successfully' };
   }
 
   @Delete(':id')
@@ -81,29 +65,10 @@ export class CartController {
     @Param('id') productId: string,
     @Session() session: CartSession,
   ) {
-    const cart = session.cart;
-
-    if (!cart) {
-      throw new NotFoundException('There is no cart session');
-    }
-
-    const itemExists = cart.products.find(
-      (product) => product.id === productId,
-    );
-
-    if (!itemExists) {
-      throw new NotFoundException('No cart item found.');
-    }
-
-    cart.products = cart.products.filter((product) => product.id !== productId);
-
-    setSubtotalAndTotalPrices(cart);
-
-    session.cart = cart;
+    session.cart = this.cartService.deleteProduct(session.cart, productId);
 
     return {
       message: 'Product deleted successfully from cart',
-      cart: session.cart,
     };
   }
 }
