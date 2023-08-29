@@ -34,9 +34,9 @@ const Navbar = ({ children }: NavbarProps) => {
   const [open, setOpen] = useState(true);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
-  const { data, isLoading } = useGetCategories();
+  const { data: categories } = useGetCategories();
 
-  console.log(data);
+  console.log(categories);
 
   const handleClick = () => {
     setOpen(!open);
@@ -120,16 +120,20 @@ const Navbar = ({ children }: NavbarProps) => {
             {open ? <ExpandLess /> : <ExpandMore />}
           </ListItemButton>
           <Collapse in={open} timeout="auto" unmountOnExit>
-            <List
-              component={Link}
-              href="/categories/virtual-reality"
-              disablePadding
-              sx={{ color: 'white', textDecoration: 'none' }}
-            >
-              <ListItemButton sx={{ pl: 4 }}>
-                <ListItemText primary="Virtual Reality" />
-              </ListItemButton>
-            </List>
+            {categories &&
+              categories.map((category) => (
+                <List
+                  key={category.name}
+                  component={Link}
+                  href={`/categories/${category.slug}`}
+                  disablePadding
+                  sx={{ color: 'white', textDecoration: 'none' }}
+                >
+                  <ListItemButton sx={{ pl: 4 }}>
+                    <ListItemText primary={category.name} />
+                  </ListItemButton>
+                </List>
+              ))}
           </Collapse>
         </List>
       </Drawer>

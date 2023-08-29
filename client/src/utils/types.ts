@@ -23,3 +23,9 @@ export interface SignUpFormSchema {
 export interface ForgotPasswordSchema {
   email: string;
 }
+
+export interface CategoryProps {
+  id: string;
+  name: string;
+  slug: string;
+}
