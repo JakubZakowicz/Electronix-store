@@ -5,7 +5,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import {
   Box,
-  Button,
   Divider,
   Table,
   TableBody,
@@ -17,8 +16,8 @@ import {
 } from '@mui/material';
 import VR from '@/src/images/vr1.png';
 import ProductCounter from '@/src/components/ProductCounter';
-import { routes } from '@/src/utils/routes';
 import DefaultButton from '@/src/components/DefaultButton';
+import { pageRoutes } from '@/src/routes/pageRoutes';
 
 function createData(
   productName: string,
@@ -100,7 +99,7 @@ const CartPage = () => {
             <Typography>Total</Typography>
             <Typography>$299.00</Typography>
           </Box>
-          <Link href={routes.checkout()}>
+          <Link href={pageRoutes.checkout()}>
             <DefaultButton
               name="Checkout"
               style={{ float: 'right', marginTop: '30px' }}

@@ -1,9 +1,9 @@
 'use client';
 
-import { routes } from '@/src/utils/routes';
-import { Box, Button, Grid, Typography } from '@mui/material';
-import Link from 'next/link';
 import React from 'react';
+import Link from 'next/link';
+import { Box, Button, Grid, Typography } from '@mui/material';
+import { pageRoutes } from '@/src/routes/pageRoutes';
 
 const AccountDetails = () => {
   return (
@@ -37,7 +37,7 @@ const AccountDetails = () => {
             </Grid>
           </Grid>
         ))}
-        <Link href={routes.editAccountDetails()}>
+        <Link href={pageRoutes.editAccountDetails()}>
           <Button
             type="submit"
             sx={{

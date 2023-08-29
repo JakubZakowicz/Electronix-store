@@ -1,4 +1,4 @@
-export const routes = {
+export const pageRoutes = {
   root: () => '/',
   categories: (id: number) => `/categories/${id}`,
   products: (id: number) => `/products/${id}`,

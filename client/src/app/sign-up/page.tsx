@@ -1,14 +1,14 @@
 'use client';
 
 import React from 'react';
-import InputField from '@/src/components/InputField';
-import { zodResolver } from '@hookform/resolvers/zod';
 import { Box, Grid, Link, Typography } from '@mui/material';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
-import { signUpSchema } from '@/src/utils/validationSchemat';
+import InputField from '@/src/components/InputField';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { signUpSchema } from '@/src/utils/validationSchemas';
 import { SignUpFormSchema } from '@/src/utils/types';
-import { routes } from '@/src/utils/routes';
 import DefaultButton from '@/src/components/DefaultButton';
+import { pageRoutes } from '@/src/routes/pageRoutes';
 
 const SignUpPage = () => {
   const { control, handleSubmit } = useForm<SignUpFormSchema>({
@@ -91,7 +91,7 @@ const SignUpPage = () => {
                 <Typography sx={{ marginTop: '10px' }}>
                   Do you have an account? &nbsp;
                   <Link
-                    href={routes.singIn()}
+                    href={pageRoutes.singIn()}
                     style={{ color: 'white', textDecoration: 'underline' }}
                   >
                     Sign in here

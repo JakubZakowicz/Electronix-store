@@ -3,7 +3,7 @@
 import { personalInfoInputs } from '@/src/utils/personalInfoInputs';
 import InputField from '@/src/components/InputField';
 import { PersonalInfoFormSchema } from '@/src/utils/types';
-import { personalInfoSchema } from '@/src/utils/validationSchemat';
+import { personalInfoSchema } from '@/src/utils/validationSchemas';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Box, Button, Typography } from '@mui/material';
 import React from 'react';

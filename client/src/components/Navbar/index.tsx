@@ -23,7 +23,8 @@ import GridViewIcon from '@mui/icons-material/GridView';
 import { ExpandLess, ExpandMore } from '@mui/icons-material';
 import MenuIcon from '@mui/icons-material/Menu';
 import Link from 'next/link';
-import { routes } from '@/src/utils/routes';
+import { pageRoutes } from '@/src/routes/pageRoutes';
+import { useGetCategories } from '@/src/api/categories';
 
 interface NavbarProps {
   children: React.ReactNode;
@@ -32,6 +33,10 @@ interface NavbarProps {
 const Navbar = ({ children }: NavbarProps) => {
   const [open, setOpen] = useState(true);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
+  const { data, isLoading } = useGetCategories();
+
+  console.log(data);
 
   const handleClick = () => {
     setOpen(!open);
@@ -55,7 +60,7 @@ const Navbar = ({ children }: NavbarProps) => {
             <MenuIcon />
           </Button>
         )}
-        <Link href={routes.root()}>
+        <Link href={pageRoutes.root()}>
           <Image src={Logo} width={60} alt="logo" />
         </Link>
         <Box width="700px">
@@ -81,10 +86,10 @@ const Navbar = ({ children }: NavbarProps) => {
           />
         </Box>
         <Box display="flex" alignItems="center" gap="40px">
-          <Link href={routes.singIn()}>
+          <Link href={pageRoutes.singIn()}>
             <PersonIcon sx={{ fontSize: '40px', color: 'white' }} />
           </Link>
-          <Link href={routes.cart()}>
+          <Link href={pageRoutes.cart()}>
             <ShoppingCartIcon fontSize="large" sx={{ color: 'white' }} />
           </Link>
         </Box>
