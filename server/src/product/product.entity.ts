@@ -20,10 +20,10 @@ export class Product {
   @Column()
   name: string;
 
-  @Column()
+  @Column({ type: 'text' })
   summary: string;
 
-  @Column()
+  @Column({ type: 'longtext' })
   description: string;
 
   @Column()
@@ -31,6 +31,9 @@ export class Product {
 
   @Column({ type: 'decimal', precision: 10, scale: 1, default: 0 })
   rating: number;
+
+  @Column()
+  slug: string;
 
   @ManyToOne(() => Category, (category: Category) => category.products)
   category: Category;

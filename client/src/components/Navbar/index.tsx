@@ -123,7 +123,7 @@ const Navbar = ({ children }: NavbarProps) => {
                 <List
                   key={id}
                   component={Link}
-                  href={`/categories/${slug}`}
+                  href={pageRoutes.categories(slug)}
                   disablePadding
                   sx={{ color: 'white', textDecoration: 'none' }}
                 >

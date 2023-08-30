@@ -33,7 +33,7 @@ export class CartController {
     @Query('quantity', ParseIntPipe) quantity: number,
     @Session() session: CartSession,
   ) {
-    const product = await this.productService.findOneById(productId);
+    const product = await this.productService.findOne(productId);
     const cartProduct: CartProduct = { ...product, quantity: quantity ?? 1 };
 
     const cart = session.cart ?? this.cartService.defaultCart;

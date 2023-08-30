@@ -17,11 +17,11 @@ export class Review {
   @Column()
   title: string;
 
-  @Column()
+  @Column({ type: 'text' })
   content: string;
 
-  @Column()
-  rate: number;
+  @Column({ type: 'decimal', precision: 10, scale: 1, default: 0 })
+  rating: number;
 
   @ManyToOne(() => User, (user: User) => user.reviews)
   user: User;

@@ -1,7 +1,7 @@
 export const pageRoutes = {
   root: () => '/',
-  categories: (id: number) => `/categories/${id}`,
-  products: (id: number) => `/products/${id}`,
+  categories: (slug: string) => `/categories/${slug}`,
+  products: (slug: string) => `/products/${slug}`,
   singIn: () => '/sign-in',
   signUp: () => '/sign-up',
   cart: () => '/cart',

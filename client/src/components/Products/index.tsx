@@ -33,10 +33,10 @@ const Products = ({ name, products }: ProductsInterface) => {
       </Typography>
       <Grid container marginTop="-30px" spacing={12} rowSpacing={6}>
         {products &&
-          products.map(({ id, name, rating, price }) => (
+          products.map(({ id, name, rating, price, slug }) => (
             <Grid key={id} item sm={12} lg={4} xl={3}>
               <Link
-                href={pageRoutes.products(1)}
+                href={pageRoutes.products(slug)}
                 style={{ textDecoration: 'none' }}
               >
                 <Card

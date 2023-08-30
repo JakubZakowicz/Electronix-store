@@ -28,7 +28,7 @@ export interface Category {
   id: string;
   name: string;
   slug: string;
-  products: Product[]
+  products: Product[];
 }
 
 export interface Product {
@@ -38,5 +38,21 @@ export interface Product {
   description: string;
   price: number;
   rating: number;
-  categoryId: string
+  slug: string;
+  categoryId: string;
+  reviews: Review[];
+}
+
+export interface Review {
+  id: string;
+  title: string;
+  content: string;
+  rating: number;
+  user: User;
+}
+
+export interface User {
+  firstName: string;
+  lastName: string;
+  created_at: string;
 }
