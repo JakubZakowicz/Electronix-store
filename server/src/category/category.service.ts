@@ -18,9 +18,9 @@ export class CategoryService {
     });
   }
 
-  async findOneById(id: string) {
+  async findOne(id: string) {
     const category = await this.categoryRepository.findOne({
-      where: { id },
+      where: [{ id }, { name: id }, { slug: id }],
       relations: { products: true },
     });
 

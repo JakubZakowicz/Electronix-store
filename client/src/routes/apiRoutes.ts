@@ -1,4 +1,4 @@
 export const apiRoutes = {
   getCategories: '/categories',
-  getCategorie: '/categories/:id',
+  getCategory: '/categories/:slug',
 };

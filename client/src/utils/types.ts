@@ -24,8 +24,19 @@ export interface ForgotPasswordSchema {
   email: string;
 }
 
-export interface CategoryProps {
+export interface Category {
   id: string;
   name: string;
   slug: string;
+  products: Product[]
+}
+
+export interface Product {
+  id: string;
+  name: string;
+  summary: string;
+  description: string;
+  price: number;
+  rating: number;
+  categoryId: string
 }

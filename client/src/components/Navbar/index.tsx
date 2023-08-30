@@ -36,8 +36,6 @@ const Navbar = ({ children }: NavbarProps) => {
 
   const { data: categories } = useGetCategories();
 
-  console.log(categories);
-
   const handleClick = () => {
     setOpen(!open);
   };
@@ -121,16 +119,16 @@ const Navbar = ({ children }: NavbarProps) => {
           </ListItemButton>
           <Collapse in={open} timeout="auto" unmountOnExit>
             {categories &&
-              categories.map((category) => (
+              categories.map(({ id, slug, name }) => (
                 <List
-                  key={category.name}
+                  key={id}
                   component={Link}
-                  href={`/categories/${category.slug}`}
+                  href={`/categories/${slug}`}
                   disablePadding
                   sx={{ color: 'white', textDecoration: 'none' }}
                 >
                   <ListItemButton sx={{ pl: 4 }}>
-                    <ListItemText primary={category.name} />
+                    <ListItemText primary={name} />
                   </ListItemButton>
                 </List>
               ))}

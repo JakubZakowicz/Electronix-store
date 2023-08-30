@@ -4,7 +4,6 @@ import {
   Delete,
   Get,
   Param,
-  ParseIntPipe,
   Post,
   Put,
   UseGuards,
@@ -25,8 +24,8 @@ export class CategoryController {
   }
 
   @Get(':id')
-  findOneById(@Param('id', ParseIntPipe) id: string) {
-    return this.categoryService.findOneById(id);
+  findOneById(@Param('id') id: string) {
+    return this.categoryService.findOne(id);
   }
 
   @UseGuards(JwtAuthGuard)

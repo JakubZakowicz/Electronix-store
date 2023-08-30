@@ -29,6 +29,9 @@ export class Product {
   @Column()
   price: number;
 
+  @Column({ type: 'decimal', precision: 10, scale: 1, default: 0 })
+  rating: number;
+
   @ManyToOne(() => Category, (category: Category) => category.products)
   category: Category;
 
