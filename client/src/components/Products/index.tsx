@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import {
   Box,
   Card,
@@ -11,9 +12,9 @@ import {
   Typography,
 } from '@mui/material';
 import VRHeadset from '../../images/HP_Reverb.png';
-import Link from 'next/link';
 import { pageRoutes } from '@/src/routes/pageRoutes';
 import { Product } from '@/src/utils/types';
+import { convertPrice } from '@/src/utils/functions.utils';
 
 interface ProductsInterface {
   name: string;
@@ -61,15 +62,19 @@ const Products = ({ name, products }: ProductsInterface) => {
                       {name}
                     </Typography>
                     <Rating
-                      sx={{ '.MuiRating-iconEmpty': {
-                        color: 'rgba(255, 255, 255, 0.5)'
-                      }}}
+                      sx={{
+                        '.MuiRating-iconEmpty': {
+                          color: 'rgba(255, 255, 255, 0.5)',
+                        },
+                      }}
                       name="read-only"
                       value={rating}
                       readOnly
                       precision={0.1}
                     />
-                    <Typography marginTop="10px">${price}</Typography>
+                    <Typography marginTop="10px">
+                      ${convertPrice(price)}
+                    </Typography>
                   </CardContent>
                 </Card>
               </Link>

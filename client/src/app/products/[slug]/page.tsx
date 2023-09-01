@@ -1,30 +1,35 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Box, Grid, Rating, Tab, Typography } from '@mui/material';
-import ProductCounter from '@/src/components/ProductCounter';
 import { TabContext, TabList, TabPanel } from '@mui/lab';
+import ProductCounter from '@/src/components/ProductCounter';
 import SwiperGallery from '@/src/components/SwiperGallery';
 import { useGetProduct } from '@/src/api/products';
+import { convertPrice } from '@/src/utils/functions.utils';
+import { useAddToCart } from '@/src/api/cart';
 
 interface ProductPageProps {
   params: { slug: string };
 }
 
 const ProductPage = ({ params }: ProductPageProps) => {
+  const [tabNumber, setTabNumber] = useState('1');
+  const [quantity, setQuantity] = useState(1);
   const { slug } = params;
 
   const { data: product } = useGetProduct(slug);
+  const { mutate: addToCart } = useAddToCart();
 
-  const { name, summary, description, price, reviews } = product || {};
-
-  const [value, setValue] = React.useState('1');
+  const { id, name, summary, description, price, reviews } = product || {};
 
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
-    setValue(newValue);
+    setTabNumber(newValue);
   };
 
-  console.log(product?.reviews);
+  const addProductToCart = () => {
+    addToCart({ productId: id!, quantity });
+  };
 
   return (
     <Box color="white">
@@ -44,7 +49,7 @@ const ProductPage = ({ params }: ProductPageProps) => {
             fontWeight="semibold"
             marginTop={5}
           >
-            ${price}
+            {price && <>${convertPrice(price)}</>}
           </Typography>
           <Typography
             paragraph
@@ -54,11 +59,16 @@ const ProductPage = ({ params }: ProductPageProps) => {
           >
             {summary}
           </Typography>
-          <ProductCounter isAddToCartOption />
+          <ProductCounter
+            count={quantity}
+            setCount={setQuantity}
+            isAddToCartOption
+            buttonAction={addProductToCart}
+          />
         </Grid>
       </Grid>
       <Box sx={{ width: '100%', typography: 'body1', marginTop: '100px' }}>
-        <TabContext value={value}>
+        <TabContext value={tabNumber}>
           <Box sx={{ borderBottom: 1, borderColor: 'white' }}>
             <TabList
               onChange={handleChange}

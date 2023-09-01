@@ -1,4 +1,5 @@
 import {
+  Body,
   Controller,
   Delete,
   Get,
@@ -8,10 +9,13 @@ import {
   Post,
   Query,
   Session,
+  UsePipes,
+  ValidationPipe,
 } from '@nestjs/common';
 import { ProductService } from '../product/product.service';
 import { CartProduct, CartSession } from './cart.interface';
 import { CartService } from './cart.service';
+import { AddToCartDto } from './dto/add-to-cart.dto';
 
 @Controller('cart')
 export class CartController {
@@ -27,12 +31,13 @@ export class CartController {
     return cart;
   }
 
-  @Post('add/:productId')
+  @UsePipes(new ValidationPipe())
+  @Post('add')
   async addProductToCart(
-    @Param('productId') productId: string,
-    @Query('quantity', ParseIntPipe) quantity: number,
+    @Body() cartData: AddToCartDto,
     @Session() session: CartSession,
   ) {
+    const { productId, quantity } = cartData;
     const product = await this.productService.findOne(productId);
     const cartProduct: CartProduct = { ...product, quantity: quantity ?? 1 };
 

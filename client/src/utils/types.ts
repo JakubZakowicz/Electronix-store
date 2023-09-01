@@ -56,3 +56,19 @@ export interface User {
   lastName: string;
   created_at: string;
 }
+
+export interface Cart {
+  products: CartProduct[]
+  subtotal: number;
+  shipping: number;
+  total: number;
+}
+
+export interface CartProduct extends Product {
+  quantity: number;
+}
+
+export interface AddToCartData {
+  productId: string;
+  quantity: number;
+}
