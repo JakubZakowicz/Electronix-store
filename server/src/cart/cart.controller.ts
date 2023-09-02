@@ -4,10 +4,8 @@ import {
   Delete,
   Get,
   Param,
-  ParseIntPipe,
   Patch,
   Post,
-  Query,
   Session,
   UsePipes,
   ValidationPipe,
@@ -16,6 +14,7 @@ import { ProductService } from '../product/product.service';
 import { CartProduct, CartSession } from './cart.interface';
 import { CartService } from './cart.service';
 import { AddToCartDto } from './dto/add-to-cart.dto';
+import { UpdateCartProductDto } from './dto/update-cart-product.dto';
 
 @Controller('cart')
 export class CartController {
@@ -50,17 +49,17 @@ export class CartController {
     };
   }
 
-  @Patch('edit/:productId')
+  @UsePipes(new ValidationPipe())
+  @Patch('edit')
   async editCartProduct(
-    @Param('productId') productId: string,
-    @Query('quantity', ParseIntPipe) quantity: number,
+    @Body() cartData: UpdateCartProductDto,
     @Session() session: CartSession,
   ) {
-    session.cart = this.cartService.editProduct(
-      session.cart,
-      productId,
-      quantity,
-    );
+    const { productId, quantity } = cartData;
+
+    const cart = session.cart;
+
+    session.cart = this.cartService.editProduct(cart, productId, quantity);
 
     return { message: 'Cart updated successfully' };
   }

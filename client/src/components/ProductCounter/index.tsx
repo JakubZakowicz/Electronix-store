@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { ChangeEvent, useEffect, useRef } from 'react';
 import { Box, Button, IconButton, TextField } from '@mui/material';
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
@@ -10,15 +10,19 @@ interface ProductCounterProps {
   count: number;
   setCount: React.Dispatch<React.SetStateAction<number>>;
   isAddToCartOption?: boolean;
-  buttonAction: () => void;
+  cartButtonAction?: () => void;
+  amountButtonAction?: () => void;
 }
 
 const ProductCounter = ({
   isAddToCartOption,
   count,
   setCount,
-  buttonAction
+  cartButtonAction,
+  amountButtonAction,
 }: ProductCounterProps) => {
+  const isMounted = useRef(false);
+
   const increaseCount = () => setCount((prevState) => prevState + 1);
 
   const decreaseCount = () =>
@@ -26,6 +30,23 @@ const ProductCounter = ({
       if (prevState > 1) return prevState - 1;
       return prevState;
     });
+
+  useEffect(() => {
+    if (isMounted.current) {
+      if (amountButtonAction) amountButtonAction();
+    } else {
+      isMounted.current = true;
+    }
+  }, [count]);
+
+  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const value = Number(e.target.value);
+    if (isNaN(value) || value === 0) {
+      setCount(1);
+      return;
+    }
+    setCount(value);
+  };
 
   return (
     <Box display="flex" alignItems="center">
@@ -37,7 +58,7 @@ const ProductCounter = ({
       </IconButton>
       <TextField
         variant="standard"
-        defaultValue={count}
+        value={count}
         sx={{
           width: '45px',
           height: '38px',
@@ -54,6 +75,7 @@ const ProductCounter = ({
         InputProps={{
           disableUnderline: true,
         }}
+        onChange={onChange}
       />
       <IconButton
         sx={{ border: '1px solid white', borderRadius: '0px' }}
@@ -71,7 +93,7 @@ const ProductCounter = ({
             borderRadius: '0',
             background: 'rgba(255, 255, 255, 0.2)',
           }}
-          onClick={buttonAction}
+          onClick={cartButtonAction}
         >
           Add to cart
         </Button>

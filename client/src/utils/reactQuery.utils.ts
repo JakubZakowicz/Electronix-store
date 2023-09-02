@@ -77,3 +77,29 @@ export const usePost = <T, S>(
     updater
   );
 };
+
+export const useUpdate = <T, S>(
+  url: string,
+  params?: object,
+  updater?: (oldData: T, newData: S) => T
+) => {
+  return useGenericMutation<T, S>(
+    (data) => api.patch<S>(url, data),
+    url,
+    params,
+    updater
+  );
+};
+
+export const useDelete = <T>(
+  url: string,
+  params?: object,
+  updater?: (oldData: T, id: string | number) => T
+) => {
+  return useGenericMutation<T, string | number>(
+    (id) => api.delete(`${url}/${id}`),
+    url,
+    params,
+    updater
+  );
+};

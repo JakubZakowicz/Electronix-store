@@ -63,7 +63,8 @@ const ProductPage = ({ params }: ProductPageProps) => {
             count={quantity}
             setCount={setQuantity}
             isAddToCartOption
-            buttonAction={addProductToCart}
+            cartButtonAction={addProductToCart}
+            amountButtonAction={() => console.log(quantity)}
           />
         </Grid>
       </Grid>
