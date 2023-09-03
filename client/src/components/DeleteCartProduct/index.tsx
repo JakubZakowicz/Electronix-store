@@ -8,11 +8,14 @@ interface DeleteCartProductProps {
 }
 
 const DeleteCartProduct = ({ productId }: DeleteCartProductProps) => {
-
-  const { mutate } = useDeleteCartProduct(productId)
+  const { mutate } = useDeleteCartProduct(productId);
 
   return (
-    <Button sx={{ color: 'white' }} onClick={() => mutate(productId)}>
+    <Button
+      data-testid="delete-cart-product"
+      sx={{ color: 'white' }}
+      onClick={() => mutate(productId)}
+    >
       <HighlightOffIcon />
     </Button>
   );

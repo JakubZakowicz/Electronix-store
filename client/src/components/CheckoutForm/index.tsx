@@ -27,7 +27,7 @@ const CheckoutForm = () => {
             <Controller
               name={fieldName}
               control={control}
-              render={({ field, fieldState: { error } }) => (
+              render={({ field: { ref, ...field }, fieldState: { error } }) => (
                 <InputField
                   label={labelName}
                   helperText={error ? error.message : null}
