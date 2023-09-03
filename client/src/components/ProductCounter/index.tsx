@@ -1,17 +1,27 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { ChangeEvent, useEffect, useRef } from 'react';
 import { Box, Button, IconButton, TextField } from '@mui/material';
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 interface ProductCounterProps {
+  count: number;
+  setCount: React.Dispatch<React.SetStateAction<number>>;
   isAddToCartOption?: boolean;
+  cartButtonAction?: () => void;
+  amountButtonAction?: () => void;
 }
 
-const ProductCounter = ({ isAddToCartOption }: ProductCounterProps) => {
-  const [count, setCount] = useState(1);
+const ProductCounter = ({
+  isAddToCartOption,
+  count,
+  setCount,
+  cartButtonAction,
+  amountButtonAction,
+}: ProductCounterProps) => {
+  const isMounted = useRef(false);
 
   const increaseCount = () => setCount((prevState) => prevState + 1);
 
@@ -20,6 +30,23 @@ const ProductCounter = ({ isAddToCartOption }: ProductCounterProps) => {
       if (prevState > 1) return prevState - 1;
       return prevState;
     });
+
+  useEffect(() => {
+    if (isMounted.current) {
+      if (amountButtonAction) amountButtonAction();
+    } else {
+      isMounted.current = true;
+    }
+  }, [count]);
+
+  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const value = Number(e.target.value);
+    if (isNaN(value) || value === 0) {
+      setCount(1);
+      return;
+    }
+    setCount(value);
+  };
 
   return (
     <Box display="flex" alignItems="center">
@@ -31,7 +58,7 @@ const ProductCounter = ({ isAddToCartOption }: ProductCounterProps) => {
       </IconButton>
       <TextField
         variant="standard"
-        defaultValue={count}
+        value={count}
         sx={{
           width: '45px',
           height: '38px',
@@ -48,6 +75,7 @@ const ProductCounter = ({ isAddToCartOption }: ProductCounterProps) => {
         InputProps={{
           disableUnderline: true,
         }}
+        onChange={onChange}
       />
       <IconButton
         sx={{ border: '1px solid white', borderRadius: '0px' }}
@@ -65,6 +93,7 @@ const ProductCounter = ({ isAddToCartOption }: ProductCounterProps) => {
             borderRadius: '0',
             background: 'rgba(255, 255, 255, 0.2)',
           }}
+          onClick={cartButtonAction}
         >
           Add to cart
         </Button>

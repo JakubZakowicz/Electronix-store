@@ -27,12 +27,16 @@ export class CartService {
   }
 
   editProduct(cart: CartInterface, productId: string, quantity: number) {
+    if (!cart) {
+      throw new NotFoundException('There is no cart session');
+    }
+
     const productIndex = cart.products.findIndex(
       (product) => product.id === productId,
     );
 
     if (productIndex === -1) {
-      throw new NotFoundException('There is no product with that id');
+      throw new NotFoundException(`There is no product with id: ${productId}`);
     }
 
     cart.products[productIndex].quantity = quantity;

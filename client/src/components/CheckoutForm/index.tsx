@@ -5,7 +5,7 @@ import { Grid } from '@mui/material';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { PersonalInfoFormSchema } from '@/src/utils/types';
-import { personalInfoSchema } from '@/src/utils/validationSchemat';
+import { personalInfoSchema } from '@/src/utils/validationSchemas';
 import InputField from '../InputField';
 import { personalInfoInputs } from '@/src/utils/personalInfoInputs';
 import DefaultButton from '../DefaultButton';
@@ -27,7 +27,7 @@ const CheckoutForm = () => {
             <Controller
               name={fieldName}
               control={control}
-              render={({ field, fieldState: { error } }) => (
+              render={({ field: { ref, ...field }, fieldState: { error } }) => (
                 <InputField
                   label={labelName}
                   helperText={error ? error.message : null}

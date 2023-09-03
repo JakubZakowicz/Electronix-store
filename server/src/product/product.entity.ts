@@ -5,12 +5,14 @@ import {
   ManyToMany,
   ManyToOne,
   OneToMany,
+  OneToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
 import { Category } from '../category/category.entity';
 import { Review } from '../review/review.entity';
 import { Order } from '../order/order.entity';
+import { OrderItem } from '../order/order-item.entity';
 
 @Entity('products')
 export class Product {
@@ -20,14 +22,20 @@ export class Product {
   @Column()
   name: string;
 
-  @Column()
+  @Column({ type: 'text' })
   summary: string;
 
-  @Column()
+  @Column({ type: 'longtext' })
   description: string;
 
   @Column()
   price: number;
+
+  @Column({ type: 'decimal', precision: 10, scale: 1, default: 0 })
+  rating: number;
+
+  @Column()
+  slug: string;
 
   @ManyToOne(() => Category, (category: Category) => category.products)
   category: Category;
@@ -35,8 +43,8 @@ export class Product {
   @OneToMany(() => Review, (review: Review) => review.product)
   reviews: Review[];
 
-  @ManyToMany(() => Order, (order: Order) => order.products)
-  orders: Order[];
+  @OneToMany(() => OrderItem, (orderItem) => orderItem.product)
+  orderItems: OrderItem[];
 
   @CreateDateColumn()
   created_at: Date;

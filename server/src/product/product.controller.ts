@@ -4,7 +4,6 @@ import {
   Delete,
   Get,
   Param,
-  ParseIntPipe,
   Post,
   Put,
   UseGuards,
@@ -25,8 +24,8 @@ export class ProductController {
   }
 
   @Get(':id')
-  findOneById(@Param('id') id: string) {
-    return this.productService.findOneById(id);
+  findOne(@Param('id') id: string) {
+    return this.productService.findOne(id);
   }
 
   @UseGuards(JwtAuthGuard)

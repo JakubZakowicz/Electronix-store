@@ -16,29 +16,20 @@ import {
   Typography,
 } from '@mui/material';
 import VR from '@/src/images/vr1.png';
-import ProductCounter from '@/src/components/ProductCounter';
-import { routes } from '@/src/utils/routes';
 import DefaultButton from '@/src/components/DefaultButton';
-
-function createData(
-  productName: string,
-  price: number,
-  amount: number,
-  total: number
-) {
-  return { productName, price, amount, total };
-}
-
-const rows = [
-  createData(
-    'Meta Quest 2 — Advanced All-In-One Virtual Reality Headset — 128 GB',
-    299,
-    1,
-    299
-  ),
-];
+import { pageRoutes } from '@/src/routes/pageRoutes';
+import { useGetCartData } from '@/src/api/cart';
+import { convertPrice } from '@/src/utils/functions.utils';
+import CartProductCounter from '@/src/components/CartProductCounter';
+import HighlightOffIcon from '@mui/icons-material/HighlightOff';
+import DeleteCartProduct from '@/src/components/DeleteCartProduct';
 
 const CartPage = () => {
+  const { data: cartData } = useGetCartData();
+
+  console.log(cartData);
+  const { products, subtotal, shipping, total } = cartData || {};
+
   return (
     <Box>
       <TableContainer
@@ -56,12 +47,13 @@ const CartPage = () => {
               <TableCell>Price</TableCell>
               <TableCell>Amount</TableCell>
               <TableCell>Total</TableCell>
+              <TableCell></TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows.map((row) => (
+            {products?.map(({ id, name, price, quantity }) => (
               <TableRow
-                key={row.productName}
+                key={id}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
               >
                 <TableCell
@@ -69,13 +61,23 @@ const CartPage = () => {
                   sx={{ display: 'flex', alignItems: 'center', gap: '20px' }}
                 >
                   <Image src={VR} width={100} alt="vr" />
-                  {row.productName}
+                  {name}
                 </TableCell>
-                <TableCell>${row.price}</TableCell>
+                <TableCell>${price && convertPrice(price)}</TableCell>
                 <TableCell>
-                  <ProductCounter />
+                  {quantity && (
+                    <>
+                      <CartProductCounter
+                        productId={id}
+                        defaultAmount={quantity}
+                      />
+                    </>
+                  )}
                 </TableCell>
-                <TableCell>${row.total}</TableCell>
+                <TableCell>${convertPrice(price * quantity)}</TableCell>
+                <TableCell sx={{ width: '100px' }}>
+                  <DeleteCartProduct productId={id} />
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>
@@ -88,19 +90,21 @@ const CartPage = () => {
           </Typography>
           <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
             <Typography>Subtotal</Typography>
-            <Typography>$299.00</Typography>
+            <Typography>${subtotal && convertPrice(subtotal)}</Typography>
           </Box>
           <Divider color="white" sx={{ margin: '10px 0' }} />
           <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
             <Typography>Shipping</Typography>
-            <Typography>Free</Typography>
+            <Typography>
+              {shipping && shipping > 0 ? shipping : 'Free'}
+            </Typography>
           </Box>
           <Divider color="white" sx={{ margin: '10px 0' }} />
           <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
             <Typography>Total</Typography>
-            <Typography>$299.00</Typography>
+            <Typography>${total && convertPrice(total)}</Typography>
           </Box>
-          <Link href={routes.checkout()}>
+          <Link href={pageRoutes.checkout()}>
             <DefaultButton
               name="Checkout"
               style={{ float: 'right', marginTop: '30px' }}

@@ -3,7 +3,7 @@
 import DefaultButton from '@/src/components/DefaultButton';
 import InputField from '@/src/components/InputField';
 import { ForgotPasswordSchema } from '@/src/utils/types';
-import { signInSchema } from '@/src/utils/validationSchemat';
+import { signInSchema } from '@/src/utils/validationSchemas';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Box, Container, Typography } from '@mui/material';
 import React from 'react';

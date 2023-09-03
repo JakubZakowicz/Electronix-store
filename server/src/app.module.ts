@@ -15,6 +15,7 @@ import { Order } from './order/order.entity';
 import { AuthModule } from './auth/auth.module';
 import { ConfigModule } from '@nestjs/config';
 import { CartModule } from './cart/cart.module';
+import { OrderItem } from './order/order-item.entity';
 
 @Module({
   imports: [
@@ -25,7 +26,7 @@ import { CartModule } from './cart/cart.module';
       username: process.env.DB_USERNAME || 'admin',
       password: process.env.DB_PASSWORD || 'password',
       database: process.env.DB_NAME || 'ecommerce',
-      entities: [Category, User, Product, Review, Order],
+      entities: [Category, User, Product, Review, Order, OrderItem],
       synchronize: true,
     }),
     ConfigModule.forRoot(),

@@ -23,7 +23,8 @@ import GridViewIcon from '@mui/icons-material/GridView';
 import { ExpandLess, ExpandMore } from '@mui/icons-material';
 import MenuIcon from '@mui/icons-material/Menu';
 import Link from 'next/link';
-import { routes } from '@/src/utils/routes';
+import { pageRoutes } from '@/src/routes/pageRoutes';
+import { useGetCategories } from '@/src/api/categories';
 
 interface NavbarProps {
   children: React.ReactNode;
@@ -32,6 +33,8 @@ interface NavbarProps {
 const Navbar = ({ children }: NavbarProps) => {
   const [open, setOpen] = useState(true);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
+  const { data: categories } = useGetCategories();
 
   const handleClick = () => {
     setOpen(!open);
@@ -55,7 +58,7 @@ const Navbar = ({ children }: NavbarProps) => {
             <MenuIcon />
           </Button>
         )}
-        <Link href={routes.root()}>
+        <Link href={pageRoutes.root()}>
           <Image src={Logo} width={60} alt="logo" />
         </Link>
         <Box width="700px">
@@ -81,10 +84,10 @@ const Navbar = ({ children }: NavbarProps) => {
           />
         </Box>
         <Box display="flex" alignItems="center" gap="40px">
-          <Link href={routes.singIn()}>
+          <Link href={pageRoutes.singIn()}>
             <PersonIcon sx={{ fontSize: '40px', color: 'white' }} />
           </Link>
-          <Link href={routes.cart()}>
+          <Link href={pageRoutes.cart()}>
             <ShoppingCartIcon fontSize="large" sx={{ color: 'white' }} />
           </Link>
         </Box>
@@ -115,16 +118,20 @@ const Navbar = ({ children }: NavbarProps) => {
             {open ? <ExpandLess /> : <ExpandMore />}
           </ListItemButton>
           <Collapse in={open} timeout="auto" unmountOnExit>
-            <List
-              component={Link}
-              href="/categories/virtual-reality"
-              disablePadding
-              sx={{ color: 'white', textDecoration: 'none' }}
-            >
-              <ListItemButton sx={{ pl: 4 }}>
-                <ListItemText primary="Virtual Reality" />
-              </ListItemButton>
-            </List>
+            {categories &&
+              categories.map(({ id, slug, name }) => (
+                <List
+                  key={id}
+                  component={Link}
+                  href={pageRoutes.categories(slug)}
+                  disablePadding
+                  sx={{ color: 'white', textDecoration: 'none' }}
+                >
+                  <ListItemButton sx={{ pl: 4 }}>
+                    <ListItemText primary={name} />
+                  </ListItemButton>
+                </List>
+              ))}
           </Collapse>
         </List>
       </Drawer>
