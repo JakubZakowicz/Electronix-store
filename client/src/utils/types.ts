@@ -72,3 +72,17 @@ export interface AddToCartData {
   productId: string;
   quantity: number;
 }
+
+export interface Order {
+  id: string;
+  status: string;
+  orderItems: OrderItem[]
+  deliveryPrice: number;
+  totalPrice: number
+}
+
+export interface OrderItem {
+  id: string;
+  product: Product;
+  quantity: number;
+}

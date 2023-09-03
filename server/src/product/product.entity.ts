@@ -5,12 +5,14 @@ import {
   ManyToMany,
   ManyToOne,
   OneToMany,
+  OneToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
 import { Category } from '../category/category.entity';
 import { Review } from '../review/review.entity';
 import { Order } from '../order/order.entity';
+import { OrderItem } from '../order/order-item.entity';
 
 @Entity('products')
 export class Product {
@@ -41,8 +43,8 @@ export class Product {
   @OneToMany(() => Review, (review: Review) => review.product)
   reviews: Review[];
 
-  @ManyToMany(() => Order, (order: Order) => order.products)
-  orders: Order[];
+  @OneToMany(() => OrderItem, (orderItem) => orderItem.product)
+  orderItems: OrderItem[];
 
   @CreateDateColumn()
   created_at: Date;

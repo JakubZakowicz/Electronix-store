@@ -5,5 +5,6 @@ export const apiRoutes = {
   getCartData: '/cart',
   addToCart: '/cart/add',
   updateCartProduct: '/cart/edit',
-  deleteCartProduct: '/cart'
+  deleteCartProduct: '/cart',
+  getOrders: '/orders'
 };
