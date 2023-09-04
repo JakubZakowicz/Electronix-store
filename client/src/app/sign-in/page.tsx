@@ -10,14 +10,17 @@ import { signInSchema } from '@/src/utils/validationSchemas';
 import { SignInFormSchema } from '@/src/utils/types';
 import DefaultButton from '@/src/components/DefaultButton';
 import { pageRoutes } from '@/src/routes/pageRoutes';
+import { useSignIn } from '@/src/api/auth';
 
 const SignInPage = () => {
+  const { mutate: signIn } = useSignIn()
+
   const { control, handleSubmit } = useForm<SignInFormSchema>({
     resolver: zodResolver(signInSchema),
   });
 
   const onSubmit: SubmitHandler<SignInFormSchema> = (data) => {
-    console.log(data);
+    signIn(data)
   };
 
   return (

@@ -6,5 +6,7 @@ export const apiRoutes = {
   addToCart: '/cart/add',
   updateCartProduct: '/cart/edit',
   deleteCartProduct: '/cart',
+  signIn: '/auth/sign-in',
+  signUp: '/auth/sign-up',
   getOrders: '/orders'
 };
