@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
-import Logo from '@/public/logo.svg';
+import Link from 'next/link';
 import {
   Box,
   Button,
@@ -22,9 +22,10 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import GridViewIcon from '@mui/icons-material/GridView';
 import { ExpandLess, ExpandMore } from '@mui/icons-material';
 import MenuIcon from '@mui/icons-material/Menu';
-import Link from 'next/link';
 import { pageRoutes } from '@/src/routes/pageRoutes';
 import { useGetCategories } from '@/src/api/categories';
+import Logo from '@/public/logo.svg';
+import { useGetMe } from '@/src/api/auth';
 
 interface NavbarProps {
   children: React.ReactNode;
@@ -35,6 +36,10 @@ const Navbar = ({ children }: NavbarProps) => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   const { data: categories } = useGetCategories();
+
+  const { data: user } = useGetMe()
+
+  console.log(user)
 
   const handleClick = () => {
     setOpen(!open);
