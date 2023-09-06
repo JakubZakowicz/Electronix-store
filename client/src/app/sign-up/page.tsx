@@ -9,15 +9,18 @@ import { signUpSchema } from '@/src/utils/validationSchemas';
 import { SignUpFormSchema } from '@/src/utils/types';
 import DefaultButton from '@/src/components/DefaultButton';
 import { pageRoutes } from '@/src/routes/pageRoutes';
+import { useSignUp } from '@/src/api/auth';
 
 const SignUpPage = () => {
+  const { mutate: signUp} = useSignUp()
+
   const { control, handleSubmit } = useForm<SignUpFormSchema>({
     mode: 'onSubmit',
     resolver: zodResolver(signUpSchema),
   });
 
   const onSubmit: SubmitHandler<SignUpFormSchema> = (data) => {
-    console.log(data);
+    signUp(data)
   };
 
   return (
