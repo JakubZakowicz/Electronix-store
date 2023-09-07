@@ -26,6 +26,7 @@ import { pageRoutes } from '@/src/routes/pageRoutes';
 import { useGetCategories } from '@/src/api/categories';
 import Logo from '@/public/logo.svg';
 import { useGetMe } from '@/src/api/auth';
+import UserMenu from '../UserMenu';
 
 interface NavbarProps {
   children: React.ReactNode;
@@ -36,10 +37,7 @@ const Navbar = ({ children }: NavbarProps) => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   const { data: categories } = useGetCategories();
-
-  const { data: user } = useGetMe()
-
-  console.log(user)
+  const { data: me } = useGetMe();
 
   const handleClick = () => {
     setOpen(!open);
@@ -89,9 +87,13 @@ const Navbar = ({ children }: NavbarProps) => {
           />
         </Box>
         <Box display="flex" alignItems="center" gap="40px">
-          <Link href={pageRoutes.singIn()}>
-            <PersonIcon sx={{ fontSize: '40px', color: 'white' }} />
-          </Link>
+          {me ? (
+            <UserMenu userId={me.userId} />
+          ) : (
+            <Link href={pageRoutes.singIn()}>
+              <PersonIcon sx={{ fontSize: '40px', color: 'white' }} />
+            </Link>
+          )}
           <Link href={pageRoutes.cart()}>
             <ShoppingCartIcon fontSize="large" sx={{ color: 'white' }} />
           </Link>

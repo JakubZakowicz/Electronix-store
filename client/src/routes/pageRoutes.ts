@@ -9,4 +9,5 @@ export const pageRoutes = {
   forgotPassword: () => '/forgot-password',
   accountDetails: () => '/account-details',
   editAccountDetails: () => '/account-details/edit',
+  orderHistory: () => '/order-history'
 };

@@ -8,6 +8,8 @@ export const apiRoutes = {
   deleteCartProduct: '/cart',
   signIn: '/auth/sign-in',
   signUp: '/auth/sign-up',
+  signOut: '/auth/sign-out',
   getMe: '/auth/profile',
+  getUser: '/users/:userId',
   getOrders: '/orders'
 };
