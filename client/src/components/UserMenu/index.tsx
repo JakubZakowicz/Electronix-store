@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useGetUser, useSignOut } from '@/src/api/auth';
@@ -13,6 +13,7 @@ import {
   Paper,
   Popper,
 } from '@mui/material';
+import { Context } from '../ContextWrapper';
 
 interface UserMenuProps {
   userId: string;
@@ -20,8 +21,9 @@ interface UserMenuProps {
 
 const UserMenu = ({ userId }: UserMenuProps) => {
   const { data: userData } = useGetUser(userId);
-  const { mutate } = useSignOut();
   const router = useRouter();
+  const { mutate } = useSignOut();
+  const { setIsUser } = useContext(Context);
 
   const { firstName } = userData || {};
 
@@ -49,7 +51,11 @@ const UserMenu = ({ userId }: UserMenuProps) => {
   };
 
   const signOut = async () => {
-    await mutate(null, { onSuccess: () => router.push('/') });
+    await mutate(null, {
+      onSuccess: () => {
+        router.push('/'), setIsUser(false);
+      },
+    });
   };
   return (
     <div>

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import {
@@ -27,6 +27,8 @@ import { useGetCategories } from '@/src/api/categories';
 import Logo from '@/public/logo.svg';
 import { useGetMe } from '@/src/api/auth';
 import UserMenu from '../UserMenu';
+import { Context } from '../ContextWrapper';
+
 
 interface NavbarProps {
   children: React.ReactNode;
@@ -38,6 +40,14 @@ const Navbar = ({ children }: NavbarProps) => {
 
   const { data: categories } = useGetCategories();
   const { data: me } = useGetMe();
+
+  const { isUser, setIsUser } = useContext(Context);
+
+  useEffect(() => {
+    setIsUser(!!me);
+  }, [me]);
+
+  console.log(isUser);
 
   const handleClick = () => {
     setOpen(!open);
@@ -87,7 +97,7 @@ const Navbar = ({ children }: NavbarProps) => {
           />
         </Box>
         <Box display="flex" alignItems="center" gap="40px">
-          {me ? (
+          {(isUser && me) ? (
             <UserMenu userId={me.userId} />
           ) : (
             <Link href={pageRoutes.singIn()}>

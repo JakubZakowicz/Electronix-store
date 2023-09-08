@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useContext } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
@@ -12,17 +12,19 @@ import { SignInFormSchema } from '@/src/utils/types';
 import DefaultButton from '@/src/components/DefaultButton';
 import { pageRoutes } from '@/src/routes/pageRoutes';
 import { useSignIn } from '@/src/api/auth';
+import { Context } from '@/src/components/ContextWrapper';
 
 const SignInPage = () => {
   const { mutate: signIn } = useSignIn()
   const router = useRouter()
+  const { setIsUser } = useContext(Context);
 
   const { control, handleSubmit } = useForm<SignInFormSchema>({
     resolver: zodResolver(signInSchema),
   });
 
   const onSubmit: SubmitHandler<SignInFormSchema> = (data) => {
-    signIn(data, { onSuccess: () => router.push('/') })
+    signIn(data, { onSuccess: () => {router.push('/'), setIsUser(true)} })
   };
 
   return (
