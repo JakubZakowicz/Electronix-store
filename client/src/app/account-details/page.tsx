@@ -4,8 +4,59 @@ import React from 'react';
 import Link from 'next/link';
 import { Box, Button, Grid, Typography } from '@mui/material';
 import { pageRoutes } from '@/src/routes/pageRoutes';
+import { useGetMe, useGetUser } from '@/src/api/auth';
 
 const AccountDetails = () => {
+  const { data: me } = useGetMe();
+
+  const { data: user } = useGetUser(me?.userId);
+
+  const {
+    firstName,
+    lastName,
+    email,
+    phoneNumber,
+    country,
+    city,
+    streetAddress,
+    postCode,
+  } = user || {};
+
+  const accountDetails: { label: string; value: string | undefined }[] = [
+    {
+      label: 'First name',
+      value: firstName,
+    },
+    {
+      label: 'Last name',
+      value: lastName,
+    },
+    {
+      label: 'Email address',
+      value: email,
+    },
+    {
+      label: 'Phone number',
+      value: phoneNumber,
+    },
+    {
+      label: 'Country',
+      value: country,
+    },
+    {
+      label: 'City',
+      value: city,
+    },
+    {
+      label: 'Address',
+      value: streetAddress,
+    },
+    {
+      label: 'Postal Code',
+      value: postCode,
+    },
+  ];
+
   return (
     <Box>
       <Typography variant="h1" fontSize={30}>
@@ -31,9 +82,13 @@ const AccountDetails = () => {
               </Typography>
             </Grid>
             <Grid item xs={2} sm={4}>
-              <Typography fontWeight="lighter" fontSize={18}>
-                {value}
-              </Typography>
+              {value ? (
+                <Typography fontWeight="lighter" fontSize={18}>
+                  {value}
+                </Typography>
+              ) : (
+                <Typography sx={{ color: 'gray' }}>Empty</Typography>
+              )}
             </Grid>
           </Grid>
         ))}
@@ -60,38 +115,3 @@ const AccountDetails = () => {
 };
 
 export default AccountDetails;
-
-const accountDetails: { label: string; value: string }[] = [
-  {
-    label: 'First name',
-    value: 'John',
-  },
-  {
-    label: 'Last name',
-    value: 'Doe',
-  },
-  {
-    label: 'Email address',
-    value: 'johndoe@example.com',
-  },
-  {
-    label: 'Phone number',
-    value: '+48 123 456 789',
-  },
-  {
-    label: 'Country',
-    value: 'Spain',
-  },
-  {
-    label: 'City',
-    value: 'Barcelona',
-  },
-  {
-    label: 'Address',
-    value: 'Camp Nou 10/9',
-  },
-  {
-    label: 'Postal Code',
-    value: '12-345',
-  },
-];

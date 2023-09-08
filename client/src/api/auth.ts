@@ -14,7 +14,7 @@ export const useSignOut = () =>
 export const useGetMe = () =>
   useFetch<{ userId: string }>(apiRoutes.getMe, { withCredentials: true });
 
-export const useGetUser = (userId: string) =>
-  useFetch<User>(pathToUrl(apiRoutes.getUser, { userId }), {
+export const useGetUser = (userId?: string) =>
+  useFetch<User>(userId ? pathToUrl(apiRoutes.getUser, { userId }) : null, {
     withCredentials: true,
   });

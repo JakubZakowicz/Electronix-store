@@ -54,6 +54,12 @@ export interface Review {
 export interface User {
   firstName: string;
   lastName: string;
+  email: string,
+  phoneNumber: string;
+  country: string;
+  city: string;
+  streetAddress: string;
+  postCode: string;
   created_at: string;
 }
 
