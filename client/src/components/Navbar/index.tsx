@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import {
@@ -27,7 +27,6 @@ import { useGetCategories } from '@/src/api/categories';
 import Logo from '@/public/logo.svg';
 import { useGetMe } from '@/src/api/auth';
 import UserMenu from '../UserMenu';
-import { Context } from '../ContextWrapper';
 
 
 interface NavbarProps {
@@ -37,17 +36,15 @@ interface NavbarProps {
 const Navbar = ({ children }: NavbarProps) => {
   const [open, setOpen] = useState(true);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [isUser, setIsUser] = useState(false)
 
   const { data: categories } = useGetCategories();
   const { data: me } = useGetMe();
 
-  const { isUser, setIsUser } = useContext(Context);
-
   useEffect(() => {
-    setIsUser(!!me);
-  }, [me]);
+    if (me) setIsUser(true)
+  }, [me])
 
-  console.log(isUser);
 
   const handleClick = () => {
     setOpen(!open);
@@ -97,8 +94,8 @@ const Navbar = ({ children }: NavbarProps) => {
           />
         </Box>
         <Box display="flex" alignItems="center" gap="40px">
-          {(isUser && me) ? (
-            <UserMenu userId={me.userId} />
+          {isUser ? (
+            <UserMenu userId={me!.userId} setIsUser={setIsUser} />
           ) : (
             <Link href={pageRoutes.singIn()}>
               <PersonIcon sx={{ fontSize: '40px', color: 'white' }} />
