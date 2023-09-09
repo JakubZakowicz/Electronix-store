@@ -11,5 +11,5 @@ export const apiRoutes = {
   signOut: '/auth/sign-out',
   getMe: '/auth/profile',
   getUser: '/users/:userId',
-  getOrders: '/orders'
+  getOrders: '/orders/user/:userId'
 };
