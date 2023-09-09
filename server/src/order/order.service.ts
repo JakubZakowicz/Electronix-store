@@ -12,8 +12,9 @@ export class OrderService {
     private readonly orderRepository: Repository<Order>,
   ) {}
 
-  async findAll() {
+  async findAll(userId?: string) {
     return await this.orderRepository.find({
+      where: { user: { id: userId } },
       relations: { orderItems: { product: true } },
     });
   }
