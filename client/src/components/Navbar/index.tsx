@@ -1,8 +1,8 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
-import Logo from '@/public/logo.svg';
+import Link from 'next/link';
 import {
   Box,
   Button,
@@ -22,9 +22,12 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import GridViewIcon from '@mui/icons-material/GridView';
 import { ExpandLess, ExpandMore } from '@mui/icons-material';
 import MenuIcon from '@mui/icons-material/Menu';
-import Link from 'next/link';
 import { pageRoutes } from '@/src/routes/pageRoutes';
 import { useGetCategories } from '@/src/api/categories';
+import Logo from '@/public/logo.svg';
+import { useGetMe } from '@/src/api/auth';
+import UserMenu from '../UserMenu';
+
 
 interface NavbarProps {
   children: React.ReactNode;
@@ -33,8 +36,15 @@ interface NavbarProps {
 const Navbar = ({ children }: NavbarProps) => {
   const [open, setOpen] = useState(true);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [isUser, setIsUser] = useState(false)
 
   const { data: categories } = useGetCategories();
+  const { data: me } = useGetMe();
+
+  useEffect(() => {
+    if (me) setIsUser(true)
+  }, [me])
+
 
   const handleClick = () => {
     setOpen(!open);
@@ -84,9 +94,13 @@ const Navbar = ({ children }: NavbarProps) => {
           />
         </Box>
         <Box display="flex" alignItems="center" gap="40px">
-          <Link href={pageRoutes.singIn()}>
-            <PersonIcon sx={{ fontSize: '40px', color: 'white' }} />
-          </Link>
+          {isUser ? (
+            <UserMenu userId={me!.userId} setIsUser={setIsUser} />
+          ) : (
+            <Link href={pageRoutes.singIn()}>
+              <PersonIcon sx={{ fontSize: '40px', color: 'white' }} />
+            </Link>
+          )}
           <Link href={pageRoutes.cart()}>
             <ShoppingCartIcon fontSize="large" sx={{ color: 'white' }} />
           </Link>

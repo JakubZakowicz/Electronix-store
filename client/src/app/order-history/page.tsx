@@ -14,9 +14,12 @@ import CircleIcon from '@mui/icons-material/Circle';
 import VR1 from '@/src/images/vr1.png';
 import { useGetOrders } from '@/src/api/orders';
 import { convertPrice } from '@/src/utils/functions.utils';
+import { useGetMe } from '@/src/api/auth';
 
 const OrderHistory = () => {
-  const { data: orders } = useGetOrders();
+  const { data: me } = useGetMe();
+  const { data: orders } = useGetOrders(me?.userId);
+
   return (
     <Box>
       <Typography variant="h2" fontSize={30}>

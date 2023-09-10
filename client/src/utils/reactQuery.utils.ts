@@ -6,27 +6,27 @@ import {
   useQueryClient,
 } from '@tanstack/react-query';
 import { api } from './api.utils';
-import { AxiosResponse, AxiosError } from 'axios';
+import { AxiosResponse, AxiosError, AxiosRequestConfig } from 'axios';
 
-type QueryKeyT = [string, object | undefined];
+type QueryKeyT = [string, AxiosRequestConfig | undefined];
 
 export const fetcher = <T>({
   queryKey,
   pageParam,
 }: QueryFunctionContext<QueryKeyT>): Promise<T> => {
-  const [url, params] = queryKey;
+  const [url, reqConfig] = queryKey;
   return api
-    .get<T>(url, { params: { ...params, pageParam } })
+    .get<T>(url, { ...reqConfig, params: { ...reqConfig?.params, pageParam } })
     .then((res) => res.data);
 };
 
 export const useFetch = <T>(
   url: string | null,
-  params?: object,
+  reqConfig?: AxiosRequestConfig,
   config?: UseQueryOptions<T, Error, T, QueryKeyT>
 ) => {
   const context = useQuery<T, Error, T, QueryKeyT>({
-    queryKey: [url!, params],
+    queryKey: [url!, reqConfig],
     queryFn: ({ queryKey, meta }) => fetcher({ queryKey, meta }),
     enabled: !!url,
     ...config,
@@ -68,10 +68,11 @@ const useGenericMutation = <T, S>(
 export const usePost = <T, S>(
   url: string,
   params?: object,
+  config?: AxiosRequestConfig,
   updater?: (oldData: T, newData: S) => T
 ) => {
   return useGenericMutation<T, S>(
-    (data) => api.post<S>(url, data),
+    (data) => api.post<S>(url, data, config),
     url,
     params,
     updater

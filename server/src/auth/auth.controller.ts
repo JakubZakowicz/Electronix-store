@@ -48,4 +48,12 @@ export class AuthController {
     const { email, password } = userData;
     return this.authService.signUp(email, password);
   }
+
+  @UseGuards(JwtAuthGuard)
+  @Post('sign-out')
+  async signOut(@Res() res: Response) {
+    res
+      .clearCookie('access_token')
+      .send({ message: 'User signed out successfully' });
+  }
 }

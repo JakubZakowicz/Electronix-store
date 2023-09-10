@@ -18,11 +18,19 @@ import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 @Controller('orders')
 export class OrderController {
   constructor(private readonly orderService: OrderService) {}
+
   @Get()
   findAll() {
     return this.orderService.findAll();
   }
 
+  @UseGuards(JwtAuthGuard)
+  @Get('/user/:userId')
+  findUserOrders(@Param('userId') userId: string) {
+    return this.orderService.findAll(userId);
+  }
+
+  @UseGuards(JwtAuthGuard)
   @Get(':id')
   findOneById(@Param('id') id: string) {
     return this.orderService.findOneById(id);

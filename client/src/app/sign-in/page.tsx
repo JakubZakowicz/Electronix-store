@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { Box, Grid, Typography } from '@mui/material';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -10,14 +11,24 @@ import { signInSchema } from '@/src/utils/validationSchemas';
 import { SignInFormSchema } from '@/src/utils/types';
 import DefaultButton from '@/src/components/DefaultButton';
 import { pageRoutes } from '@/src/routes/pageRoutes';
+import { useGetMe, useSignIn } from '@/src/api/auth';
 
 const SignInPage = () => {
+  const { mutate: signIn } = useSignIn();
+  const { refetch } = useGetMe();
+  const router = useRouter();
+
   const { control, handleSubmit } = useForm<SignInFormSchema>({
     resolver: zodResolver(signInSchema),
   });
 
   const onSubmit: SubmitHandler<SignInFormSchema> = (data) => {
-    console.log(data);
+    signIn(data, {
+      onSuccess: () => {
+        router.push('/');
+        refetch()
+      },
+    });
   };
 
   return (
