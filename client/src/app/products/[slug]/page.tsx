@@ -1,13 +1,15 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Box, Grid, Rating, Tab, Typography } from '@mui/material';
+import { Box, Button, Grid, Rating, Tab, Typography } from '@mui/material';
 import { TabContext, TabList, TabPanel } from '@mui/lab';
+import LinearProgress from '@mui/material/LinearProgress';
 import ProductCounter from '@/src/components/ProductCounter';
 import SwiperGallery from '@/src/components/SwiperGallery';
 import { useGetProduct } from '@/src/api/products';
 import { convertPrice } from '@/src/utils/functions.utils';
 import { useAddToCart } from '@/src/api/cart';
+import DefaultButton from '@/src/components/DefaultButton';
 
 interface ProductPageProps {
   params: { slug: string };
@@ -93,6 +95,118 @@ const ProductPage = ({ params }: ProductPageProps) => {
           </Box>
           <TabPanel value="1">{description}</TabPanel>
           <TabPanel value="2">
+            <Box
+              sx={{ width: '600px', margin: '0 auto', marginBottom: '80px' }}
+            >
+              <Box
+                sx={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                }}
+              >
+                <Box
+                  sx={{ display: 'flex', alignItems: 'center', gap: '20px' }}
+                >
+                  <Typography sx={{ fontSize: '60px' }}>4.2</Typography>
+                  <Box>
+                    <Rating name="read-only" value={4.5} readOnly />
+                    <Typography>900 Reviews</Typography>
+                  </Box>
+                </Box>
+                <DefaultButton
+                  name="Write a Review"
+                  style={{ alignSelf: 'center', fontSize: '16px' }}
+                />
+              </Box>
+              <Box
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  rowGap: '10px',
+                }}
+              >
+                <Box
+                  sx={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                  }}
+                >
+                  <Typography>5 Stars</Typography>
+                  <LinearProgress
+                    variant="determinate"
+                    color="inherit"
+                    value={60}
+                    sx={{ width: '80%' }}
+                  />
+                  <Typography>551</Typography>
+                </Box>
+                <Box
+                  sx={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                  }}
+                >
+                  <Typography>4 Stars</Typography>
+                  <LinearProgress
+                    variant="determinate"
+                    color="inherit"
+                    value={20}
+                    sx={{ width: '80%' }}
+                  />
+                  <Typography>144</Typography>
+                </Box>
+                <Box
+                  sx={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                  }}
+                >
+                  <Typography>3 Stars</Typography>
+                  <LinearProgress
+                    variant="determinate"
+                    color="inherit"
+                    value={7}
+                    sx={{ width: '80%' }}
+                  />
+                  <Typography>76</Typography>
+                </Box>
+                <Box
+                  sx={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                  }}
+                >
+                  <Typography>2 Stars</Typography>
+                  <LinearProgress
+                    variant="determinate"
+                    color="inherit"
+                    value={6}
+                    sx={{ width: '80%' }}
+                  />
+                  <Typography>52</Typography>
+                </Box>
+                <Box
+                  sx={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                  }}
+                >
+                  <Typography>1 Star</Typography>
+                  <LinearProgress
+                    variant="determinate"
+                    color="inherit"
+                    value={7}
+                    sx={{ width: '80%' }}
+                  />
+                  <Typography>77</Typography>
+                </Box>
+              </Box>
+            </Box>
             {reviews &&
               reviews?.map(({ id, title, content, rating, user }) => (
                 <Grid key={id} container sx={{ marginBottom: '50px' }}>
