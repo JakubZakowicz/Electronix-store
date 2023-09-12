@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Box, Button, Grid, Rating, Tab, Typography } from '@mui/material';
+import { Box, Grid, Rating, Tab, Typography } from '@mui/material';
 import { TabContext, TabList, TabPanel } from '@mui/lab';
 import LinearProgress from '@mui/material/LinearProgress';
 import ProductCounter from '@/src/components/ProductCounter';
@@ -9,7 +9,7 @@ import SwiperGallery from '@/src/components/SwiperGallery';
 import { useGetProduct } from '@/src/api/products';
 import { convertPrice } from '@/src/utils/functions.utils';
 import { useAddToCart } from '@/src/api/cart';
-import DefaultButton from '@/src/components/DefaultButton';
+import ReviewFormModalButton from '@/src/components/ReviewFormModalButton';
 
 interface ProductPageProps {
   params: { slug: string };
@@ -32,6 +32,8 @@ const ProductPage = ({ params }: ProductPageProps) => {
   const addProductToCart = () => {
     addToCart({ productId: id!, quantity });
   };
+
+  
 
   return (
     <Box color="white">
@@ -113,10 +115,7 @@ const ProductPage = ({ params }: ProductPageProps) => {
                     <Typography>900 Reviews</Typography>
                   </Box>
                 </Box>
-                <DefaultButton
-                  name="Write a Review"
-                  style={{ alignSelf: 'center', fontSize: '16px' }}
-                />
+                <ReviewFormModalButton />
               </Box>
               <Box
                 sx={{
