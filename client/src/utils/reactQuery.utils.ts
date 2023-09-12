@@ -82,10 +82,11 @@ export const usePost = <T, S>(
 export const useUpdate = <T, S>(
   url: string,
   params?: object,
+  config?: AxiosRequestConfig,
   updater?: (oldData: T, newData: S) => T
 ) => {
   return useGenericMutation<T, S>(
-    (data) => api.patch<S>(url, data),
+    (data) => api.patch<S>(url, data, config),
     url,
     params,
     updater

@@ -7,6 +7,7 @@ export const api = {
     axios.get<T>(baseURL + url, { ...params }),
   post: <T>(url: string, data: any, config?: AxiosRequestConfig) =>
     axios.post<T>(baseURL + url, data, config),
-  patch: <T>(url: string, data: any) => axios.patch<T>(baseURL + url, data),
+  patch: <T>(url: string, data: any, config?: AxiosRequestConfig) =>
+    axios.patch<T>(baseURL + url, data, config),
   delete: <T>(url: string) => axios.delete<T>(baseURL + url),
 };
