@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsPositive } from 'class-validator';
+import { IsNotEmpty, IsPositive, Max, Min } from 'class-validator';
 
 export class CreateReviewDto {
   @IsNotEmpty()
@@ -9,5 +9,7 @@ export class CreateReviewDto {
 
   @IsNotEmpty()
   @IsPositive()
-  rate: number;
+  @Min(1)
+  @Max(5)
+  rating: number;
 }

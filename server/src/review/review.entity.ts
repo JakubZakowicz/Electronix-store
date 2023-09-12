@@ -20,7 +20,7 @@ export class Review {
   @Column({ type: 'text' })
   content: string;
 
-  @Column({ type: 'decimal', precision: 10, scale: 1, default: 0 })
+  @Column()
   rating: number;
 
   @ManyToOne(() => User, (user: User) => user.reviews)

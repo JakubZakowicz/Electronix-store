@@ -26,7 +26,7 @@ export class ReviewService {
     return await review;
   }
 
-  async create(reviewData: CreateReviewDto) {
+  async create(userId: string, productId: string, reviewData: CreateReviewDto) {
     const newReview = this.reviewRepository.create(reviewData);
     return await this.reviewRepository.save(newReview);
   }
