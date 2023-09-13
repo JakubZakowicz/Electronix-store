@@ -4,12 +4,15 @@ import { Repository } from 'typeorm';
 import { Review } from './review.entity';
 import { CreateReviewDto } from './dto/create-review.dto';
 import { UpdateReviewDto } from './dto/update-review.dto';
+import { Product } from '../product/product.entity';
 
 @Injectable()
 export class ReviewService {
   constructor(
     @InjectRepository(Review)
     private readonly reviewRepository: Repository<Review>,
+    @InjectRepository(Product)
+    private readonly productRepository: Repository<Product>,
   ) {}
 
   async findAll() {
@@ -27,7 +30,14 @@ export class ReviewService {
   }
 
   async create(userId: string, productId: string, reviewData: CreateReviewDto) {
-    const newReview = this.reviewRepository.create(reviewData);
+    const newReview = this.reviewRepository.create({
+      user: { id: userId },
+      product: { id: productId },
+      ...reviewData,
+    });
+
+    this.calculateAverageRating(newReview.product.id);
+
     return await this.reviewRepository.save(newReview);
   }
 
@@ -46,5 +56,22 @@ export class ReviewService {
 
   async delete(id: string) {
     return await this.reviewRepository.delete(id);
+  }
+
+  async calculateAverageRating(productId: string) {
+    const reviews = await this.reviewRepository.find({
+      where: { product: { id: productId } },
+    });
+
+    let averageRating = 0;
+    reviews.forEach((review) => {
+      averageRating += review.rating;
+    });
+
+    averageRating = Number((averageRating / reviews.length).toFixed(2));
+
+    await this.productRepository.save({ id: productId, rating: averageRating });
+
+    return averageRating;
   }
 }
