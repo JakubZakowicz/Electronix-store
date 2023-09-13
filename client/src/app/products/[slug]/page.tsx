@@ -33,8 +33,6 @@ const ProductPage = ({ params }: ProductPageProps) => {
     addToCart({ productId: id!, quantity });
   };
 
-  
-
   return (
     <Box color="white">
       <Grid container marginTop={10} columnSpacing={6}>
@@ -109,10 +107,22 @@ const ProductPage = ({ params }: ProductPageProps) => {
                 <Box
                   sx={{ display: 'flex', alignItems: 'center', gap: '20px' }}
                 >
-                  <Typography sx={{ fontSize: '60px' }}>4.2</Typography>
+                  <Typography sx={{ fontSize: '60px' }}>
+                    {product?.rating}
+                  </Typography>
                   <Box>
-                    <Rating name="read-only" value={4.5} readOnly />
-                    <Typography>900 Reviews</Typography>
+                    <Rating
+                      name="read-only"
+                      value={product?.rating}
+                      sx={{
+                        '.MuiRating-iconEmpty': {
+                          color: 'rgba(255, 255, 255, 0.5)',
+                        },
+                      }}
+                      precision={0.1}
+                      readOnly
+                    />
+                    <Typography>{product?.reviews.length} Reviews</Typography>
                   </Box>
                 </Box>
                 <ReviewFormModalButton />
@@ -210,7 +220,16 @@ const ProductPage = ({ params }: ProductPageProps) => {
               reviews?.map(({ id, title, content, rating, user }) => (
                 <Grid key={id} container sx={{ marginBottom: '50px' }}>
                   <Grid item xl={2}>
-                    <Rating name="read-only" value={rating} readOnly />
+                    <Rating
+                      name="read-only"
+                      value={rating}
+                      readOnly
+                      sx={{
+                        '.MuiRating-iconEmpty': {
+                          color: 'rgba(255, 255, 255, 0.5)',
+                        },
+                      }}
+                    />
                     <Typography marginTop="10px">
                       {user.firstName} {user.lastName}
                     </Typography>
