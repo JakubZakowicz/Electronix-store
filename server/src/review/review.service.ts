@@ -51,11 +51,22 @@ export class ReviewService {
       throw new NotFoundException(`There is no review with id: ${id}`);
     }
 
+    this.calculateAverageRating(review.product.id);
+
     return await this.reviewRepository.save(review);
   }
 
   async delete(id: string) {
-    return await this.reviewRepository.delete(id);
+    const deletedReview = await this.reviewRepository.findOne({
+      where: { id },
+      relations: { product: true },
+    });
+
+    const deleteResult = await this.reviewRepository.delete(id);
+
+    if (deletedReview) this.calculateAverageRating(deletedReview?.product.id);
+
+    return deleteResult;
   }
 
   async calculateAverageRating(productId: string) {
