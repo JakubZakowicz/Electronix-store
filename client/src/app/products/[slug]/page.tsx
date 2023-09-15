@@ -7,7 +7,10 @@ import LinearProgress from '@mui/material/LinearProgress';
 import ProductCounter from '@/src/components/ProductCounter';
 import SwiperGallery from '@/src/components/SwiperGallery';
 import { useGetProduct } from '@/src/api/products';
-import { convertPrice } from '@/src/utils/functions.utils';
+import {
+  convertPrice,
+  getSpecificRatingCount,
+} from '@/src/utils/functions.utils';
 import { useAddToCart } from '@/src/api/cart';
 import ReviewFormModalButton from '@/src/components/ReviewFormModalButton';
 
@@ -127,94 +130,43 @@ const ProductPage = ({ params }: ProductPageProps) => {
                 </Box>
                 <ReviewFormModalButton />
               </Box>
-              <Box
-                sx={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  rowGap: '10px',
-                }}
-              >
+              {reviews && (
                 <Box
                   sx={{
                     display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
+                    flexDirection: 'column',
+                    rowGap: '10px',
                   }}
                 >
-                  <Typography>5 Stars</Typography>
-                  <LinearProgress
-                    variant="determinate"
-                    color="inherit"
-                    value={60}
-                    sx={{ width: '80%' }}
-                  />
-                  <Typography>551</Typography>
+                  {[5, 4, 3, 2, 1].map((rating) => {
+                    const { count, percentage } = getSpecificRatingCount(
+                      rating,
+                      reviews
+                    );
+                    return (
+                      <Box
+                        key={rating}
+                        sx={{
+                          display: 'flex',
+                          justifyContent: 'space-between',
+                          alignItems: 'center',
+                        }}
+                      >
+                        <Typography>
+                          {rating} {rating === 1 ? 'Star' : 'Stars'}
+                        </Typography>
+                        <LinearProgress
+                          variant="determinate"
+                          color="inherit"
+                          value={percentage}
+                          sx={{ width: '80%' }}
+                        />
+                        <Typography>{count}</Typography>
+                      </Box>
+                    );
+                  })}
                 </Box>
-                <Box
-                  sx={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                  }}
-                >
-                  <Typography>4 Stars</Typography>
-                  <LinearProgress
-                    variant="determinate"
-                    color="inherit"
-                    value={20}
-                    sx={{ width: '80%' }}
-                  />
-                  <Typography>144</Typography>
-                </Box>
-                <Box
-                  sx={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                  }}
-                >
-                  <Typography>3 Stars</Typography>
-                  <LinearProgress
-                    variant="determinate"
-                    color="inherit"
-                    value={7}
-                    sx={{ width: '80%' }}
-                  />
-                  <Typography>76</Typography>
-                </Box>
-                <Box
-                  sx={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                  }}
-                >
-                  <Typography>2 Stars</Typography>
-                  <LinearProgress
-                    variant="determinate"
-                    color="inherit"
-                    value={6}
-                    sx={{ width: '80%' }}
-                  />
-                  <Typography>52</Typography>
-                </Box>
-                <Box
-                  sx={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                  }}
-                >
-                  <Typography>1 Star</Typography>
-                  <LinearProgress
-                    variant="determinate"
-                    color="inherit"
-                    value={7}
-                    sx={{ width: '80%' }}
-                  />
-                  <Typography>77</Typography>
-                </Box>
-              </Box>
+              )}
             </Box>
             {reviews &&
               reviews?.map(({ id, title, content, rating, user }) => (
