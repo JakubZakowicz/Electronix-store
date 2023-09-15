@@ -17,9 +17,13 @@ const InputField = ({ ...props }: TextFieldProps) => {
             borderColor: 'white',
             color: 'white',
           },
-        '& input': {
+        '& input, & textarea': {
           color: 'white',
           backgroundColor: 'rgba(255, 255, 255, 0.1)',
+        },
+        '& textarea': {
+          padding: '10px',
+          margin: '-15px -10px',
         },
         '& .MuiFormHelperText-root': {
           color: 'red',
@@ -27,7 +31,7 @@ const InputField = ({ ...props }: TextFieldProps) => {
           top: '60px',
           left: '-10px',
         },
-        ...props.style
+        ...props.style,
       }}
       {...props}
     />

@@ -9,6 +9,7 @@ export class UpdateProductDto {
 
   readonly summary: string;
   readonly description: string;
+  readonly rating: number;
 
   @IsNotEmpty()
   readonly price: number;
