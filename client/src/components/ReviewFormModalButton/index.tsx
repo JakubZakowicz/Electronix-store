@@ -9,13 +9,19 @@ import { Review } from '@/src/utils/types';
 import InputField from '../InputField';
 import { useGetMe } from '@/src/api/auth';
 import { pageRoutes } from '@/src/routes/pageRoutes';
+import { useAddReview } from '@/src/api/products';
 
-const ReviewFormModalButton = () => {
+interface ReviewFormModalButtonProps {
+  productId: string;
+}
+
+const ReviewFormModalButton = ({ productId }: ReviewFormModalButtonProps) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [rating, setRating] = useState(0);
-  const router = useRouter()
+  const router = useRouter();
 
   const { data: me } = useGetMe();
+  const { mutate: addReview, isLoading } = useAddReview(productId);
 
   const { control, handleSubmit, setValue } = useForm<Review>({
     resolver: zodResolver(reviewSchema),
@@ -24,11 +30,11 @@ const ReviewFormModalButton = () => {
   const toggleModal = () => {
     if (isModalOpen) {
       setIsModalOpen(false);
-      return
+      return;
     }
 
-    if (!me) router.push(pageRoutes.singIn()) 
-    setIsModalOpen(true)
+    if (!me) router.push(pageRoutes.singIn());
+    setIsModalOpen(true);
   };
 
   const onRatingChange = (value: number) => {
@@ -37,7 +43,7 @@ const ReviewFormModalButton = () => {
   };
 
   const onSubmit: SubmitHandler<Review> = (data) => {
-    console.log(data);
+    addReview(data, { onSuccess: () => setIsModalOpen(false) });
   };
 
   return (
@@ -80,10 +86,15 @@ const ReviewFormModalButton = () => {
               <Controller
                 name="title"
                 control={control}
-                render={({ field, fieldState: { error } }) => (
+                render={({
+                  field: { ref, ...field },
+                  fieldState: { error },
+                }) => (
                   <InputField
                     helperText={error ? error.message : null}
                     label="Title"
+                    defaultValue=""
+                    inputRef={ref}
                     {...field}
                   />
                 )}
@@ -91,17 +102,27 @@ const ReviewFormModalButton = () => {
               <Controller
                 name="content"
                 control={control}
-                render={({ field, fieldState: { error } }) => (
+                render={({
+                  field: { ref, ...field },
+                  fieldState: { error },
+                }) => (
                   <InputField
                     helperText={error ? error.message : null}
                     label="Content"
+                    style={{ color: 'white' }}
                     multiline
+                    inputRef={ref}
+                    defaultValue=""
                     rows={4}
                     {...field}
                   />
                 )}
               />
-              <DefaultButton name="Add a Review" />
+              <DefaultButton
+                name="Add a Review"
+                type="submit"
+                disabled={isLoading}
+              />
             </Box>
           </form>
         </Box>

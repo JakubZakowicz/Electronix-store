@@ -128,7 +128,7 @@ const ProductPage = ({ params }: ProductPageProps) => {
                     <Typography>{product?.reviews.length} Reviews</Typography>
                   </Box>
                 </Box>
-                <ReviewFormModalButton />
+                {id && <ReviewFormModalButton productId={id} />}
               </Box>
               {reviews && (
                 <Box
