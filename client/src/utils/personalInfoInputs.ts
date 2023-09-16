@@ -6,8 +6,8 @@ export const personalInfoInputs: {
     | 'phoneNumber'
     | 'country'
     | 'city'
-    | 'street'
-    | 'postalCode';
+    | 'streetAddress'
+    | 'postCode';
   labelName: string;
   type?: string
 }[] = [
@@ -37,11 +37,11 @@ export const personalInfoInputs: {
     labelName: 'City',
   },
   {
-    fieldName: 'street',
+    fieldName: 'streetAddress',
     labelName: 'Street',
   },
   {
-    fieldName: 'postalCode',
+    fieldName: 'postCode',
     labelName: 'Postal dode',
   },
 ];

@@ -1,21 +1,32 @@
 'use client';
 
+import React, { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import { Controller, SubmitHandler, useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { Box, Button, Typography } from '@mui/material';
 import { personalInfoInputs } from '@/src/utils/personalInfoInputs';
 import InputField from '@/src/components/InputField';
 import { PersonalInfoFormSchema } from '@/src/utils/types';
 import { personalInfoSchema } from '@/src/utils/validationSchemas';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { Box, Button, Typography } from '@mui/material';
-import React from 'react';
-import { Controller, SubmitHandler, useForm } from 'react-hook-form';
+import { useGetMe, useGetUser, useUpdateUser } from '@/src/api/auth';
 
 const EditAccountDetails = () => {
-  const { control, handleSubmit } = useForm<PersonalInfoFormSchema>({
+  const { control, handleSubmit, reset } = useForm<PersonalInfoFormSchema>({
     resolver: zodResolver(personalInfoSchema),
   });
 
+  const { data: me } = useGetMe();
+  const { data: user } = useGetUser(me?.userId);
+  const { mutate: updateUser } = useUpdateUser(me?.userId);
+  const router = useRouter();
+
+  useEffect(() => {
+    reset(user);
+  }, [user]);
+
   const onSubmit: SubmitHandler<PersonalInfoFormSchema> = (data) => {
-    console.log(data);
+    updateUser(data, { onSuccess: () => router.push('/') });
   };
 
   return (
@@ -44,10 +55,11 @@ const EditAccountDetails = () => {
               key={fieldName}
               name={fieldName}
               control={control}
-              render={({ field, fieldState: { error } }) => (
+              render={({ field: { ref, ...field }, fieldState: { error } }) => (
                 <InputField
                   label={labelName}
                   helperText={error ? error.message : null}
+                  InputLabelProps={{ shrink: !!field.value }}
                   {...field}
                   type={type}
                 />

@@ -66,28 +66,28 @@ const useGenericMutation = <T, S>(
 };
 
 export const usePost = <T, S>(
-  url: string,
+  url: string | null,
   params?: object,
   config?: AxiosRequestConfig,
   updater?: (oldData: T, newData: S) => T
 ) => {
   return useGenericMutation<T, S>(
-    (data) => api.post<S>(url, data, config),
-    url,
+    (data) => api.post<S>(url!, data, config),
+    url!,
     params,
     updater
   );
 };
 
 export const useUpdate = <T, S>(
-  url: string,
+  url: string | null,
   params?: object,
   config?: AxiosRequestConfig,
   updater?: (oldData: T, newData: S) => T
 ) => {
   return useGenericMutation<T, S>(
-    (data) => api.patch<S>(url, data, config),
-    url,
+    (data) => api.patch<S>(url!, data, config),
+    url!,
     params,
     updater
   );

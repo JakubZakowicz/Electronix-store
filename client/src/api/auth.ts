@@ -20,6 +20,10 @@ export const useGetUser = (userId?: string) =>
   });
 
 export const useUpdateUser = (userId?: string) =>
-  useUpdate(pathToUrl(apiRoutes.updateUser, { userId }), undefined, {
-    withCredentials: true,
-  });
+  useUpdate(
+    userId ? pathToUrl(apiRoutes.updateUser, { userId }) : null,
+    undefined,
+    {
+      withCredentials: true,
+    }
+  );

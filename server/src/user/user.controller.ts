@@ -4,8 +4,8 @@ import {
   Delete,
   Get,
   Param,
+  Patch,
   Post,
-  Put,
   UseGuards,
   UsePipes,
   ValidationPipe,
@@ -39,7 +39,7 @@ export class UserController {
   }
 
   @UseGuards(JwtAuthGuard)
-  @Put(':id')
+  @Patch(':id')
   @UsePipes(new ValidationPipe())
   async update(@Param('id') id: string, @Body() userData: UpdateUserDto) {
     return this.userService.update(id, userData);

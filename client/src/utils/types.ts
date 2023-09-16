@@ -5,8 +5,8 @@ export interface PersonalInfoFormSchema {
   phoneNumber: string;
   country: string;
   city: string;
-  street: string;
-  postalCode: string;
+  streetAddress: string;
+  postCode: string;
 }
 
 export interface SignInFormSchema {
