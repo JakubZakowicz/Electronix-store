@@ -1,5 +1,5 @@
 import { apiRoutes } from '../routes/apiRoutes';
-import { useFetch, usePost } from '../utils/reactQuery.utils';
+import { useFetch, usePost, useUpdate } from '../utils/reactQuery.utils';
 import { pathToUrl } from '../utils/router.utils';
 import { User } from '../utils/types';
 
@@ -18,3 +18,12 @@ export const useGetUser = (userId?: string) =>
   useFetch<User>(userId ? pathToUrl(apiRoutes.getUser, { userId }) : null, {
     withCredentials: true,
   });
+
+export const useUpdateUser = (userId?: string) =>
+  useUpdate(
+    userId ? pathToUrl(apiRoutes.updateUser, { userId }) : null,
+    undefined,
+    {
+      withCredentials: true,
+    }
+  );

@@ -7,8 +7,8 @@ export const personalInfoSchema = z.object({
   phoneNumber: z.string(),
   country: z.string(),
   city: z.string(),
-  street: z.string(),
-  postalCode: z.string(),
+  streetAddress: z.string(),
+  postCode: z.string(),
 });
 
 export const signInSchema = z.object({
