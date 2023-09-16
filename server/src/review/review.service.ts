@@ -4,12 +4,15 @@ import { Repository } from 'typeorm';
 import { Review } from './review.entity';
 import { CreateReviewDto } from './dto/create-review.dto';
 import { UpdateReviewDto } from './dto/update-review.dto';
+import { Product } from '../product/product.entity';
 
 @Injectable()
 export class ReviewService {
   constructor(
     @InjectRepository(Review)
     private readonly reviewRepository: Repository<Review>,
+    @InjectRepository(Product)
+    private readonly productRepository: Repository<Product>,
   ) {}
 
   async findAll() {
@@ -26,8 +29,15 @@ export class ReviewService {
     return await review;
   }
 
-  async create(reviewData: CreateReviewDto) {
-    const newReview = this.reviewRepository.create(reviewData);
+  async create(userId: string, productId: string, reviewData: CreateReviewDto) {
+    const newReview = this.reviewRepository.create({
+      user: { id: userId },
+      product: { id: productId },
+      ...reviewData,
+    });
+
+    this.calculateAverageRating(newReview.product.id);
+
     return await this.reviewRepository.save(newReview);
   }
 
@@ -41,10 +51,38 @@ export class ReviewService {
       throw new NotFoundException(`There is no review with id: ${id}`);
     }
 
+    this.calculateAverageRating(review.product.id);
+
     return await this.reviewRepository.save(review);
   }
 
   async delete(id: string) {
-    return await this.reviewRepository.delete(id);
+    const deletedReview = await this.reviewRepository.findOne({
+      where: { id },
+      relations: { product: true },
+    });
+
+    const deleteResult = await this.reviewRepository.delete(id);
+
+    if (deletedReview) this.calculateAverageRating(deletedReview?.product.id);
+
+    return deleteResult;
+  }
+
+  async calculateAverageRating(productId: string) {
+    const reviews = await this.reviewRepository.find({
+      where: { product: { id: productId } },
+    });
+
+    let averageRating = 0;
+    reviews.forEach((review) => {
+      averageRating += review.rating;
+    });
+
+    averageRating = Number((averageRating / reviews.length).toFixed(2));
+
+    await this.productRepository.save({ id: productId, rating: averageRating });
+
+    return averageRating;
   }
 }

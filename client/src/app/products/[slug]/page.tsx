@@ -3,11 +3,16 @@
 import React, { useState } from 'react';
 import { Box, Grid, Rating, Tab, Typography } from '@mui/material';
 import { TabContext, TabList, TabPanel } from '@mui/lab';
+import LinearProgress from '@mui/material/LinearProgress';
 import ProductCounter from '@/src/components/ProductCounter';
 import SwiperGallery from '@/src/components/SwiperGallery';
 import { useGetProduct } from '@/src/api/products';
-import { convertPrice } from '@/src/utils/functions.utils';
+import {
+  convertPrice,
+  getSpecificRatingCount,
+} from '@/src/utils/functions.utils';
 import { useAddToCart } from '@/src/api/cart';
+import ReviewFormModalButton from '@/src/components/ReviewFormModalButton';
 
 interface ProductPageProps {
   params: { slug: string };
@@ -93,11 +98,90 @@ const ProductPage = ({ params }: ProductPageProps) => {
           </Box>
           <TabPanel value="1">{description}</TabPanel>
           <TabPanel value="2">
+            <Box
+              sx={{ width: '600px', margin: '0 auto', marginBottom: '80px' }}
+            >
+              <Box
+                sx={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                }}
+              >
+                <Box
+                  sx={{ display: 'flex', alignItems: 'center', gap: '20px' }}
+                >
+                  <Typography sx={{ fontSize: '60px' }}>
+                    {product?.rating}
+                  </Typography>
+                  <Box>
+                    <Rating
+                      name="read-only"
+                      value={product?.rating}
+                      sx={{
+                        '.MuiRating-iconEmpty': {
+                          color: 'rgba(255, 255, 255, 0.5)',
+                        },
+                      }}
+                      precision={0.1}
+                      readOnly
+                    />
+                    <Typography>{product?.reviews.length} Reviews</Typography>
+                  </Box>
+                </Box>
+                {id && <ReviewFormModalButton productId={id} />}
+              </Box>
+              {reviews && (
+                <Box
+                  sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    rowGap: '10px',
+                  }}
+                >
+                  {[5, 4, 3, 2, 1].map((rating) => {
+                    const { count, percentage } = getSpecificRatingCount(
+                      rating,
+                      reviews
+                    );
+                    return (
+                      <Box
+                        key={rating}
+                        sx={{
+                          display: 'flex',
+                          justifyContent: 'space-between',
+                          alignItems: 'center',
+                        }}
+                      >
+                        <Typography>
+                          {rating} {rating === 1 ? 'Star' : 'Stars'}
+                        </Typography>
+                        <LinearProgress
+                          variant="determinate"
+                          color="inherit"
+                          value={percentage}
+                          sx={{ width: '80%' }}
+                        />
+                        <Typography>{count}</Typography>
+                      </Box>
+                    );
+                  })}
+                </Box>
+              )}
+            </Box>
             {reviews &&
               reviews?.map(({ id, title, content, rating, user }) => (
                 <Grid key={id} container sx={{ marginBottom: '50px' }}>
                   <Grid item xl={2}>
-                    <Rating name="read-only" value={rating} readOnly />
+                    <Rating
+                      name="read-only"
+                      value={rating}
+                      readOnly
+                      sx={{
+                        '.MuiRating-iconEmpty': {
+                          color: 'rgba(255, 255, 255, 0.5)',
+                        },
+                      }}
+                    />
                     <Typography marginTop="10px">
                       {user.firstName} {user.lastName}
                     </Typography>

@@ -2,6 +2,7 @@ export const apiRoutes = {
   getCategories: '/categories',
   getCategory: '/categories/:slug',
   getProduct: '/products/:slug',
+  addReview: '/reviews/:productId',
   getCartData: '/cart',
   addToCart: '/cart/add',
   updateCartProduct: '/cart/edit',

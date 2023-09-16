@@ -7,6 +7,7 @@ import {
   ParseIntPipe,
   Post,
   Put,
+  Req,
   UseGuards,
   UsePipes,
   ValidationPipe,
@@ -15,6 +16,11 @@ import { ReviewService } from './review.service';
 import { CreateReviewDto } from './dto/create-review.dto';
 import { UpdateReviewDto } from './dto/update-review.dto';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
+import { User } from 'src/user/user.entity';
+
+interface RequestWithUser extends Express.Request {
+  user: { userId: string };
+}
 
 @Controller('reviews')
 export class ReviewController {
@@ -31,9 +37,14 @@ export class ReviewController {
 
   @UseGuards(JwtAuthGuard)
   @UsePipes(new ValidationPipe())
-  @Post()
-  create(@Body() reviewData: CreateReviewDto) {
-    return this.reviewService.create(reviewData);
+  @Post('/:productId')
+  create(
+    @Param('productId') productId: string,
+    @Body() reviewData: CreateReviewDto,
+    @Req() req: RequestWithUser,
+  ) {
+    const { userId } = req.user;
+    return this.reviewService.create(userId, productId, reviewData);
   }
 
   @UseGuards(JwtAuthGuard)
