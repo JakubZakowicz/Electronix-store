@@ -10,9 +10,12 @@ import { SignUpFormSchema } from '@/src/utils/types';
 import DefaultButton from '@/src/components/DefaultButton';
 import { pageRoutes } from '@/src/routes/pageRoutes';
 import { useSignUp } from '@/src/api/auth';
+import { useRouter } from 'next/navigation';
 
 const SignUpPage = () => {
-  const { mutate: signUp} = useSignUp()
+  const { mutate: signUp } = useSignUp();
+
+  const router = useRouter();
 
   const { control, handleSubmit } = useForm<SignUpFormSchema>({
     mode: 'onSubmit',
@@ -20,7 +23,7 @@ const SignUpPage = () => {
   });
 
   const onSubmit: SubmitHandler<SignUpFormSchema> = (data) => {
-    signUp(data)
+    signUp(data, { onSuccess: () => router.push(pageRoutes.singIn()) });
   };
 
   return (

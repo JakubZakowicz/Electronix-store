@@ -4,12 +4,14 @@ import React, { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Box, Button, Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import { personalInfoInputs } from '@/src/utils/personalInfoInputs';
 import InputField from '@/src/components/InputField';
 import { PersonalInfoFormSchema } from '@/src/utils/types';
 import { personalInfoSchema } from '@/src/utils/validationSchemas';
 import { useGetMe, useGetUser, useUpdateUser } from '@/src/api/auth';
+import DefaultButton from '@/src/components/DefaultButton';
+import { pageRoutes } from '@/src/routes/pageRoutes';
 
 const EditAccountDetails = () => {
   const { control, handleSubmit, reset } = useForm<PersonalInfoFormSchema>({
@@ -26,7 +28,9 @@ const EditAccountDetails = () => {
   }, [user]);
 
   const onSubmit: SubmitHandler<PersonalInfoFormSchema> = (data) => {
-    updateUser(data, { onSuccess: () => router.push('/') });
+    updateUser(data, {
+      onSuccess: () => router.push(pageRoutes.accountDetails()),
+    });
   };
 
   return (
@@ -66,21 +70,7 @@ const EditAccountDetails = () => {
               )}
             />
           ))}
-          <Button
-            type="submit"
-            sx={{
-              color: 'white',
-              padding: '6px 50px',
-              border: '1px solid white',
-              background: 'rgba(255, 255, 255, 0.2)',
-              borderRadius: '0',
-              marginTop: '10px',
-              fontSize: '18px',
-              textTransform: 'capitalize',
-            }}
-          >
-            Update account details
-          </Button>
+          <DefaultButton name="Update Account Details" type="submit" />
         </Box>
       </form>
     </Box>

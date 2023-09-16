@@ -25,7 +25,7 @@ const SignInPage = () => {
   const onSubmit: SubmitHandler<SignInFormSchema> = (data) => {
     signIn(data, {
       onSuccess: () => {
-        router.push('/');
+        router.push(pageRoutes.root());
         refetch()
       },
     });
