@@ -5,6 +5,7 @@ import { pageRoutes } from '@/src/routes/pageRoutes';
 import Link from 'next/link';
 import Image from 'next/image';
 import VRHeadset from '../../images/HP_Reverb.png';
+import { useGetProducts } from '@/src/api/products';
 
 const CustomPaper = ({ children }: PaperProps) => {
   return (
@@ -31,13 +32,21 @@ const CustomPaper = ({ children }: PaperProps) => {
 };
 
 const SearchBar = () => {
+  const { data } = useGetProducts();
+  const products = data?.map((product) => ({
+    name: product.name,
+    link: pageRoutes.products(product.id),
+  }));
+
+  if (!products) return;
+
   return (
     <Autocomplete
       freeSolo
-      options={top100Films.map((option) => option)}
+      options={products.map((option) => option)}
       PaperComponent={CustomPaper}
       getOptionLabel={(option) =>
-        typeof option === 'string' ? '' : option.title
+        typeof option === 'string' ? '' : option.name
       }
       renderOption={(props, option) => (
         <li {...props}>
@@ -52,7 +61,7 @@ const SearchBar = () => {
                 height={50}
                 width={50}
               />
-              <Box>{option.title}</Box>
+              <Box>{option.name}</Box>
             </Box>
           </Link>
         </li>
@@ -96,34 +105,3 @@ const SearchBar = () => {
 };
 
 export default SearchBar;
-
-const top100Films = [
-  { title: 'The Shawshank Redemption', year: 1994, link: pageRoutes.singIn() },
-  { title: 'The Godfather', year: 1972, link: pageRoutes.singIn() },
-  { title: 'The Godfather: Part II', year: 1974, link: pageRoutes.singIn() },
-  { title: 'The Dark Knight', year: 2008, link: pageRoutes.singIn() },
-  { title: '12 Angry Men', year: 1957, link: pageRoutes.singIn() },
-  { title: "Schindler's List", year: 1993, link: pageRoutes.singIn() },
-  { title: 'Pulp Fiction', year: 1994, link: pageRoutes.singIn() },
-  {
-    title: 'The Lord of the Rings: The Return of the King',
-    year: 2003,
-    link: pageRoutes.singIn(),
-  },
-  {
-    title: 'The Good, the Bad and the Ugly',
-    year: 1966,
-    link: pageRoutes.singIn(),
-  },
-  { title: 'Fight Club', year: 1999, link: pageRoutes.singIn() },
-  {
-    title: 'The Lord of the Rings: The Fellowship of the Ring',
-    year: 2001,
-    link: pageRoutes.singIn(),
-  },
-  {
-    title: 'Star Wars: Episode V - The Empire Strikes Back',
-    year: 1980,
-    link: pageRoutes.singIn(),
-  },
-];
