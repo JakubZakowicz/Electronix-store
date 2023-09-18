@@ -1,5 +1,16 @@
 import React from 'react';
-import { Autocomplete, Box, Paper, PaperProps, TextField } from '@mui/material';
+import {
+  Autocomplete,
+  Box,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+  Paper,
+  PaperProps,
+  TextField,
+} from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 
 const CustomPaper = ({ children }: PaperProps) => {
@@ -28,45 +39,48 @@ const CustomPaper = ({ children }: PaperProps) => {
 
 const SearchBar = () => {
   return (
-    <Autocomplete
-      freeSolo
-      options={top100Films.map((option) => option.title)}
-      PaperComponent={CustomPaper}
-      renderInput={({
-        InputProps: { startAdornment, ...InputProps },
-        ...params
-      }) => (
-        <Box width="700px">
-          <TextField
-            hiddenLabel
-            variant="standard"
-            placeholder="Search"
-            sx={{
-              backgroundColor: 'rgba(255, 255, 255, 0.1)',
-              padding: '3px 15px',
-              borderRadius: '20px',
-              '& input': {
-                color: 'white',
-              },
-            }}
-            InputProps={{
-              disableUnderline: true,
-              startAdornment: (
-                <SearchIcon
-                  sx={{
-                    color: '#808080',
-                    marginRight: '5px',
-                    marginBottom: '2px',
-                  }}
-                />
-              ),
-              ...InputProps,
-            }}
-            {...params}
-          />
-        </Box>
-      )}
-    />
+    <Box sx={{ position: 'relative' }}>
+      <Box width="700px">
+        <TextField
+          hiddenLabel
+          variant="standard"
+          fullWidth
+          placeholder="Search"
+          sx={{
+            backgroundColor: 'rgba(255, 255, 255, 0.1)',
+            padding: '5px 15px',
+            borderRadius: '20px',
+            '& input': {
+              color: 'white',
+            },
+          }}
+          InputProps={{
+            disableUnderline: true,
+            startAdornment: (
+              <SearchIcon sx={{ color: '#808080', marginRight: '5px' }} />
+            ),
+          }}
+        />
+      </Box>
+      <List
+        sx={{
+          position: 'absolute',
+          background: '#2C2C2C',
+          border: '1px solid white',
+          width: '100%',
+          height: '500px',
+          overflow: 'auto',
+        }}
+      >
+        {top100Films.map((film) => (
+          <ListItem key={film.title} disablePadding>
+            <ListItemButton>
+              <ListItemText primary={film.title} />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
+    </Box>
   );
 };
 
