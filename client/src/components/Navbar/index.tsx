@@ -12,11 +12,9 @@ import {
   ListItemButton,
   ListItemIcon,
   ListItemText,
-  TextField,
   useMediaQuery,
   useTheme,
 } from '@mui/material';
-import SearchIcon from '@mui/icons-material/Search';
 import PersonIcon from '@mui/icons-material/Person';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import GridViewIcon from '@mui/icons-material/GridView';
@@ -27,7 +25,7 @@ import { useGetCategories } from '@/src/api/categories';
 import Logo from '@/public/logo.svg';
 import { useGetMe } from '@/src/api/auth';
 import UserMenu from '../UserMenu';
-
+import SearchBar from '../SearchBar';
 
 interface NavbarProps {
   children: React.ReactNode;
@@ -36,15 +34,14 @@ interface NavbarProps {
 const Navbar = ({ children }: NavbarProps) => {
   const [open, setOpen] = useState(true);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-  const [isUser, setIsUser] = useState(false)
+  const [isUser, setIsUser] = useState(false);
 
   const { data: categories } = useGetCategories();
   const { data: me } = useGetMe();
 
   useEffect(() => {
-    if (me) setIsUser(true)
-  }, [me])
-
+    if (me) setIsUser(true);
+  }, [me]);
 
   const handleClick = () => {
     setOpen(!open);
@@ -71,28 +68,7 @@ const Navbar = ({ children }: NavbarProps) => {
         <Link href={pageRoutes.root()}>
           <Image src={Logo} width={60} alt="logo" />
         </Link>
-        <Box width="700px">
-          <TextField
-            hiddenLabel
-            variant="standard"
-            fullWidth
-            placeholder="Search"
-            sx={{
-              backgroundColor: 'rgba(255, 255, 255, 0.1)',
-              padding: '5px 15px',
-              borderRadius: '20px',
-              '& input': {
-                color: 'white',
-              },
-            }}
-            InputProps={{
-              disableUnderline: true,
-              startAdornment: (
-                <SearchIcon sx={{ color: '#808080', marginRight: '5px' }} />
-              ),
-            }}
-          />
-        </Box>
+        <SearchBar />
         <Box display="flex" alignItems="center" gap="40px">
           {isUser ? (
             <UserMenu userId={me!.userId} setIsUser={setIsUser} />
