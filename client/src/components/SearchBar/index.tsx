@@ -38,12 +38,10 @@ const SearchBar = () => {
     link: pageRoutes.products(product.id),
   }));
 
-  if (!products) return;
-
   return (
     <Autocomplete
       freeSolo
-      options={products.map((option) => option)}
+      options={products ? products.map((option) => option) : []}
       PaperComponent={CustomPaper}
       getOptionLabel={(option) =>
         typeof option === 'string' ? '' : option.name
@@ -74,7 +72,7 @@ const SearchBar = () => {
           <TextField
             hiddenLabel
             variant="standard"
-            placeholder="Search"
+            placeholder="Search..."
             sx={{
               backgroundColor: 'rgba(255, 255, 255, 0.1)',
               padding: '3px 15px',
