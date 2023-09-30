@@ -18,6 +18,7 @@ import {
 import PersonIcon from '@mui/icons-material/Person';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import GridViewIcon from '@mui/icons-material/GridView';
+import CircleIcon from '@mui/icons-material/Circle';
 import { ExpandLess, ExpandMore } from '@mui/icons-material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { pageRoutes } from '@/src/routes/pageRoutes';
@@ -26,6 +27,7 @@ import Logo from '@/public/logo.svg';
 import { useGetMe } from '@/src/api/auth';
 import UserMenu from '../UserMenu';
 import SearchBar from '../SearchBar';
+import { useGetCartData } from '@/src/api/cart';
 
 interface NavbarProps {
   children: React.ReactNode;
@@ -38,6 +40,7 @@ const Navbar = ({ children }: NavbarProps) => {
 
   const { data: categories } = useGetCategories();
   const { data: me } = useGetMe();
+  const { data: cartData } = useGetCartData();
 
   useEffect(() => {
     if (me) setIsUser(true);
@@ -79,6 +82,20 @@ const Navbar = ({ children }: NavbarProps) => {
           )}
           <Link href={pageRoutes.cart()}>
             <ShoppingCartIcon fontSize="large" sx={{ color: 'white' }} />
+            {cartData && cartData.products.length > 0 && (
+              <Box sx={{ position: 'relative' }}>
+                <CircleIcon
+                  sx={{
+                    color: '#48A623',
+                    fontSize: 10,
+                    marginRight: 15,
+                    position: 'absolute',
+                    bottom: 21,
+                    left: 13,
+                  }}
+                />
+              </Box>
+            )}
           </Link>
         </Box>
       </Box>
