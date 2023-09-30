@@ -9,5 +9,6 @@ export const api = {
     axios.post<T>(baseURL + url, data, config),
   patch: <T>(url: string, data: any, config?: AxiosRequestConfig) =>
     axios.patch<T>(baseURL + url, data, config),
-  delete: <T>(url: string) => axios.delete<T>(baseURL + url),
+  delete: <T>(url: string, config?: AxiosRequestConfig) =>
+    axios.delete<T>(baseURL + url, config),
 };

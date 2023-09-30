@@ -96,10 +96,11 @@ export const useUpdate = <T, S>(
 export const useDelete = <T>(
   url: string,
   params?: object,
+  config?: AxiosRequestConfig,
   updater?: (oldData: T, id: string | number) => T
 ) => {
   return useGenericMutation<T, string | number>(
-    (id) => api.delete(`${url}/${id}`),
+    (id) => api.delete(`${url}/${id}`, config),
     url,
     params,
     updater

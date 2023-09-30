@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import {
@@ -25,7 +25,7 @@ import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import DeleteCartProduct from '@/src/components/DeleteCartProduct';
 
 const CartPage = () => {
-  const { data: cartData } = useGetCartData();
+  const { data: cartData, refetch } = useGetCartData();
 
   console.log(cartData);
   const { products, subtotal, shipping, total } = cartData || {};

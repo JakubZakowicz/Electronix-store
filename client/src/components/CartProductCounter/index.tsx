@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import ProductCounter from '../ProductCounter';
-import { useUpdateCartProduct } from '@/src/api/cart';
+import { useGetCartData, useUpdateCartProduct } from '@/src/api/cart';
 
 interface CartProductCounterProps {
   productId: string;
@@ -12,6 +12,7 @@ const CartProductCounter = ({
   defaultAmount,
 }: CartProductCounterProps) => {
   const [count, setCount] = useState<number>(defaultAmount ?? 1);
+  const { refetch } = useGetCartData();
 
   const { mutate: updateCartProduct } = useUpdateCartProduct();
 
@@ -20,7 +21,10 @@ const CartProductCounter = ({
       count={count}
       setCount={setCount}
       amountButtonAction={() =>
-        updateCartProduct({ productId, quantity: count })
+        updateCartProduct(
+          { productId, quantity: count },
+          { onSuccess: () => refetch() }
+        )
       }
     />
   );
