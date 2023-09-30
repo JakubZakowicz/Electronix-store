@@ -1,20 +1,34 @@
 import { NestFactory } from '@nestjs/core';
 import * as cookieParser from 'cookie-parser';
 import * as session from 'express-session';
+import * as fs from 'fs';
+import * as path from 'path';
 import { AppModule } from './app.module';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const httpsOptions = {
+    key: fs.readFileSync(path.join(__dirname, process.env.SSL_KEY_PATH || '')),
+    cert: fs.readFileSync(
+      path.join(__dirname, process.env.SSL_CERT_PATH || ''),
+    ),
+  };
+
+  const app = await NestFactory.create(AppModule, { httpsOptions });
   app.enableCors({
     credentials: true,
-    origin: 'http://localhost:3000',
+    origin: process.env.CORS_ORIGIN,
   });
 
   app.use(
     session({
-      secret: 'my-secret',
+      secret: process.env.SESSION_SECRET || 'secret123',
       resave: false,
       saveUninitialized: false,
+      cookie: {
+        httpOnly: true,
+        secure: true,
+        sameSite: 'none',
+      },
     }),
   );
   app.use(cookieParser());
