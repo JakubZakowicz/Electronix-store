@@ -1,11 +1,10 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import {
   Box,
-  Button,
   Divider,
   Table,
   TableBody,
@@ -21,14 +20,25 @@ import { pageRoutes } from '@/src/routes/pageRoutes';
 import { useGetCartData } from '@/src/api/cart';
 import { convertPrice } from '@/src/utils/functions.utils';
 import CartProductCounter from '@/src/components/CartProductCounter';
-import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import DeleteCartProduct from '@/src/components/DeleteCartProduct';
 
 const CartPage = () => {
-  const { data: cartData, refetch } = useGetCartData();
-
-  console.log(cartData);
+  const { data: cartData } = useGetCartData();
   const { products, subtotal, shipping, total } = cartData || {};
+
+  if (!products || products.length === 0)
+    return (
+      <Box sx={{ borderTop: '1px solid white' }}>
+        <Typography sx={{ textAlign: 'center', fontSize: 24, marginTop: 5 }}>
+          The cart is empty
+        </Typography>
+        <Box sx={{ display: 'flex', justifyContent: 'center', marginTop: 4 }}>
+          <Link href={pageRoutes.root()}>
+            <DefaultButton name="Go back to store" />
+          </Link>
+        </Box>
+      </Box>
+    );
 
   return (
     <Box>
@@ -58,7 +68,11 @@ const CartPage = () => {
               >
                 <TableCell
                   scope="row"
-                  sx={{ display: 'flex', alignItems: 'center', gap: '20px' }}
+                  sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '20px',
+                  }}
                 >
                   <Image src={VR} width={100} alt="vr" />
                   {name}
