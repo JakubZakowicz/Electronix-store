@@ -8,12 +8,16 @@ import {
 import { pathToUrl } from '../utils/router.utils';
 import { Cart } from '../utils/types';
 
-export const useGetCartData = () => useFetch<Cart>(apiRoutes.getCartData);
+export const useGetCartData = () =>
+  useFetch<Cart>(apiRoutes.getCartData, { withCredentials: true });
 
-export const useAddToCart = () => usePost(apiRoutes.addToCart);
+export const useAddToCart = () =>
+  usePost(apiRoutes.addToCart, undefined, { withCredentials: true });
 
 export const useUpdateCartProduct = () =>
-  useUpdate(apiRoutes.updateCartProduct);
+  useUpdate(apiRoutes.updateCartProduct, undefined, { withCredentials: true });
 
 export const useDeleteCartProduct = (productId: string) =>
-  useDelete(pathToUrl(apiRoutes.deleteCartProduct, { productId }));
+  useDelete(pathToUrl(apiRoutes.deleteCartProduct, { productId }), undefined, {
+    withCredentials: true,
+  });

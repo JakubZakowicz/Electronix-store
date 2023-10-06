@@ -11,7 +11,7 @@ import {
   convertPrice,
   getSpecificRatingCount,
 } from '@/src/utils/functions.utils';
-import { useAddToCart } from '@/src/api/cart';
+import { useAddToCart, useGetCartData } from '@/src/api/cart';
 import ReviewFormModalButton from '@/src/components/ReviewFormModalButton';
 
 interface ProductPageProps {
@@ -24,6 +24,7 @@ const ProductPage = ({ params }: ProductPageProps) => {
   const { slug } = params;
 
   const { data: product } = useGetProduct(slug);
+  const { refetch } = useGetCartData();
   const { mutate: addToCart } = useAddToCart();
 
   const { id, name, summary, description, price, reviews } = product || {};
@@ -33,7 +34,7 @@ const ProductPage = ({ params }: ProductPageProps) => {
   };
 
   const addProductToCart = () => {
-    addToCart({ productId: id!, quantity });
+    addToCart({ productId: id!, quantity }, { onSuccess: () => refetch() });
   };
 
   return (
@@ -69,7 +70,6 @@ const ProductPage = ({ params }: ProductPageProps) => {
             setCount={setQuantity}
             isAddToCartOption
             cartButtonAction={addProductToCart}
-            amountButtonAction={() => console.log(quantity)}
           />
         </Grid>
       </Grid>
