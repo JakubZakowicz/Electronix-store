@@ -16,6 +16,7 @@ import { AuthModule } from './auth/auth.module';
 import { ConfigModule } from '@nestjs/config';
 import { CartModule } from './cart/cart.module';
 import { OrderItem } from './order/order-item.entity';
+import { CloudinaryModule } from './cloudinary/cloudinary.module';
 
 @Module({
   imports: [
@@ -37,6 +38,7 @@ import { OrderItem } from './order/order-item.entity';
     OrderModule,
     AuthModule,
     CartModule,
+    CloudinaryModule,
   ],
   controllers: [AppController],
   providers: [AppService],
