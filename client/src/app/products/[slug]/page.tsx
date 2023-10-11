@@ -27,7 +27,8 @@ const ProductPage = ({ params }: ProductPageProps) => {
   const { refetch } = useGetCartData();
   const { mutate: addToCart } = useAddToCart();
 
-  const { id, name, summary, description, price, reviews } = product || {};
+  const { id, name, images, summary, description, price, reviews } =
+    product || {};
 
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     setTabNumber(newValue);
@@ -42,7 +43,7 @@ const ProductPage = ({ params }: ProductPageProps) => {
       <Grid container marginTop={10} columnSpacing={6}>
         <Grid item xl={6}>
           <Box maxWidth="730px" width="100vw">
-            <SwiperGallery />
+            <SwiperGallery images={images} />
           </Box>
         </Grid>
         <Grid item xl={6}>
