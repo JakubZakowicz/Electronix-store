@@ -1,4 +1,4 @@
-lockfileVersion: '6.1'
+lockfileVersion: '6.0'
 
 settings:
   autoInstallPeers: true
@@ -81,7 +81,7 @@ devDependencies:
     version: 9.0.0
   '@nestjs/schematics':
     specifier: ^9.0.0
-    version: 9.0.0(chokidar@3.5.3)(typescript@4.7.4)
+    version: 9.0.0(typescript@5.0.2)
   '@nestjs/testing':
     specifier: ^9.0.0
     version: 9.0.0(@nestjs/common@9.3.0)(@nestjs/core@9.0.0)(@nestjs/platform-express@9.0.0)
@@ -114,10 +114,10 @@ devDependencies:
     version: 2.0.11
   '@typescript-eslint/eslint-plugin':
     specifier: ^5.0.0
-    version: 5.0.0(@typescript-eslint/parser@5.0.0)(eslint@8.0.1)(typescript@5.0.2)
+    version: 5.0.0(@typescript-eslint/parser@5.62.0)(eslint@8.0.1)(typescript@5.0.2)
   '@typescript-eslint/parser':
-    specifier: ^5.0.0
-    version: 5.0.0(eslint@8.0.1)(typescript@5.0.2)
+    specifier: ^5.62.0
+    version: 5.62.0(eslint@8.0.1)(typescript@5.0.2)
   eslint:
     specifier: ^8.0.1
     version: 8.0.1
@@ -1042,6 +1042,21 @@ packages:
       - chokidar
     dev: true
 
+  /@nestjs/schematics@9.0.0(typescript@5.0.2):
+    resolution: {integrity: sha512-l4AReqX597iKyAXVN9WsrLQ1NDY0G15s7x8dHpwM0+3MOFoEKZMvqeiFrfVMqbwuMiTvXTuLcoMdlKuz7qtrDg==}
+    peerDependencies:
+      typescript: ^4.3.5
+    dependencies:
+      '@angular-devkit/core': 14.0.5(chokidar@3.5.3)
+      '@angular-devkit/schematics': 14.0.5(chokidar@3.5.3)
+      fs-extra: 10.1.0
+      jsonc-parser: 3.0.0
+      pluralize: 8.0.0
+      typescript: 5.0.2
+    transitivePeerDependencies:
+      - chokidar
+    dev: true
+
   /@nestjs/testing@9.0.0(@nestjs/common@9.3.0)(@nestjs/core@9.0.0)(@nestjs/platform-express@9.0.0):
     resolution: {integrity: sha512-lBBzZvJWaYutYC1wOEKf4KOis/wxudBX0pVLZxzHmtbkeC2EQgQCbyKA88m1R9QeYTt9CmVMg4eyb+WeOADZiQ==}
     peerDependencies:
@@ -1409,7 +1424,7 @@ packages:
       '@types/yargs-parser': 21.0.0
     dev: true
 
-  /@typescript-eslint/eslint-plugin@5.0.0(@typescript-eslint/parser@5.0.0)(eslint@8.0.1)(typescript@5.0.2):
+  /@typescript-eslint/eslint-plugin@5.0.0(@typescript-eslint/parser@5.62.0)(eslint@8.0.1)(typescript@5.0.2):
     resolution: {integrity: sha512-T6V6fCD2U0YesOedvydTnrNtsC8E+c2QzpawIpDdlaObX0OX5dLo7tLU5c64FhTZvA1Xrdim+cXDI7NPsVx8Cg==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     peerDependencies:
@@ -1421,7 +1436,7 @@ packages:
         optional: true
     dependencies:
       '@typescript-eslint/experimental-utils': 5.0.0(eslint@8.0.1)(typescript@5.0.2)
-      '@typescript-eslint/parser': 5.0.0(eslint@8.0.1)(typescript@5.0.2)
+      '@typescript-eslint/parser': 5.62.0(eslint@8.0.1)(typescript@5.0.2)
       '@typescript-eslint/scope-manager': 5.0.0
       debug: 4.3.4
       eslint: 8.0.1
@@ -1453,8 +1468,8 @@ packages:
       - typescript
     dev: true
 
-  /@typescript-eslint/parser@5.0.0(eslint@8.0.1)(typescript@5.0.2):
-    resolution: {integrity: sha512-B6D5rmmQ14I1fdzs71eL3DAuvnPHTY/t7rQABrL9BLnx/H51Un8ox1xqYAchs0/V2trcoyxB1lMJLlrwrJCDgw==}
+  /@typescript-eslint/parser@5.62.0(eslint@8.0.1)(typescript@5.0.2):
+    resolution: {integrity: sha512-VlJEV0fOQ7BExOsHYAGrgbEiZoi8D+Bl2+f6V2RrXerRSylnp+ZBHmPvaIa8cz0Ajx7WO7Z5RqfgYg7ED1nRhA==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     peerDependencies:
       eslint: ^6.0.0 || ^7.0.0 || ^8.0.0
@@ -1463,9 +1478,9 @@ packages:
       typescript:
         optional: true
     dependencies:
-      '@typescript-eslint/scope-manager': 5.0.0
-      '@typescript-eslint/types': 5.0.0
-      '@typescript-eslint/typescript-estree': 5.0.0(typescript@5.0.2)
+      '@typescript-eslint/scope-manager': 5.62.0
+      '@typescript-eslint/types': 5.62.0
+      '@typescript-eslint/typescript-estree': 5.62.0(typescript@5.0.2)
       debug: 4.3.4
       eslint: 8.0.1
       typescript: 5.0.2
@@ -1481,8 +1496,21 @@ packages:
       '@typescript-eslint/visitor-keys': 5.0.0
     dev: true
 
+  /@typescript-eslint/scope-manager@5.62.0:
+    resolution: {integrity: sha512-VXuvVvZeQCQb5Zgf4HAxc04q5j+WrNAtNh9OwCsCgpKqESMTu3tF/jhZ3xG6T4NZwWl65Bg8KuS2uEvhSfLl0w==}
+    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+    dependencies:
+      '@typescript-eslint/types': 5.62.0
+      '@typescript-eslint/visitor-keys': 5.62.0
+    dev: true
+
   /@typescript-eslint/types@5.0.0:
     resolution: {integrity: sha512-dU/pKBUpehdEqYuvkojmlv0FtHuZnLXFBn16zsDmlFF3LXkOpkAQ2vrKc3BidIIve9EMH2zfTlxqw9XM0fFN5w==}
+    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+    dev: true
+
+  /@typescript-eslint/types@5.62.0:
+    resolution: {integrity: sha512-87NVngcbVXUahrRTqIK27gD2t5Cu1yuCXxbLcFtCzZGlfyVWWh8mLHkoxzjsB6DDNnvdL+fW8MiwPEJyGJQDgQ==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
 
@@ -1507,11 +1535,40 @@ packages:
       - supports-color
     dev: true
 
+  /@typescript-eslint/typescript-estree@5.62.0(typescript@5.0.2):
+    resolution: {integrity: sha512-CmcQ6uY7b9y694lKdRB8FEel7JbU/40iSAPomu++SjLMntB+2Leay2LO6i8VnJk58MtE9/nQSFIH6jpyRWyYzA==}
+    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+    peerDependencies:
+      typescript: '*'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+    dependencies:
+      '@typescript-eslint/types': 5.62.0
+      '@typescript-eslint/visitor-keys': 5.62.0
+      debug: 4.3.4
+      globby: 11.1.0
+      is-glob: 4.0.3
+      semver: 7.5.3
+      tsutils: 3.21.0(typescript@5.0.2)
+      typescript: 5.0.2
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
   /@typescript-eslint/visitor-keys@5.0.0:
     resolution: {integrity: sha512-yRyd2++o/IrJdyHuYMxyFyBhU762MRHQ/bAGQeTnN3pGikfh+nEmM61XTqaDH1XDp53afZ+waXrk0ZvenoZ6xw==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dependencies:
       '@typescript-eslint/types': 5.0.0
+      eslint-visitor-keys: 3.4.1
+    dev: true
+
+  /@typescript-eslint/visitor-keys@5.62.0:
+    resolution: {integrity: sha512-07ny+LHRzQXepkGg6w0mFY41fVUNBrL2Roj/++7V1txKugfjm/Ci/qSND03r2RhlJhJYMcTn9AhhSSqQp0Ysyw==}
+    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+    dependencies:
+      '@typescript-eslint/types': 5.62.0
       eslint-visitor-keys: 3.4.1
     dev: true
 
