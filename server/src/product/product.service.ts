@@ -13,13 +13,15 @@ export class ProductService {
   ) {}
 
   async findAll() {
-    return await this.productRepository.find({ relations: { category: true } });
+    return await this.productRepository.find({
+      relations: { category: true, images: true },
+    });
   }
 
   async findOne(id: string) {
     const product = await this.productRepository.findOne({
       where: [{ id }, { name: id }, { slug: id }],
-      relations: { reviews: { user: true } },
+      relations: { reviews: { user: true }, images: true },
     });
 
     if (!product) {

@@ -17,6 +17,8 @@ import { ConfigModule } from '@nestjs/config';
 import { CartModule } from './cart/cart.module';
 import { OrderItem } from './order/order-item.entity';
 import { CloudinaryModule } from './cloudinary/cloudinary.module';
+import { ImageModule } from './image/image.module';
+import { Image } from './image/image.entity';
 
 @Module({
   imports: [
@@ -27,7 +29,7 @@ import { CloudinaryModule } from './cloudinary/cloudinary.module';
       username: process.env.DB_USERNAME || 'admin',
       password: process.env.DB_PASSWORD || 'password',
       database: process.env.DB_NAME || 'ecommerce',
-      entities: [Category, User, Product, Review, Order, OrderItem],
+      entities: [Category, User, Product, Review, Order, OrderItem, Image],
       synchronize: true,
     }),
     ConfigModule.forRoot(),
@@ -39,6 +41,7 @@ import { CloudinaryModule } from './cloudinary/cloudinary.module';
     AuthModule,
     CartModule,
     CloudinaryModule,
+    ImageModule,
   ],
   controllers: [AppController],
   providers: [AppService],

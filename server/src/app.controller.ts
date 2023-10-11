@@ -1,21 +1,12 @@
-import {
-  Controller,
-  Post,
-  UploadedFile,
-  UseInterceptors,
-} from '@nestjs/common';
-import { FileInterceptor } from '@nestjs/platform-express';
+import { Controller, Get } from '@nestjs/common';
 import { AppService } from './app.service';
 
 @Controller()
 export class AppController {
-  constructor(private appService: AppService) {}
+  constructor(private readonly appService: AppService) {}
 
-  @Post('upload')
-  @UseInterceptors(FileInterceptor('image'))
-  async uploadFile(@UploadedFile() file: Express.Multer.File) {
-    const response = await this.appService.uploadImageToCloudinary(file);
-
-    return response.url;
+  @Get()
+  getHello(): string {
+    return this.appService.getHello();
   }
 }
