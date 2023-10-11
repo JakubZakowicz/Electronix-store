@@ -1,6 +1,9 @@
 import React, { CSSProperties, useState } from 'react';
-// Import Swiper React components
+import Image from 'next/image';
 import { Swiper, SwiperSlide, SwiperClass } from 'swiper/react';
+import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
+import { Box } from '@mui/material';
+import { Image as ImageType } from '@/src/utils/types';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -10,47 +13,32 @@ import 'swiper/css/thumbs';
 
 import './styles.css';
 
-import VR1 from '@/src/images/vr1.png';
-import VR2 from '@/src/images/vr2.png';
-import VR3 from '@/src/images/vr3.png';
-import VR4 from '@/src/images/vr4.png';
-import VR5 from '@/src/images/vr5.png';
+interface SwiperGalleryProps {
+  images?: ImageType[];
+}
 
-// import required modules
-import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
-import Image from 'next/image';
-import { Box } from '@mui/material';
-
-const SwiperGallery = () => {
+const SwiperGallery = ({ images }: SwiperGalleryProps) => {
   const [thumbsSwiper, setThumbsSwiper] = useState<SwiperClass | null>(null);
   return (
     <Box>
       <Swiper
-        style={{
-          '--swiper-navigation-color': '#fff',
-          '--swiper-pagination-color': '#fff',
-        } as CSSProperties}
+        style={
+          {
+            '--swiper-navigation-color': '#fff',
+            '--swiper-pagination-color': '#fff',
+          } as CSSProperties
+        }
         spaceBetween={10}
         navigation={true}
         thumbs={{ swiper: thumbsSwiper }}
         modules={[FreeMode, Navigation, Thumbs]}
         className="mySwiper2"
       >
-        <SwiperSlide>
-          <Image src={VR1} alt="VR" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image src={VR2} alt="VR" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image src={VR3} alt="VR" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image src={VR4} alt="VR" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image src={VR5} alt="VR" />
-        </SwiperSlide>
+        {images?.map(({ id, url }) => (
+          <SwiperSlide key={id}>
+            <Image src={url} width={730} height={730} alt="VR" />
+          </SwiperSlide>
+        ))}
       </Swiper>
       <Swiper
         onSwiper={setThumbsSwiper}
@@ -61,21 +49,11 @@ const SwiperGallery = () => {
         modules={[FreeMode, Navigation, Thumbs]}
         className="mySwiper"
       >
-         <SwiperSlide>
-          <Image src={VR1} alt="VR" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image src={VR2} alt="VR" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image src={VR3} alt="VR" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image src={VR4} alt="VR" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image src={VR5} alt="VR" />
-        </SwiperSlide>
+        {images?.map(({ id, url }) => (
+          <SwiperSlide key={id}>
+            <Image src={url} width={730} height={730} alt="VR" />
+          </SwiperSlide>
+        ))}
       </Swiper>
     </Box>
   );

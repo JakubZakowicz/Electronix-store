@@ -2,22 +2,23 @@ import {
   Column,
   CreateDateColumn,
   Entity,
-  ManyToMany,
   ManyToOne,
   OneToMany,
-  OneToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
 import { Category } from '../category/category.entity';
 import { Review } from '../review/review.entity';
-import { Order } from '../order/order.entity';
 import { OrderItem } from '../order/order-item.entity';
+import { Image } from '../image/image.entity';
 
 @Entity('products')
 export class Product {
   @PrimaryGeneratedColumn('uuid')
   id: string;
+
+  @OneToMany(() => Image, (image: Image) => image.product)
+  images: Image[];
 
   @Column()
   name: string;

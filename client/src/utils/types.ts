@@ -31,10 +31,16 @@ export interface Category {
   products: Product[];
 }
 
+export interface Image {
+  id: string;
+  url: string;
+}
+
 export interface Product {
   id: string;
   name: string;
   summary: string;
+  images: Image[];
   description: string;
   price: number;
   rating: number;
@@ -54,7 +60,7 @@ export interface Review {
 export interface User {
   firstName: string;
   lastName: string;
-  email: string,
+  email: string;
   phoneNumber: string;
   country: string;
   city: string;
@@ -64,7 +70,7 @@ export interface User {
 }
 
 export interface Cart {
-  products: CartProduct[]
+  products: CartProduct[];
   subtotal: number;
   shipping: number;
   total: number;
@@ -82,9 +88,9 @@ export interface AddToCartData {
 export interface Order {
   id: string;
   status: string;
-  orderItems: OrderItem[]
+  orderItems: OrderItem[];
   deliveryPrice: number;
-  totalPrice: number
+  totalPrice: number;
 }
 
 export interface OrderItem {

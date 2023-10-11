@@ -11,7 +11,6 @@ import {
   Rating,
   Typography,
 } from '@mui/material';
-import VRHeadset from '../../images/HP_Reverb.png';
 import { pageRoutes } from '@/src/routes/pageRoutes';
 import { Product } from '@/src/utils/types';
 import { convertPrice } from '@/src/utils/functions.utils';
@@ -22,6 +21,7 @@ interface ProductsInterface {
 }
 
 const Products = ({ name, products }: ProductsInterface) => {
+  console.log(products)
   return (
     <Box>
       <Typography
@@ -34,7 +34,7 @@ const Products = ({ name, products }: ProductsInterface) => {
       </Typography>
       <Grid container marginTop="-30px" spacing={12} rowSpacing={6}>
         {products &&
-          products.map(({ id, name, rating, price, slug }) => (
+          products.map(({ id, name, images, rating, price, slug }) => (
             <Grid key={id} item sm={12} lg={4} xl={3}>
               <Link
                 href={pageRoutes.products(slug)}
@@ -53,7 +53,7 @@ const Products = ({ name, products }: ProductsInterface) => {
                 >
                   <CardContent>
                     <Image
-                      src={VRHeadset}
+                      src={images[0].url}
                       width="250"
                       height="200"
                       alt="VR headset"

@@ -8,7 +8,6 @@ import { useGetMe, useGetUser } from '@/src/api/auth';
 
 const AccountDetails = () => {
   const { data: me } = useGetMe();
-
   const { data: user } = useGetUser(me?.userId);
 
   const {
