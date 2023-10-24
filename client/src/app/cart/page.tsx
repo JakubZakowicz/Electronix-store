@@ -110,7 +110,7 @@ const CartPage = () => {
           <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
             <Typography>Shipping</Typography>
             <Typography>
-              {shipping && shipping > 0 ? shipping : 'Free'}
+              {shipping && shipping > 0 ? `$${shipping}` : 'Free'}
             </Typography>
           </Box>
           <Divider color="white" sx={{ margin: '10px 0' }} />
