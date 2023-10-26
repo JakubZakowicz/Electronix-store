@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import {
-  StripeElementsOptions,
-  loadStripe,
-} from '@stripe/stripe-js';
+import { StripeElementsOptions, loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
 import { Box, Typography } from '@mui/material';
 import PaymentForm from '../PaymentForm';
 import { useGetStripeConfig, useMakePayment } from '@/src/api/checkout';
+import { useGetCartData } from '@/src/api/cart';
 
 const Payment = () => {
   const [stripePromise, setStripePromise] = useState();
   const [clientSecret, setClientSecret] = useState();
+
+  const { data: cartData } = useGetCartData()
 
   const { data: stripeConfigData } = useGetStripeConfig();
   const { mutate: makePayment } = useMakePayment();
@@ -24,9 +24,9 @@ const Payment = () => {
   }, [stripeConfigData]);
 
   useEffect(() => {
-    if (stripePromise) {
+    if (stripePromise && cartData) {
       makePayment(
-        { sum: 1000 },
+        { sum: cartData.total },
         {
           onSuccess: (res) => {
             console.log(res);
@@ -35,7 +35,7 @@ const Payment = () => {
         }
       );
     }
-  }, [stripePromise]);
+  }, [stripePromise, cartData]);
 
   const options: StripeElementsOptions = {
     appearance: {
