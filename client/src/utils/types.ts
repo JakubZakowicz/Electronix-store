@@ -98,3 +98,7 @@ export interface OrderItem {
   product: Product;
   quantity: number;
 }
+
+export interface StripeConfig {
+  publishableKey: string;
+}

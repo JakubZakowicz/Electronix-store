@@ -14,5 +14,7 @@ export const apiRoutes = {
   getMe: '/auth/profile',
   getUser: '/users/:userId',
   updateUser: '/users/:userId',
-  getOrders: '/orders/user/:userId'
+  getOrders: '/orders/user/:userId',
+  getStripeConfig: '/checkout/config',
+  makePayment: '/checkout/create-payment-intent'
 };

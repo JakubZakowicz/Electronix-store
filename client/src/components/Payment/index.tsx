@@ -1,25 +1,44 @@
-import React from 'react';
-import { StripeElementsOptions, loadStripe } from '@stripe/stripe-js';
+import React, { useEffect, useState } from 'react';
 import {
-  PaymentElement,
-  Elements,
-} from '@stripe/react-stripe-js';
+  StripeElementsOptions,
+  loadStripe,
+} from '@stripe/stripe-js';
+import { Elements } from '@stripe/react-stripe-js';
 import { Box, Typography } from '@mui/material';
-import DefaultButton from '../DefaultButton';
 import PaymentForm from '../PaymentForm';
+import { useGetStripeConfig, useMakePayment } from '@/src/api/checkout';
 
 const Payment = () => {
-  const stripePromise = loadStripe(
-    'pk_test_51MdyLQCiQ4WVfoFr8kOUlXsc2hW7sjqXmjmze8DMi6w6wbXaqTLvTbBXWrlWoHw1By4izQm2CC6O2izfecFhS2ku00uYxkckR2'
-  );
+  const [stripePromise, setStripePromise] = useState();
+  const [clientSecret, setClientSecret] = useState();
+
+  const { data: stripeConfigData } = useGetStripeConfig();
+  const { mutate: makePayment } = useMakePayment();
+
+  useEffect(() => {
+    if (stripeConfigData?.publishableKey) {
+      const { publishableKey } = stripeConfigData;
+      // @ts-ignore
+      setStripePromise(loadStripe(publishableKey));
+    }
+  }, [stripeConfigData]);
+
+  useEffect(() => {
+    if (stripePromise) {
+      makePayment(
+        { sum: 1000 },
+        {
+          onSuccess: (res) => {
+            console.log(res);
+            setClientSecret(res.data.clientSecret);
+          },
+        }
+      );
+    }
+  }, [stripePromise]);
 
   const options: StripeElementsOptions = {
-    mode: 'payment',
-    amount: 1099,
-    currency: 'usd',
-    // Fully customizable with appearance API.
     appearance: {
-      /*...*/
       theme: 'night',
     },
   };
@@ -29,11 +48,16 @@ const Payment = () => {
       <Typography variant="h1" fontSize="25px" marginTop="50px">
         Payment Information
       </Typography>
-      <Box sx={{ marginTop: '20px' }}>
-        <Elements stripe={stripePromise} options={options}>
-          <PaymentForm />
-        </Elements>
-      </Box>
+      {clientSecret && stripePromise && (
+        <Box sx={{ marginTop: '20px' }}>
+          <Elements
+            stripe={stripePromise}
+            options={{ clientSecret, ...options }}
+          >
+            <PaymentForm />
+          </Elements>
+        </Box>
+      )}
     </Box>
   );
 };
