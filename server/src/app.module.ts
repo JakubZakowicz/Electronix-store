@@ -19,6 +19,7 @@ import { OrderItem } from './order/order-item.entity';
 import { CloudinaryModule } from './cloudinary/cloudinary.module';
 import { ImageModule } from './image/image.module';
 import { Image } from './image/image.entity';
+import { CheckoutModule } from './checkout/checkout.module';
 
 @Module({
   imports: [
@@ -42,6 +43,7 @@ import { Image } from './image/image.entity';
     CartModule,
     CloudinaryModule,
     ImageModule,
+    CheckoutModule,
   ],
   controllers: [AppController],
   providers: [AppService],

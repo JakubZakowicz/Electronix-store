@@ -71,6 +71,9 @@ dependencies:
   rxjs:
     specifier: ^7.2.0
     version: 7.2.0
+  stripe:
+    specifier: ^14.1.0
+    version: 14.1.0
   typeorm:
     specifier: ^0.3.17
     version: 0.3.17(mysql2@3.6.0)(ts-node@10.0.0)
@@ -4687,7 +4690,6 @@ packages:
     engines: {node: '>=0.6'}
     dependencies:
       side-channel: 1.0.4
-    dev: true
 
   /queue-microtask@1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
@@ -5089,6 +5091,14 @@ packages:
     resolution: {integrity: sha512-6fPc+R4ihwqP6N/aIv2f1gMH8lOVtWQHoqC4yK6oSDVVocumAsfCqjkXnqiYMhmMwS/mEHLp7Vehlt3ql6lEig==}
     engines: {node: '>=8'}
     dev: true
+
+  /stripe@14.1.0:
+    resolution: {integrity: sha512-hpI8OT7jbaVTGOm9bqeCbdVGwM/55Hetn+WpPGFSq7FmlnqLPB7CSZy2eNYU6ko+4tdur6ZMrDKS6wh1CCx8bw==}
+    engines: {node: '>=12.*'}
+    dependencies:
+      '@types/node': 18.16.12
+      qs: 6.11.2
+    dev: false
 
   /superagent@6.1.0:
     resolution: {integrity: sha512-OUDHEssirmplo3F+1HWKUrUjvnQuA+nZI6i/JJBdXb5eq9IyEQwPyPpqND+SSsxf6TygpBEkUjISVRN4/VOpeg==}
