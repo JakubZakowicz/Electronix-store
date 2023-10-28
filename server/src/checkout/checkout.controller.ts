@@ -3,6 +3,8 @@ import {
   Body,
   Controller,
   Get,
+  HttpException,
+  HttpStatus,
   Post,
   Res,
 } from '@nestjs/common';
@@ -20,15 +22,15 @@ export class CheckoutController {
   }
 
   @Post('create-payment-intent')
-  createPaymentIntent(
+  async createPaymentIntent(
     @Body() paymentData: PaymentDto,
     @Res() response: Response,
   ) {
-    this.checkoutService
-      .createPayment(paymentData.sum)
-      .then((res) => response.send({ clientSecret: res.client_secret }))
-      .catch((err) => {
-        throw new BadRequestException(err);
-      });
+    try {
+      const payment = await this.checkoutService.createPayment(paymentData.sum);
+      response.send({ clientSecret: payment.client_secret });
+    } catch (err) {
+      throw new BadRequestException(err);
+    }
   }
 }

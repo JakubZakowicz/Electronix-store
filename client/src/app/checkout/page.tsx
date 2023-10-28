@@ -14,10 +14,17 @@ import Image from 'next/image';
 import CheckoutForm from '@/src/components/CheckoutForm';
 import { useGetCartData } from '@/src/api/cart';
 import { convertPrice } from '@/src/utils/functions.utils';
+import { useRouter } from 'next/navigation';
+import { pageRoutes } from '@/src/routes/pageRoutes';
 
 const CheckoutPage = () => {
-  const { data: cartData } = useGetCartData();
+  const router = useRouter();
+  const { data: cartData, isFetched: isCartDataFetched } = useGetCartData();
   const { products, subtotal, shipping, total } = cartData || {};
+
+  if (isCartDataFetched && cartData?.products.length === 0) {
+    router.push(pageRoutes.cart());
+  }
 
   return (
     <Box>

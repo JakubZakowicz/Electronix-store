@@ -6,8 +6,14 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import DefaultButton from '@/src/components/DefaultButton';
 import Link from 'next/link';
 import { pageRoutes } from '@/src/routes/pageRoutes';
+import { useRouter } from 'next/navigation';
 
-const CheckoutSuccess = () => {
+const CheckoutSuccess = ({ searchParams }: any) => {
+  const { payment_intent_client_secret } = searchParams;
+  const router = useRouter();
+
+  if (!payment_intent_client_secret) router.push(pageRoutes.root());
+
   return (
     <Box
       sx={{
@@ -22,7 +28,6 @@ const CheckoutSuccess = () => {
       <Typography variant="h2" sx={{ fontSize: 40, marginTop: 3 }}>
         Payment Successfull
       </Typography>
-
       <Typography
         sx={{
           color: 'white',
