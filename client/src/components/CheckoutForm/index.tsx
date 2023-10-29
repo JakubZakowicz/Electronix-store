@@ -12,35 +12,24 @@ import DefaultButton from '../DefaultButton';
 import Payment from '../Payment';
 
 const CheckoutForm = () => {
-  const [isPayment, setIsPayment] = useState(true);
+  const [isPayment, setIsPayment] = useState(false);
 
   const { control, handleSubmit, getValues } = useForm<PersonalInfoFormSchema>({
     resolver: zodResolver(personalInfoSchema),
-    defaultValues: {
-      firstName: 'Grzegorz',
-      lastName: 'Braun',
-      email: 'grzegorz.braun@gmail.com',
-      phoneNumber: '123456789',
-      streetAddress: 'Ćwiartki 3/4',
-      postCode: '69-666',
-      country: 'Polska',
-      city: 'Rzeszów',
-    },
   });
 
-  const onSubmit: SubmitHandler<PersonalInfoFormSchema> = (data) => {
-    console.log(data);
+  const onSubmit: SubmitHandler<PersonalInfoFormSchema> = () => {
     setIsPayment(true);
   };
 
   const editUserInfo = () => {
-    setIsPayment(false)
-  }
+    setIsPayment(false);
+  };
 
   return (
     <>
       {isPayment ? (
-        <Box sx={{ position: 'relative', width: '65%' }}>
+        <Grid sx={{ position: 'relative' }} sm={12} lg={8}>
           <Typography variant="h1" fontSize="25px">
             User Information
           </Typography>
@@ -62,7 +51,7 @@ const CheckoutForm = () => {
             ))}
           </Box>
           <Payment />
-        </Box>
+        </Grid>
       ) : (
         <form onSubmit={handleSubmit(onSubmit)}>
           <Typography variant="h1" fontSize="25px">
