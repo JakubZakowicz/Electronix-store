@@ -6,8 +6,9 @@ export const pageRoutes = {
   signUp: () => '/sign-up',
   cart: () => '/cart',
   checkout: () => '/checkout',
+  checkoutSuccess: () => '/checkout/success',
   forgotPassword: () => '/forgot-password',
   accountDetails: () => '/account-details',
   editAccountDetails: () => '/account-details/edit',
-  orderHistory: () => '/order-history'
+  orderHistory: () => '/order-history',
 };
