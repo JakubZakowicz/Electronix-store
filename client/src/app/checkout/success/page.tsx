@@ -1,18 +1,25 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Box, Typography } from '@mui/material';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import DefaultButton from '@/src/components/DefaultButton';
 import Link from 'next/link';
 import { pageRoutes } from '@/src/routes/pageRoutes';
 import { useRouter } from 'next/navigation';
+import { useAddNewOrder } from '@/src/api/checkout';
 
 const CheckoutSuccess = ({ searchParams }: any) => {
-  const { payment_intent_client_secret } = searchParams;
+  const { payment_intent } = searchParams;
   const router = useRouter();
 
-  if (!payment_intent_client_secret) router.push(pageRoutes.root());
+  if (!payment_intent) router.push(pageRoutes.root());
+
+  const { mutate } = useAddNewOrder(payment_intent);
+
+  useEffect(() => {
+    mutate(null);
+  }, []);
 
   return (
     <Box

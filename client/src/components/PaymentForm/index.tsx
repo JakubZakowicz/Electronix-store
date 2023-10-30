@@ -8,6 +8,7 @@ import React, { SyntheticEvent, useState } from 'react';
 import DefaultButton from '../DefaultButton';
 import { pageRoutes } from '@/src/routes/pageRoutes';
 
+
 const PaymentForm = () => {
   const stripe = useStripe();
   const elements = useElements();

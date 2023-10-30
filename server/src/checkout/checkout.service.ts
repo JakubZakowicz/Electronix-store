@@ -22,4 +22,11 @@ export class CheckoutService {
       automatic_payment_methods: { enabled: true },
     });
   }
+
+  async addNewOrder(clientSecret: string) {
+    const paymentIntent = await this.stripe.paymentIntents.retrieve(
+      clientSecret,
+    );
+    console.log(paymentIntent);
+  }
 }

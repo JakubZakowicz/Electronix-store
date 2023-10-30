@@ -3,9 +3,9 @@ import {
   Body,
   Controller,
   Get,
-  HttpException,
-  HttpStatus,
+  Param,
   Post,
+  Query,
   Res,
 } from '@nestjs/common';
 import { CheckoutService } from './checkout.service';
@@ -32,5 +32,11 @@ export class CheckoutController {
     } catch (err) {
       throw new BadRequestException(err);
     }
+  }
+
+  @Post('/add-new-order/:payment_intent_id')
+  async addNewOrder(@Param('payment_intent_id') clientSecret: string) {
+    if (!clientSecret) throw new BadRequestException();
+    this.checkoutService.addNewOrder(clientSecret);
   }
 }

@@ -16,5 +16,6 @@ export const apiRoutes = {
   updateUser: '/users/:userId',
   getOrders: '/orders/user/:userId',
   getStripeConfig: '/checkout/config',
-  makePayment: '/checkout/create-payment-intent'
+  makePayment: '/checkout/create-payment-intent',
+  addNewOrder: '/checkout/add-new-order/:client_secret'
 };

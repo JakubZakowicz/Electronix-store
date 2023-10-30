@@ -16,6 +16,16 @@ const CheckoutForm = () => {
 
   const { control, handleSubmit, getValues } = useForm<PersonalInfoFormSchema>({
     resolver: zodResolver(personalInfoSchema),
+    defaultValues: {
+      firstName: 'Sherlock',
+      lastName: 'Holmes',
+      email: 'sherlock.holmes@gmail.com',
+      phoneNumber: '123456789',
+      country: 'England',
+      city: 'London',
+      streetAddress: 'Baker Street 221B',
+      postCode: '12-345'
+    }
   });
 
   const onSubmit: SubmitHandler<PersonalInfoFormSchema> = () => {
