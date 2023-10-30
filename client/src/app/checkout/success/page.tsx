@@ -21,6 +21,12 @@ const CheckoutSuccess = ({ searchParams }: any) => {
     mutate(null);
   }, []);
 
+const CheckoutSuccess = ({ searchParams }: any) => {
+  const { payment_intent_client_secret } = searchParams;
+  const router = useRouter();
+
+  if (!payment_intent_client_secret) router.push(pageRoutes.root());
+
   return (
     <Box
       sx={{

@@ -10,7 +10,7 @@ const Payment = () => {
   const [stripePromise, setStripePromise] = useState();
   const [clientSecret, setClientSecret] = useState();
 
-  const { data: cartData } = useGetCartData();
+  const { data: cartData } = useGetCartData()
 
   const { data: stripeConfigData } = useGetStripeConfig();
   const { mutate: makePayment } = useMakePayment();
@@ -29,6 +29,7 @@ const Payment = () => {
         { sum: cartData.total },
         {
           onSuccess: (res) => {
+            console.log(res);
             setClientSecret(res.data.clientSecret);
           },
         }
