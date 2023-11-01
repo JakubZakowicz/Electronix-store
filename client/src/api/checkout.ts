@@ -9,4 +9,8 @@ export const useGetStripeConfig = () =>
 export const useMakePayment = () => usePost(apiRoutes.makePayment);
 
 export const useAddNewOrder = (paymentIntentId: string) =>
-  usePost(pathToUrl(apiRoutes.addNewOrder, { paymend_intent_id: paymentIntentId })); 
+  usePost(
+    pathToUrl(apiRoutes.addNewOrder, { payment_intent_id: paymentIntentId }),
+    undefined,
+    { withCredentials: true }
+  );

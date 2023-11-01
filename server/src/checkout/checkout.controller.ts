@@ -3,18 +3,20 @@ import {
   Body,
   Controller,
   Get,
+  NotAcceptableException,
   Param,
   Post,
-  Query,
   Res,
+  Session,
 } from '@nestjs/common';
+import { Response } from 'express';
 import { CheckoutService } from './checkout.service';
 import { PaymentDto } from './dto/payment.dto';
-import { Response } from 'express';
+import { CartSession } from '../cart/cart.interface';
 
 @Controller('checkout')
 export class CheckoutController {
-  constructor(private checkoutService: CheckoutService) {}
+  constructor(private readonly checkoutService: CheckoutService) {}
 
   @Get('config')
   getConfig() {
@@ -35,8 +37,22 @@ export class CheckoutController {
   }
 
   @Post('/add-new-order/:payment_intent_id')
-  async addNewOrder(@Param('payment_intent_id') clientSecret: string) {
+  async addNewOrder(
+    @Param('payment_intent_id') clientSecret: string,
+    @Session() session: CartSession,
+  ) {
     if (!clientSecret) throw new BadRequestException();
-    this.checkoutService.addNewOrder(clientSecret);
+
+    const cart = session.cart;
+
+    console.log(cart);
+
+    if (!cart) throw new NotAcceptableException('There is no cart session');
+
+    if (cart.products.length === 0) {
+      throw new NotAcceptableException('Cart is empty');
+    }
+
+    this.checkoutService.addNewOrder(clientSecret, cart);
   }
 }
