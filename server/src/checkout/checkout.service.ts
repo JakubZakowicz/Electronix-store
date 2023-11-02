@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import Stripe from 'stripe';
 import { CartInterface } from '../cart/cart.interface';
 import { OrderService } from '../order/services/order.service';
@@ -36,17 +36,22 @@ export class CheckoutService {
 
     if (paymentIntent.status !== 'succeeded') return;
 
-    console.log(paymentIntent);
+    const order = await this.orderService.findOneByPaymentIntentId(
+      paymentIntent.id,
+    );
+
+    if (order) throw new BadRequestException('Order already exists!');
 
     const { total, shipping } = cart;
 
-    const order = await this.orderService.create({
+    const newOrder = await this.orderService.create({
       totalPrice: total,
       deliveryPrice: shipping,
       status: 'Received',
+      paymentIntentId: paymentIntent.id,
     });
 
-    const orderItems = await this.getOrderItems(cart, order.id);
+    const orderItems = await this.getOrderItems(cart, newOrder.id);
 
     return orderItems;
   }

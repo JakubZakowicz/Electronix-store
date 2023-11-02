@@ -16,6 +16,9 @@ export class Order {
   id: string;
 
   @Column()
+  paymentIntentId: string;
+
+  @Column()
   status: string;
 
   @Column()
@@ -27,7 +30,7 @@ export class Order {
   @ManyToOne(() => User, (user: User) => user.orders)
   user: User;
 
-  @OneToMany(() => OrderItem, (orderItem: OrderItem) => orderItem.order)
+  @OneToMany(() => OrderItem, (orderItem: OrderItem) => orderItem.order, {})
   orderItems: OrderItem[];
 
   @CreateDateColumn()

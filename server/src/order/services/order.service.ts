@@ -29,6 +29,14 @@ export class OrderService {
     return await order;
   }
 
+  async findOneByPaymentIntentId(paymentIntentId: string) {
+    const order = await this.orderRepository.findOne({
+      where: { paymentIntentId },
+    });
+
+    return order;
+  }
+
   async create(orderData: CreateOrderDto) {
     const newOrder = this.orderRepository.create(orderData);
     return await this.orderRepository.save(newOrder);
