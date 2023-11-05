@@ -10,7 +10,7 @@ import { useRouter } from 'next/navigation';
 import { useAddNewOrder } from '@/src/api/checkout';
 
 const CheckoutSuccess = ({ searchParams }: any) => {
-  const { payment_intent } = searchParams;
+  const { payment_intent, user_id } = searchParams;
   const router = useRouter();
 
   if (!payment_intent) router.push(pageRoutes.root());
@@ -18,7 +18,7 @@ const CheckoutSuccess = ({ searchParams }: any) => {
   const { mutate } = useAddNewOrder(payment_intent);
 
   useEffect(() => {
-    mutate(null);
+    mutate({ userId: user_id });
   }, []);
 
   return (

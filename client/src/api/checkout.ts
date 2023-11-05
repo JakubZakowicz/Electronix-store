@@ -10,7 +10,9 @@ export const useMakePayment = () => usePost(apiRoutes.makePayment);
 
 export const useAddNewOrder = (paymentIntentId: string) =>
   usePost(
-    pathToUrl(apiRoutes.addNewOrder, { payment_intent_id: paymentIntentId }),
+    pathToUrl(apiRoutes.addNewOrder, {
+      payment_intent_id: paymentIntentId,
+    }),
     undefined,
     { withCredentials: true }
   );

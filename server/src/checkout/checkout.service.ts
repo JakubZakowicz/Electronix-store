@@ -29,7 +29,11 @@ export class CheckoutService {
     });
   }
 
-  async addNewOrder(clientSecret: string, cart: CartInterface) {
+  async addNewOrder(
+    clientSecret: string,
+    cart: CartInterface,
+    userId?: string,
+  ) {
     const paymentIntent = await this.stripe.paymentIntents.retrieve(
       clientSecret,
     );
@@ -49,6 +53,7 @@ export class CheckoutService {
       deliveryPrice: shipping,
       status: 'Received',
       paymentIntentId: paymentIntent.id,
+      ...(userId && { user: { id: userId } }),
     });
 
     const orderItems = await this.getOrderItems(cart, newOrder.id);

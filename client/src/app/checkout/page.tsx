@@ -20,6 +20,7 @@ import { pageRoutes } from '@/src/routes/pageRoutes';
 const CheckoutPage = () => {
   const router = useRouter();
   const { data: cartData, isFetched: isCartDataFetched } = useGetCartData();
+
   const { products, subtotal, shipping, total } = cartData || {};
 
   if (isCartDataFetched && cartData?.products.length === 0) {

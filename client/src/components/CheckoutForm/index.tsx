@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Box, Grid, Typography } from '@mui/material';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -10,23 +10,25 @@ import InputField from '../InputField';
 import { personalInfoInputs } from '@/src/utils/personalInfoInputs';
 import DefaultButton from '../DefaultButton';
 import Payment from '../Payment';
+import { useGetMe, useGetUser } from '@/src/api/auth';
 
 const CheckoutForm = () => {
   const [isPayment, setIsPayment] = useState(false);
 
-  const { control, handleSubmit, getValues } = useForm<PersonalInfoFormSchema>({
-    resolver: zodResolver(personalInfoSchema),
-    defaultValues: {
-      firstName: 'Sherlock',
-      lastName: 'Holmes',
-      email: 'sherlock.holmes@gmail.com',
-      phoneNumber: '123456789',
-      country: 'England',
-      city: 'London',
-      streetAddress: 'Baker Street 221B',
-      postCode: '12-345'
-    }
+  const { data: me } = useGetMe();
+  const { data: user } = useGetUser(me?.userId);
+
+  const defaultValues: any = {};
+
+  personalInfoInputs.forEach(({ fieldName }) => {
+    defaultValues[fieldName] = '';
   });
+
+  const { control, handleSubmit, getValues, reset } =
+    useForm<PersonalInfoFormSchema>({
+      resolver: zodResolver(personalInfoSchema),
+      defaultValues,
+    });
 
   const onSubmit: SubmitHandler<PersonalInfoFormSchema> = () => {
     setIsPayment(true);
@@ -35,6 +37,10 @@ const CheckoutForm = () => {
   const editUserInfo = () => {
     setIsPayment(false);
   };
+
+  useEffect(() => {
+    reset(user);
+  }, [user]);
 
   return (
     <>
