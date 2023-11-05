@@ -31,7 +31,7 @@ const PaymentForm = () => {
       elements,
       confirmParams: {
         return_url: `${protocol}//${host}${pageRoutes.checkoutSuccess()}${
-          userId ? `?user_id=${userId}` : null
+          userId ? `?user_id=${userId}` : ''
         }`,
       },
     });

@@ -39,7 +39,11 @@ const CheckoutForm = () => {
   };
 
   useEffect(() => {
-    reset(user);
+    const inputs: any = {};
+    personalInfoInputs.forEach(({ fieldName }) => {
+      inputs[fieldName] = user?.[fieldName];
+    });
+    reset(inputs);
   }, [user]);
 
   return (

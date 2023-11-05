@@ -53,6 +53,14 @@ export class CheckoutController {
       throw new NotAcceptableException('Cart is empty');
     }
 
-    this.checkoutService.addNewOrder(clientSecret, cart, userData?.userId);
+    const newOrder = this.checkoutService.addNewOrder(
+      clientSecret,
+      cart,
+      userData?.userId,
+    );
+
+    session.cart = { products: [], total: 0, subtotal: 0, shipping: 0 };
+
+    return newOrder;
   }
 }

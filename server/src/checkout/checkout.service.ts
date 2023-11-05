@@ -56,9 +56,9 @@ export class CheckoutService {
       ...(userId && { user: { id: userId } }),
     });
 
-    const orderItems = await this.getOrderItems(cart, newOrder.id);
+    await this.getOrderItems(cart, newOrder.id);
 
-    return orderItems;
+    return order;
   }
 
   getOrderItems(cart: CartInterface, orderId: string) {
