@@ -7,13 +7,16 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
-import { User } from '../user/user.entity';
+import { User } from '../../user/user.entity';
 import { OrderItem } from './order-item.entity';
 
 @Entity('orders')
 export class Order {
   @PrimaryGeneratedColumn('uuid')
   id: string;
+
+  @Column()
+  paymentIntentId: string;
 
   @Column()
   status: string;
@@ -27,7 +30,7 @@ export class Order {
   @ManyToOne(() => User, (user: User) => user.orders)
   user: User;
 
-  @OneToMany(() => OrderItem, (orderItem: OrderItem) => orderItem.order)
+  @OneToMany(() => OrderItem, (orderItem: OrderItem) => orderItem.order, {})
   orderItems: OrderItem[];
 
   @CreateDateColumn()

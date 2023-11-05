@@ -1,6 +1,6 @@
 import { IsNumber } from 'class-validator';
 
-export class PaymentDto {
+export class CreatePaymentIntentDto {
   @IsNumber()
   sum: number;
 }

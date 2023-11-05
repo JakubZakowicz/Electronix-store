@@ -9,7 +9,7 @@ import {
 } from 'typeorm';
 import { Category } from '../category/category.entity';
 import { Review } from '../review/review.entity';
-import { OrderItem } from '../order/order-item.entity';
+import { OrderItem } from '../order/entities/order-item.entity';
 import { Image } from '../image/image.entity';
 
 @Entity('products')

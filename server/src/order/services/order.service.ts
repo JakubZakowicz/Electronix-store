@@ -1,9 +1,9 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Order } from './order.entity';
-import { CreateOrderDto } from './dto/create-order';
-import { UpdateOrderDto } from './dto/update-order';
+import { Order } from '../entities/order.entity';
+import { CreateOrderDto } from '../dto/create-order';
+import { UpdateOrderDto } from '../dto/update-order';
 
 @Injectable()
 export class OrderService {
@@ -27,6 +27,14 @@ export class OrderService {
     }
 
     return await order;
+  }
+
+  async findOneByPaymentIntentId(paymentIntentId: string) {
+    const order = await this.orderRepository.findOne({
+      where: { paymentIntentId },
+    });
+
+    return order;
   }
 
   async create(orderData: CreateOrderDto) {

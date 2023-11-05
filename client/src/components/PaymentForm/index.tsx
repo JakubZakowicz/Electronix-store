@@ -7,6 +7,7 @@ import {
 import React, { SyntheticEvent, useState } from 'react';
 import DefaultButton from '../DefaultButton';
 import { pageRoutes } from '@/src/routes/pageRoutes';
+import { useGetMe } from '@/src/api/auth';
 
 const PaymentForm = () => {
   const stripe = useStripe();
@@ -15,6 +16,9 @@ const PaymentForm = () => {
 
   const [message, setMessage] = useState<string | undefined>(undefined);
   const [isProcessing, setIsProcessing] = useState(false);
+
+  const { data: me } = useGetMe();
+  const { userId } = me || {};
 
   const handleSubmit = async (e: SyntheticEvent) => {
     e.preventDefault();
@@ -26,7 +30,9 @@ const PaymentForm = () => {
     const { error } = await stripe.confirmPayment({
       elements,
       confirmParams: {
-        return_url: `${protocol}//${host}${pageRoutes.checkoutSuccess()}`,
+        return_url: `${protocol}//${host}${pageRoutes.checkoutSuccess()}${
+          userId ? `?user_id=${userId}` : ''
+        }`,
       },
     });
 
