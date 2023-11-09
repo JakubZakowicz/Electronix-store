@@ -29,6 +29,9 @@ export class Product {
   @Column({ type: 'longtext' })
   description: string;
 
+  @Column({ default: false })
+  isFeatured: boolean;
+
   @Column()
   price: number;
 

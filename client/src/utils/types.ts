@@ -43,6 +43,7 @@ export interface Product {
   images: Image[];
   description: string;
   price: number;
+  isFeatured: boolean;
   rating: number;
   slug: string;
   categoryId: string;

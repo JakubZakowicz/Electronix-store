@@ -12,8 +12,12 @@ import {
 } from '@mui/material';
 import Vision from '../images/vision.png';
 import Products from '@/src/components/Products';
+import { useGetProducts } from '../api/products';
 
 export default function Home() {
+  const { data: productsData } = useGetProducts();
+  const featuredProducts = productsData?.filter(product => (product.isFeatured))
+
   return (
     <Box>
       <Card
@@ -60,7 +64,7 @@ export default function Home() {
           </Grid>
         </CardContent>
       </Card>
-      <Products name="Top Products" />
+      <Products name="Top Products" products={featuredProducts} />
     </Box>
   );
 }
