@@ -100,12 +100,13 @@ const ProductPage = ({ params }: ProductPageProps) => {
           <TabPanel value="1">{description}</TabPanel>
           <TabPanel value="2">
             <Box
-              sx={{ width: '600px', margin: '0 auto', marginBottom: '80px' }}
+              sx={{ maxWidth: '600px', margin: '0 auto', marginBottom: '80px' }}
             >
               <Box
                 sx={{
                   display: 'flex',
                   justifyContent: 'space-between',
+                  flexWrap: 'wrap',
                 }}
               >
                 <Box

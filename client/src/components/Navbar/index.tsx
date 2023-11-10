@@ -62,6 +62,8 @@ const Navbar = ({ children }: NavbarProps) => {
         display="flex"
         justifyContent="space-between"
         alignItems="center"
+        flexWrap="wrap"
+        rowGap={2}
       >
         {isMobileView && (
           <Button onClick={toggleDrawer} sx={{ color: 'white', zIndex: 100 }}>
