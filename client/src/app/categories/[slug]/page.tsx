@@ -14,7 +14,10 @@ const ProductsPage = ({ params }: ProductsPageProps) => {
 
   return (
     <div>
-      <Products name="Virtual Reality Products" products={category?.products} />
+      <Products
+        name={`${category?.name} Products`}
+        products={category?.products}
+      />
     </div>
   );
 };
