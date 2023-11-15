@@ -1,3 +1,4 @@
+import { AxiosError } from 'axios';
 import { apiRoutes } from '../routes/apiRoutes';
 import { useFetch, usePost, useUpdate } from '../utils/reactQuery.utils';
 import { pathToUrl } from '../utils/router.utils';

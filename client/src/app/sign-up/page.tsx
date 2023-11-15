@@ -30,7 +30,11 @@ const SignUpPage = () => {
     signUp(data, { onSuccess: () => router.push(pageRoutes.singIn()) });
   };
 
-  if (isSignUpError) throw new Error(signUpError.message);
+  if (
+    isSignUpError &&
+    signUpError.response?.data?.message !== 'Email already exists!'
+  )
+    throw new Error(signUpError.message);
 
   return (
     <Box>
@@ -48,6 +52,13 @@ const SignUpPage = () => {
         sx={{ marginTop: '-50px', justifyContent: 'center' }}
       >
         <Grid item xs={6}>
+          {isSignUpError && (
+            <Typography
+              sx={{ color: 'red', textAlign: 'center', marginBottom: 2 }}
+            >
+              User already exists!
+            </Typography>
+          )}
           <form onSubmit={handleSubmit(onSubmit)}>
             <Controller
               name="email"
