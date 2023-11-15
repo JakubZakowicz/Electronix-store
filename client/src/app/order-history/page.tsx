@@ -17,8 +17,17 @@ import { convertPrice } from '@/src/utils/functions.utils';
 import { useGetMe } from '@/src/api/auth';
 
 const OrderHistory = () => {
-  const { data: me } = useGetMe();
-  const { data: orders } = useGetOrders(me?.userId);
+  const { data: me, isError, error } = useGetMe();
+
+  if (isError) throw new Error(error.message);
+
+  const {
+    data: orders,
+    isError: isOrdersError,
+    error: ordersError,
+  } = useGetOrders(me?.userId);
+
+  if (isOrdersError) throw new Error(ordersError.message);
 
   return (
     <Box>

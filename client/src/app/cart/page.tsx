@@ -23,7 +23,11 @@ import CartProductCounter from '@/src/components/CartProductCounter';
 import DeleteCartProduct from '@/src/components/DeleteCartProduct';
 
 const CartPage = () => {
-  const { data: cartData } = useGetCartData();
+  const {
+    data: cartData,
+    isError: isCartDataError,
+    error: cartDataError,
+  } = useGetCartData();
   const { products, subtotal, shipping, total } = cartData || {};
 
   if (!products || products.length === 0)
@@ -39,6 +43,8 @@ const CartPage = () => {
         </Box>
       </Box>
     );
+
+  if (isCartDataError) throw new Error(cartDataError.message);
 
   return (
     <Box>

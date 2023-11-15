@@ -14,7 +14,11 @@ import { pageRoutes } from '@/src/routes/pageRoutes';
 import { useGetMe, useSignIn } from '@/src/api/auth';
 
 const SignInPage = () => {
-  const { mutate: signIn } = useSignIn();
+  const {
+    mutate: signIn,
+    isError: isSignInError,
+    error: signInError,
+  } = useSignIn();
   const { refetch } = useGetMe();
   const router = useRouter();
 
@@ -26,10 +30,12 @@ const SignInPage = () => {
     signIn(data, {
       onSuccess: () => {
         router.push(pageRoutes.root());
-        refetch()
+        refetch();
       },
     });
   };
+
+  if (isSignInError) throw new Error(signInError.message);
 
   return (
     <Box>

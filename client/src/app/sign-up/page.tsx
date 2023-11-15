@@ -13,7 +13,11 @@ import { useSignUp } from '@/src/api/auth';
 import { useRouter } from 'next/navigation';
 
 const SignUpPage = () => {
-  const { mutate: signUp } = useSignUp();
+  const {
+    mutate: signUp,
+    isError: isSignUpError,
+    error: signUpError,
+  } = useSignUp();
 
   const router = useRouter();
 
@@ -25,6 +29,8 @@ const SignUpPage = () => {
   const onSubmit: SubmitHandler<SignUpFormSchema> = (data) => {
     signUp(data, { onSuccess: () => router.push(pageRoutes.singIn()) });
   };
+
+  if (isSignUpError) throw new Error(signUpError.message);
 
   return (
     <Box>

@@ -10,7 +10,13 @@ interface ProductsPageProps {
 
 const ProductsPage = ({ params }: ProductsPageProps) => {
   const { slug } = params;
-  const { data: category } = useGetCategory(slug);
+  const {
+    data: category,
+    isError: isCategoryError,
+    error: categoryError,
+  } = useGetCategory(slug);
+
+  if (isCategoryError) throw new Error(categoryError.message);
 
   return (
     <div>

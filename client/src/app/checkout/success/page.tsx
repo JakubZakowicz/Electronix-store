@@ -15,11 +15,17 @@ const CheckoutSuccess = ({ searchParams }: any) => {
 
   if (!payment_intent) router.push(pageRoutes.root());
 
-  const { mutate } = useAddNewOrder(payment_intent);
+  const {
+    mutate: addNewOrder,
+    isError: isAddNewOrderError,
+    error: addNewOrderError,
+  } = useAddNewOrder(payment_intent);
 
   useEffect(() => {
-    mutate({ userId: user_id });
+    addNewOrder({ userId: user_id });
   }, []);
+
+  if (isAddNewOrderError) throw Error(addNewOrderError.message);
 
   return (
     <Box

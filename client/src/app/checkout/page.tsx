@@ -19,13 +19,20 @@ import { pageRoutes } from '@/src/routes/pageRoutes';
 
 const CheckoutPage = () => {
   const router = useRouter();
-  const { data: cartData, isFetched: isCartDataFetched } = useGetCartData();
+  const {
+    data: cartData,
+    isFetched: isCartDataFetched,
+    isError: isCartDataError,
+    error: cartDataError,
+  } = useGetCartData();
 
   const { products, subtotal, shipping, total } = cartData || {};
 
   if (isCartDataFetched && cartData?.products.length === 0) {
     router.push(pageRoutes.cart());
   }
+
+  if (isCartDataError) throw new Error(cartDataError.message)
 
   return (
     <Box>
