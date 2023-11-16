@@ -9,13 +9,19 @@ interface DeleteCartProductProps {
 
 const DeleteCartProduct = ({ productId }: DeleteCartProductProps) => {
   const { refetch } = useGetCartData();
-  const { mutate } = useDeleteCartProduct(productId);
+  const {
+    mutate: deleteCartProduct,
+    isError: isDeleteCartProductError,
+    error: deleteCartProductError,
+  } = useDeleteCartProduct(productId);
+
+  if (isDeleteCartProductError) throw new Error(deleteCartProductError.message)
 
   return (
     <Button
       data-testid="delete-cart-product"
       sx={{ color: 'white' }}
-      onClick={() => mutate(productId, { onSuccess: () => refetch() })}
+      onClick={() => deleteCartProduct(productId, { onSuccess: () => refetch() })}
     >
       <HighlightOffIcon />
     </Button>

@@ -17,7 +17,11 @@ const PaymentForm = () => {
   const [message, setMessage] = useState<string | undefined>(undefined);
   const [isProcessing, setIsProcessing] = useState(false);
 
-  const { data: me } = useGetMe();
+  const { data: me, isError, error } = useGetMe();
+
+  if (isError && error?.response?.statusText !== 'Unauthorized')
+    throw new Error(error.message);
+
   const { userId } = me || {};
 
   const handleSubmit = async (e: SyntheticEvent) => {

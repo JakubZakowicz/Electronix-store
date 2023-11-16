@@ -23,9 +23,18 @@ const ProductPage = ({ params }: ProductPageProps) => {
   const [quantity, setQuantity] = useState(1);
   const { slug } = params;
 
-  const { data: product } = useGetProduct(slug);
+  const {
+    data: product,
+    isError: isProductError,
+    error: productError,
+  } = useGetProduct(slug);
   const { refetch } = useGetCartData();
-  const { mutate: addToCart } = useAddToCart();
+
+  const {
+    mutate: addToCart,
+    isError: isAddToCartError,
+    error: addToCartError,
+  } = useAddToCart();
 
   const { id, name, images, summary, description, price, reviews } =
     product || {};
@@ -37,6 +46,10 @@ const ProductPage = ({ params }: ProductPageProps) => {
   const addProductToCart = () => {
     addToCart({ productId: id!, quantity }, { onSuccess: () => refetch() });
   };
+
+  if (isProductError) throw new Error(productError?.message);
+
+  if (isAddToCartError) throw new Error(addToCartError?.message);
 
   return (
     <Box color="white">

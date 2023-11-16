@@ -18,9 +18,24 @@ const EditAccountDetails = () => {
     resolver: zodResolver(personalInfoSchema),
   });
 
-  const { data: me } = useGetMe();
-  const { data: user } = useGetUser(me?.userId);
-  const { mutate: updateUser } = useUpdateUser(me?.userId);
+  const { data: me, isError, error } = useGetMe();
+
+  if (isError) throw new Error(error.message);
+
+  const {
+    data: user,
+    isError: isUserError,
+    error: userError,
+  } = useGetUser(me?.userId);
+
+  if (isUserError) throw new Error(userError.message);
+
+  const {
+    mutate: updateUser,
+    isError: isUpdateUserError,
+    error: updateUserError,
+  } = useUpdateUser(me?.userId);
+
   const router = useRouter();
 
   useEffect(() => {
@@ -32,6 +47,8 @@ const EditAccountDetails = () => {
       onSuccess: () => router.push(pageRoutes.accountDetails()),
     });
   };
+
+  if (isUpdateUserError) throw new Error(updateUserError.message)
 
   return (
     <Box>

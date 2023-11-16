@@ -7,8 +7,17 @@ import { pageRoutes } from '@/src/routes/pageRoutes';
 import { useGetMe, useGetUser } from '@/src/api/auth';
 
 const AccountDetails = () => {
-  const { data: me } = useGetMe();
-  const { data: user } = useGetUser(me?.userId);
+  const { data: me, isError, error } = useGetMe();
+
+  if (isError) throw new Error(error.message)
+
+  const {
+    data: user,
+    isError: isUserError,
+    error: userError,
+  } = useGetUser(me?.userId);
+
+  if (isUserError) throw new Error(userError.message)
 
   const {
     firstName,

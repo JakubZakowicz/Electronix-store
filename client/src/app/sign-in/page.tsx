@@ -14,7 +14,11 @@ import { pageRoutes } from '@/src/routes/pageRoutes';
 import { useGetMe, useSignIn } from '@/src/api/auth';
 
 const SignInPage = () => {
-  const { mutate: signIn } = useSignIn();
+  const {
+    mutate: signIn,
+    isError: isSignInError,
+    error: signInError,
+  } = useSignIn();
   const { refetch } = useGetMe();
   const router = useRouter();
 
@@ -26,10 +30,13 @@ const SignInPage = () => {
     signIn(data, {
       onSuccess: () => {
         router.push(pageRoutes.root());
-        refetch()
+        refetch();
       },
     });
   };
+
+  if (isSignInError && signInError?.response?.statusText !== 'Unauthorized')
+    throw new Error(signInError.message);
 
   return (
     <Box>
@@ -43,6 +50,14 @@ const SignInPage = () => {
       </Typography>
       <Grid container spacing={20} sx={{ marginTop: '-50px' }}>
         <Grid item xs={12} lg={6}>
+          {isSignInError && (
+            <Typography
+              sx={{ color: 'red', textAlign: 'center', marginBottom: 2 }}
+            >
+              Incorrect login or password!
+            </Typography>
+          )}
+          <Typography></Typography>
           <form onSubmit={handleSubmit(onSubmit)}>
             <Controller
               name="email"

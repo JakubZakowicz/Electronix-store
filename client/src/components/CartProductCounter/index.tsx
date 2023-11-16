@@ -14,7 +14,13 @@ const CartProductCounter = ({
   const [count, setCount] = useState<number>(defaultAmount ?? 1);
   const { refetch } = useGetCartData();
 
-  const { mutate: updateCartProduct } = useUpdateCartProduct();
+  const {
+    mutate: updateCartProduct,
+    isError: isUpdateCartProductError,
+    error: updateCartProductError,
+  } = useUpdateCartProduct();
+
+  if (isUpdateCartProductError) throw new Error(updateCartProductError.message)
 
   return (
     <ProductCounter

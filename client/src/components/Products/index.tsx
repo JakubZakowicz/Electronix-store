@@ -21,7 +21,22 @@ interface ProductsInterface {
 }
 
 const Products = ({ name, products }: ProductsInterface) => {
-  console.log(products)
+  if (products?.length === 0)
+    return (
+      <Box>
+        <Typography
+          sx={{
+            textAlign: 'center',
+            marginTop: 15,
+            fontSize: 30,
+            fontWeight: 'bold',
+          }}
+        >
+          The are no products in this section
+        </Typography>
+      </Box>
+    );
+
   return (
     <Box>
       <Typography

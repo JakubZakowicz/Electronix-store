@@ -13,7 +13,11 @@ import { useSignUp } from '@/src/api/auth';
 import { useRouter } from 'next/navigation';
 
 const SignUpPage = () => {
-  const { mutate: signUp } = useSignUp();
+  const {
+    mutate: signUp,
+    isError: isSignUpError,
+    error: signUpError,
+  } = useSignUp();
 
   const router = useRouter();
 
@@ -25,6 +29,12 @@ const SignUpPage = () => {
   const onSubmit: SubmitHandler<SignUpFormSchema> = (data) => {
     signUp(data, { onSuccess: () => router.push(pageRoutes.singIn()) });
   };
+
+  if (
+    isSignUpError &&
+    signUpError.response?.data?.message !== 'Email already exists!'
+  )
+    throw new Error(signUpError.message);
 
   return (
     <Box>
@@ -42,6 +52,13 @@ const SignUpPage = () => {
         sx={{ marginTop: '-50px', justifyContent: 'center' }}
       >
         <Grid item xs={6}>
+          {isSignUpError && (
+            <Typography
+              sx={{ color: 'red', textAlign: 'center', marginBottom: 2 }}
+            >
+              User already exists!
+            </Typography>
+          )}
           <form onSubmit={handleSubmit(onSubmit)}>
             <Controller
               name="email"

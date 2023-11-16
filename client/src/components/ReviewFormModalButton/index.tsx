@@ -20,8 +20,17 @@ const ReviewFormModalButton = ({ productId }: ReviewFormModalButtonProps) => {
   const [rating, setRating] = useState(0);
   const router = useRouter();
 
-  const { data: me } = useGetMe();
-  const { mutate: addReview, isLoading } = useAddReview(productId);
+  const { data: me, isError, error } = useGetMe();
+
+  if (isError && error?.response?.statusText !== 'Unauthorized')
+    throw new Error(error.message);
+
+  const {
+    mutate: addReview,
+    isLoading: isAddReviewLoading,
+    isError: isAddReviewError,
+    error: addReviewError,
+  } = useAddReview(productId);
 
   const { control, handleSubmit, setValue } = useForm<Review>({
     resolver: zodResolver(reviewSchema),
@@ -45,6 +54,8 @@ const ReviewFormModalButton = ({ productId }: ReviewFormModalButtonProps) => {
   const onSubmit: SubmitHandler<Review> = (data) => {
     addReview(data, { onSuccess: () => setIsModalOpen(false) });
   };
+
+  if (isAddReviewError) throw new Error(addReviewError.message);
 
   return (
     <>
@@ -121,7 +132,7 @@ const ReviewFormModalButton = ({ productId }: ReviewFormModalButtonProps) => {
               <DefaultButton
                 name="Add a Review"
                 type="submit"
-                disabled={isLoading}
+                disabled={isAddReviewLoading}
               />
             </Box>
           </form>

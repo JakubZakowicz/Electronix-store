@@ -9,6 +9,7 @@ import { api } from './api.utils';
 import { AxiosResponse, AxiosError, AxiosRequestConfig } from 'axios';
 
 type QueryKeyT = [string, AxiosRequestConfig | undefined];
+type QueryError = AxiosError & { response: { data: { message: string } } }
 
 export const fetcher = <T>({
   queryKey,
@@ -23,9 +24,9 @@ export const fetcher = <T>({
 export const useFetch = <T>(
   url: string | null,
   reqConfig?: AxiosRequestConfig,
-  config?: UseQueryOptions<T, Error, T, QueryKeyT>
+  config?: UseQueryOptions<T, AxiosError, T, QueryKeyT>
 ) => {
-  const context = useQuery<T, Error, T, QueryKeyT>({
+  const context = useQuery<T, AxiosError, T, QueryKeyT>({
     queryKey: [url!, reqConfig],
     queryFn: ({ queryKey, meta }) => fetcher({ queryKey, meta }),
     enabled: !!url,
@@ -43,7 +44,11 @@ const useGenericMutation = <T, S>(
 ) => {
   const queryClient = useQueryClient();
 
-  return useMutation<AxiosResponse, AxiosError, T | S>({
+  return useMutation<
+    AxiosResponse,
+    QueryError,
+    T | S
+  >({
     mutationFn: func,
     onMutate: async (data) => {
       await queryClient.cancelQueries([url!, params]);

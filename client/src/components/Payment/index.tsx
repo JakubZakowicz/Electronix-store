@@ -10,10 +10,23 @@ const Payment = () => {
   const [stripePromise, setStripePromise] = useState();
   const [clientSecret, setClientSecret] = useState();
 
-  const { data: cartData } = useGetCartData()
+  const {
+    data: cartData,
+    isError: isCartDataError,
+    error: cartDataError,
+  } = useGetCartData();
 
-  const { data: stripeConfigData } = useGetStripeConfig();
-  const { mutate: makePayment } = useMakePayment();
+  const {
+    data: stripeConfigData,
+    isError: isStripeConfigDataError,
+    error: stripeConfigDataError,
+  } = useGetStripeConfig();
+
+  const {
+    mutate: makePayment,
+    isError: isMakePaymentError,
+    error: makePaymentError,
+  } = useMakePayment();
 
   useEffect(() => {
     if (stripeConfigData?.publishableKey) {
@@ -42,6 +55,10 @@ const Payment = () => {
       theme: 'night',
     },
   };
+
+  if (isCartDataError) throw new Error(cartDataError.message);
+  if (isStripeConfigDataError) throw new Error(stripeConfigDataError.message);
+  if (isMakePaymentError) throw new Error(makePaymentError.message);
 
   return (
     <Box>

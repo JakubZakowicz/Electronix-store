@@ -15,8 +15,17 @@ import Products from '@/src/components/Products';
 import { useGetProducts } from '../api/products';
 
 export default function Home() {
-  const { data: productsData } = useGetProducts();
-  const featuredProducts = productsData?.filter(product => (product.isFeatured))
+  const {
+    data: productsData,
+    isError: isProductsError,
+    error: productError,
+  } = useGetProducts();
+
+  const featuredProducts = productsData?.filter(
+    (product) => product.isFeatured
+  );
+
+  if (isProductsError) throw new Error(productError.message);
 
   return (
     <Box>
