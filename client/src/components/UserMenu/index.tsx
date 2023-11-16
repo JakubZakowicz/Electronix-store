@@ -20,9 +20,13 @@ interface UserMenuProps {
 }
 
 const UserMenu = ({ userId, setIsUser }: UserMenuProps) => {
-  const { data: userData } = useGetUser(userId);
+  const {
+    data: userData,
+    isError: isUserDataError,
+    error: userDataError,
+  } = useGetUser(userId);
   const router = useRouter();
-  const { mutate } = useSignOut();
+  const { mutate, isError: isSignOutError, error: signOutError } = useSignOut();
 
   const { firstName } = userData || {};
 
@@ -53,10 +57,14 @@ const UserMenu = ({ userId, setIsUser }: UserMenuProps) => {
     await mutate(null, {
       onSuccess: () => {
         router.push('/');
-        setIsUser(false)
+        setIsUser(false);
       },
     });
   };
+
+  if (isSignOutError) throw new Error(signOutError.message);
+  if (isUserDataError) throw new Error(userDataError.message);
+
   return (
     <div>
       <Button
