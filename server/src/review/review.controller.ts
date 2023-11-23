@@ -4,7 +4,6 @@ import {
   Delete,
   Get,
   Param,
-  ParseIntPipe,
   Post,
   Put,
   Req,
@@ -12,11 +11,14 @@ import {
   UsePipes,
   ValidationPipe,
 } from '@nestjs/common';
+import {
+  PaginationParams,
+  Pagination,
+} from '../decorators/pagination-params.decorator';
 import { ReviewService } from './review.service';
 import { CreateReviewDto } from './dto/create-review.dto';
 import { UpdateReviewDto } from './dto/update-review.dto';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
-import { User } from 'src/user/user.entity';
 
 interface RequestWithUser extends Express.Request {
   user: { userId: string };
@@ -26,8 +28,8 @@ interface RequestWithUser extends Express.Request {
 export class ReviewController {
   constructor(private readonly reviewService: ReviewService) {}
   @Get()
-  findAll() {
-    return this.reviewService.findAll();
+  findAll(@PaginationParams() paginationParams: Pagination) {
+    return this.reviewService.findAll(paginationParams);
   }
 
   @Get(':id')

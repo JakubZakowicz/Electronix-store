@@ -4,7 +4,7 @@ import { Repository } from 'typeorm';
 import { Product } from './product.entity';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
-import { Pagination } from 'src/decorators/pagination-params.decorator';
+import { Pagination } from '../decorators/pagination-params.decorator';
 
 @Injectable()
 export class ProductService {
