@@ -4,6 +4,7 @@ import { Repository } from 'typeorm';
 import { Category } from './category.entity';
 import { CreateCategoryDto } from './dto/create-category.dto';
 import { UpdateCategoryDto } from './dto/update-category.dto';
+import { Pagination } from '../decorators/pagination-params.decorator';
 
 @Injectable()
 export class CategoryService {
@@ -12,10 +13,21 @@ export class CategoryService {
     private readonly categoryRepository: Repository<Category>,
   ) {}
 
-  async findAll() {
-    return await this.categoryRepository.find({
+  async findAll(paginationParams: Pagination) {
+    const { page, limit, size, offset } = paginationParams;
+
+    const [categories, total] = await this.categoryRepository.findAndCount({
       relations: { products: true },
+      take: limit,
+      skip: offset,
     });
+
+    return {
+      categoryCount: total,
+      categories,
+      page,
+      size,
+    };
   }
 
   async findOne(id: string) {

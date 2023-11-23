@@ -4,6 +4,7 @@ import { Repository } from 'typeorm';
 import { Order } from '../entities/order.entity';
 import { CreateOrderDto } from '../dto/create-order';
 import { UpdateOrderDto } from '../dto/update-order';
+import { Pagination } from '../../decorators/pagination-params.decorator';
 
 @Injectable()
 export class OrderService {
@@ -12,11 +13,22 @@ export class OrderService {
     private readonly orderRepository: Repository<Order>,
   ) {}
 
-  async findAll(userId?: string) {
-    return await this.orderRepository.find({
+  async findAll(paginationParams: Pagination, userId?: string) {
+    const { page, limit, size, offset } = paginationParams;
+
+    const [orders, total] = await this.orderRepository.findAndCount({
       where: { user: { id: userId } },
       relations: { orderItems: { product: true } },
+      take: limit,
+      skip: offset,
     });
+
+    return {
+      orderCount: total,
+      orders,
+      page,
+      size,
+    };
   }
 
   async findOneById(id: string) {

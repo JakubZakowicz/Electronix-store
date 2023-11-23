@@ -14,20 +14,27 @@ import { OrderService } from './services/order.service';
 import { CreateOrderDto } from './dto/create-order';
 import { UpdateOrderDto } from './dto/update-order';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
+import {
+  PaginationParams,
+  Pagination,
+} from '../decorators/pagination-params.decorator';
 
 @Controller('orders')
 export class OrderController {
   constructor(private readonly orderService: OrderService) {}
 
   @Get()
-  findAll() {
-    return this.orderService.findAll();
+  findAll(@PaginationParams() paginationParams: Pagination) {
+    return this.orderService.findAll(paginationParams);
   }
 
   @UseGuards(JwtAuthGuard)
   @Get('/user/:userId')
-  findUserOrders(@Param('userId') userId: string) {
-    return this.orderService.findAll(userId);
+  findUserOrders(
+    @PaginationParams() paginationParams: Pagination,
+    @Param('userId') userId: string,
+  ) {
+    return this.orderService.findAll(paginationParams, userId);
   }
 
   @UseGuards(JwtAuthGuard)

@@ -14,6 +14,10 @@ import { UserService } from './user.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
+import {
+  PaginationParams,
+  Pagination,
+} from '../decorators/pagination-params.decorator';
 
 @Controller('users')
 export class UserController {
@@ -21,8 +25,8 @@ export class UserController {
 
   @UseGuards(JwtAuthGuard)
   @Get()
-  async findAll() {
-    return this.userService.findAll();
+  async findAll(@PaginationParams() paginationParams: Pagination) {
+    return this.userService.findAll(paginationParams);
   }
 
   @UseGuards(JwtAuthGuard)
