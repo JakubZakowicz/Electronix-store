@@ -4,6 +4,7 @@ import { Repository } from 'typeorm';
 import { Product } from './product.entity';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
+import { Pagination } from 'src/decorators/pagination-params.decorator';
 
 @Injectable()
 export class ProductService {
@@ -12,10 +13,21 @@ export class ProductService {
     private readonly productRepository: Repository<Product>,
   ) {}
 
-  async findAll() {
-    return await this.productRepository.find({
+  async findAll(paginationParams: Pagination) {
+    const { page, limit, size, offset } = paginationParams;
+
+    const [products, total] = await this.productRepository.findAndCount({
       relations: { category: true, images: true },
+      take: limit,
+      skip: offset,
     });
+
+    return {
+      productCount: total,
+      products,
+      page,
+      size,
+    };
   }
 
   async findOne(id: string) {

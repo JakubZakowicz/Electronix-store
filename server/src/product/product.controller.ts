@@ -14,13 +14,17 @@ import { ProductService } from './product.service';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
+import {
+  Pagination,
+  PaginationParams,
+} from '../decorators/pagination-params.decorator';
 
 @Controller('products')
 export class ProductController {
   constructor(private readonly productService: ProductService) {}
   @Get()
-  findAll() {
-    return this.productService.findAll();
+  findAll(@PaginationParams() paginationParams: Pagination) {
+    return this.productService.findAll(paginationParams);
   }
 
   @Get(':id')
