@@ -24,7 +24,7 @@ export class OrderService {
     });
 
     return {
-      orderCount: total,
+      total,
       orders,
       page,
       size,

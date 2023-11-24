@@ -23,7 +23,7 @@ export class CategoryService {
     });
 
     return {
-      categoryCount: total,
+      total,
       categories,
       page,
       size,

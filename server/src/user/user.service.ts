@@ -21,7 +21,7 @@ export class UserService {
     });
 
     return {
-      userCount: total,
+      total,
       users,
       page,
       size,

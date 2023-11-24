@@ -23,7 +23,7 @@ export class ProductService {
     });
 
     return {
-      productCount: total,
+      total,
       products,
       page,
       size,

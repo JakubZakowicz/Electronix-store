@@ -25,7 +25,7 @@ export class ReviewService {
     });
 
     return {
-      reviewCount: total,
+      total,
       reviews,
       page,
       size,
