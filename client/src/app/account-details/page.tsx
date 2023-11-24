@@ -9,7 +9,7 @@ import { useGetMe, useGetUser } from '@/src/api/auth';
 const AccountDetails = () => {
   const { data: me, isError, error } = useGetMe();
 
-  if (isError) throw new Error(error.message)
+  if (isError) throw new Error(error.message);
 
   const {
     data: user,
@@ -17,7 +17,7 @@ const AccountDetails = () => {
     error: userError,
   } = useGetUser(me?.userId);
 
-  if (isUserError) throw new Error(userError.message)
+  if (isUserError) throw new Error(userError.message);
 
   const {
     firstName,

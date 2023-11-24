@@ -128,7 +128,7 @@ const Navbar = ({ children }: NavbarProps) => {
           </ListItemButton>
           <Collapse in={open} timeout="auto" unmountOnExit>
             {categories &&
-              categories.map(({ id, slug, name }) => (
+              categories.categories.map(({ id, slug, name }) => (
                 <List
                   key={id}
                   component={Link}

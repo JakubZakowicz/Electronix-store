@@ -20,7 +20,7 @@ const CartProductCounter = ({
     error: updateCartProductError,
   } = useUpdateCartProduct();
 
-  if (isUpdateCartProductError) throw new Error(updateCartProductError.message)
+  if (isUpdateCartProductError) throw new Error(updateCartProductError.message);
 
   return (
     <ProductCounter

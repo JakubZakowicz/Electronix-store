@@ -6,10 +6,7 @@ import Products from '.';
 describe('Products', () => {
   it('Renders Products correctly', () => {
     const text = 'Virtual Reality';
-    render(
-      <Products name={text} />
-      
-    );
+    render(<Products name={text} />);
     const textElement = screen.getByText(text);
     expect(textElement).toBeInTheDocument();
   });

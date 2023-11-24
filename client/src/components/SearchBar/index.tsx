@@ -33,7 +33,7 @@ const CustomPaper = ({ children }: PaperProps) => {
 
 const SearchBar = () => {
   const { data } = useGetProducts();
-  const products = data?.map((product) => ({
+  const products = data?.products?.map((product) => ({
     name: product.name,
     link: pageRoutes.products(product.id),
   }));

@@ -5,10 +5,7 @@ import ProductCounter from '.';
 
 describe('ProductCounter', () => {
   it('Renders ProductCounter correctly', () => {
-    render(
-      <ProductCounter isAddToCartOption />
-      
-    );
+    render(<ProductCounter isAddToCartOption />);
     const textElement = screen.getByText(/add to cart/i);
     expect(textElement).toBeInTheDocument();
   });

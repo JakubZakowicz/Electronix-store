@@ -48,7 +48,7 @@ const EditAccountDetails = () => {
     });
   };
 
-  if (isUpdateUserError) throw new Error(updateUserError.message)
+  if (isUpdateUserError) throw new Error(updateUserError.message);
 
   return (
     <Box>

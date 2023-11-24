@@ -15,13 +15,15 @@ const DeleteCartProduct = ({ productId }: DeleteCartProductProps) => {
     error: deleteCartProductError,
   } = useDeleteCartProduct(productId);
 
-  if (isDeleteCartProductError) throw new Error(deleteCartProductError.message)
+  if (isDeleteCartProductError) throw new Error(deleteCartProductError.message);
 
   return (
     <Button
       data-testid="delete-cart-product"
       sx={{ color: 'white' }}
-      onClick={() => deleteCartProduct(productId, { onSuccess: () => refetch() })}
+      onClick={() =>
+        deleteCartProduct(productId, { onSuccess: () => refetch() })
+      }
     >
       <HighlightOffIcon />
     </Button>

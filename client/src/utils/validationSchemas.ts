@@ -36,5 +36,5 @@ export const forgotPasswordSchema = z.object({
 export const reviewSchema = z.object({
   title: z.string(),
   content: z.string(),
-  rating: z.number().min(1).max(5)
-})
+  rating: z.number().min(1).max(5),
+});

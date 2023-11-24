@@ -5,7 +5,7 @@ import InputField from '.';
 
 describe('InputField', () => {
   it('Renders InputField correctly', () => {
-    const labelText = 'First Name'
+    const labelText = 'First Name';
     render(<InputField label={labelText} />);
     const text = screen.getByLabelText(labelText);
     expect(text).toBeInTheDocument();

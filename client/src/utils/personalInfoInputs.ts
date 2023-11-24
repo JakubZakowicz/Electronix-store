@@ -9,7 +9,7 @@ export const personalInfoInputs: {
     | 'streetAddress'
     | 'postCode';
   labelName: string;
-  type?: string
+  type?: string;
 }[] = [
   {
     fieldName: 'firstName',
@@ -22,7 +22,7 @@ export const personalInfoInputs: {
   {
     fieldName: 'email',
     labelName: 'Email address',
-    type: 'email'
+    type: 'email',
   },
   {
     fieldName: 'phoneNumber',

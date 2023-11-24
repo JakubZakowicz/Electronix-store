@@ -9,7 +9,7 @@ import { api } from './api.utils';
 import { AxiosResponse, AxiosError, AxiosRequestConfig } from 'axios';
 
 type QueryKeyT = [string, AxiosRequestConfig | undefined];
-type QueryError = AxiosError & { response: { data: { message: string } } }
+type QueryError = AxiosError & { response: { data: { message: string } } };
 
 export const fetcher = <T>({
   queryKey,
@@ -44,11 +44,7 @@ const useGenericMutation = <T, S>(
 ) => {
   const queryClient = useQueryClient();
 
-  return useMutation<
-    AxiosResponse,
-    QueryError,
-    T | S
-  >({
+  return useMutation<AxiosResponse, QueryError, T | S>({
     mutationFn: func,
     onMutate: async (data) => {
       await queryClient.cancelQueries([url!, params]);

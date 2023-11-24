@@ -21,7 +21,7 @@ export default function Home() {
     error: productError,
   } = useGetProducts();
 
-  const featuredProducts = productsData?.filter(
+  const featuredProducts = productsData?.products?.filter(
     (product) => product.isFeatured
   );
 
