@@ -5,6 +5,7 @@ import { User } from './user.entity';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { Pagination } from '../decorators/pagination-params.decorator';
+import { getPageCount } from '../utils/functions';
 
 @Injectable()
 export class UserService {
@@ -25,6 +26,7 @@ export class UserService {
       users,
       page,
       size,
+      pageCount: getPageCount(total, size),
     };
   }
 

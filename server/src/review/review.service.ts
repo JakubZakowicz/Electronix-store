@@ -6,6 +6,7 @@ import { CreateReviewDto } from './dto/create-review.dto';
 import { UpdateReviewDto } from './dto/update-review.dto';
 import { Product } from '../product/product.entity';
 import { Pagination } from '../decorators/pagination-params.decorator';
+import { getPageCount } from '../utils/functions';
 
 @Injectable()
 export class ReviewService {
@@ -29,6 +30,7 @@ export class ReviewService {
       reviews,
       page,
       size,
+      pageCount: getPageCount(total, size),
     };
   }
 

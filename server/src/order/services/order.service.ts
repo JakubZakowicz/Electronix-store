@@ -5,6 +5,7 @@ import { Order } from '../entities/order.entity';
 import { CreateOrderDto } from '../dto/create-order';
 import { UpdateOrderDto } from '../dto/update-order';
 import { Pagination } from '../../decorators/pagination-params.decorator';
+import { getPageCount } from '../../utils/functions';
 
 @Injectable()
 export class OrderService {
@@ -28,6 +29,7 @@ export class OrderService {
       orders,
       page,
       size,
+      pageCount: getPageCount(total, size),
     };
   }
 

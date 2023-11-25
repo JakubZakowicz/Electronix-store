@@ -6,6 +6,7 @@ import {
   Param,
   Post,
   Put,
+  Query,
   UseGuards,
   UsePipes,
   ValidationPipe,
@@ -23,8 +24,11 @@ import {
 export class ProductController {
   constructor(private readonly productService: ProductService) {}
   @Get()
-  findAll(@PaginationParams() paginationParams: Pagination) {
-    return this.productService.findAll(paginationParams);
+  findAll(
+    @PaginationParams() paginationParams: Pagination,
+    @Query('categoryId') categoryId: string,
+  ) {
+    return this.productService.findAll(paginationParams, categoryId);
   }
 
   @Get(':id')
