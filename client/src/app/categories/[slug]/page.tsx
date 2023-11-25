@@ -3,6 +3,8 @@
 import React from 'react';
 import Products from '../../../components/Products';
 import { useGetCategory } from '@/src/api/categories';
+import { useGetProducts } from '@/src/api/products';
+import { useSearchParams } from 'next/navigation';
 
 interface ProductsPageProps {
   params: { slug: string };
@@ -10,11 +12,16 @@ interface ProductsPageProps {
 
 const ProductsPage = ({ params }: ProductsPageProps) => {
   const { slug } = params;
+  const searchParams = useSearchParams();
+  const page = Number(searchParams.get('page')) || 1;
+
   const {
     data: category,
     isError: isCategoryError,
     error: categoryError,
   } = useGetCategory(slug);
+
+  const { data: productsData } = useGetProducts(category?.id, page);
 
   if (isCategoryError) throw new Error(categoryError.message);
 
@@ -22,7 +29,7 @@ const ProductsPage = ({ params }: ProductsPageProps) => {
     <div>
       <Products
         name={`${category?.name} Products`}
-        products={category?.products}
+        productsData={productsData}
       />
     </div>
   );

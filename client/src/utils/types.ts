@@ -28,6 +28,7 @@ interface DataDefaultProps {
   total: number;
   page: number;
   size: number;
+  pageCount: number;
 }
 
 export interface Category {
