@@ -5,6 +5,8 @@ import { Review } from './review.entity';
 import { CreateReviewDto } from './dto/create-review.dto';
 import { UpdateReviewDto } from './dto/update-review.dto';
 import { Product } from '../product/product.entity';
+import { Pagination } from '../decorators/pagination-params.decorator';
+import { getPageCount } from '../utils/functions';
 
 @Injectable()
 export class ReviewService {
@@ -15,8 +17,23 @@ export class ReviewService {
     private readonly productRepository: Repository<Product>,
   ) {}
 
-  async findAll() {
-    return await this.reviewRepository.find();
+  async findAll(paginationParams: Pagination, productId?: string) {
+    const { page, limit, size, offset } = paginationParams;
+    console.log(productId);
+    const [reviews, total] = await this.reviewRepository.findAndCount({
+      ...(productId && { where: { product: { id: productId } } }),
+      relations: { user: true },
+      take: limit,
+      skip: offset,
+    });
+
+    return {
+      total,
+      reviews,
+      page,
+      size,
+      pageCount: getPageCount(total, size),
+    };
   }
 
   async findOneById(id: string) {

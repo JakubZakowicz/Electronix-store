@@ -32,7 +32,7 @@ const CheckoutPage = () => {
     router.push(pageRoutes.cart());
   }
 
-  if (isCartDataError) throw new Error(cartDataError.message)
+  if (isCartDataError) throw new Error(cartDataError.message);
 
   return (
     <Box>

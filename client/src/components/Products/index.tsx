@@ -3,6 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import {
   Box,
   Card,
@@ -12,15 +13,19 @@ import {
   Typography,
 } from '@mui/material';
 import { pageRoutes } from '@/src/routes/pageRoutes';
-import { Product } from '@/src/utils/types';
+import { ProductData } from '@/src/utils/types';
 import { convertPrice } from '@/src/utils/functions.utils';
+import Pagination from '../Pagination';
 
 interface ProductsInterface {
   name: string;
-  products?: Product[];
+  productsData?: ProductData;
 }
 
-const Products = ({ name, products }: ProductsInterface) => {
+const Products = ({ name, productsData }: ProductsInterface) => {
+  const { products, pageCount } = productsData || {};
+  const router = useRouter();
+
   if (products?.length === 0)
     return (
       <Box>
@@ -36,6 +41,10 @@ const Products = ({ name, products }: ProductsInterface) => {
         </Typography>
       </Box>
     );
+
+  const handleChange = (_event: React.ChangeEvent<unknown>, value: number) => {
+    router.push(`?page=${value}`);
+  };
 
   return (
     <Box>
@@ -96,6 +105,13 @@ const Products = ({ name, products }: ProductsInterface) => {
             </Grid>
           ))}
       </Grid>
+      <Box
+        sx={{ display: 'flex', justifyContent: 'center', marginTop: '50px' }}
+      >
+        {pageCount && pageCount > 1 && (
+          <Pagination pageCount={pageCount} handleChange={handleChange} />
+        )}
+      </Box>
     </Box>
   );
 };
