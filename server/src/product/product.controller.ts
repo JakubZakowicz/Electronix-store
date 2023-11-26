@@ -26,7 +26,7 @@ export class ProductController {
   @Get()
   findAll(
     @PaginationParams() paginationParams: Pagination,
-    @Query('categoryId') categoryId: string,
+    @Query('category_id') categoryId: string,
   ) {
     return this.productService.findAll(paginationParams, categoryId);
   }

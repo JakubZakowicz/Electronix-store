@@ -25,6 +25,14 @@ export default function Home() {
     (product) => product.isFeatured
   );
 
+  const featuredProductsData = {
+    products: featuredProducts || [],
+    pageCount: 1,
+    page: 1,
+    total: 0,
+    size: 0,
+  };
+
   if (isProductsError) throw new Error(productError.message);
 
   return (
@@ -73,7 +81,7 @@ export default function Home() {
           </Grid>
         </CardContent>
       </Card>
-      <Products name="Top Products" products={featuredProducts} />
+      <Products name="Top Products" productsData={featuredProductsData} />
     </Box>
   );
 }

@@ -39,7 +39,7 @@ const ProductPage = ({ params }: ProductPageProps) => {
   const { id, name, images, summary, description, price, reviews } =
     product || {};
 
-  const handleChange = (event: React.SyntheticEvent, newValue: string) => {
+  const handleChange = (_event: React.SyntheticEvent, newValue: string) => {
     setTabNumber(newValue);
   };
 

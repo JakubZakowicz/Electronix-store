@@ -6,7 +6,7 @@ import { Product, ProductData } from '../utils/types';
 export const useGetProducts = (categoryId?: string, page?: number) =>
   useFetch<ProductData>(
     apiRoutes.getProducts +
-      (categoryId ? `categoryId=${categoryId}` : '') +
+      (categoryId ? `category_id=${categoryId}` : '') +
       `&page=${page || 1}&size=20`
   );
 

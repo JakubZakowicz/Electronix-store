@@ -17,10 +17,12 @@ export class ReviewService {
     private readonly productRepository: Repository<Product>,
   ) {}
 
-  async findAll(paginationParams: Pagination) {
+  async findAll(paginationParams: Pagination, productId?: string) {
     const { page, limit, size, offset } = paginationParams;
-
+    console.log(productId);
     const [reviews, total] = await this.reviewRepository.findAndCount({
+      ...(productId && { where: { product: { id: productId } } }),
+      relations: { user: true },
       take: limit,
       skip: offset,
     });

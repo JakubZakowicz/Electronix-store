@@ -14,7 +14,7 @@ export class ProductService {
     private readonly productRepository: Repository<Product>,
   ) {}
 
-  async findAll(paginationParams: Pagination, categoryId: string) {
+  async findAll(paginationParams: Pagination, categoryId?: string) {
     const { page, limit, size, offset } = paginationParams;
 
     const [products, total] = await this.productRepository.findAndCount({

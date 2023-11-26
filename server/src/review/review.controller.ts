@@ -6,6 +6,7 @@ import {
   Param,
   Post,
   Put,
+  Query,
   Req,
   UseGuards,
   UsePipes,
@@ -28,8 +29,11 @@ interface RequestWithUser extends Express.Request {
 export class ReviewController {
   constructor(private readonly reviewService: ReviewService) {}
   @Get()
-  findAll(@PaginationParams() paginationParams: Pagination) {
-    return this.reviewService.findAll(paginationParams);
+  findAll(
+    @PaginationParams() paginationParams: Pagination,
+    @Query('product_id') productId: string,
+  ) {
+    return this.reviewService.findAll(paginationParams, productId);
   }
 
   @Get(':id')
