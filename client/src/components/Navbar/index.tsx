@@ -84,7 +84,7 @@ const Navbar = ({ children }: NavbarProps) => {
           )}
           <Link href={pageRoutes.cart()}>
             <ShoppingCartIcon fontSize="large" sx={{ color: 'white' }} />
-            {cartData && cartData.products.length > 0 && (
+            {cartData && cartData.products?.length > 0 && (
               <Box sx={{ position: 'relative' }}>
                 <CircleIcon
                   sx={{
@@ -128,7 +128,7 @@ const Navbar = ({ children }: NavbarProps) => {
           </ListItemButton>
           <Collapse in={open} timeout="auto" unmountOnExit>
             {categories &&
-              categories.categories.map(({ id, slug, name }) => (
+              categories.categories?.map(({ id, slug, name }) => (
                 <List
                   key={id}
                   component={Link}
