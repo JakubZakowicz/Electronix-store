@@ -5,7 +5,8 @@ import { Order } from '../entities/order.entity';
 import { CreateOrderDto } from '../dto/create-order';
 import { UpdateOrderDto } from '../dto/update-order';
 import { Pagination } from '../../decorators/pagination-params.decorator';
-import { getPageCount } from '../../utils/functions';
+import { getOrder, getPageCount } from '../../utils/functions';
+import { Sorting } from '../../decorators/sorting-params.decorator';
 
 @Injectable()
 export class OrderService {
@@ -14,12 +15,14 @@ export class OrderService {
     private readonly orderRepository: Repository<Order>,
   ) {}
 
-  async findAll(paginationParams: Pagination, userId?: string) {
+  async findAll(paginationParams: Pagination, sort?: Sorting, userId?: string) {
     const { page, limit, size, offset } = paginationParams;
+    const order = getOrder(sort);
 
     const [orders, total] = await this.orderRepository.findAndCount({
       where: { user: { id: userId } },
       relations: { orderItems: { product: true } },
+      order,
       take: limit,
       skip: offset,
     });

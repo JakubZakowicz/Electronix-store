@@ -19,8 +19,6 @@ export class CategoryService {
     const { page, limit, size, offset } = paginationParams;
     const order = getOrder(sort);
 
-    console.log(sort);
-
     const [categories, total] = await this.categoryRepository.findAndCount({
       relations: { products: true },
       order,

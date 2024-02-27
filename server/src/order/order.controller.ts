@@ -18,23 +18,38 @@ import {
   PaginationParams,
   Pagination,
 } from '../decorators/pagination-params.decorator';
+import { Sorting, SortingParams } from '../decorators/sorting-params.decorator';
 
 @Controller('orders')
 export class OrderController {
   constructor(private readonly orderService: OrderService) {}
 
   @Get()
-  findAll(@PaginationParams() paginationParams: Pagination) {
-    return this.orderService.findAll(paginationParams);
+  findAll(
+    @PaginationParams() paginationParams: Pagination,
+    @SortingParams([
+      'id',
+      'paymentIntentId',
+      'status',
+      'deliveryPrice',
+      'totalPrice',
+      'created_at',
+      'updated_at',
+      'userId',
+    ])
+    sortingParams: Sorting,
+  ) {
+    return this.orderService.findAll(paginationParams, sortingParams);
   }
 
   @UseGuards(JwtAuthGuard)
   @Get('/user/:userId')
   findUserOrders(
     @PaginationParams() paginationParams: Pagination,
+    @SortingParams() sortingParams: Sorting,
     @Param('userId') userId: string,
   ) {
-    return this.orderService.findAll(paginationParams, userId);
+    return this.orderService.findAll(paginationParams, sortingParams, userId);
   }
 
   @UseGuards(JwtAuthGuard)

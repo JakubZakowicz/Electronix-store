@@ -5,7 +5,8 @@ import { User } from './user.entity';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { Pagination } from '../decorators/pagination-params.decorator';
-import { getPageCount } from '../utils/functions';
+import { getOrder, getPageCount } from '../utils/functions';
+import { Sorting } from '../decorators/sorting-params.decorator';
 
 @Injectable()
 export class UserService {
@@ -13,10 +14,12 @@ export class UserService {
     @InjectRepository(User) private readonly userRepository: Repository<User>,
   ) {}
 
-  async findAll(paginationParams: Pagination) {
+  async findAll(paginationParams: Pagination, sort?: Sorting) {
     const { page, limit, size, offset } = paginationParams;
+    const order = getOrder(sort);
 
     const [users, total] = await this.userRepository.findAndCount({
+      order,
       take: limit,
       skip: offset,
     });
