@@ -16,6 +16,7 @@ import { pageRoutes } from '@/src/routes/pageRoutes';
 import { ProductData } from '@/src/utils/types';
 import { convertPrice } from '@/src/utils/functions.utils';
 import Pagination from '../Pagination';
+import SortInput from '../SortInput';
 
 interface ProductsInterface {
   name: string;
@@ -48,14 +49,16 @@ const Products = ({ name, productsData }: ProductsInterface) => {
 
   return (
     <Box>
-      <Typography
-        marginTop="50px"
-        variant="h2"
-        fontSize="30px"
-        fontWeight="bold"
-      >
-        {name}
-      </Typography>
+      <Box sx={{ display: 'flex', justifyContent: 'space-between', marginTop: '50px' }}>
+        <Typography
+          variant="h2"
+          fontSize="30px"
+          fontWeight="bold"
+        >
+          {name}
+        </Typography>
+        <SortInput />
+      </Box>
       <Grid container marginTop="-30px" spacing={12} rowSpacing={6}>
         {products &&
           products.map(({ id, name, images, rating, price, slug }) => (
