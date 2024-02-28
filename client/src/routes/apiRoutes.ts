@@ -1,5 +1,5 @@
 export const apiRoutes = {
-  getCategories: '/categories',
+  getCategories: '/categories?sort=name:asc',
   getCategory: '/categories/:slug',
   getProducts: '/products?',
   getProduct: '/products/:slug',
