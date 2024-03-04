@@ -10,34 +10,34 @@ import {
 
 const SortInput = () => {
   const router = useRouter();
-  const pathname = usePathname()
-  const searchParams = useSearchParams()
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
   const params = new URLSearchParams(searchParams.toString());
 
   const sortParameters = [
     {
       label: 'Relevance: highest',
-      value: 'created_at:desc'
+      value: 'created_at:desc',
     },
     {
       label: 'Relevance: lowest',
-      value: 'created_at:asc'
+      value: 'created_at:asc',
     },
     {
       label: 'Price: low to high',
-      value: 'price:asc'
+      value: 'price:asc',
     },
     {
       label: 'Price: high to low',
-      value: 'price:desc'
+      value: 'price:desc',
     },
     {
       label: 'Rating: highest',
-      value: 'rating:desc'
+      value: 'rating:desc',
     },
     {
       label: 'Rating: lowest',
-      value: 'rating:asc'
+      value: 'rating:asc',
     },
   ];
 

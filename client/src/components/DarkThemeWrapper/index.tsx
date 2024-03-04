@@ -1,6 +1,6 @@
-'use client'
+'use client';
 
-import React from 'react'
+import React from 'react';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 const darkTheme = createTheme({
@@ -14,11 +14,7 @@ interface Props {
 }
 
 const DarkThemeWrapper = ({ children }: Props) => {
-  return (
-    <ThemeProvider theme={darkTheme}>
-      {children}
-    </ThemeProvider>
-  )
-}
+  return <ThemeProvider theme={darkTheme}>{children}</ThemeProvider>;
+};
 
-export default DarkThemeWrapper
+export default DarkThemeWrapper;

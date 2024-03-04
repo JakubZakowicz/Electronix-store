@@ -113,7 +113,7 @@ const Navbar = ({ children }: NavbarProps) => {
             backgroundColor: isMobileView ? 'black' : 'transparent',
             color: 'white',
             marginTop: isMobileView ? 0 : 15,
-            border: 'none'
+            border: 'none',
           },
         }}
         variant={isMobileView ? 'temporary' : 'permanent'}

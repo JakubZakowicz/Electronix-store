@@ -21,16 +21,20 @@ import SortInput from '../SortInput';
 interface ProductsInterface {
   name: string;
   productsData?: ProductData;
-  disabledSorting?: boolean
+  disabledSorting?: boolean;
 }
 
-const Products = ({ name, productsData, disabledSorting = false }: ProductsInterface) => {
+const Products = ({
+  name,
+  productsData,
+  disabledSorting = false,
+}: ProductsInterface) => {
   const { products, pageCount } = productsData || {};
   const router = useRouter();
-  const pathname = usePathname()
-  const searchParams = useSearchParams()
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
   const params = new URLSearchParams(searchParams.toString());
-  const page = Number(params.get('page')) || 1
+  const page = Number(params.get('page')) || 1;
 
   if (products?.length === 0)
     return (
@@ -55,12 +59,14 @@ const Products = ({ name, productsData, disabledSorting = false }: ProductsInter
 
   return (
     <Box>
-      <Box sx={{ display: 'flex', justifyContent: 'space-between', marginTop: '50px' }}>
-        <Typography
-          variant="h2"
-          fontSize="30px"
-          fontWeight="bold"
-        >
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          marginTop: '50px',
+        }}
+      >
+        <Typography variant="h2" fontSize="30px" fontWeight="bold">
           {name}
         </Typography>
         {!disabledSorting && <SortInput />}
@@ -118,7 +124,11 @@ const Products = ({ name, productsData, disabledSorting = false }: ProductsInter
         sx={{ display: 'flex', justifyContent: 'center', marginTop: '50px' }}
       >
         {pageCount && pageCount > 1 && (
-          <Pagination page={page} pageCount={pageCount} handleChange={handleChange} />
+          <Pagination
+            page={page}
+            pageCount={pageCount}
+            handleChange={handleChange}
+          />
         )}
       </Box>
     </Box>

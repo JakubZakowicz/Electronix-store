@@ -14,7 +14,7 @@ const ProductsPage = ({ params }: ProductsPageProps) => {
   const { slug } = params;
   const searchParams = useSearchParams();
   const page = Number(searchParams.get('page')) || 1;
-  const sort = searchParams.get('sort') || undefined
+  const sort = searchParams.get('sort') || undefined;
 
   const {
     data: category,

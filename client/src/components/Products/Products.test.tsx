@@ -5,12 +5,12 @@ import Products from '.';
 
 const mockedUseRouter = jest.fn();
 const mockedUsePathname = jest.fn();
-const mockedUseSearchParams = { page: 1 }
+const mockedUseSearchParams = { page: 1 };
 
-jest.mock("next/navigation", () => ({
+jest.mock('next/navigation', () => ({
   useRouter: () => mockedUseRouter(),
   usePathname: () => mockedUsePathname(),
-  useSearchParams: () => mockedUseSearchParams
+  useSearchParams: () => mockedUseSearchParams,
 }));
 
 describe('Products', () => {
