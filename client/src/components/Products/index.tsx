@@ -3,7 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import {
   Box,
   Card,
@@ -26,6 +26,10 @@ interface ProductsInterface {
 const Products = ({ name, productsData }: ProductsInterface) => {
   const { products, pageCount } = productsData || {};
   const router = useRouter();
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
+  const params = new URLSearchParams(searchParams.toString());
+  const page = Number(params.get('page')) || 1
 
   if (products?.length === 0)
     return (
@@ -44,7 +48,8 @@ const Products = ({ name, productsData }: ProductsInterface) => {
     );
 
   const handleChange = (_event: React.ChangeEvent<unknown>, value: number) => {
-    router.push(`?page=${value}`);
+    params.set('page', value.toString());
+    router.replace(`${pathname}?${params.toString()}`);
   };
 
   return (
@@ -112,7 +117,7 @@ const Products = ({ name, productsData }: ProductsInterface) => {
         sx={{ display: 'flex', justifyContent: 'center', marginTop: '50px' }}
       >
         {pageCount && pageCount > 1 && (
-          <Pagination pageCount={pageCount} handleChange={handleChange} />
+          <Pagination page={page} pageCount={pageCount} handleChange={handleChange} />
         )}
       </Box>
     </Box>
