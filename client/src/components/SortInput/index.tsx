@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import {
   FormControl,
   InputLabel,
@@ -8,7 +9,10 @@ import {
 } from '@mui/material';
 
 const SortInput = () => {
-  const [sortParameter, setSortParameter] = useState('');
+  const router = useRouter();
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
+  const params = new URLSearchParams(searchParams.toString());
 
   const sortParameters = [
     {
@@ -38,7 +42,8 @@ const SortInput = () => {
   ];
 
   const handleChange = (event: SelectChangeEvent<string>) => {
-    setSortParameter(event.target.value);
+    params.set('sort', event.target.value);
+    router.replace(`${pathname}?${params.toString()}`);
   };
 
   return (
@@ -74,7 +79,7 @@ const SortInput = () => {
       <Select
         labelId="sorting-select-label"
         id="sorting-select"
-        value={sortParameter}
+        value={params.get('sort') || undefined}
         label="Sort by"
         onChange={handleChange}
       >
