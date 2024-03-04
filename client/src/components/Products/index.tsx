@@ -21,9 +21,10 @@ import SortInput from '../SortInput';
 interface ProductsInterface {
   name: string;
   productsData?: ProductData;
+  disabledSorting?: boolean
 }
 
-const Products = ({ name, productsData }: ProductsInterface) => {
+const Products = ({ name, productsData, disabledSorting = false }: ProductsInterface) => {
   const { products, pageCount } = productsData || {};
   const router = useRouter();
   const pathname = usePathname()
@@ -62,7 +63,7 @@ const Products = ({ name, productsData }: ProductsInterface) => {
         >
           {name}
         </Typography>
-        <SortInput />
+        {!disabledSorting && <SortInput />}
       </Box>
       <Grid container marginTop="-30px" spacing={12} rowSpacing={6}>
         {products &&
