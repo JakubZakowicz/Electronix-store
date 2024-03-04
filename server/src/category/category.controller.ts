@@ -18,13 +18,18 @@ import {
   PaginationParams,
   Pagination,
 } from '../decorators/pagination-params.decorator';
+import { Sorting, SortingParams } from '../decorators/sorting-params.decorator';
 
 @Controller('categories')
 export class CategoryController {
   constructor(private readonly categoryService: CategoryService) {}
   @Get()
-  findAll(@PaginationParams() paginationParams: Pagination) {
-    return this.categoryService.findAll(paginationParams);
+  findAll(
+    @PaginationParams() paginationParams: Pagination,
+    @SortingParams(['id', 'name', 'slug', 'created_at', 'updated_at'])
+    sortingParams: Sorting,
+  ) {
+    return this.categoryService.findAll(paginationParams, sortingParams);
   }
 
   @Get(':id')

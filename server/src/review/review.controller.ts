@@ -20,6 +20,7 @@ import { ReviewService } from './review.service';
 import { CreateReviewDto } from './dto/create-review.dto';
 import { UpdateReviewDto } from './dto/update-review.dto';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
+import { Sorting, SortingParams } from '../decorators/sorting-params.decorator';
 
 interface RequestWithUser extends Express.Request {
   user: { userId: string };
@@ -31,9 +32,22 @@ export class ReviewController {
   @Get()
   findAll(
     @PaginationParams() paginationParams: Pagination,
+    @SortingParams([
+      'id',
+      'title',
+      'content',
+      'rating',
+      'created_at',
+      'updated_at',
+    ])
+    sortingParams: Sorting,
     @Query('product_id') productId: string,
   ) {
-    return this.reviewService.findAll(paginationParams, productId);
+    return this.reviewService.findAll(
+      paginationParams,
+      sortingParams,
+      productId,
+    );
   }
 
   @Get(':id')

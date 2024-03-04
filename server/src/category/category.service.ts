@@ -5,7 +5,8 @@ import { Category } from './category.entity';
 import { CreateCategoryDto } from './dto/create-category.dto';
 import { UpdateCategoryDto } from './dto/update-category.dto';
 import { Pagination } from '../decorators/pagination-params.decorator';
-import { getPageCount } from '../utils/functions';
+import { getOrder, getPageCount } from '../utils/functions';
+import { Sorting } from '../decorators/sorting-params.decorator';
 
 @Injectable()
 export class CategoryService {
@@ -14,11 +15,13 @@ export class CategoryService {
     private readonly categoryRepository: Repository<Category>,
   ) {}
 
-  async findAll(paginationParams: Pagination) {
+  async findAll(paginationParams: Pagination, sort?: Sorting) {
     const { page, limit, size, offset } = paginationParams;
+    const order = getOrder(sort);
 
     const [categories, total] = await this.categoryRepository.findAndCount({
       relations: { products: true },
+      order,
       take: limit,
       skip: offset,
     });

@@ -19,6 +19,7 @@ import {
   Pagination,
   PaginationParams,
 } from '../decorators/pagination-params.decorator';
+import { Sorting, SortingParams } from '../decorators/sorting-params.decorator';
 
 @Controller('products')
 export class ProductController {
@@ -26,9 +27,26 @@ export class ProductController {
   @Get()
   findAll(
     @PaginationParams() paginationParams: Pagination,
+    @SortingParams([
+      'id',
+      'name',
+      'summary',
+      'description',
+      'isFeatured',
+      'price',
+      'rating',
+      'slug',
+      'created_at',
+      'updated_at',
+    ])
+    sortingParams: Sorting,
     @Query('category_id') categoryId: string,
   ) {
-    return this.productService.findAll(paginationParams, categoryId);
+    return this.productService.findAll(
+      paginationParams,
+      sortingParams,
+      categoryId,
+    );
   }
 
   @Get(':id')

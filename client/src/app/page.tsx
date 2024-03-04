@@ -81,7 +81,11 @@ export default function Home() {
           </Grid>
         </CardContent>
       </Card>
-      <Products name="Top Products" productsData={featuredProductsData} />
+      <Products
+        name="Top Products"
+        productsData={featuredProductsData}
+        disabledSorting
+      />
     </Box>
   );
 }

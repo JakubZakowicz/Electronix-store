@@ -4,6 +4,7 @@ import Navbar from '../components/Navbar';
 import Footer from '@/src/components/Footer';
 import ReactQueryWrapper from '../components/ReactQueryWrapper';
 import './globals.css';
+import DarkThemeWrapper from '../components/DarkThemeWrapper';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -21,10 +22,12 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <div className="main">
-          <ReactQueryWrapper>
-            <Navbar>{children}</Navbar>
-            <Footer />
-          </ReactQueryWrapper>
+          <DarkThemeWrapper>
+            <ReactQueryWrapper>
+              <Navbar>{children}</Navbar>
+              <Footer />
+            </ReactQueryWrapper>
+          </DarkThemeWrapper>
         </div>
       </body>
     </html>

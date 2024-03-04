@@ -18,6 +18,7 @@ import {
   PaginationParams,
   Pagination,
 } from '../decorators/pagination-params.decorator';
+import { Sorting, SortingParams } from '../decorators/sorting-params.decorator';
 
 @Controller('users')
 export class UserController {
@@ -25,8 +26,25 @@ export class UserController {
 
   @UseGuards(JwtAuthGuard)
   @Get()
-  async findAll(@PaginationParams() paginationParams: Pagination) {
-    return this.userService.findAll(paginationParams);
+  async findAll(
+    @PaginationParams() paginationParams: Pagination,
+    @SortingParams([
+      'id',
+      'firstName',
+      'lastName',
+      'email',
+      'phoneNumber',
+      'country',
+      'city',
+      'streetAddress',
+      'postCode',
+      'password',
+      'created_at',
+      'updated_at',
+    ])
+    sortingParams: Sorting,
+  ) {
+    return this.userService.findAll(paginationParams, sortingParams);
   }
 
   @UseGuards(JwtAuthGuard)

@@ -3,7 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import {
   Box,
   Card,
@@ -16,15 +16,25 @@ import { pageRoutes } from '@/src/routes/pageRoutes';
 import { ProductData } from '@/src/utils/types';
 import { convertPrice } from '@/src/utils/functions.utils';
 import Pagination from '../Pagination';
+import SortInput from '../SortInput';
 
 interface ProductsInterface {
   name: string;
   productsData?: ProductData;
+  disabledSorting?: boolean;
 }
 
-const Products = ({ name, productsData }: ProductsInterface) => {
+const Products = ({
+  name,
+  productsData,
+  disabledSorting = false,
+}: ProductsInterface) => {
   const { products, pageCount } = productsData || {};
   const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const params = new URLSearchParams(searchParams.toString());
+  const page = Number(params.get('page')) || 1;
 
   if (products?.length === 0)
     return (
@@ -43,19 +53,24 @@ const Products = ({ name, productsData }: ProductsInterface) => {
     );
 
   const handleChange = (_event: React.ChangeEvent<unknown>, value: number) => {
-    router.push(`?page=${value}`);
+    params.set('page', value.toString());
+    router.replace(`${pathname}?${params.toString()}`);
   };
 
   return (
     <Box>
-      <Typography
-        marginTop="50px"
-        variant="h2"
-        fontSize="30px"
-        fontWeight="bold"
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          marginTop: '50px',
+        }}
       >
-        {name}
-      </Typography>
+        <Typography variant="h2" fontSize="30px" fontWeight="bold">
+          {name}
+        </Typography>
+        {!disabledSorting && <SortInput />}
+      </Box>
       <Grid container marginTop="-30px" spacing={12} rowSpacing={6}>
         {products &&
           products.map(({ id, name, images, rating, price, slug }) => (
@@ -109,7 +124,11 @@ const Products = ({ name, productsData }: ProductsInterface) => {
         sx={{ display: 'flex', justifyContent: 'center', marginTop: '50px' }}
       >
         {pageCount && pageCount > 1 && (
-          <Pagination pageCount={pageCount} handleChange={handleChange} />
+          <Pagination
+            page={page}
+            pageCount={pageCount}
+            handleChange={handleChange}
+          />
         )}
       </Box>
     </Box>
