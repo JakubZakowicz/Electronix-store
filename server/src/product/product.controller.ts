@@ -20,6 +20,10 @@ import {
   PaginationParams,
 } from '../decorators/pagination-params.decorator';
 import { Sorting, SortingParams } from '../decorators/sorting-params.decorator';
+import {
+  Filtering,
+  FilteringParams,
+} from '../decorators/filtering-params.decorator';
 
 @Controller('products')
 export class ProductController {
@@ -40,11 +44,13 @@ export class ProductController {
       'updated_at',
     ])
     sortingParams: Sorting,
+    @FilteringParams(['name']) filteringParams: Filtering,
     @Query('category_id') categoryId: string,
   ) {
     return this.productService.findAll(
       paginationParams,
       sortingParams,
+      filteringParams,
       categoryId,
     );
   }
