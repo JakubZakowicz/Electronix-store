@@ -5,8 +5,9 @@ import { Product } from './product.entity';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
 import { Pagination } from '../decorators/pagination-params.decorator';
-import { getOrder, getPageCount } from '../utils/functions';
+import { getOrder, getPageCount, getWhere } from '../utils/functions';
 import { Sorting } from '../decorators/sorting-params.decorator';
+import { Filtering } from '../decorators/filtering-params.decorator';
 
 @Injectable()
 export class ProductService {
@@ -18,14 +19,17 @@ export class ProductService {
   async findAll(
     paginationParams: Pagination,
     sort?: Sorting,
+    filter?: Filtering,
     categoryId?: string,
   ) {
     const { page, limit, size, offset } = paginationParams;
+    const where = getWhere(filter);
     const order = getOrder(sort);
 
     const [products, total] = await this.productRepository.findAndCount({
       ...(categoryId && { where: { category: { id: categoryId } } }),
       relations: { category: true, images: true },
+      where,
       order,
       take: limit,
       skip: offset,

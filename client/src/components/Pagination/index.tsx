@@ -15,6 +15,7 @@ const Pagination = ({ page, pageCount, handleChange }: PaginationProps) => {
       onChange={handleChange}
       variant="outlined"
       size="large"
+      data-testid="pagination-root"
       sx={{
         '& .MuiPaginationItem-root': {
           color: 'white',
