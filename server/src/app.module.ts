@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { CacheInterceptor, CacheModule, Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -20,6 +20,8 @@ import { CloudinaryModule } from './cloudinary/cloudinary.module';
 import { ImageModule } from './image/image.module';
 import { Image } from './image/image.entity';
 import { CheckoutModule } from './checkout/checkout.module';
+import { APP_INTERCEPTOR } from '@nestjs/core';
+import { redisStore } from 'cache-manager-redis-yet';
 
 @Module({
   imports: [
@@ -32,6 +34,13 @@ import { CheckoutModule } from './checkout/checkout.module';
       database: process.env.DB_NAME || 'ecommerce',
       entities: [Category, User, Product, Review, Order, OrderItem, Image],
       synchronize: true,
+    }),
+    CacheModule.register({
+      store: redisStore,
+      socket: {
+        host: process.env.REDIS_HOST || 'redis',
+        port: process.env.REDIS_PORT || 6379,
+      },
     }),
     ConfigModule.forRoot(),
     CategoryModule,
@@ -46,6 +55,9 @@ import { CheckoutModule } from './checkout/checkout.module';
     CheckoutModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [
+    AppService,
+    { provide: APP_INTERCEPTOR, useClass: CacheInterceptor },
+  ],
 })
 export class AppModule {}
