@@ -1,4 +1,4 @@
-import { CacheInterceptor, CacheModule, Module } from '@nestjs/common';
+import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -20,9 +20,7 @@ import { CloudinaryModule } from './cloudinary/cloudinary.module';
 import { ImageModule } from './image/image.module';
 import { Image } from './image/image.entity';
 import { CheckoutModule } from './checkout/checkout.module';
-import { APP_INTERCEPTOR } from '@nestjs/core';
-import { redisStore } from 'cache-manager-redis-yet';
-import * as Redis from 'redis';
+import { RedisModule } from './redis/redis.module';
 
 @Module({
   imports: [
@@ -36,13 +34,6 @@ import * as Redis from 'redis';
       entities: [Category, User, Product, Review, Order, OrderItem, Image],
       synchronize: true,
     }),
-    CacheModule.register({
-      store: redisStore,
-      socket: {
-        host: process.env.REDIS_HOST || 'redis',
-        port: process.env.REDIS_PORT || 6379,
-      },
-    }),
     ConfigModule.forRoot(),
     CategoryModule,
     UserModule,
@@ -54,20 +45,9 @@ import * as Redis from 'redis';
     CloudinaryModule,
     ImageModule,
     CheckoutModule,
+    RedisModule,
   ],
   controllers: [AppController],
-  providers: [
-    AppService,
-    {
-      provide: 'REDIS',
-      useValue: Redis.createClient({
-        socket: {
-          host: process.env.REDIS_HOST || 'redis',
-          port: Number(process.env.REDIS_PORT) || 6379,
-        },
-      }),
-    },
-    { provide: APP_INTERCEPTOR, useClass: CacheInterceptor },
-  ],
+  providers: [AppService],
 })
 export class AppModule {}

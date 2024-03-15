@@ -4,8 +4,7 @@ import * as session from 'express-session';
 import * as fs from 'fs';
 import * as path from 'path';
 import { AppModule } from './app.module';
-import { createClient } from 'redis';
-import RedisStore from 'connect-redis';
+import { redisStore } from './redis/redisStore';
 
 async function bootstrap() {
   const httpsOptions = {
@@ -19,13 +18,6 @@ async function bootstrap() {
   app.enableCors({
     credentials: true,
     origin: process.env.CORS_ORIGIN,
-  });
-
-  const redisClient = createClient({ socket: { host: 'redis', port: 6379 } });
-  redisClient.connect().catch(console.error);
-
-  const redisStore = new RedisStore({
-    client: redisClient,
   });
 
   app.use(
