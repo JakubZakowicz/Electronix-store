@@ -22,6 +22,7 @@ import { Image } from './image/image.entity';
 import { CheckoutModule } from './checkout/checkout.module';
 import { APP_INTERCEPTOR } from '@nestjs/core';
 import { redisStore } from 'cache-manager-redis-yet';
+import * as Redis from 'redis';
 
 @Module({
   imports: [
@@ -57,6 +58,15 @@ import { redisStore } from 'cache-manager-redis-yet';
   controllers: [AppController],
   providers: [
     AppService,
+    {
+      provide: 'REDIS',
+      useValue: Redis.createClient({
+        socket: {
+          host: process.env.REDIS_HOST || 'redis',
+          port: Number(process.env.REDIS_PORT) || 6379,
+        },
+      }),
+    },
     { provide: APP_INTERCEPTOR, useClass: CacheInterceptor },
   ],
 })

@@ -50,6 +50,9 @@ dependencies:
   cloudinary:
     specifier: ^1.41.0
     version: 1.41.0
+  connect-redis:
+    specifier: ^7.1.1
+    version: 7.1.1(express-session@1.17.3)
   cookie-parser:
     specifier: ^1.4.6
     version: 1.4.6
@@ -71,6 +74,9 @@ dependencies:
   passport-local:
     specifier: ^1.0.0
     version: 1.0.0
+  redis:
+    specifier: ^4.6.13
+    version: 4.6.13
   reflect-metadata:
     specifier: ^0.1.13
     version: 0.1.13
@@ -82,7 +88,7 @@ dependencies:
     version: 14.1.0
   typeorm:
     specifier: ^0.3.17
-    version: 0.3.17(mysql2@3.6.0)(ts-node@10.0.0)
+    version: 0.3.17(mysql2@3.6.0)(redis@4.6.13)(ts-node@10.0.0)
 
 devDependencies:
   '@nestjs/cli':
@@ -1087,7 +1093,7 @@ packages:
       '@nestjs/core': 9.0.0(@nestjs/common@9.3.0)(@nestjs/platform-express@9.0.0)(reflect-metadata@0.1.13)(rxjs@7.2.0)
       reflect-metadata: 0.1.13
       rxjs: 7.2.0
-      typeorm: 0.3.17(mysql2@3.6.0)(ts-node@10.0.0)
+      typeorm: 0.3.17(mysql2@3.6.0)(redis@4.6.13)(ts-node@10.0.0)
       uuid: 9.0.0
     dev: false
 
@@ -2448,6 +2454,15 @@ packages:
       inherits: 2.0.4
       readable-stream: 2.3.8
       typedarray: 0.0.6
+
+  /connect-redis@7.1.1(express-session@1.17.3):
+    resolution: {integrity: sha512-M+z7alnCJiuzKa8/1qAYdGUXHYfDnLolOGAUjOioB07pP39qxjG+X9ibsud7qUBc4jMV5Mcy3ugGv8eFcgamJQ==}
+    engines: {node: '>=16'}
+    peerDependencies:
+      express-session: '>=1'
+    dependencies:
+      express-session: 1.17.3
+    dev: false
 
   /consola@2.15.3:
     resolution: {integrity: sha512-9vAdYbHj6x2fLKC4+oPH0kFzY/orMZyG2Aj+kNylHxKGJ/Ed4dpNyAQYwJOdqO4zdM7XpVHmyejQDcQHrnuXbw==}
@@ -5583,7 +5598,7 @@ packages:
   /typedarray@0.0.6:
     resolution: {integrity: sha512-/aCDEGatGvZ2BIk+HmLf4ifCJFwvKFNb9/JeZPMulfgFracn9QFcAf5GO8B/mweUjSoblS5In0cWhqpfs/5PQA==}
 
-  /typeorm@0.3.17(mysql2@3.6.0)(ts-node@10.0.0):
+  /typeorm@0.3.17(mysql2@3.6.0)(redis@4.6.13)(ts-node@10.0.0):
     resolution: {integrity: sha512-UDjUEwIQalO9tWw9O2A4GU+sT3oyoUXheHJy4ft+RFdnRdQctdQ34L9SqE2p7LdwzafHx1maxT+bqXON+Qnmig==}
     engines: {node: '>= 12.9.0'}
     hasBin: true
@@ -5652,6 +5667,7 @@ packages:
       glob: 8.1.0
       mkdirp: 2.1.6
       mysql2: 3.6.0
+      redis: 4.6.13
       reflect-metadata: 0.1.13
       sha.js: 2.4.11
       ts-node: 10.0.0(@types/node@18.16.12)(typescript@5.0.2)
