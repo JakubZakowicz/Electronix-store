@@ -13,7 +13,7 @@ import { Review } from './review/review.entity';
 import { OrderModule } from './order/order.module';
 import { Order } from './order/entities/order.entity';
 import { AuthModule } from './auth/auth.module';
-import { ConfigModule } from '@nestjs/config';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 import { CartModule } from './cart/cart.module';
 import { OrderItem } from './order/entities/order-item.entity';
 import { CloudinaryModule } from './cloudinary/cloudinary.module';
@@ -24,17 +24,21 @@ import { RedisModule } from './redis/redis.module';
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot({
-      type: 'mysql',
-      host: process.env.DB_HOST || 'db',
-      port: Number(process.env.DB_PORT) || 3306,
-      username: process.env.DB_USERNAME || 'admin',
-      password: process.env.DB_PASSWORD || 'password',
-      database: process.env.DB_NAME || 'ecommerce',
-      entities: [Category, User, Product, Review, Order, OrderItem, Image],
-      synchronize: true,
+    ConfigModule.forRoot({ isGlobal: true }),
+    TypeOrmModule.forRootAsync({
+      imports: [ConfigModule],
+      inject: [ConfigService],
+      useFactory: (configService: ConfigService) => ({
+        type: 'mysql',
+        host: configService.get<string>('DB_HOST') || 'db',
+        port: configService.get<number>('DB_PORT') || 3306,
+        username: configService.get<string>('DB_USERNAME') || 'admin',
+        password: configService.get<string>('DB_PASSWORD') || 'password',
+        database: configService.get<string>('DB_NAME') || 'ecommerce',
+        entities: [Category, User, Product, Review, Order, OrderItem, Image],
+        synchronize: true,
+      }),
     }),
-    ConfigModule.forRoot(),
     CategoryModule,
     UserModule,
     ProductModule,
