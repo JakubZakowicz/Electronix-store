@@ -4,6 +4,7 @@ import * as session from 'express-session';
 import * as fs from 'fs';
 import * as path from 'path';
 import { AppModule } from './app.module';
+import { redisStore } from './redis/redisStore';
 
 async function bootstrap() {
   const httpsOptions = {
@@ -21,6 +22,7 @@ async function bootstrap() {
 
   app.use(
     session({
+      store: redisStore,
       secret: process.env.SESSION_SECRET || 'secret123',
       resave: false,
       saveUninitialized: false,

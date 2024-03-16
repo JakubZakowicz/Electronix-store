@@ -3,6 +3,7 @@ import Stripe from 'stripe';
 import { CartInterface } from '../cart/cart.interface';
 import { OrderService } from '../order/services/order.service';
 import { OrderItemService } from '../order/services/order-item.service';
+import { ConfigService } from '@nestjs/config';
 
 @Injectable()
 export class CheckoutService {
@@ -11,14 +12,18 @@ export class CheckoutService {
   constructor(
     private readonly orderService: OrderService,
     private readonly orderItemService: OrderItemService,
+    private readonly configService: ConfigService,
   ) {
-    this.stripe = new Stripe(process.env.STRIPE_SECRET_KEY || '', {
-      apiVersion: '2023-10-16',
-    });
+    this.stripe = new Stripe(
+      configService.get<string>('STRIPE_SECRET_KEY') || '',
+      {
+        apiVersion: '2023-10-16',
+      },
+    );
   }
 
   getConfig() {
-    return { publishableKey: process.env.STRIPE_PUBLISHABLE_KEY };
+    return { publishableKey: this.configService.get('STRIPE_PUBLISHABLE_KEY') };
   }
 
   createPayment(sum: number) {
