@@ -21,10 +21,11 @@ import { ImageModule } from './image/image.module';
 import { Image } from './image/image.entity';
 import { CheckoutModule } from './checkout/checkout.module';
 import { RedisModule } from './redis/redis.module';
+import { validate } from './config/env.validation';
 
 @Module({
   imports: [
-    ConfigModule.forRoot({ isGlobal: true }),
+    ConfigModule.forRoot({ isGlobal: true, validate }),
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
       inject: [ConfigService],
