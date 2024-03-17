@@ -14,7 +14,7 @@ import { ConfigService } from '@nestjs/config';
           host: configService.get<string>('REDIS_HOST') || 'redis',
           port: configService.get<number>('REDIS_PORT') || 6379,
         },
-        ttl: 360000,
+        ttl: 20,
       }),
     }),
   ],
