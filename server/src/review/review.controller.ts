@@ -1,5 +1,6 @@
 import {
   Body,
+  CacheKey,
   Controller,
   Delete,
   Get,
@@ -29,6 +30,8 @@ interface RequestWithUser extends Express.Request {
 @Controller('reviews')
 export class ReviewController {
   constructor(private readonly reviewService: ReviewService) {}
+
+  @CacheKey('reviews')
   @Get()
   findAll(
     @PaginationParams() paginationParams: Pagination,
@@ -50,6 +53,7 @@ export class ReviewController {
     );
   }
 
+  @CacheKey('review')
   @Get(':id')
   findOneById(@Param('id') id: string) {
     return this.reviewService.findOneById(id);

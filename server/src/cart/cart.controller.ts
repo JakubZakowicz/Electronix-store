@@ -1,5 +1,6 @@
 import {
   Body,
+  CacheKey,
   Controller,
   Delete,
   Get,
@@ -23,6 +24,7 @@ export class CartController {
     private readonly productService: ProductService,
   ) {}
 
+  @CacheKey('cart')
   @Get()
   async getCartData(@Session() session: CartSession) {
     const cart = session.cart ?? this.cartService.defaultCart;

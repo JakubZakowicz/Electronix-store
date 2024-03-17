@@ -1,5 +1,6 @@
 import {
   Body,
+  CacheKey,
   Controller,
   Delete,
   Get,
@@ -28,6 +29,8 @@ import {
 @Controller('products')
 export class ProductController {
   constructor(private readonly productService: ProductService) {}
+
+  @CacheKey('products')
   @Get()
   findAll(
     @PaginationParams() paginationParams: Pagination,
@@ -55,6 +58,7 @@ export class ProductController {
     );
   }
 
+  @CacheKey('product')
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.productService.findOne(id);

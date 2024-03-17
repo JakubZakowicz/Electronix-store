@@ -1,5 +1,6 @@
 import {
   Body,
+  CacheKey,
   Controller,
   Delete,
   Get,
@@ -23,6 +24,8 @@ import { Sorting, SortingParams } from '../decorators/sorting-params.decorator';
 @Controller('categories')
 export class CategoryController {
   constructor(private readonly categoryService: CategoryService) {}
+
+  @CacheKey('categories')
   @Get()
   findAll(
     @PaginationParams() paginationParams: Pagination,
@@ -32,6 +35,7 @@ export class CategoryController {
     return this.categoryService.findAll(paginationParams, sortingParams);
   }
 
+  @CacheKey('category')
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.categoryService.findOne(id);
