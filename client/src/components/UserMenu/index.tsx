@@ -66,7 +66,7 @@ const UserMenu = ({ userId, setIsUser }: UserMenuProps) => {
   if (isUserDataError) throw new Error(userDataError.message);
 
   return (
-    <div>
+    <Box zIndex={20}>
       <Button
         ref={anchorRef}
         id="composition-button"
@@ -137,7 +137,7 @@ const UserMenu = ({ userId, setIsUser }: UserMenuProps) => {
           </Grow>
         )}
       </Popper>
-    </div>
+    </Box>
   );
 };
 
