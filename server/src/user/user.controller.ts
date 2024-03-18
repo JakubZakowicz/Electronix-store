@@ -1,5 +1,6 @@
 import {
   Body,
+  CacheKey,
   Controller,
   Delete,
   Get,
@@ -25,6 +26,7 @@ export class UserController {
   constructor(private readonly userService: UserService) {}
 
   @UseGuards(JwtAuthGuard)
+  @CacheKey('users')
   @Get()
   async findAll(
     @PaginationParams() paginationParams: Pagination,
@@ -48,6 +50,7 @@ export class UserController {
   }
 
   @UseGuards(JwtAuthGuard)
+  @CacheKey('user')
   @Get(':id')
   async findOneById(@Param('id') id: string) {
     return this.userService.findOneById(id);

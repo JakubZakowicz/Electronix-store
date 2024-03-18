@@ -12,7 +12,7 @@ body {
 
 body {
   color: white;
-  background: #141414;
+  background: #141414 !important;
 }
 
 .main {

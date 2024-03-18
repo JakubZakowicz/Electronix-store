@@ -73,6 +73,7 @@ const SortInput = () => {
           left: '-10px',
         },
         width: 200,
+        zIndex: 10
       }}
     >
       <InputLabel id="sorting-select-label">Sort by</InputLabel>

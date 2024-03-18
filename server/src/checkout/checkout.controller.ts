@@ -1,6 +1,7 @@
 import {
   BadRequestException,
   Body,
+  CacheKey,
   Controller,
   Get,
   NotAcceptableException,
@@ -19,6 +20,7 @@ import { AddNewOrderDto } from './dto/add-new-order.dto';
 export class CheckoutController {
   constructor(private readonly checkoutService: CheckoutService) {}
 
+  @CacheKey('checkout:config')
   @Get('config')
   getConfig() {
     return this.checkoutService.getConfig();

@@ -23,11 +23,13 @@ export class ProductService {
     categoryId?: string,
   ) {
     const { page, limit, size, offset } = paginationParams;
-    const where = getWhere(filter);
+    const where = {
+      ...getWhere(filter),
+      ...(categoryId && { category: { id: categoryId } }),
+    };
     const order = getOrder(sort);
 
     const [products, total] = await this.productRepository.findAndCount({
-      ...(categoryId && { where: { category: { id: categoryId } } }),
       relations: { category: true, images: true },
       where,
       order,

@@ -1,5 +1,6 @@
 import {
   Body,
+  CacheKey,
   Controller,
   Delete,
   Get,
@@ -24,6 +25,7 @@ import { Sorting, SortingParams } from '../decorators/sorting-params.decorator';
 export class OrderController {
   constructor(private readonly orderService: OrderService) {}
 
+  @CacheKey('orders')
   @Get()
   findAll(
     @PaginationParams() paginationParams: Pagination,
@@ -42,6 +44,7 @@ export class OrderController {
     return this.orderService.findAll(paginationParams, sortingParams);
   }
 
+  @CacheKey('user:orders')
   @UseGuards(JwtAuthGuard)
   @Get('/user/:userId')
   findUserOrders(
@@ -52,6 +55,7 @@ export class OrderController {
     return this.orderService.findAll(paginationParams, sortingParams, userId);
   }
 
+  @CacheKey('order')
   @UseGuards(JwtAuthGuard)
   @Get(':id')
   findOneById(@Param('id') id: string) {

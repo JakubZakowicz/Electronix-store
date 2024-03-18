@@ -16,9 +16,7 @@ import {
   useTheme,
 } from '@mui/material';
 import PersonIcon from '@mui/icons-material/Person';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import GridViewIcon from '@mui/icons-material/GridView';
-import CircleIcon from '@mui/icons-material/Circle';
 import { ExpandLess, ExpandMore } from '@mui/icons-material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { pageRoutes } from '@/src/routes/pageRoutes';
@@ -28,6 +26,7 @@ import { useGetMe } from '@/src/api/auth';
 import UserMenu from '../UserMenu';
 import SearchBar from '../SearchBar';
 import { useGetCartData } from '@/src/api/cart';
+import ShoppingCart from '../ShoppingCart';
 
 interface NavbarProps {
   children: React.ReactNode;
@@ -65,41 +64,44 @@ const Navbar = ({ children }: NavbarProps) => {
         flexWrap="wrap"
         rowGap={2}
       >
-        {isMobileView && (
-          <Button onClick={toggleDrawer} sx={{ color: 'white', zIndex: 100 }}>
-            <MenuIcon />
-          </Button>
-        )}
-        <Link href={pageRoutes.root()}>
-          <Image src={Logo} width={60} alt="logo" />
-        </Link>
-        <SearchBar />
-        <Box display="flex" alignItems="center" gap="40px">
-          {isUser ? (
-            <UserMenu userId={me!.userId} setIsUser={setIsUser} />
-          ) : (
-            <Link href={pageRoutes.singIn()}>
-              <PersonIcon sx={{ fontSize: '40px', color: 'white' }} />
+        {isMobileView ? (
+          <>
+            <Button onClick={toggleDrawer} sx={{ color: 'white', zIndex: 100 }}>
+              <MenuIcon />
+            </Button>
+            <Link href={pageRoutes.root()}>
+              <Image src={Logo} width={60} alt="logo" />
             </Link>
-          )}
-          <Link href={pageRoutes.cart()}>
-            <ShoppingCartIcon fontSize="large" sx={{ color: 'white' }} />
-            {cartData && cartData.products?.length > 0 && (
-              <Box sx={{ position: 'relative' }}>
-                <CircleIcon
-                  sx={{
-                    color: '#48A623',
-                    fontSize: 10,
-                    marginRight: 15,
-                    position: 'absolute',
-                    bottom: 21,
-                    left: 13,
-                  }}
-                />
-              </Box>
-            )}
-          </Link>
-        </Box>
+            <Box display="flex" alignItems="center" gap="40px">
+              {isUser ? (
+                <UserMenu userId={me!.userId} setIsUser={setIsUser} />
+              ) : (
+                <Link href={pageRoutes.singIn()}>
+                  <PersonIcon sx={{ fontSize: '40px', color: 'white' }} />
+                </Link>
+              )}
+              <ShoppingCart />
+            </Box>
+            <SearchBar />
+          </>
+        ) : (
+          <>
+            <Link href={pageRoutes.root()}>
+              <Image src={Logo} width={60} alt="logo" />
+            </Link>
+            <SearchBar />
+            <Box display="flex" alignItems="center" gap="40px">
+              {isUser ? (
+                <UserMenu userId={me!.userId} setIsUser={setIsUser} />
+              ) : (
+                <Link href={pageRoutes.singIn()}>
+                  <PersonIcon sx={{ fontSize: '40px', color: 'white' }} />
+                </Link>
+              )}
+              <ShoppingCart />
+            </Box>
+          </>
+        )}
       </Box>
       <Drawer
         open={isMobileView && isDrawerOpen}
