@@ -12,6 +12,7 @@ import { SignInFormSchema } from '@/src/utils/types';
 import DefaultButton from '@/src/components/DefaultButton';
 import { pageRoutes } from '@/src/routes/pageRoutes';
 import { useGetMe, useSignIn } from '@/src/api/auth';
+import { toast } from 'react-toastify';
 
 const SignInPage = () => {
   const {
@@ -31,6 +32,7 @@ const SignInPage = () => {
       onSuccess: () => {
         router.push(pageRoutes.root());
         refetch();
+        toast.success('You have signed in successfully!')
       },
     });
   };

@@ -10,6 +10,7 @@ import InputField from '../InputField';
 import { useGetMe } from '@/src/api/auth';
 import { pageRoutes } from '@/src/routes/pageRoutes';
 import { useAddReview } from '@/src/api/products';
+import { toast } from 'react-toastify';
 
 interface ReviewFormModalButtonProps {
   productId: string;
@@ -52,7 +53,12 @@ const ReviewFormModalButton = ({ productId }: ReviewFormModalButtonProps) => {
   };
 
   const onSubmit: SubmitHandler<Review> = (data) => {
-    addReview(data, { onSuccess: () => setIsModalOpen(false) });
+    addReview(data, {
+      onSuccess: () => {
+        setIsModalOpen(false);
+        toast.success('Review added successfully!')
+      },
+    });
   };
 
   if (isAddReviewError) throw new Error(addReviewError.message);

@@ -11,6 +11,7 @@ import DefaultButton from '@/src/components/DefaultButton';
 import { pageRoutes } from '@/src/routes/pageRoutes';
 import { useSignUp } from '@/src/api/auth';
 import { useRouter } from 'next/navigation';
+import { toast } from 'react-toastify';
 
 const SignUpPage = () => {
   const {
@@ -27,7 +28,12 @@ const SignUpPage = () => {
   });
 
   const onSubmit: SubmitHandler<SignUpFormSchema> = (data) => {
-    signUp(data, { onSuccess: () => router.push(pageRoutes.singIn()) });
+    signUp(data, {
+      onSuccess: () => {
+        router.push(pageRoutes.singIn());
+        toast.success('You have signed up successfully!')
+      },
+    });
   };
 
   if (
