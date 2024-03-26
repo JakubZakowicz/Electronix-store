@@ -25,7 +25,6 @@ import Logo from '@/public/logo.svg';
 import { useGetMe } from '@/src/api/auth';
 import UserMenu from '../UserMenu';
 import SearchBar from '../SearchBar';
-import { useGetCartData } from '@/src/api/cart';
 import ShoppingCart from '../ShoppingCart';
 
 interface NavbarProps {
@@ -39,7 +38,6 @@ const Navbar = ({ children }: NavbarProps) => {
 
   const { data: categories } = useGetCategories();
   const { data: me } = useGetMe();
-  const { data: cartData } = useGetCartData();
 
   useEffect(() => {
     if (me) setIsUser(true);
