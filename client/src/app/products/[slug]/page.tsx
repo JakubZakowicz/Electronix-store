@@ -13,6 +13,7 @@ import {
 } from '@/src/utils/functions.utils';
 import { useAddToCart, useGetCartData } from '@/src/api/cart';
 import ReviewFormModalButton from '@/src/components/ReviewFormModalButton';
+import { toast } from 'react-toastify';
 
 interface ProductPageProps {
   params: { slug: string };
@@ -44,7 +45,15 @@ const ProductPage = ({ params }: ProductPageProps) => {
   };
 
   const addProductToCart = () => {
-    addToCart({ productId: id!, quantity }, { onSuccess: () => refetch() });
+    addToCart(
+      { productId: id!, quantity },
+      {
+        onSuccess: () => {
+          refetch();
+          toast.success('Product added to cart!');
+        },
+      }
+    );
   };
 
   if (isProductError) throw new Error(productError?.message);

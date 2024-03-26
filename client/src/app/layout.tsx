@@ -1,10 +1,12 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+import { ToastContainer } from 'react-toastify';
 import Navbar from '../components/Navbar';
 import Footer from '@/src/components/Footer';
 import ReactQueryWrapper from '../components/ReactQueryWrapper';
-import './globals.css';
 import DarkThemeWrapper from '../components/DarkThemeWrapper';
+import './globals.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -26,6 +28,18 @@ export default function RootLayout({
             <ReactQueryWrapper>
               <Navbar>{children}</Navbar>
               <Footer />
+              <ToastContainer
+                position="top-center"
+                autoClose={5000}
+                hideProgressBar
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="colored"
+              />
             </ReactQueryWrapper>
           </DarkThemeWrapper>
         </div>
