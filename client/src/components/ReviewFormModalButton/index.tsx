@@ -3,6 +3,7 @@ import { useRouter } from 'next/navigation';
 import { Modal, Box, Typography, Rating } from '@mui/material';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { toast } from 'react-toastify';
 import DefaultButton from '../DefaultButton';
 import { reviewSchema } from '@/src/utils/validationSchemas';
 import { Review } from '@/src/utils/types';
@@ -10,7 +11,7 @@ import InputField from '../InputField';
 import { useGetMe } from '@/src/api/auth';
 import { pageRoutes } from '@/src/routes/pageRoutes';
 import { useAddReview } from '@/src/api/products';
-import { toast } from 'react-toastify';
+import { notificationMessages } from '@/src/utils/notificationMessages.utils';
 
 interface ReviewFormModalButtonProps {
   productId: string;
@@ -56,7 +57,7 @@ const ReviewFormModalButton = ({ productId }: ReviewFormModalButtonProps) => {
     addReview(data, {
       onSuccess: () => {
         setIsModalOpen(false);
-        toast.success('Review added successfully!')
+        toast.success(notificationMessages.success.addedReview)
       },
     });
   };

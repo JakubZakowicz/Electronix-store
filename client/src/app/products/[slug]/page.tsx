@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { Box, Grid, Rating, Tab, Typography } from '@mui/material';
 import { TabContext, TabList, TabPanel } from '@mui/lab';
 import LinearProgress from '@mui/material/LinearProgress';
+import { toast } from 'react-toastify';
 import ProductCounter from '@/src/components/ProductCounter';
 import SwiperGallery from '@/src/components/SwiperGallery';
 import { useGetProduct } from '@/src/api/products';
@@ -13,7 +14,7 @@ import {
 } from '@/src/utils/functions.utils';
 import { useAddToCart, useGetCartData } from '@/src/api/cart';
 import ReviewFormModalButton from '@/src/components/ReviewFormModalButton';
-import { toast } from 'react-toastify';
+import { notificationMessages } from '@/src/utils/notificationMessages.utils';
 
 interface ProductPageProps {
   params: { slug: string };
@@ -50,7 +51,7 @@ const ProductPage = ({ params }: ProductPageProps) => {
       {
         onSuccess: () => {
           refetch();
-          toast.success('Product added to cart!');
+          toast.success(notificationMessages.success.addedToCart);
         },
       }
     );
@@ -192,7 +193,7 @@ const ProductPage = ({ params }: ProductPageProps) => {
                 </Box>
               )}
             </Box>
-            {reviews &&
+            {reviews && reviews.length > 0 ? (
               reviews?.map(({ id, title, content, rating, user }) => (
                 <Grid key={id} container sx={{ marginBottom: '50px' }}>
                   <Grid item xl={2}>
@@ -224,7 +225,21 @@ const ProductPage = ({ params }: ProductPageProps) => {
                     <Typography marginTop="10px">{content}</Typography>
                   </Grid>
                 </Grid>
-              ))}
+              ))
+            ) : (
+              <Box>
+                <Typography
+                  sx={{
+                    textAlign: 'center',
+                    marginTop: 15,
+                    fontSize: 30,
+                    fontWeight: 'bold',
+                  }}
+                >
+                  The aren&apos;t any reviews yet
+                </Typography>
+              </Box>
+            )}
           </TabPanel>
         </TabContext>
       </Box>

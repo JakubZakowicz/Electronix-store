@@ -14,6 +14,7 @@ import {
 import { toast } from 'react-toastify';
 import { useGetUser, useSignOut } from '@/src/api/auth';
 import { pageRoutes } from '@/src/routes/pageRoutes';
+import { notificationMessages } from '@/src/utils/notificationMessages.utils';
 
 interface UserMenuProps {
   userId: string;
@@ -59,7 +60,7 @@ const UserMenu = ({ userId, setIsUser }: UserMenuProps) => {
       onSuccess: () => {
         router.push('/');
         setIsUser(false);
-        toast.success('You have signed out successfully!');
+        toast.success(notificationMessages.success.signedOut);
       },
     });
   };

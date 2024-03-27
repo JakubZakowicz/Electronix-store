@@ -1,8 +1,10 @@
 'use client';
 
 import React from 'react';
+import { useRouter } from 'next/navigation';
 import { Box, Grid, Link, Typography } from '@mui/material';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
 import InputField from '@/src/components/InputField';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { signUpSchema } from '@/src/utils/validationSchemas';
@@ -10,8 +12,7 @@ import { SignUpFormSchema } from '@/src/utils/types';
 import DefaultButton from '@/src/components/DefaultButton';
 import { pageRoutes } from '@/src/routes/pageRoutes';
 import { useSignUp } from '@/src/api/auth';
-import { useRouter } from 'next/navigation';
-import { toast } from 'react-toastify';
+import { notificationMessages } from '@/src/utils/notificationMessages.utils';
 
 const SignUpPage = () => {
   const {
@@ -31,7 +32,7 @@ const SignUpPage = () => {
     signUp(data, {
       onSuccess: () => {
         router.push(pageRoutes.singIn());
-        toast.success('You have signed up successfully!')
+        toast.success(notificationMessages.success.signedUp)
       },
     });
   };
