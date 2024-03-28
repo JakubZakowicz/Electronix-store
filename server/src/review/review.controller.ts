@@ -61,7 +61,7 @@ export class ReviewController {
 
   @UseGuards(JwtAuthGuard)
   @UsePipes(new ValidationPipe())
-  @Post('/:productId')
+  @Post(':productId')
   create(
     @Param('productId') productId: string,
     @Body() reviewData: CreateReviewDto,
@@ -73,9 +73,12 @@ export class ReviewController {
 
   @UseGuards(JwtAuthGuard)
   @UsePipes(new ValidationPipe())
-  @Put(':id')
-  update(@Param('id') id: string, @Body() reviewData: UpdateReviewDto) {
-    return this.reviewService.update(id, reviewData);
+  @Put(':reviewId')
+  update(
+    @Param('reviewId') reviewId: string,
+    @Body() reviewData: UpdateReviewDto,
+  ) {
+    return this.reviewService.update(reviewId, reviewData);
   }
 
   @UseGuards(JwtAuthGuard)
