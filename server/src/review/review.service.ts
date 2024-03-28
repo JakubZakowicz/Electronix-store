@@ -128,4 +128,10 @@ export class ReviewService {
 
     return averageRating;
   }
+
+  async checkIfUserReviewed(userId: string, productId: string) {
+    return !!(await this.reviewRepository.findOne({
+      where: { user: { id: userId }, product: { id: productId } },
+    }));
+  }
 }
