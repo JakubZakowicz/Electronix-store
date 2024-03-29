@@ -23,6 +23,23 @@ const Reviews = ({ product }: ReviewsProps) => {
 
   const { data: me } = useGetMe();
 
+  const convertDate = (isoDate: string) => {
+    const date = new Date(isoDate);
+    let year: number | string = date.getFullYear();
+    let month: number | string = date.getMonth() + 1;
+    let dt: number | string = date.getDate();
+
+    if (dt < 10) {
+      dt = '0' + dt;
+    }
+    if (month < 10) {
+      month = '0' + month;
+    }
+
+    console.log(year + '-' + month + '-' + dt);
+    return `${dt}-${month}-${year}`;
+  };
+
   return (
     <Box>
       <Box sx={{ maxWidth: '600px', margin: '0 auto', marginBottom: '80px' }}>
@@ -91,7 +108,7 @@ const Reviews = ({ product }: ReviewsProps) => {
         )}
       </Box>
       {reviews && reviews.length > 0 ? (
-        reviews?.map(({ id, title, content, rating, user }) => (
+        reviews?.map(({ id, title, content, rating, user, created_at }) => (
           <Grid key={id} container sx={{ marginBottom: '50px' }}>
             <Grid item xl={2}>
               <Rating
@@ -108,7 +125,7 @@ const Reviews = ({ product }: ReviewsProps) => {
                 {user.firstName} {user.lastName}
               </Typography>
               <Typography fontSize={15} color="#B9B9B9" marginTop="10px">
-                {user.created_at}
+                {convertDate(created_at)}
               </Typography>
             </Grid>
             <Grid item xl={10}>
