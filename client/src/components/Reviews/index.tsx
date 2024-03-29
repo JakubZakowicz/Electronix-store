@@ -1,15 +1,28 @@
 import React from 'react';
-import { getSpecificRatingCount } from '@/src/utils/functions.utils';
-import { Box, Typography, Rating, LinearProgress, Grid } from '@mui/material';
+import {
+  Box,
+  Typography,
+  Rating,
+  LinearProgress,
+  Grid,
+  Button,
+} from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditNoteIcon from '@mui/icons-material/EditNote';
 import ReviewFormModalButton from '../ReviewFormModalButton';
+import { getSpecificRatingCount } from '@/src/utils/functions.utils';
 import { Product } from '@/src/utils/types';
+import { useGetMe } from '@/src/api/auth';
 
 interface ReviewsProps {
-  product: Product
+  product: Product;
 }
 
 const Reviews = ({ product }: ReviewsProps) => {
   const { id, reviews } = product || {};
+
+  const { data: me } = useGetMe();
+
   return (
     <Box>
       <Box sx={{ maxWidth: '600px', margin: '0 auto', marginBottom: '80px' }}>
@@ -99,10 +112,34 @@ const Reviews = ({ product }: ReviewsProps) => {
               </Typography>
             </Grid>
             <Grid item xl={10}>
-              <Typography variant="h3" fontSize={25} fontWeight="semibold">
-                {title}
-              </Typography>
-              <Typography marginTop="10px">{content}</Typography>
+              <Box
+                sx={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  gap: '20px',
+                }}
+              >
+                <Box>
+                  <Typography variant="h3" fontSize={25} fontWeight="semibold">
+                    {title}
+                  </Typography>
+                  <Typography marginTop="10px">{content}</Typography>
+                </Box>
+                <Box>
+                  {user?.id === me?.userId && (
+                    <Box sx={{ display: 'flex', gap: '20px' }}>
+                      <Button size="small">
+                        <EditNoteIcon />
+                        <Typography>Edit</Typography>
+                      </Button>
+                      <Button size="small" sx={{ color: 'red' }}>
+                        <DeleteIcon />
+                        <Typography>Delete</Typography>
+                      </Button>
+                    </Box>
+                  )}
+                </Box>
+              </Box>
             </Grid>
           </Grid>
         ))

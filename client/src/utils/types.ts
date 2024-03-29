@@ -78,6 +78,7 @@ export interface ReviewData extends DataDefaultProps {
 }
 
 export interface User {
+  id: string;
   firstName: string;
   lastName: string;
   email: string;
