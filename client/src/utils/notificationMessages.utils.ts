@@ -5,5 +5,7 @@ export const notificationMessages = {
     signedUp: 'You have signed up successfully!',
     addedToCart: 'Product added to cart!',
     addedReview: 'Review added successfully!',
+    updatedReview: 'Review updated successfully!',
+    deletedReview: 'Review deleted successfully!',
   },
 };
