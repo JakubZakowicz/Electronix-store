@@ -6,7 +6,7 @@ import {
   useUpdate,
 } from '../utils/reactQuery.utils';
 import { pathToUrl } from '../utils/router.utils';
-import { Product, ProductData, Review } from '../utils/types';
+import { Product, ProductData, ReviewData } from '../utils/types';
 
 export const useGetProducts = (
   categoryId?: string,
@@ -23,8 +23,10 @@ export const useGetProducts = (
 export const useGetProduct = (slug: string) =>
   useFetch<Product>(pathToUrl(apiRoutes.getProduct, { slug }));
 
-export const useGetReviews = () =>
-  useFetch<Review>(pathToUrl(apiRoutes.getReviews));
+export const useGetReviews = (productId?: string) =>
+  useFetch<ReviewData>(
+    `${apiRoutes.getReviews}?${productId && `product_id=${productId}`}`
+  );
 
 export const useAddReview = (productId: string) =>
   usePost(pathToUrl(apiRoutes.addReview, { productId }), undefined, {

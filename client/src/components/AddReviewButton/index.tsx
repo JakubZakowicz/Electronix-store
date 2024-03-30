@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 import { Review } from '@/src/utils/types';
 import { useGetMe } from '@/src/api/auth';
 import { pageRoutes } from '@/src/routes/pageRoutes';
-import { useAddReview } from '@/src/api/products';
+import { useAddReview, useGetReviews } from '@/src/api/products';
 import { notificationMessages } from '@/src/utils/notificationMessages.utils';
 import DefaultButton from '@/src/components/DefaultButton';
 import ReviewFormModal from '@/src/components/ReviewFormModal';
@@ -30,6 +30,8 @@ const AddReviewButton = ({ productId }: ReviewFormModalButtonProps) => {
     error: addReviewError,
   } = useAddReview(productId);
 
+  const { refetch } = useGetReviews(productId)
+
   const toggleModal = () => {
     if (isModalOpen) {
       setIsModalOpen(false);
@@ -44,6 +46,7 @@ const AddReviewButton = ({ productId }: ReviewFormModalButtonProps) => {
     addReview(data, {
       onSuccess: () => {
         setIsModalOpen(false);
+        refetch()
         toast.success(notificationMessages.success.addedReview);
       },
     });

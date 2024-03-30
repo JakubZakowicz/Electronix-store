@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import React from 'react';
 import { Box, Typography, Rating, LinearProgress, Grid } from '@mui/material';
@@ -7,15 +7,19 @@ import AddReviewButton from '../AddReviewButton';
 import { getSpecificRatingCount } from '@/src/utils/functions.utils';
 import { Product } from '@/src/utils/types';
 import { useGetMe } from '@/src/api/auth';
+import { useGetReviews } from '@/src/api/products';
 
 interface ReviewsProps {
   product: Product;
 }
 
 const Reviews = ({ product }: ReviewsProps) => {
-  const { id: productId, reviews } = product || {};
+  const { id: productId } = product || {};
 
   const { data: me } = useGetMe();
+  const { data: reviewsData } = useGetReviews(productId);
+
+  const { reviews } = reviewsData || {};
 
   const convertDate = (isoDate: string) => {
     const date = new Date(isoDate);
@@ -57,7 +61,7 @@ const Reviews = ({ product }: ReviewsProps) => {
                 precision={0.1}
                 readOnly
               />
-              <Typography>{product?.reviews.length} Reviews</Typography>
+              <Typography>{reviews?.length} Reviews</Typography>
             </Box>
           </Box>
           {productId && <AddReviewButton productId={productId} />}

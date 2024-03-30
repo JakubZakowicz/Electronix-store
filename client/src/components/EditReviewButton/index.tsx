@@ -7,15 +7,16 @@ import { toast } from 'react-toastify';
 import { Review } from '@/src/utils/types';
 import { useGetMe } from '@/src/api/auth';
 import { pageRoutes } from '@/src/routes/pageRoutes';
-import { useUpdateReview } from '@/src/api/products';
+import { useGetReviews, useUpdateReview } from '@/src/api/products';
 import { notificationMessages } from '@/src/utils/notificationMessages.utils';
 import ReviewFormModal from '@/src/components/ReviewFormModal';
 
 interface ReviewFormModalButtonProps {
   reviewId: string;
+  productId: string
 }
 
-const EditReviewButton = ({ reviewId }: ReviewFormModalButtonProps) => {
+const EditReviewButton = ({ reviewId, productId }: ReviewFormModalButtonProps) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const router = useRouter();
 
@@ -31,6 +32,8 @@ const EditReviewButton = ({ reviewId }: ReviewFormModalButtonProps) => {
     error: addReviewError,
   } = useUpdateReview(reviewId);
 
+  const { refetch } = useGetReviews(productId);
+
   const toggleModal = () => {
     if (isModalOpen) {
       setIsModalOpen(false);
@@ -45,6 +48,7 @@ const EditReviewButton = ({ reviewId }: ReviewFormModalButtonProps) => {
     updateReview(data, {
       onSuccess: () => {
         setIsModalOpen(false);
+        refetch();
         toast.success(notificationMessages.success.updatedReview);
       },
     });
