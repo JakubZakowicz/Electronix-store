@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 import { Review } from '@/src/utils/types';
 import { useGetMe } from '@/src/api/auth';
 import { pageRoutes } from '@/src/routes/pageRoutes';
-import { useAddReview, useGetReviews } from '@/src/api/products';
+import { useAddReview, useGetReviews } from '@/src/api/reviews';
 import { notificationMessages } from '@/src/utils/notificationMessages.utils';
 import DefaultButton from '@/src/components/DefaultButton';
 import ReviewFormModal from '@/src/components/ReviewFormModal';

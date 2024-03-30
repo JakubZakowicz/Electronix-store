@@ -4,7 +4,7 @@ import React from 'react';
 import { Box, Button, Typography } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { toast } from 'react-toastify';
-import { useDeleteReview, useGetProduct, useGetReviews } from '@/src/api/products';
+import { useDeleteReview, useGetReviews } from '@/src/api/reviews';
 import { notificationMessages } from '@/src/utils/notificationMessages.utils';
 import EditReviewButton from '../EditReviewButton';
 
@@ -22,7 +22,7 @@ const ReviewActions = ({ productId, reviewId }: ReviewAcitonsProps) => {
     deleteMutation(reviewId, {
       onSuccess: () => {
         refetch();
-        toast.success(notificationMessages.success.deletedReview)
+        toast.success(notificationMessages.success.deletedReview);
       },
     });
   };

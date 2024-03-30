@@ -7,7 +7,7 @@ import { toast } from 'react-toastify';
 import { Review } from '@/src/utils/types';
 import { useGetMe } from '@/src/api/auth';
 import { pageRoutes } from '@/src/routes/pageRoutes';
-import { useGetReviews, useUpdateReview } from '@/src/api/products';
+import { useGetReview, useGetReviews, useUpdateReview } from '@/src/api/reviews';
 import { notificationMessages } from '@/src/utils/notificationMessages.utils';
 import ReviewFormModal from '@/src/components/ReviewFormModal';
 
@@ -33,6 +33,9 @@ const EditReviewButton = ({ reviewId, productId }: ReviewFormModalButtonProps) =
   } = useUpdateReview(reviewId);
 
   const { refetch } = useGetReviews(productId);
+  const { data: review } = useGetReview(reviewId);
+
+  console.log(review)
 
   const toggleModal = () => {
     if (isModalOpen) {
@@ -68,6 +71,7 @@ const EditReviewButton = ({ reviewId, productId }: ReviewFormModalButtonProps) =
         toggleModal={toggleModal}
         onSubmit={onSubmit}
         isLoading={isUpdateReviewLoading}
+        review={review}
       />
     </>
   );

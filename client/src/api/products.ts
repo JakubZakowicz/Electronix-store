@@ -23,22 +23,3 @@ export const useGetProducts = (
 export const useGetProduct = (slug: string) =>
   useFetch<Product>(pathToUrl(apiRoutes.getProduct, { slug }));
 
-export const useGetReviews = (productId?: string) =>
-  useFetch<ReviewData>(
-    `${apiRoutes.getReviews}?${productId && `product_id=${productId}`}`
-  );
-
-export const useAddReview = (productId: string) =>
-  usePost(pathToUrl(apiRoutes.addReview, { productId }), undefined, {
-    withCredentials: true,
-  });
-
-export const useUpdateReview = (reviewId: string) =>
-  useUpdate(pathToUrl(apiRoutes.updateReview, { reviewId }), undefined, {
-    withCredentials: true,
-  });
-
-export const useDeleteReview = () =>
-  useDelete(apiRoutes.deleteReview, undefined, {
-    withCredentials: true,
-  });

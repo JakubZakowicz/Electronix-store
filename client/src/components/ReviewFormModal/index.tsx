@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Modal, Box, Typography, Rating } from '@mui/material';
 import { Controller, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -13,6 +13,7 @@ interface ReviewFormModalProps {
   toggleModal: () => void;
   onSubmit: (data: Review) => void;
   isLoading: boolean;
+  review?: Review;
 }
 
 const ReviewFormModal = ({
@@ -21,12 +22,21 @@ const ReviewFormModal = ({
   toggleModal,
   onSubmit,
   isLoading,
+  review,
 }: ReviewFormModalProps) => {
+  console.log(review);
   const [rating, setRating] = useState(0);
 
-  const { control, handleSubmit, setValue } = useForm<Review>({
+  const { control, handleSubmit, setValue, reset } = useForm<Review>({
     resolver: zodResolver(reviewSchema),
   });
+
+  useEffect(() => {
+    if (review) {
+      reset(review)
+      setRating(review.rating)
+    }
+  }, [review]);
 
   const onRatingChange = (value: number) => {
     setRating(value);
@@ -93,11 +103,7 @@ const ReviewFormModal = ({
                 />
               )}
             />
-            <DefaultButton
-              name={title}
-              type="submit"
-              disabled={isLoading}
-            />
+            <DefaultButton name={title} type="submit" disabled={isLoading} />
           </Box>
         </form>
       </Box>

@@ -7,7 +7,7 @@ import AddReviewButton from '../AddReviewButton';
 import { getSpecificRatingCount } from '@/src/utils/functions.utils';
 import { Product } from '@/src/utils/types';
 import { useGetMe } from '@/src/api/auth';
-import { useGetReviews } from '@/src/api/products';
+import { useGetReviews } from '@/src/api/reviews';
 
 interface ReviewsProps {
   product: Product;

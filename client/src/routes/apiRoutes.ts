@@ -4,6 +4,7 @@ export const apiRoutes = {
   getProducts: '/products?',
   getProduct: '/products/:slug',
   getReviews: '/reviews',
+  getReview: '/reviews/:reviewId',
   addReview: '/reviews/:productId',
   updateReview: '/reviews/:reviewId',
   deleteReview: '/reviews',
