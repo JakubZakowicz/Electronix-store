@@ -2,11 +2,11 @@
 
 import React from 'react';
 import { Box, Typography, Rating, LinearProgress, Grid } from '@mui/material';
-import ReviewFormModalButton from '../ReviewFormModalButton';
+import ReviewActions from '../ReviewActions';
+import AddReviewButton from '../AddReviewButton';
 import { getSpecificRatingCount } from '@/src/utils/functions.utils';
 import { Product } from '@/src/utils/types';
 import { useGetMe } from '@/src/api/auth';
-import ReviewActions from '../ReviewActions';
 
 interface ReviewsProps {
   product: Product;
@@ -60,7 +60,7 @@ const Reviews = ({ product }: ReviewsProps) => {
               <Typography>{product?.reviews.length} Reviews</Typography>
             </Box>
           </Box>
-          {productId && <ReviewFormModalButton productId={productId} />}
+          {productId && <AddReviewButton productId={productId} />}
         </Box>
         {reviews && (
           <Box

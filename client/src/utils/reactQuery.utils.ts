@@ -87,7 +87,11 @@ export const useUpdate = <T, S>(
   updater?: (oldData: T, newData: S) => T
 ) => {
   return useGenericMutation<T, S>(
-    (data) => api.patch<S>(url!, data, config),
+    (data) => {
+      if (config?.method === 'PATCH') return api.patch<S>(url!, data, config);
+
+      return api.put<S>(url!, data, config);
+    },
     url!,
     params,
     updater

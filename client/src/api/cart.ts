@@ -15,7 +15,10 @@ export const useAddToCart = () =>
   usePost(apiRoutes.addToCart, undefined, { withCredentials: true });
 
 export const useUpdateCartProduct = () =>
-  useUpdate(apiRoutes.updateCartProduct, undefined, { withCredentials: true });
+  useUpdate(apiRoutes.updateCartProduct, undefined, {
+    withCredentials: true,
+    method: 'PATCH',
+  });
 
 export const useDeleteCartProduct = (productId: string) =>
   useDelete(pathToUrl(apiRoutes.deleteCartProduct, { productId }), undefined, {

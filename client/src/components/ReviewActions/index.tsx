@@ -3,10 +3,10 @@
 import React from 'react';
 import { Box, Button, Typography } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
-import EditNoteIcon from '@mui/icons-material/EditNote';
 import { toast } from 'react-toastify';
 import { useDeleteReview, useGetProduct } from '@/src/api/products';
 import { notificationMessages } from '@/src/utils/notificationMessages.utils';
+import EditReviewButton from '../EditReviewButton';
 
 interface ReviewAcitonsProps {
   productId: string;
@@ -29,10 +29,7 @@ const ReviewActions = ({ productId, reviewId }: ReviewAcitonsProps) => {
 
   return (
     <Box sx={{ display: 'flex', gap: '20px' }}>
-      <Button size="small">
-        <EditNoteIcon />
-        <Typography>Edit</Typography>
-      </Button>
+      <EditReviewButton reviewId={reviewId} />
       <Button size="small" sx={{ color: 'red' }} onClick={deleteReview}>
         <DeleteIcon />
         <Typography>Delete</Typography>
