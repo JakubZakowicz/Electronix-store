@@ -10,7 +10,9 @@ import { Review, ReviewData } from '../utils/types';
 
 export const useGetReviews = (productId?: string, page?: number) =>
   useFetch<ReviewData>(
-    `${apiRoutes.getReviews}?${productId && `product_id=${productId}&`}sort=created_at:desc&page=${page || 1}&size=20`
+    `${apiRoutes.getReviews}?${productId && `product_id=${productId}&`}page=${
+      page || 1
+    }&size=20&sort=created_at:desc`
   );
 
 export const useGetReview = (reviewId: string) =>

@@ -1,13 +1,22 @@
 import React from 'react';
 import { Pagination as PaginationComponent } from '@mui/material';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
 interface PaginationProps {
-  page: number;
   pageCount: number;
-  handleChange: (_event: React.ChangeEvent<unknown>, value: number) => void;
 }
 
-const Pagination = ({ page, pageCount, handleChange }: PaginationProps) => {
+const Pagination = ({ pageCount }: PaginationProps) => {
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const params = new URLSearchParams(searchParams.toString());
+  const page = Number(params.get('page')) || 1;
+
+  const handleChange = (_event: React.ChangeEvent<unknown>, value: number) => {
+    params.set('page', value.toString());
+    router.replace(`${pathname}?${params.toString()}`);
+  };
   return (
     <PaginationComponent
       page={page}

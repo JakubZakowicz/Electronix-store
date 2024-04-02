@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { useSearchParams } from 'next/navigation';
 import { Box, Typography, Rating, LinearProgress, Grid } from '@mui/material';
 import ReviewActions from '../ReviewActions';
 import AddReviewButton from '../AddReviewButton';
@@ -9,7 +10,6 @@ import { Product } from '@/src/utils/types';
 import { useGetMe } from '@/src/api/auth';
 import { useGetReviews } from '@/src/api/reviews';
 import Pagination from '../Pagination';
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
 interface ReviewsProps {
   product: Product;
@@ -18,18 +18,13 @@ interface ReviewsProps {
 const Reviews = ({ product }: ReviewsProps) => {
   const { id: productId } = product || {};
 
-  const router = useRouter();
-  const pathname = usePathname();
   const searchParams = useSearchParams();
-  const params = new URLSearchParams(searchParams.toString());
-  const page = Number(params.get('page')) || 1;
+  const page = Number(searchParams.get('page')) || 1;
 
   const { data: me } = useGetMe();
   const { data: reviewsData } = useGetReviews(productId, page);
 
   const { reviews, pageCount } = reviewsData || {};
-
-  console.log(reviews)
 
   const convertDate = (isoDate: string) => {
     const date = new Date(isoDate);
@@ -45,11 +40,6 @@ const Reviews = ({ product }: ReviewsProps) => {
     }
 
     return `${dt}-${month}-${year}`;
-  };
-
-  const handleChange = (_event: React.ChangeEvent<unknown>, value: number) => {
-    params.set('page', value.toString());
-    router.replace(`${pathname}?${params.toString()}`);
   };
 
   return (
@@ -180,13 +170,7 @@ const Reviews = ({ product }: ReviewsProps) => {
               marginTop: '50px',
             }}
           >
-            {pageCount && pageCount > 1 && (
-              <Pagination
-                page={page}
-                pageCount={pageCount}
-                handleChange={handleChange}
-              />
-            )}
+            {pageCount && pageCount > 1 && <Pagination pageCount={pageCount} />}
           </Box>
         </>
       ) : (

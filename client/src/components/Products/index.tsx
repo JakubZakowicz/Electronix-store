@@ -3,7 +3,6 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import {
   Box,
   Card,
@@ -30,11 +29,6 @@ const Products = ({
   disabledSorting = false,
 }: ProductsInterface) => {
   const { products, pageCount } = productsData || {};
-  const router = useRouter();
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
-  const params = new URLSearchParams(searchParams.toString());
-  const page = Number(params.get('page')) || 1;
 
   if (products?.length === 0)
     return (
@@ -51,11 +45,6 @@ const Products = ({
         </Typography>
       </Box>
     );
-
-  const handleChange = (_event: React.ChangeEvent<unknown>, value: number) => {
-    params.set('page', value.toString());
-    router.replace(`${pathname}?${params.toString()}`);
-  };
 
   return (
     <Box>
@@ -123,13 +112,7 @@ const Products = ({
       <Box
         sx={{ display: 'flex', justifyContent: 'center', marginTop: '50px' }}
       >
-        {pageCount && pageCount > 1 && (
-          <Pagination
-            page={page}
-            pageCount={pageCount}
-            handleChange={handleChange}
-          />
-        )}
+        {pageCount && pageCount > 1 && <Pagination pageCount={pageCount} />}
       </Box>
     </Box>
   );

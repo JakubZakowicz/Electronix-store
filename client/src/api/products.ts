@@ -9,10 +9,9 @@ export const useGetProducts = (
   sort?: string
 ) =>
   useFetch<ProductData>(
-    apiRoutes.getProducts +
-      (categoryId ? `category_id=${categoryId}` : '') +
-      `&page=${page || 1}&size=20` +
-      (sort ? `&sort=${sort}` : '')
+    `${apiRoutes.getProducts}?${
+      categoryId && `category_id=${categoryId}&`
+    }page=${page || 1}&size=20${sort && `&sort=${sort}`}`
   );
 
 export const useGetProduct = (slug: string) =>
