@@ -51,7 +51,7 @@ export interface Product {
   id: string;
   name: string;
   summary: string;
-  images: Image[];
+  images: Image[] | string[];
   description: string;
   price: number;
   isFeatured: boolean;
