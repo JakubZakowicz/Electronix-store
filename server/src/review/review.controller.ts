@@ -61,21 +61,29 @@ export class ReviewController {
 
   @UseGuards(JwtAuthGuard)
   @UsePipes(new ValidationPipe())
-  @Post('/:productId')
-  create(
+  @Post(':productId')
+  async create(
     @Param('productId') productId: string,
     @Body() reviewData: CreateReviewDto,
     @Req() req: RequestWithUser,
   ) {
     const { userId } = req.user;
-    return this.reviewService.create(userId, productId, reviewData);
+
+    if (await this.reviewService.checkIfUserReviewed(userId, productId)) {
+      throw new Error('User already reviewed this product');
+    } else {
+      return this.reviewService.create(userId, productId, reviewData);
+    }
   }
 
   @UseGuards(JwtAuthGuard)
   @UsePipes(new ValidationPipe())
-  @Put(':id')
-  update(@Param('id') id: string, @Body() reviewData: UpdateReviewDto) {
-    return this.reviewService.update(id, reviewData);
+  @Put(':reviewId')
+  update(
+    @Param('reviewId') reviewId: string,
+    @Body() reviewData: UpdateReviewDto,
+  ) {
+    return this.reviewService.update(reviewId, reviewData);
   }
 
   @UseGuards(JwtAuthGuard)

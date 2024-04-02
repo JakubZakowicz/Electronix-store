@@ -54,30 +54,36 @@ export class ReviewService {
   }
 
   async create(userId: string, productId: string, reviewData: CreateReviewDto) {
-    const newReview = this.reviewRepository.create({
+    const newReview = await this.reviewRepository.create({
       user: { id: userId },
       product: { id: productId },
       ...reviewData,
     });
 
-    this.calculateAverageRating(newReview.product.id);
-
-    return await this.reviewRepository.save(newReview);
+    return await this.reviewRepository.save(newReview).then(() => {
+      this.calculateAverageRating(newReview.product.id);
+      return newReview;
+    });
   }
 
-  async update(id: string, reviewData: UpdateReviewDto) {
-    const review = await this.reviewRepository.preload({
-      id,
+  async update(reviewId: string, reviewData: UpdateReviewDto) {
+    await this.reviewRepository.update(reviewId, {
       ...reviewData,
     });
 
-    if (!review) {
-      throw new NotFoundException(`There is no review with id: ${id}`);
+    const updatedReview = await this.reviewRepository.findOne({
+      where: { id: reviewId },
+      relations: { product: true },
+      select: { product: { id: true } },
+    });
+
+    if (!updatedReview) {
+      throw new NotFoundException(`There is no review with id: ${reviewId}`);
     }
 
-    this.calculateAverageRating(review.product.id);
+    this.calculateAverageRating(updatedReview.product.id);
 
-    return await this.reviewRepository.save(review);
+    return updatedReview;
   }
 
   async delete(id: string) {
@@ -86,11 +92,14 @@ export class ReviewService {
       relations: { product: true },
     });
 
-    const deleteResult = await this.reviewRepository.delete(id);
+    if (!deletedReview) {
+      throw new NotFoundException(`There is no review with id: ${id}`);
+    }
 
-    if (deletedReview) this.calculateAverageRating(deletedReview?.product.id);
-
-    return deleteResult;
+    return await this.reviewRepository.delete(id).then((res) => {
+      this.calculateAverageRating(deletedReview?.product.id);
+      return res;
+    });
   }
 
   async calculateAverageRating(productId: string) {
@@ -99,6 +108,16 @@ export class ReviewService {
     });
 
     let averageRating = 0;
+
+    if (reviews.length === 0) {
+      await this.productRepository.save({
+        id: productId,
+        rating: averageRating,
+      });
+
+      return Number(averageRating.toFixed(2));
+    }
+
     reviews.forEach((review) => {
       averageRating += review.rating;
     });
@@ -108,5 +127,11 @@ export class ReviewService {
     await this.productRepository.save({ id: productId, rating: averageRating });
 
     return averageRating;
+  }
+
+  async checkIfUserReviewed(userId: string, productId: string) {
+    return !!(await this.reviewRepository.findOne({
+      where: { user: { id: userId }, product: { id: productId } },
+    }));
   }
 }

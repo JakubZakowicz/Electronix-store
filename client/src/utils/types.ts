@@ -51,7 +51,7 @@ export interface Product {
   id: string;
   name: string;
   summary: string;
-  images: Image[];
+  images: Image[] | string[];
   description: string;
   price: number;
   isFeatured: boolean;
@@ -70,6 +70,7 @@ export interface Review {
   title: string;
   content: string;
   rating: number;
+  created_at: string;
   user: User;
 }
 
@@ -78,6 +79,7 @@ export interface ReviewData extends DataDefaultProps {
 }
 
 export interface User {
+  id: string;
   firstName: string;
   lastName: string;
   email: string;

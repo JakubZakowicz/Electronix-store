@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { Box, Grid, Typography } from '@mui/material';
+import { toast } from 'react-toastify';
 import { zodResolver } from '@hookform/resolvers/zod';
 import InputField from '@/src/components/InputField';
 import { signInSchema } from '@/src/utils/validationSchemas';
@@ -12,7 +13,7 @@ import { SignInFormSchema } from '@/src/utils/types';
 import DefaultButton from '@/src/components/DefaultButton';
 import { pageRoutes } from '@/src/routes/pageRoutes';
 import { useGetMe, useSignIn } from '@/src/api/auth';
-import { toast } from 'react-toastify';
+import { notificationMessages } from '@/src/utils/notificationMessages.utils';
 
 const SignInPage = () => {
   const {
@@ -32,7 +33,7 @@ const SignInPage = () => {
       onSuccess: () => {
         router.push(pageRoutes.root());
         refetch();
-        toast.success('You have signed in successfully!')
+        toast.success(notificationMessages.success.signedIn)
       },
     });
   };

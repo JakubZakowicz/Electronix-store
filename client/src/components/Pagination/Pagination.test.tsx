@@ -2,12 +2,20 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import Pagination from '.';
 
-describe('Pagination', () => {
-  const mockHandleChange = jest.fn();
+const mockedUseRouter = jest.fn();
+const mockedUsePathname = jest.fn();
+const mockedUseSearchParams = { page: 1 };
 
+jest.mock('next/navigation', () => ({
+  useRouter: () => mockedUseRouter(),
+  usePathname: () => mockedUsePathname(),
+  useSearchParams: () => mockedUseSearchParams,
+}));
+
+describe('Pagination', () => {
   it('renders correctly with default props', () => {
     render(
-      <Pagination page={1} pageCount={10} handleChange={mockHandleChange} />
+      <Pagination pageCount={10} />
     );
 
     const paginationRoot = screen.getByTestId('pagination-root');
@@ -16,7 +24,7 @@ describe('Pagination', () => {
 
   it('renders correctly with custom props', () => {
     render(
-      <Pagination page={3} pageCount={15} handleChange={mockHandleChange} />
+      <Pagination pageCount={15} />
     );
 
     const paginationRoot = screen.getByTestId('pagination-root');

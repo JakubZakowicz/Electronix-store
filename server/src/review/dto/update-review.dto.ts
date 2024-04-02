@@ -9,5 +9,5 @@ export class UpdateReviewDto {
 
   @IsNotEmpty()
   @IsPositive()
-  rate: number;
+  rating: number;
 }

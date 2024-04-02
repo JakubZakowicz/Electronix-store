@@ -1,8 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { useGetUser, useSignOut } from '@/src/api/auth';
-import { pageRoutes } from '@/src/routes/pageRoutes';
 import {
   Box,
   Button,
@@ -13,6 +11,10 @@ import {
   Paper,
   Popper,
 } from '@mui/material';
+import { toast } from 'react-toastify';
+import { useGetUser, useSignOut } from '@/src/api/auth';
+import { pageRoutes } from '@/src/routes/pageRoutes';
+import { notificationMessages } from '@/src/utils/notificationMessages.utils';
 
 interface UserMenuProps {
   userId: string;
@@ -54,10 +56,11 @@ const UserMenu = ({ userId, setIsUser }: UserMenuProps) => {
   };
 
   const signOut = async () => {
-    await mutate(null, {
+    mutate(null, {
       onSuccess: () => {
         router.push('/');
         setIsUser(false);
+        toast.success(notificationMessages.success.signedOut);
       },
     });
   };
