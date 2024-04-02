@@ -8,6 +8,8 @@ import { getSpecificRatingCount } from '@/src/utils/functions.utils';
 import { Product } from '@/src/utils/types';
 import { useGetMe } from '@/src/api/auth';
 import { useGetReviews } from '@/src/api/reviews';
+import Pagination from '../Pagination';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
 interface ReviewsProps {
   product: Product;
@@ -16,10 +18,18 @@ interface ReviewsProps {
 const Reviews = ({ product }: ReviewsProps) => {
   const { id: productId } = product || {};
 
-  const { data: me } = useGetMe();
-  const { data: reviewsData } = useGetReviews(productId);
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const params = new URLSearchParams(searchParams.toString());
+  const page = Number(params.get('page')) || 1;
 
-  const { reviews } = reviewsData || {};
+  const { data: me } = useGetMe();
+  const { data: reviewsData } = useGetReviews(productId, page);
+
+  const { reviews, pageCount } = reviewsData || {};
+
+  console.log(reviews)
 
   const convertDate = (isoDate: string) => {
     const date = new Date(isoDate);
@@ -35,6 +45,11 @@ const Reviews = ({ product }: ReviewsProps) => {
     }
 
     return `${dt}-${month}-${year}`;
+  };
+
+  const handleChange = (_event: React.ChangeEvent<unknown>, value: number) => {
+    params.set('page', value.toString());
+    router.replace(`${pathname}?${params.toString()}`);
   };
 
   return (
@@ -105,58 +120,75 @@ const Reviews = ({ product }: ReviewsProps) => {
         )}
       </Box>
       {reviews && reviews.length > 0 ? (
-        reviews?.map(
-          ({ id: reviewId, title, content, rating, user, created_at }) => (
-            <Grid key={reviewId} container sx={{ marginBottom: '50px' }}>
-              <Grid item xl={2}>
-                <Rating
-                  name="read-only"
-                  value={rating}
-                  readOnly
-                  sx={{
-                    '.MuiRating-iconEmpty': {
-                      color: 'rgba(255, 255, 255, 0.5)',
-                    },
-                  }}
-                />
-                <Typography marginTop="10px">
-                  {user.firstName} {user.lastName}
-                </Typography>
-                <Typography fontSize={15} color="#B9B9B9" marginTop="10px">
-                  {convertDate(created_at)}
-                </Typography>
-              </Grid>
-              <Grid item xl={10}>
-                <Box
-                  sx={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    gap: '20px',
-                  }}
-                >
-                  <Box>
-                    <Typography
-                      variant="h3"
-                      fontSize={25}
-                      fontWeight="semibold"
-                    >
-                      {title}
-                    </Typography>
-                    <Typography marginTop="10px">{content}</Typography>
+        <>
+          {reviews?.map(
+            ({ id: reviewId, title, content, rating, user, created_at }) => (
+              <Grid key={reviewId} container sx={{ marginBottom: '50px' }}>
+                <Grid item xl={2}>
+                  <Rating
+                    name="read-only"
+                    value={rating}
+                    readOnly
+                    sx={{
+                      '.MuiRating-iconEmpty': {
+                        color: 'rgba(255, 255, 255, 0.5)',
+                      },
+                    }}
+                  />
+                  <Typography marginTop="10px">
+                    {user.firstName} {user.lastName}
+                  </Typography>
+                  <Typography fontSize={15} color="#B9B9B9" marginTop="10px">
+                    {convertDate(created_at)}
+                  </Typography>
+                </Grid>
+                <Grid item xl={10}>
+                  <Box
+                    sx={{
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      gap: '20px',
+                    }}
+                  >
+                    <Box>
+                      <Typography
+                        variant="h3"
+                        fontSize={25}
+                        fontWeight="semibold"
+                      >
+                        {title}
+                      </Typography>
+                      <Typography marginTop="10px">{content}</Typography>
+                    </Box>
+                    <Box>
+                      {user?.id === me?.userId && (
+                        <ReviewActions
+                          productId={productId}
+                          reviewId={reviewId}
+                        />
+                      )}
+                    </Box>
                   </Box>
-                  <Box>
-                    {user?.id === me?.userId && (
-                      <ReviewActions
-                        productId={productId}
-                        reviewId={reviewId}
-                      />
-                    )}
-                  </Box>
-                </Box>
+                </Grid>
               </Grid>
-            </Grid>
-          )
-        )
+            )
+          )}
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'center',
+              marginTop: '50px',
+            }}
+          >
+            {pageCount && pageCount > 1 && (
+              <Pagination
+                page={page}
+                pageCount={pageCount}
+                handleChange={handleChange}
+              />
+            )}
+          </Box>
+        </>
       ) : (
         <Box>
           <Typography

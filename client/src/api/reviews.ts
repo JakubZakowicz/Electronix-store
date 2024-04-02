@@ -8,9 +8,9 @@ import {
 import { pathToUrl } from '../utils/router.utils';
 import { Review, ReviewData } from '../utils/types';
 
-export const useGetReviews = (productId?: string) =>
+export const useGetReviews = (productId?: string, page?: number) =>
   useFetch<ReviewData>(
-    `${apiRoutes.getReviews}?${productId && `product_id=${productId}&`}sort=created_at:desc`
+    `${apiRoutes.getReviews}?${productId && `product_id=${productId}&`}sort=created_at:desc&page=${page || 1}&size=20`
   );
 
 export const useGetReview = (reviewId: string) =>

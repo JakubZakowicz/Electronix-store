@@ -1,12 +1,7 @@
 import { apiRoutes } from '../routes/apiRoutes';
-import {
-  useDelete,
-  useFetch,
-  usePost,
-  useUpdate,
-} from '../utils/reactQuery.utils';
+import { useFetch } from '../utils/reactQuery.utils';
 import { pathToUrl } from '../utils/router.utils';
-import { Product, ProductData, ReviewData } from '../utils/types';
+import { Product, ProductData } from '../utils/types';
 
 export const useGetProducts = (
   categoryId?: string,
@@ -22,4 +17,3 @@ export const useGetProducts = (
 
 export const useGetProduct = (slug: string) =>
   useFetch<Product>(pathToUrl(apiRoutes.getProduct, { slug }));
-
