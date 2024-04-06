@@ -1,17 +1,11 @@
 import { DataSource } from 'typeorm';
-import { Seeder, SeederFactoryManager } from 'typeorm-extension';
+import { Seeder } from 'typeorm-extension';
 import { Category } from '../../category/category.entity';
+import * as seederData from '../seeder-data.json';
 
 export default class CategorySeeder implements Seeder {
-  public async run(
-    dataSource: DataSource,
-    factoryManager: SeederFactoryManager,
-  ): Promise<void> {
+  public async run(dataSource: DataSource): Promise<void> {
     const repository = dataSource.getRepository(Category);
-    await repository.insert({
-      id: '134',
-      name: 'Computers',
-      slug: 'computers',
-    });
+    await repository.insert(seederData.categories);
   }
 }
