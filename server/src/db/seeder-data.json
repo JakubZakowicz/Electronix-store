@@ -1,32 +1,32 @@
 {
   "categories": [
     {
-      "id": "1",
+      "id": "computers-tablets",
       "name": "Computers & Tablets",
       "slug": "computers & tablets"
     },
     {
-      "id": "2",
+      "id": "smartphones-accessories",
       "name": "Smartphones & Accessories",
       "slug": "smartphones-accessories"
     },
     {
-      "id": "3",
+      "id": "virtual-reality",
       "name": "Virtual Reality",
       "slug": "virtual-reality"
     },
     {
-      "id": "4",
+      "id": "gaming",
       "name": "Gaming",
       "slug": "gaming"
     },
     {
-      "id": "5",
+      "id": "wearables",
       "name": "Wearables",
       "slug": "wearables"
     },
     {
-      "id": "6",
+      "id": "cameras-drones",
       "name": "Cameras & Drones",
       "slug": "cameras-drones"
     }
@@ -42,7 +42,7 @@
       "rating": 0,
       "slug": "pico-4-128gb",
       "category": {
-        "id": "134"
+        "id": "virtual-reality"
       }
     },
     {
@@ -55,20 +55,7 @@
       "rating": 0,
       "slug": "pico-4-256gb",
       "category": {
-        "id": "134"
-      }
-    },
-    {
-      "id": "3",
-      "name": "Computer",
-      "summary": "Computer is a virtual reality headset developed by ByteDance.",
-      "description": "Computer",
-      "price": 400,
-      "isFeatured": true,
-      "rating": 0,
-      "slug": "pico-4",
-      "category": {
-        "id": "134"
+        "id": "virtual-reality"
       }
     },
     {
@@ -81,7 +68,7 @@
       "rating": 0,
       "slug": "meta-quest-3-128gb",
       "category": {
-        "id": "134"
+        "id": "virtual-reality"
       }
     },
     {
@@ -91,10 +78,10 @@
       "description": "The Meta Quest 3 is a state-of-the-art virtual reality (VR) headset developed by Reality Labs, a division of Meta Platforms. This device represents a significant leap forward in VR technology, offering an immersive and interactive experience that pushes the boundaries of what’s possible in virtual spaces.\n\n Unveiled on June 1, 2023, and released to the public on October 10, 2023, the Meta Quest 3 has quickly become a favorite among VR enthusiasts. Its design incorporates elements from the Quest Pro, resulting in a thinner form factor that enhances comfort during extended use. The headset also includes additional sensors that improve tracking accuracy, providing a more seamless and intuitive user experience./n/nOne of the standout features of the Meta Quest 3 is its display. The headset uses a pair of high-resolution LCD displays, each offering a per-eye resolution of 2064×2208. This results in crisp, clear visuals that bring virtual environments to life in stunning detail./n/nPowering the Meta Quest 3 is the Qualcomm Snapdragon, a high-performance processor designed for mobile devices. This ensures smooth, lag-free performance, even in graphically intensive VR applications. Whether you’re exploring virtual worlds, playing games, or interacting with others in VR, the Meta Quest 3 delivers a consistently high-quality experience./n/nIn addition to its impressive hardware, the Meta Quest 3 also benefits from Meta’s expansive VR ecosystem. Users have access to a wide range of apps and games, from immersive social experiences to cutting-edge educational applications. With ongoing support and regular updates, the Meta Quest 3 continues to evolve and improve, offering users new ways to explore, learn, and connect in VR.",
       "price": 59999,
       "isFeatured": true,
-      "rating": 0,
+      "rating": 4.7,
       "slug": "meta-quest-3-256gb",
       "category": {
-        "id": "134"
+        "id": "virtual-reality"
       }
     },
     {
@@ -104,10 +91,10 @@
       "description": "The Meta Quest 2 is an advanced all-in-one virtual reality (VR) headset developed by Reality Labs, a division of Meta Platforms. This device is designed to provide a range of experiences, from gaming and entertainment to social interaction and even PCVR capabilities./n/nOne of the key features of the Meta Quest 2 is its standalone nature. Unlike many other VR headsets, it doesn’t require pairing with an expensive PC. This makes it a more accessible option for those looking to dive into the world of virtual reality./n/nThe Meta Quest 2 comes with a faster processor and higher resolution compared to its predecessor. It’s powered by the Qualcomm Snapdragon XR2 Gen 23, which ensures smooth, lag-free performance, even in graphically intensive VR applications./n/nThe headset uses high-resolution displays to provide crisp, clear visuals that bring virtual environments to life in stunning detail. This enhances the immersive nature of the VR experience, making it feel as though you’re truly a part of the virtual world./n/nIn addition to its impressive hardware, the Meta Quest 2 also offers a range of unique social experiences. From multiplayer games to joining up with friends at a live show or instructor-led workout, Meta Quest 2 provides new opportunities to meet and connect with others in VR.",
       "price": 24999,
       "isFeatured": false,
-      "rating": 0,
+      "rating": 4.6,
       "slug": "meta-quest-2-128gb",
       "category": {
-        "id": "134"
+        "id": "virtual-reality"
       }
     },
     {
@@ -117,10 +104,127 @@
       "description": "The Meta Quest 2 is an advanced all-in-one virtual reality (VR) headset developed by Reality Labs, a division of Meta Platforms. This device is designed to provide a range of experiences, from gaming and entertainment to social interaction and even PCVR capabilities./n/nOne of the key features of the Meta Quest 2 is its standalone nature. Unlike many other VR headsets, it doesn’t require pairing with an expensive PC. This makes it a more accessible option for those looking to dive into the world of virtual reality./n/nThe Meta Quest 2 comes with a faster processor and higher resolution compared to its predecessor. It’s powered by the Qualcomm Snapdragon XR2 Gen 23, which ensures smooth, lag-free performance, even in graphically intensive VR applications./n/nThe headset uses high-resolution displays to provide crisp, clear visuals that bring virtual environments to life in stunning detail. This enhances the immersive nature of the VR experience, making it feel as though you’re truly a part of the virtual world./n/nIn addition to its impressive hardware, the Meta Quest 2 also offers a range of unique social experiences. From multiplayer games to joining up with friends at a live show or instructor-led workout, Meta Quest 2 provides new opportunities to meet and connect with others in VR.",
       "price": 29999,
       "isFeatured": true,
-      "rating": 0,
+      "rating": 4.8,
       "slug": "meta-quest-2-256gb",
       "category": {
-        "id": "134"
+        "id": "virtual-reality"
+      }
+    },
+    {
+      "id": "7",
+      "name": "Dell OptiPlex Micro 7010 Desktop Computer",
+      "summary": "Intel Core i5 13th Gen 13500T 1.2GHz Processor; 16GB DDR4-3200 RAM; 256GB Solid State Drive; Intel UHD Graphics 770",
+      "description": "OptiPlex Micro 7010 Desktop Computer/n/nIntel Core i5 13th Gen 13500T 1.2GHz Processor; 16GB DDR4-3200 RAM; 256GB/n/n Solid State Drive; Intel UHD Graphics 770/n/nIntel Core i5 13th Gen 13500T 1.2GHz Processor/n/n16GB DDR4-3200 RAM/n/n256GB Solid State Drive/n/nIntel UHD Graphics 770/n/nMicrosoft Windows 11 Pro/n/n10/100/1000 Network/n/nIntel Wi-Fi 6E AX211+ Bluetooth Wireless Card/n/nIntelligence meets simplicity. Get maximum productivity with mini footprint.",
+      "price": 129999,
+      "isFeatured": true,
+      "rating": 4.4,
+      "slug": "dell-optiplex-micro-7010-desktop-computer",
+      "category": {
+        "id": "computers-tablets"
+      }
+    },
+    {
+      "id": "7",
+      "name": "Skytech Gaming Nebula Gaming PC Desktop – Intel Core i5 13400F 2.5 GHz, NVIDIA RTX 4060, 1TB NVME SSD, 16GB DDR4 RAM 3200, 600W Gold PSU, 11AC Wi-Fi, Windows 11 Home 64-bit,Black",
+      "summary": "Take your game to the next level. Skytech's Nebula lets you play with higher settings, faster frame rates and more powerful multi-tasking capabilities than standard gaming PCs. Featuring more power to game and stream simultaneously with no lag, a Skytech Nebula gives gamers even more power to back up your team mates and create better content.",
+      "description": "Why settle for mediocrity? Leap forward into the Skytech Nebula series with the newest architectures. Featuring the latest NVIDIA RTX series graphics cards and is powered by INTEL Core i5 Processor. The Skytech Nebula delivers the best price-to-performance value gaming rig in the market.\n\nThe Skytech Nebula offers the best gaming computer built up to date to quickly run popular games such as Call of Duty Warzone, Fortnite, Escape from Tarkov, Grand Theft Auto V, Valorant, World of Warcraft, League of Legends, Apex Legends, Roblox, PLAYERUNKNOWN's Battlegrounds, Overwatch 2, Counter-Strike 2, Battlefield V, New World, Minecraft, Elden Ring, Rocket League, Baldur's Gate 3, Dota 2, HELLDIVERS 2, Monster Hunter, Palworld, Terraria, Rainbow Six Siege, Dragon's Dogma 2, and more at Ultra settings, detailed 1080p Full HD resolution, and smooth 60+ FPS gameplay.\n\nSPECIFICATIONS\n\nManufacturer Part#: ST-NEBULA-0819-B-AM\nProcessor: INTEL Core i5 13400F 2.5 GHz (4.6GHz Max Boost) CPU\nMemory: 16GB DDR4 RAM 3200 Gaming Memory with Heat Spreader\nVideo Card: NVIDIA Geforce RTX 4060 8GB GDDR6X Graphics Card (Brand may vary)\nSSD: 1TB NVME SSD\nOperating System: Microsoft windows 11 Home 64-bit\nCase: Skytech Nebula Gaming Case, Black\nWiFi: 802.11AC\nFans: 4 RGB Fans for Maximum Air Flow\n\nProduct images used on this page are for illustrative purposes only and do not indicate the exact components used at the time of manufacture. The component makes and models may vary from product depictions in product images but will adhere to the specification outlined in the product's main description. Particulars such as I/O ports may vary. Please get in touch with us for more details.",
+      "price": 101414,
+      "isFeatured": true,
+      "rating": 4.5,
+      "slug": "skytech-gaming-nebula-gaming-pc-desktop",
+      "category": {
+        "id": "computers-tablets"
+      }
+    },
+    {
+      "id": "7",
+      "name": "Android Tablet, 10 inch Tablets, 2GB+32GB Computer Tablet Support 512GB Expand, 2MP + 8MP Camera, IPS Screen, WiFi, Bluetooth, 6000mAh, Google GMS Certified Tableta Blue",
+      "summary": "Brand\tCOOPERS\nModel Name\tSACP10S\nMemory Storage Capacity\t32 GB\nScreen Size\t10 Inches\nDisplay Resolution Maximum\t1280 x 800 Pixels",
+      "description": "About this item\n【Android Tablet】Tablet featuring Android 10 operating system, More stable and smaller occupy. Powerful Quad core Processor which is more energy-saving. More Quicker and faster When open apps. Smooth when surfing ineternet.Google GMS Certified Tablet so that you can get apps such as Netflix, TikTok, Yahoo, Twitter from the Google Play.\n【10 inch IPS Display】Tablet equipped with a resolution 1280x800 IPS Screen. 10 inch Large screen, wide viewing angle, high resolution. Screen is clear, and colours are more vivid. With the Eye Health mode,bring you a comfortable for Reading.\n【Multifunctional 10 inch tablet】2.0 MP & 8.0 MP Dual Camera, Wifi, Bluetooth. And 6000mAh Big Capacity Battery ensures 8-10 hours mixed use. Suitable for most scenes in daily life. 550g lightweight so that you can carry it anywhere. Good for working, studying, entertainment when you travelling.\n【2GB+32GB and 512GB Expand】32GB ROM Tablet support Most 512GB MicroSD card (Card not included)storage your movies, musics, photos, anything you want. Bluetooth and Type C Cable so that you can Transfer your data from computer etc.\n【1 Year Warrnty】Tablet PC comes with 1* tablet, 1* cable, 1* charger and also include 1 year guarantee and Lifetime tech support. Any issue of the tablet during 365 days warranty, return it and Our team will repalce it for you.",
+      "price": 4499,
+      "isFeatured": false,
+      "rating": 3.6,
+      "slug": "android-tablet-10-inch-tablets",
+      "category": {
+        "id": "computers-tablets"
+      }
+    },
+    {
+      "id": "7",
+      "name": "Windows 11 Laptop Computer, 8GB RAM 128GB ROM, Intel Celeron Quad-Core Processors, 10' Netbook Computer with WiFi, Webcam and Bluetooth, Mini Laptop with Bag, Mouse, Headphone and Mouse Pad",
+      "summary": "\\nBrand\\tG-Anica\\nModel Name\\tN4020-win11-PK-CF2\\nScreen Size\\t10 Inches\\nColor\\tPink\\nHard Disk Size\\t128 GB\\nCPU Model\\tCeleron N4020\\nRam Memory Installed Size\\t8 GB",
+      "description": "About this item\n【Package Contents】The package includes 1*10-inch Windows 11 Laptop, 1*Laptop Bag, 1*Mouse, 1*Mouse Pad, 1*Earphone, and 1*User Manual. If you have any questions, please contact us promptly.\n【Fast & Efficient】Experience the swift and efficient performance of the laptop, fueled by the GMS-certified Windows 11 system and an Intel Quad-Core processor. With 8GB DDR4 RAM and a 128GB SSD, it ensures seamless multitasking, eliminating lag and enhancing overall system efficiency.\n【Great Visual Experience】:Experience the brilliance of G-Anica Windows 11 laptops featuring a 10-inch HD display for crystal-clear and vibrant visuals. With slim borders and a high screen-to-body ratio, dive into a broader and more captivating viewing experience. This widescreen, high-pixel laptop delivers the ultimate visual feast.\n【Portability】:G-Anica laptop comes with a built-in long battery life, perfect for on-the-go use. Its lightweight design ensures easy portability, allowing you to effortlessly carry your Windows 11 laptop in your backpack. A durable and lightweight companion for your journey.\n【Versatile Connectivity and Spacious Keyboard】: G-Anica traditional laptops offer seamless connectivity through WiFi, Bluetooth, and a range of interfaces including HDMI, headphone jack, USB, and TF card slot. The inclusion of a full-size keyboard enhances the convenience of work and study, ensuring a smooth and efficient experience on your laptop.",
+      "price": 19900,
+      "isFeatured": false,
+      "rating": 4.2,
+      "slug": "windows-11-laptop-computer",
+      "category": {
+        "id": "computers-tablets"
+      }
+    },
+    {
+      "id": "7",
+      "name": "Acer Nitro 17 Gaming Laptop AMD Ryzen 7 7840HS Octa-Core CPU 17.3' FHD 165Hz IPS Display NVIDIA GeForce RTX 4050 16GB DDR5 1TB SSD Wi-Fi 6E RGB Backlit KB AN17-41-R6L9",
+      "summary": "\nBrand\tacer\nModel Name\tNitro 17\nScreen Size\t17.3 Inches\nColor\tBlack\nHard Disk Size\t1 TB\nCPU Model\tAMD Ryzen 7\nRam Memory Installed Size\t16 GB\nOperating System\tWindows 11 Home\nSpecial Feature\tBacklit Keyboard, Memory Card Slot\nGraphics Card Description\tDedicated",
+      "description": "Go full throttle with the Acer Nitro 17 gaming laptop featuring the latest AMD Ryzen 7000 Series Processors and NVIDIA’s DLSS 3 technology – whether playing casually or ranking up online. The picture-perfect 17.3-inch FHD display with 165Hz refresh rates provides an immersive viewing experience while next-gen cooling, a 4-zone RGB keyboard and NitroSense software let you take command of the playing field.\nAMD Ryzen 7000 Series: Now featuring the AMD Ryzen 7 7840HS Octa-Core Processor delivering superior gaming performance where you need it most. With Precision Boost, get up to 5.1GHz for your high-demand games.\nAMD Ryzen AI: Present your best self with AI-enhanced video chat. Get a laptop that’s AI ready.\nBeyond Fast: The NVIDIA GeForce RTX 4050 Laptop GPU is beyond fast for gamers and creators. They're powered by the ultra-efficient NVIDIA Ada Lovelace architecture which delivers a quantum leap in both performance and AI-powered graphics. With the included MUX switch, you can disable the integrated graphics for an increase in gaming performance.\nBask in Visual Glory: With a lightning-quick 165Hz refresh rate, the 17.3' Full HD (1920 x 1080) display makes your game sessions fluid, unbroken, and unmatched. Now you can land those reflexive shots with pinpoint accuracy and minimal ghosting.\nInternal Specifications: 16GB DDR5 Memory; 1TB PCIe Gen 4 SSD; Wireless Wi-Fi 6E supports dual-stream Wi-Fi in the 2.4GHz, 5GHz and 6GHz bands, including 2x2 MU-MIMO Technology; Killer Ethernet E2600 10/100/1000; Bluetooth 5.1\nComplete Next-Gen Cooling: The newly refined chassis has a few extra tricks up its sleeve when it comes to cooling with dual-fan, dual-intakes (top and bottom), and a quad-exhaust port design. This also includes the chilling effects of liquid metal thermal grease which acts as a more efficient heat transfer between the CPU and the heatsink.\nThe Keys to Victory: Spice things up with the 4-zone RGB keyboard and take command of the inner workings of the laptop via the dedicated NitroSense Key. With the NitroSense utility app, you can control fan speeds, lighting, and more to push performance to its max.\nMax Your Speeds with Wi-Fi 6E: Get an edge online by taking control of your network and prioritizing your gameplay with Killer Ethernet E2600 and Wi-Fi 6E. Plug all your peripherals into the full range of ports, including HDMI 2.1, USB Type-C Port - supporting USB4 and the newest USB 3.2 standard with Gen 2 support. There’s even a MicroSD Card Reader should it be needed.\nPorts For All Your Accessories: 1 - USB Type-C Port - supporting USB4 (up to 40 Gbps), USB Charging & Power Delivery (Up to 65W), 1 - USB Type-C Port USB 3.2 Gen 2 (up to 10 Gbps) DisplayPort over USB Type-C, & USB Charging & Power Delivery (Up to 65W), 2 - USB 3.2 Gen 2 Ports (One Featuring Power-off Charging), 1 - USB 2.0 Port, 1 - HDMI 2.1 Port with HDCP Support, 1 - Ethernet (RJ-45) Port, 1 - Headphone/Microphone-in Jack",
+      "price": 98800,
+      "isFeatured": false,
+      "rating": 4.3,
+      "slug": "acer-nitro-17-gaming-laptop",
+      "category": {
+        "id": "computers-tablets"
+      }
+    },
+    {
+      "id": "7",
+      "name": "16GB DDR4 3200MHz PC4-25600 CL22 SODIMM 1.2V 260-Pin Non-ECC SODIMM Laptop Notebook RAM Memory Module",
+      "summary": "\\nBrand\\tDATO\\nComputer Memory Size\\t16 GB\\nRAM Memory Technology\\tDDR4 SODIMM 3200MHz\\nMemory Speed\\t3200 MHz\\nCompatible Devices\\tLaptop",
+      "description": "EMPOWERING EFFICIENCY: Stable speed running at 3200MHz, providing consistent efficiency for all uses\nECOLOGY & TECHNOLOGY: Low operation voltage of 1.2V, saving 20% of power consumption compared to DDR3\nQUALITY ASSURANCE: High quality ICs carefully selected and strictly tested to ensure high stability and durability, proudly backed with a 3 year limited warranty\nPREMIUM UPGRADE: End you lagging user experience effortlessly by upgrading it with a premium quality memory\nDO NOT MIX Memory Kits: Mixing memory kits might result in stability issues or system failure. Slide in a message for compatibility consultation if needed.",
+      "price": 2999,
+      "isFeatured": false,
+      "rating": 4.7,
+      "slug": "sodimm-laptop-notebook-ram-memory-module",
+      "category": {
+        "id": "1"
+      }
+    },
+    {
+      "id": "7",
+      "name": "AMD Ryzen 7 7800X3D 8-Core, 16-Thread Desktop Processor",
+      "summary": "\\nBrand\\tAMD\\nCPU Manufacturer\\tAMD\\nCPU Model\\tRyzen 7\\nCPU Speed\\t5 GHz\\nCPU Socket\\tSocket AM5",
+      "description": "Processor provides dependable and fast execution of tasks with maximum efficiency.Graphics Frequency : 2200 MHZ.Number of CPU Cores : 8. Maximum Operating Temperature (Tjmax) : 89°C.\nRyzen 7 product line processor for better usability and increased efficiency\n5 nm process technology for reliable performance with maximum productivity\nOcta-core (8 Core) processor core allows multitasking with great reliability and fast processing speed\n8 MB L2 plus 96 MB L3 cache memory provides excellent hit rate in short access time enabling improved system performance\nProcessor with 4.20 GHz clock speed for reliable and fast execution of instructions to ensure maximum convenience and feasibility\nComes with AMD Radeon Graphics controller for amazing graphics output",
+      "price": 2999,
+      "isFeatured": true,
+      "rating": 4.7,
+      "slug": "amd-ryzen-7-7800x3d-8-core-16-thread-desktop-processor",
+      "category": {
+        "id": "1"
+      }
+    },
+    {
+      "id": "7",
+      "name": "MSI Gaming GeForce RTX 3060 12GB 15 Gbps GDRR6 192-Bit HDMI/DP PCIe 4 Torx Twin Fan Ampere OC Graphics Card",
+      "summary": "\\nGraphics Coprocessor\\tNVIDIA GeForce RTX 3060\\nBrand\\tMSI\\nGraphics Ram Size\\t12 GB\\nGPU Clock Speed\\t1807 MHz\\nVideo Output Interface\\tDisplayPort, HDMI",
+      "description": "NVIDIA GeForce RTX 3060 12GB GDDR6 dedicated graphics card\n1710 MHz GPU clock speed and 1807 MHz memory clock speed\nDisplayPort x 3 (v1.4a) and HDMI 2.1 x 1 output interfaces\n7680 x 4320 maximum display resolution",
+      "price": 28999,
+      "isFeatured": false,
+      "rating": 4.7,
+      "slug": "amd-ryzen-7-7800x3d-8-core-16-thread-desktop-processor",
+      "category": {
+        "id": "1"
+      }
+    },
+    {
+      "id": "7",
+      "name": "PNY GeForce RTX™ 4060 8GB XLR8 Gaming Verto RGB Triple Fan Graphics Card DLSS 3",
+      "summary": "\\nGraphics Coprocessor\\tNVIDIA GeForce RTX 4060\\nBrand\\tPNY\\nGraphics Ram Size\\t8 GB\\nGPU Clock Speed\\t1830 MHz\\nVideo Output Interface\\t3X DisplayPort 1.4, HDMI",
+      "description": "Powered by NVIDIA DLSS 3, ultra-efficient Ada Lovelace arch, and full ray tracing\nNVIDIA Ada Lovelace, with 1830MHz core clock and 2460MHz boost clock speeds to help meet the needs of demanding games.\n8GB GDDR6 (128-bit) on-board memory, plus 3072 CUDA processing cores and up to 272GB/sec of memory bandwidth provide the memory needed to create striking visual realism.\nPCI Express 4.0 interface x 16 with - Offers compatibility with a range of systems. Also includes DisplayPort and HDMI outputs for expanded connectivity.\nNVIDIA GeForce Experience - Capture and share videos, screenshots, and livestreams with friends. Keep your drivers up to date and optimize your game settings. It's the essential companion to your GeForce graphics card.\nPCI-Express 4.0 x16 (x8 Active)",
+      "price": 32999,
+      "isFeatured": true,
+      "rating": 4.7,
+      "slug": "pny-geforce-rtxtm-4060-8gb",
+      "category": {
+        "id": "computers-tablets"
       }
     }
   ]
