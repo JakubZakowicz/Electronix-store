@@ -16,6 +16,7 @@ import { ProductData } from '@/src/utils/types';
 import { convertPrice } from '@/src/utils/functions.utils';
 import Pagination from '../Pagination';
 import SortInput from '../SortInput';
+import { noImageObject } from '@/src/utils/constants';
 
 interface ProductsInterface {
   name: string;
@@ -81,7 +82,7 @@ const Products = ({
                 >
                   <CardContent>
                     <Image
-                      src={images[0].url}
+                      src={images[0]?.url || noImageObject.url}
                       width="250"
                       height="200"
                       alt="VR headset"
