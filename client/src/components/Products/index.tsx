@@ -85,7 +85,7 @@ const Products = ({
                       src={images[0]?.url || noImageObject.url}
                       width="250"
                       height="200"
-                      alt="VR headset"
+                      alt={images[0]?.alt}
                     />
                     <Typography fontSize="20px" margin="10px 0">
                       {name}

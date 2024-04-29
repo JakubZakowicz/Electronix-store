@@ -16,6 +16,9 @@ export class Image {
   @Column()
   url: string;
 
+  @Column()
+  alt: string;
+
   @ManyToOne(() => Product, (product: Product) => product.images)
   product: Product;
 
