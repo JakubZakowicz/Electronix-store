@@ -854,5 +854,18 @@
         "id": "41"
       }
     }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "firstName": "John",
+      "lastName": "Doe",
+      "email": "user@example.com",
+      "phoneNumber": "123456789",
+      "country": "Poland",
+      "city": "Legnica",
+      "streetAddress": "Some Street 1/2",
+      "postCode": "59-220"
+    }
   ]
 }
