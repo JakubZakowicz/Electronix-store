@@ -865,7 +865,8 @@
       "country": "Poland",
       "city": "Legnica",
       "streetAddress": "Some Street 1/2",
-      "postCode": "59-220"
+      "postCode": "59-220",
+      "password": "password"
     }
   ]
 }

@@ -10,6 +10,8 @@ import { User } from '../user/user.entity';
 import { Image } from '../image/image.entity';
 import ProductSeeder from './seeds/product.seeder';
 import CategorySeeder from './seeds/category.seeder';
+import UserSeeder from './seeds/user.seeder';
+import ImageSeeder from './seeds/image.seeder';
 
 const configService = new ConfigService();
 
@@ -22,7 +24,7 @@ export const dataSourceOptions: DataSourceOptions & SeederOptions = {
   database: configService.get<string>('DB_NAME') || 'ecommerce',
   entities: [Category, User, Product, Review, Order, OrderItem, Image],
   synchronize: true,
-  seeds: [CategorySeeder, ProductSeeder],
+  seeds: [CategorySeeder, ProductSeeder, ImageSeeder, UserSeeder],
 };
 
 export const dataSource = new DataSource(dataSourceOptions);
