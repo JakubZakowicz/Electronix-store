@@ -868,5 +868,453 @@
       "postCode": "59-220",
       "password": "password"
     }
-  ]
+  ],
+  "reviews": [
+    {
+      "id": "1",
+      "title": "Impressive VR Experience",
+      "content": "The Pico 4 128GB offers a seamless and immersive VR experience with its high-resolution display and comfortable design. Great value for the price.",
+      "rating": 5,
+      "product": {
+        "id": "1"
+      },
+      "user": {
+        "id": "1"
+      }
+    },
+    {
+      "id": "2",
+      "title": "Enhanced VR Storage",
+      "content": "The Pico 4 256GB takes virtual reality to the next level with ample storage for all my favorite games and apps. The visuals are crisp, and the headset is comfortable for long sessions.",
+      "rating": 5,
+      "product": {
+        "id": "2"
+      },
+      "user": {
+        "id": "1"
+      }
+    },
+    {
+      "id": "3",
+      "title": "Next-Level Gaming",
+      "content": "The Meta Quest 3 128GB takes virtual reality gaming to new heights with its advanced features and intuitive controls. A must-have for VR enthusiasts.",
+      "rating": 5,
+      "product": {
+        "id": "3"
+      },
+      "user": {
+        "id": "1"
+      }
+    },
+    {
+      "id": "4",
+      "title": "Top-Tier VR Experience",
+      "content": "Meta Quest 3 256GB offers an unparalleled VR experience with its high-capacity storage and improved performance. The graphics and tracking are incredibly smooth.",
+      "rating": 5,
+      "product": {
+        "id": "4"
+      },
+      "user": {
+        "id": "1"
+      }
+    },
+    {
+      "id": "5",
+      "title": "Reliable VR Entry Point",
+      "content": "Meta Quest 2 128GB remains a solid choice for those new to VR. It's user-friendly, has a great library of content, and provides a quality VR experience at an affordable price.",
+      "rating": 5,
+      "product": {
+        "id": "5"
+      },
+      "user": {
+        "id": "1"
+      }
+    },
+    {
+      "id": "6",
+      "title": "Ample VR Space",
+      "content": "The Meta Quest 2 256GB is perfect for VR enthusiasts with a large collection of games. The extra storage means I never have to worry about running out of space.",
+      "rating": 5,
+      "product": {
+        "id": "6"
+      },
+      "user": {
+        "id": "1"
+      }
+    },
+    {
+      "id": "7",
+      "title": "Solid Performance Desktop",
+      "content": "The Dell OptiPlex Micro 7010 Desktop Computer is a reliable workhorse that offers consistent performance for everyday tasks. A great choice for office use.",
+      "rating": 4,
+      "product": {
+        "id": "7"
+      },
+      "user": {
+        "id": "1"
+      }
+    },
+    {
+      "id": "8",
+      "title": "Powerful Gaming Rig",
+      "content": "Skytech Gaming Nebula Gaming PC Desktop is a beast when it comes to gaming. The RTX 4060 and the latest Intel Core i5 make it a top-notch choice for gamers.",
+      "rating": 5,
+      "product": {
+        "id": "8"
+      },
+      "user": {
+        "id": "1"
+      }
+    },
+    {
+      "id": "9",
+      "title": "Affordable Android Tablet",
+      "content": "This Android Tablet is budget-friendly and offers decent performance for casual use. The screen quality and battery life are impressive for its price range.",
+      "rating": 4,
+      "product": {
+        "id": "9"
+      },
+      "user": {
+        "id": "1"
+      }
+    },
+    {
+      "id": "10",
+      "title": "Compact and Efficient",
+      "content": "The Windows 11 Laptop Computer is compact, efficient, and comes with all necessary accessories. It's perfect for students and professionals on the go.",
+      "rating": 4,
+      "product": {
+        "id": "10"
+      },
+      "user": {
+        "id": "1"
+      }
+    },
+    {
+      "id": "11",
+      "title": "Gaming Laptop Excellence",
+      "content": "The Acer Nitro 17 Gaming Laptop with its AMD Ryzen 7 processor and RTX 4050 graphics card delivers an exceptional gaming experience. The 165Hz display is a game-changer.",
+      "rating": 5,
+      "product": {
+        "id": "11"
+      },
+      "user": {
+        "id": "1"
+      }
+    },
+    {
+      "id": "12",
+      "title": "Reliable RAM Upgrade",
+      "content": "The 16GB DDR4 3200MHz RAM module provided a noticeable performance boost to my laptop. Installation was a breeze and the system stability is excellent.",
+      "rating": 5,
+      "product": {
+        "id": "12"
+      },
+      "user": {
+        "id": "1"
+      }
+    },
+    {
+      "id": "13",
+      "title": "Powerful Processor",
+      "content": "The AMD Ryzen 7 7800X3D processor is a powerhouse for both gaming and productivity. The 3D V-Cache technology really sets it apart from the competition.",
+      "rating": 5,
+      "product": {
+        "id": "13"
+      },
+      "user": {
+        "id": "1"
+      }
+    },
+    {
+      "id": "14",
+      "title": "Stunning Graphics Performance",
+      "content": "The MSI Gaming GeForce RTX 3060 graphics card has transformed my PC gaming setup. The visuals are stunning, and the card runs cool and quiet.",
+      "rating": 5,
+      "product": {
+        "id": "14"
+      },
+      "user": {
+        "id": "1"
+      }
+    },
+    {
+      "id": "15",
+      "title": "Sleek and Stylish Smartphone",
+      "content": "The SAMSUNG Galaxy A54 5G combines style with functionality. The camera quality is superb, and the battery life lasts all day. It's a great choice for anyone looking for a reliable mid-range phone.",
+      "rating": 5,
+      "product": {
+        "id": "15"
+      },
+      "user": {
+        "id": "1"
+      }
+    },
+    {
+      "id": "16",
+      "title": "Futuristic Foldable Phone",
+      "content": "The SAMSUNG Galaxy Z Fold5 AI Phone is a marvel of technology. Its foldable screen is not just a gimmick but a real game-changer for multitasking and media consumption.",
+      "rating": 5,
+      "product": {
+        "id": "16"
+      },
+      "user": {
+        "id": "1"
+      }
+    },
+    {
+      "id": "17",
+      "title": "Pro Photography Partner",
+      "content": "Apple iPhone 15 Pro's camera system is a photographer's dream. The image quality is outstanding, and the ProMotion display makes everything look incredibly smooth.",
+      "rating": 5,
+      "product": {
+        "id": "17"
+      },
+      "user": {
+        "id": "1"
+      }
+    },
+    {
+      "id": "20",
+      "title": "Stable and Smooth",
+      "content": "The Phone Gimbal Stabilizer is a must-have for any mobile videographer. It's easy to use and helps produce professional-looking, stable footage with ease.",
+      "rating": 5,
+      "product": {
+        "id": "20"
+      },
+      "user": {
+        "id": "1"
+      }
+    },    
+    {
+      "id": "21",
+      "title": "Immersive Gaming Audio",
+      "content": "The Turtle Beach Recon 50 Xbox Gaming Headset provides an immersive audio experience that enhances gaming sessions. The comfort and sound quality are top-notch.",
+      "rating": 5,
+      "product": {
+        "id": "21"
+      },
+      "user": {
+        "id": "1"
+      }
+    },
+    {
+      "id": "22",
+      "title": "Precision Gaming Control",
+      "content": "The PlayStation DualSense Wireless Controller offers precise control and immersive haptic feedback that enhances the gaming experience on the PS5.",
+      "rating": 5,
+      "product": {
+        "id": "22"
+      },
+      "user": {
+        "id": "1"
+      }
+    },    
+    {
+      "id": "23",
+      "title": "Epic Spider-Man Adventure",
+      "content": "The PlayStation 5 Console - Marvel’s Spider-Man 2 Bundle provides an epic gaming experience with stunning graphics and engaging gameplay. A must-have for fans of the franchise.",
+      "rating": 5,
+      "product": {
+        "id": "23"
+      },
+      "user": {
+        "id": "1"
+      }
+    },
+    {
+      "id": "24",
+      "title": "Jedi Gaming at its Best",
+      "content": "Star Wars Jedi: Survivor for PlayStation 5 is an incredible sequel with improved mechanics, deeper storytelling, and breathtaking visuals.",
+      "rating": 5,
+      "product": {
+        "id": "24"
+      },
+      "user": {
+        "id": "1"
+      }
+    },
+    {
+      "id": "25",
+      "title": "Realistic Racing Experience",
+      "content": "The Logitech G29 Driving Force Racing Wheel provides a realistic and immersive racing experience. The build quality and force feedback are exceptional.",
+      "rating": 5,
+      "product": {
+        "id": "25"
+      },
+      "user": {
+        "id": "1"
+      }
+    },     
+    {
+      "id": "26",
+      "title": "Magical Gaming Adventure",
+      "content": "Hogwarts Legacy for PlayStation 5 is an enchanting journey through the wizarding world. The graphics are stunning, and the gameplay is both fun and engaging.",
+      "rating": 5,
+      "product": {
+        "id": "26"
+      },
+      "user": {
+        "id": "1"
+      }
+    },
+    {
+      "id": "28",
+      "title": "High-Performance Gaming Mouse",
+      "content": "The Logitech G502 HERO Gaming Mouse offers exceptional precision and customizable features, making it a top choice for gamers seeking performance and comfort.",
+      "rating": 5,
+      "product": {
+        "id": "28"
+      },
+      "user": {
+        "id": "1"
+      }
+    },
+    {
+      "id": "29",
+      "title": "Advanced Soccer Tracker",
+      "content": "The STATSports APEX Athlete Series GPS Tracker is a game-changer for soccer enthusiasts looking to track and improve their performance with precision.",
+      "rating": 5,
+      "product": {
+        "id": "29"
+      },
+      "user": {
+        "id": "1"
+      }
+    },
+    {
+      "id": "31",
+      "title": "Efficient Apple Watch Charger",
+      "content": "The 2024 Upgraded Apple Watch Charger provides fast and reliable charging. Its portability and magnetic design make it a convenient accessory for Apple Watch users.",
+      "rating": 5,
+      "product": {
+        "id": "31"
+      },
+      "user": {
+        "id": "1"
+      }
+    },
+    {
+      "id": "32",
+      "title": "Clear Communication Headset",
+      "content": "The Plantronics Voyager 5200 Bluetooth Headset offers clear audio and noise-canceling features that ensure seamless communication in any environment.",
+      "rating": 5,
+      "product": {
+        "id": "32"
+      },
+      "user": {
+        "id": "1"
+      }
+    },
+    {
+      "id": "33",
+      "title": "Versatile Bluetooth Earpiece",
+      "content": "The New bee Bluetooth Earpiece V5.0 offers remarkable clarity and comfort. Its long battery life and lightweight design make it ideal for extended use.",
+      "rating": 4,
+      "product": {
+        "id": "33"
+      },
+      "user": {
+        "id": "1"
+      }
+    },
+    {
+      "id": "34",
+      "title": "Stylish Audio Glasses",
+      "content": "Lucyd's Bluetooth Audio Glasses are a perfect blend of fashion and function. The open-ear design and voice assistant compatibility are impressive features.",
+      "rating": 4,
+      "product": {
+        "id": "34"
+      },
+      "user": {
+        "id": "1"
+      }
+    },
+    {
+      "id": "35",
+      "title": "Compact Drone Powerhouse",
+      "content": "The DJI Mini 2 SE is an excellent drone for beginners, offering great video quality and a stable flight experience in a compact size.",
+      "rating": 5,
+      "product": {
+        "id": "35"
+      },
+      "user": {
+        "id": "1"
+      }
+    },
+    {
+      "id": "36",
+      "title": "Superior Drone for Starters",
+      "content": "DJI Mini 3 is the go-to drone for new pilots. It's easy to fly, captures stunning 4K HDR videos, and has a long flight time for extended exploration.",
+      "rating": 5,
+      "product": {
+        "id": "36"
+      },
+      "user": {
+        "id": "1"
+      }
+    },
+    {
+      "id": "37",
+      "title": "Advanced Obstacle Avoidance",
+      "content": "Drone X Pro LIMITLESS 4S is a top-tier drone with advanced features like obstacle avoidance and a high-quality camera, making it safe and fun to fly.",
+      "rating": 5,
+      "product": {
+        "id": "37"
+      },
+      "user": {
+        "id": "1"
+      }
+    },
+    {
+      "id": "38",
+      "title": "Fun and Easy to Fly",
+      "content": "The Mini Drone with Camera is perfect for beginners. It's easy to control, takes decent photos, and the foldable design makes it incredibly portable.",
+      "rating": 4,
+      "product": {
+        "id": "38"
+      },
+      "user": {
+        "id": "1"
+      }
+    },
+    {
+      "id": "39",
+      "title": "Innovative 360 Camera",
+      "content": "The Insta360 X4 Get-Set Bundle is a versatile camera that captures everything around you in stunning detail. The editing software is also very user-friendly.",
+      "rating": 5,
+      "product": {
+        "id": "39"
+      },
+      "user": {
+        "id": "1"
+      }
+    },
+    {
+      "id": "40",
+      "title": "Great Entry-Level DSLR",
+      "content": "The Canon EOS Rebel T7 is a fantastic choice for those new to DSLR photography. It offers great image quality and ease of use at an affordable price.",
+      "rating": 4,
+      "product": {
+        "id": "40"
+      },
+      "user": {
+        "id": "1"
+      }
+    },
+    {
+      "id": "41",
+      "title": "Reliable Home Security",
+      "content": "The blurams Security Camera provides peace of mind with its clear 2K video, motion tracking, and compatibility with smart home systems.",
+      "rating": 5,
+      "product": {
+        "id": "41"
+      },
+      "user": {
+        "id": "1"
+      }
+    }
+  ],
+  "orders": [],
+  "orderItems": []
 }
