@@ -866,7 +866,7 @@
       "city": "Legnica",
       "streetAddress": "Some Street 1/2",
       "postCode": "59-220",
-      "password": "password"
+      "password": "$argon2id$v=19$m=65536,t=3,p=4$oN4oOpMsfK/FPrndTE2ZdQ$ZMjr/oODV5wjzGOCpsGpI8aPweKtfnDHbiSIZzDbT2o"
     }
   ],
   "reviews": [
@@ -1085,7 +1085,7 @@
       "user": {
         "id": "1"
       }
-    },    
+    },
     {
       "id": "21",
       "title": "Immersive Gaming Audio",
@@ -1109,7 +1109,7 @@
       "user": {
         "id": "1"
       }
-    },    
+    },
     {
       "id": "23",
       "title": "Epic Spider-Man Adventure",
@@ -1145,7 +1145,7 @@
       "user": {
         "id": "1"
       }
-    },     
+    },
     {
       "id": "26",
       "title": "Magical Gaming Adventure",
@@ -1315,6 +1315,80 @@
       }
     }
   ],
-  "orders": [],
-  "orderItems": []
+  "orders": [
+    {
+      "id": "1b26f398-debe-46dd-a473-a7570fd0a4e2",
+      "paymentIntentId": "pi_3PRCSPCiQ4WVfoFr1vzkatyL",
+      "status": "Received",
+      "deliveryPrice": 0,
+      "totalPrice": 115240,
+      "created_at": "2024-06-13T12:09:13.763Z",
+      "updated_at": "2024-06-13T12:09:13.763Z",
+      "user": {
+        "id": "1"
+      }
+    }
+  ],
+  "orderItems": [
+    {
+      "id": "499ff1da-1fa4-44de-a08e-08afc291d7e2",
+      "quantity": 1,
+      "created_at": "2024-06-13T12:09:13.809Z",
+      "updated_at": "2024-06-13T12:09:13.809Z",
+      "product": {
+        "id": "24"
+      },
+      "order": {
+        "id": "1b26f398-debe-46dd-a473-a7570fd0a4e2"
+      }
+    },
+    {
+      "id": "53b5c859-4c57-4f37-969d-f4c50aaafc1e",
+      "quantity": 1,
+      "created_at": "2024-06-13T12:09:13.805Z",
+      "updated_at": "2024-06-13T12:09:13.805Z",
+      "product": {
+        "id": "23"
+      },
+      "order": {
+        "id": "1b26f398-debe-46dd-a473-a7570fd0a4e2"
+      }
+    },
+    {
+      "id": "ac4ca789-19da-49c3-b759-a46ae09473b2",
+      "quantity": 1,
+      "created_at": "2024-06-13T12:09:13.809Z",
+      "updated_at": "2024-06-13T12:09:13.809Z",
+      "product": {
+        "id": "21"
+      },
+      "order": {
+        "id": "1b26f398-debe-46dd-a473-a7570fd0a4e2"
+      }
+    },
+    {
+      "id": "ef78fab0-fc3c-430c-9449-10af0646b1b7",
+      "quantity": 1,
+      "created_at": "2024-06-13T12:09:13.808Z",
+      "updated_at": "2024-06-13T12:09:13.808Z",
+      "product": {
+        "id": "22"
+      },
+      "order": {
+        "id": "1b26f398-debe-46dd-a473-a7570fd0a4e2"
+      }
+    },
+    {
+      "id": "fb4836ed-8405-4caa-970f-08d945c14bf0",
+      "quantity": 1,
+      "created_at": "2024-06-13T12:09:13.804Z",
+      "updated_at": "2024-06-13T12:09:13.804Z",
+      "product": {
+        "id": "4"
+      },
+      "order": {
+        "id": "1b26f398-debe-46dd-a473-a7570fd0a4e2"
+      }
+    }
+  ]
 }
