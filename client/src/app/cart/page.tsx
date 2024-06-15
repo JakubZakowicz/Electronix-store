@@ -14,7 +14,6 @@ import {
   TableRow,
   Typography,
 } from '@mui/material';
-import VR from '@/src/images/vr1.png';
 import DefaultButton from '@/src/components/DefaultButton';
 import { pageRoutes } from '@/src/routes/pageRoutes';
 import { useGetCartData } from '@/src/api/cart';
@@ -67,7 +66,7 @@ const CartPage = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {products?.map(({ id, name, price, quantity }) => (
+            {products?.map(({ id, name, price, quantity, images }) => (
               <TableRow
                 key={id}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
@@ -80,7 +79,12 @@ const CartPage = () => {
                     gap: '20px',
                   }}
                 >
-                  <Image src={VR} width={100} alt="vr" />
+                  <Image
+                    src={images[0].url}
+                    height={100}
+                    width={100}
+                    alt="vr"
+                  />
                   {name}
                 </TableCell>
                 <TableCell>${price && convertPrice(price)}</TableCell>
