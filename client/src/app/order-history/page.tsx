@@ -11,7 +11,6 @@ import {
   Typography,
 } from '@mui/material';
 import CircleIcon from '@mui/icons-material/Circle';
-import VR1 from '@/src/images/vr1.png';
 import { useGetOrders } from '@/src/api/orders';
 import { convertPrice } from '@/src/utils/functions.utils';
 import { useGetMe } from '@/src/api/auth';
@@ -28,6 +27,22 @@ const OrderHistory = () => {
   } = useGetOrders(me?.userId);
 
   if (isOrdersError) throw new Error(ordersError.message);
+
+  if (orderData?.orders?.length === 0)
+    return (
+      <Box height="30vh">
+        <Typography
+          sx={{
+            textAlign: 'center',
+            marginTop: 15,
+            fontSize: 30,
+            fontWeight: 'bold',
+          }}
+        >
+          The are no orders yet
+        </Typography>
+      </Box>
+    );
 
   return (
     <Box>
@@ -59,12 +74,12 @@ const OrderHistory = () => {
               </Box>
               <Divider sx={{ background: 'white', marginTop: '25px' }} />
               {orderItems.map(({ id, product, quantity }) => {
-                const { name, price } = product;
+                const { name, price, images } = product;
                 return (
                   <Box key={id}>
                     <Grid container spacing={3} sx={{ padding: '25px 0' }}>
                       <Grid item xs={1} sm={2} xl={1}>
-                        <Image src={VR1} width="100" height="100" alt="image" />
+                        <Image src={images[0].url} width="100" height="100" alt="image" />
                       </Grid>
                       <Grid item xs={12} sm={3} lg={5}>
                         <Typography>{name}</Typography>

@@ -1,0 +1,1394 @@
+{
+  "categories": [
+    {
+      "id": "computers-tablets",
+      "name": "Computers & Tablets",
+      "slug": "computers & tablets"
+    },
+    {
+      "id": "smartphones-accessories",
+      "name": "Smartphones & Accessories",
+      "slug": "smartphones-accessories"
+    },
+    {
+      "id": "virtual-reality",
+      "name": "Virtual Reality",
+      "slug": "virtual-reality"
+    },
+    {
+      "id": "gaming",
+      "name": "Gaming",
+      "slug": "gaming"
+    },
+    {
+      "id": "wearables",
+      "name": "Wearables",
+      "slug": "wearables"
+    },
+    {
+      "id": "cameras-drones",
+      "name": "Cameras & Drones",
+      "slug": "cameras-drones"
+    }
+  ],
+  "products": [
+    {
+      "id": "1",
+      "name": "Pico 4 128GB",
+      "summary": "Pico 4 128GB is a virtual reality headset developed by ByteDance.",
+      "description": "The Pico 4 is a cutting-edge virtual reality (VR) headset developed by ByteDance. This device was announced on September 22, 2022, and released to the public on October 18, 20221. It’s specifically designed for virtual reality games and is currently available only in Europe and East Asia, including China, South Korea, Japan, Malaysia, and Singapore2./n/nOne of the standout features of the Pico 4 is its hardware. It’s lightweight and durable, making it comfortable for extended use. Additionally, it features full color, low latency pass-through video, which enhances the immersive nature of the VR experience./n/nThe Pico 4 also boasts a high-resolution display, providing crisp, clear visuals that bring virtual environments to life in stunning detail. This, combined with its powerful hardware, ensures a smooth, lag-free performance, even in graphically intensive VR applications./n/nIn addition to its impressive hardware, the Pico 4 also offers a range of unique gaming experiences. From personal training sessions, boxing, table tennis, tennis, badminton, bowling, fishing, and more, the Pico 4 provides new opportunities to meet and connect with others in VR. The Pico 4 also integrates the proprietary CalSense physical fitness monitoring algorithm, which calculates calorie consumption as you exercise, in real time./n/nFurthermore, the Pico 4 offers improved tracking and positioning for the headset and controllers, making every VR movement swift and decisive. This is made possible with proprietary omni-directional SLAM, infrared optical positioning system, and upgraded optical sensors./n/nThe Pico 4 also supports real-time contact with online friends and allows you to share your VR perspective to personal TikToks with one click. It also supports MRC recording, which allows you to record and share your point of view in the virtual world with close friends.",
+      "price": 42500,
+      "isFeatured": false,
+      "rating": 4.3,
+      "slug": "pico-4-128gb",
+      "category": {
+        "id": "virtual-reality"
+      }
+    },
+    {
+      "id": "2",
+      "name": "Pico 4 256GB",
+      "summary": "Pico 4 256GB is a virtual reality headset developed by ByteDance.",
+      "description": "The Pico 4 is a cutting-edge virtual reality (VR) headset developed by ByteDance. This device was announced on September 22, 2022, and released to the public on October 18, 20221. It’s specifically designed for virtual reality games and is currently available only in Europe and East Asia, including China, South Korea, Japan, Malaysia, and Singapore2./n/nOne of the standout features of the Pico 4 is its hardware. It’s lightweight and durable, making it comfortable for extended use. Additionally, it features full color, low latency pass-through video, which enhances the immersive nature of the VR experience./n/nThe Pico 4 also boasts a high-resolution display, providing crisp, clear visuals that bring virtual environments to life in stunning detail. This, combined with its powerful hardware, ensures a smooth, lag-free performance, even in graphically intensive VR applications./n/nIn addition to its impressive hardware, the Pico 4 also offers a range of unique gaming experiences. From personal training sessions, boxing, table tennis, tennis, badminton, bowling, fishing, and more, the Pico 4 provides new opportunities to meet and connect with others in VR. The Pico 4 also integrates the proprietary CalSense physical fitness monitoring algorithm, which calculates calorie consumption as you exercise, in real time./n/nFurthermore, the Pico 4 offers improved tracking and positioning for the headset and controllers, making every VR movement swift and decisive. This is made possible with proprietary omni-directional SLAM, infrared optical positioning system, and upgraded optical sensors./n/nThe Pico 4 also supports real-time contact with online friends and allows you to share your VR perspective to personal TikToks with one click. It also supports MRC recording, which allows you to record and share your point of view in the virtual world with close friends.",
+      "price": 49900,
+      "isFeatured": true,
+      "rating": 4.3,
+      "slug": "pico-4-256gb",
+      "category": {
+        "id": "virtual-reality"
+      }
+    },
+    {
+      "id": "3",
+      "name": "Meta Quest 3 128GB",
+      "summary": "Meta Quest 3 is a virtual reality headset developed by Meta.",
+      "description": "The Meta Quest 3 is a state-of-the-art virtual reality (VR) headset developed by Reality Labs, a division of Meta Platforms. This device represents a significant leap forward in VR technology, offering an immersive and interactive experience that pushes the boundaries of what’s possible in virtual spaces.\n\n Unveiled on June 1, 2023, and released to the public on October 10, 2023, the Meta Quest 3 has quickly become a favorite among VR enthusiasts. Its design incorporates elements from the Quest Pro, resulting in a thinner form factor that enhances comfort during extended use. The headset also includes additional sensors that improve tracking accuracy, providing a more seamless and intuitive user experience./n/nOne of the standout features of the Meta Quest 3 is its display. The headset uses a pair of high-resolution LCD displays, each offering a per-eye resolution of 2064×2208. This results in crisp, clear visuals that bring virtual environments to life in stunning detail./n/nPowering the Meta Quest 3 is the Qualcomm Snapdragon, a high-performance processor designed for mobile devices. This ensures smooth, lag-free performance, even in graphically intensive VR applications. Whether you’re exploring virtual worlds, playing games, or interacting with others in VR, the Meta Quest 3 delivers a consistently high-quality experience./n/nIn addition to its impressive hardware, the Meta Quest 3 also benefits from Meta’s expansive VR ecosystem. Users have access to a wide range of apps and games, from immersive social experiences to cutting-edge educational applications. With ongoing support and regular updates, the Meta Quest 3 continues to evolve and improve, offering users new ways to explore, learn, and connect in VR.",
+      "price": 54999,
+      "isFeatured": false,
+      "rating": 0,
+      "slug": "meta-quest-3-128gb",
+      "category": {
+        "id": "virtual-reality"
+      }
+    },
+    {
+      "id": "4",
+      "name": "Meta Quest 3 256GB",
+      "summary": "Meta Quest 3 is a virtual reality headset developed by Meta.",
+      "description": "The Meta Quest 3 is a state-of-the-art virtual reality (VR) headset developed by Reality Labs, a division of Meta Platforms. This device represents a significant leap forward in VR technology, offering an immersive and interactive experience that pushes the boundaries of what’s possible in virtual spaces.\n\n Unveiled on June 1, 2023, and released to the public on October 10, 2023, the Meta Quest 3 has quickly become a favorite among VR enthusiasts. Its design incorporates elements from the Quest Pro, resulting in a thinner form factor that enhances comfort during extended use. The headset also includes additional sensors that improve tracking accuracy, providing a more seamless and intuitive user experience./n/nOne of the standout features of the Meta Quest 3 is its display. The headset uses a pair of high-resolution LCD displays, each offering a per-eye resolution of 2064×2208. This results in crisp, clear visuals that bring virtual environments to life in stunning detail./n/nPowering the Meta Quest 3 is the Qualcomm Snapdragon, a high-performance processor designed for mobile devices. This ensures smooth, lag-free performance, even in graphically intensive VR applications. Whether you’re exploring virtual worlds, playing games, or interacting with others in VR, the Meta Quest 3 delivers a consistently high-quality experience./n/nIn addition to its impressive hardware, the Meta Quest 3 also benefits from Meta’s expansive VR ecosystem. Users have access to a wide range of apps and games, from immersive social experiences to cutting-edge educational applications. With ongoing support and regular updates, the Meta Quest 3 continues to evolve and improve, offering users new ways to explore, learn, and connect in VR.",
+      "price": 59999,
+      "isFeatured": true,
+      "rating": 4.7,
+      "slug": "meta-quest-3-256gb",
+      "category": {
+        "id": "virtual-reality"
+      }
+    },
+    {
+      "id": "5",
+      "name": "Meta Quest 2 128GB",
+      "summary": "Meta Quest 2 is a virtual reality headset developed by Meta.",
+      "description": "The Meta Quest 2 is an advanced all-in-one virtual reality (VR) headset developed by Reality Labs, a division of Meta Platforms. This device is designed to provide a range of experiences, from gaming and entertainment to social interaction and even PCVR capabilities./n/nOne of the key features of the Meta Quest 2 is its standalone nature. Unlike many other VR headsets, it doesn’t require pairing with an expensive PC. This makes it a more accessible option for those looking to dive into the world of virtual reality./n/nThe Meta Quest 2 comes with a faster processor and higher resolution compared to its predecessor. It’s powered by the Qualcomm Snapdragon XR2 Gen 23, which ensures smooth, lag-free performance, even in graphically intensive VR applications./n/nThe headset uses high-resolution displays to provide crisp, clear visuals that bring virtual environments to life in stunning detail. This enhances the immersive nature of the VR experience, making it feel as though you’re truly a part of the virtual world./n/nIn addition to its impressive hardware, the Meta Quest 2 also offers a range of unique social experiences. From multiplayer games to joining up with friends at a live show or instructor-led workout, Meta Quest 2 provides new opportunities to meet and connect with others in VR.",
+      "price": 24999,
+      "isFeatured": false,
+      "rating": 4.6,
+      "slug": "meta-quest-2-128gb",
+      "category": {
+        "id": "virtual-reality"
+      }
+    },
+    {
+      "id": "6",
+      "name": "Meta Quest 2 256GB",
+      "summary": "Meta Quest 2 is a virtual reality headset developed by Meta.",
+      "description": "The Meta Quest 2 is an advanced all-in-one virtual reality (VR) headset developed by Reality Labs, a division of Meta Platforms. This device is designed to provide a range of experiences, from gaming and entertainment to social interaction and even PCVR capabilities./n/nOne of the key features of the Meta Quest 2 is its standalone nature. Unlike many other VR headsets, it doesn’t require pairing with an expensive PC. This makes it a more accessible option for those looking to dive into the world of virtual reality./n/nThe Meta Quest 2 comes with a faster processor and higher resolution compared to its predecessor. It’s powered by the Qualcomm Snapdragon XR2 Gen 23, which ensures smooth, lag-free performance, even in graphically intensive VR applications./n/nThe headset uses high-resolution displays to provide crisp, clear visuals that bring virtual environments to life in stunning detail. This enhances the immersive nature of the VR experience, making it feel as though you’re truly a part of the virtual world./n/nIn addition to its impressive hardware, the Meta Quest 2 also offers a range of unique social experiences. From multiplayer games to joining up with friends at a live show or instructor-led workout, Meta Quest 2 provides new opportunities to meet and connect with others in VR.",
+      "price": 29999,
+      "isFeatured": true,
+      "rating": 4.8,
+      "slug": "meta-quest-2-256gb",
+      "category": {
+        "id": "virtual-reality"
+      }
+    },
+    {
+      "id": "7",
+      "name": "Dell OptiPlex Micro 7010 Desktop Computer",
+      "summary": "Intel Core i5 13th Gen 13500T 1.2GHz Processor; 16GB DDR4-3200 RAM; 256GB Solid State Drive; Intel UHD Graphics 770",
+      "description": "OptiPlex Micro 7010 Desktop Computer/n/nIntel Core i5 13th Gen 13500T 1.2GHz Processor; 16GB DDR4-3200 RAM; 256GB/n/n Solid State Drive; Intel UHD Graphics 770/n/nIntel Core i5 13th Gen 13500T 1.2GHz Processor/n/n16GB DDR4-3200 RAM/n/n256GB Solid State Drive/n/nIntel UHD Graphics 770/n/nMicrosoft Windows 11 Pro/n/n10/100/1000 Network/n/nIntel Wi-Fi 6E AX211+ Bluetooth Wireless Card/n/nIntelligence meets simplicity. Get maximum productivity with mini footprint.",
+      "price": 129999,
+      "isFeatured": true,
+      "rating": 4.4,
+      "slug": "dell-optiplex-micro-7010-desktop-computer",
+      "category": {
+        "id": "computers-tablets"
+      }
+    },
+    {
+      "id": "8",
+      "name": "Skytech Gaming Nebula Gaming PC Desktop – Intel Core i5 13400F 2.5 GHz, NVIDIA RTX 4060, 1TB NVME SSD, 16GB DDR4 RAM 3200, 600W Gold PSU, 11AC Wi-Fi, Windows 11 Home 64-bit,Black",
+      "summary": "Take your game to the next level. Skytech's Nebula lets you play with higher settings, faster frame rates and more powerful multi-tasking capabilities than standard gaming PCs. Featuring more power to game and stream simultaneously with no lag, a Skytech Nebula gives gamers even more power to back up your team mates and create better content.",
+      "description": "Why settle for mediocrity? Leap forward into the Skytech Nebula series with the newest architectures. Featuring the latest NVIDIA RTX series graphics cards and is powered by INTEL Core i5 Processor. The Skytech Nebula delivers the best price-to-performance value gaming rig in the market.\n\nThe Skytech Nebula offers the best gaming computer built up to date to quickly run popular games such as Call of Duty Warzone, Fortnite, Escape from Tarkov, Grand Theft Auto V, Valorant, World of Warcraft, League of Legends, Apex Legends, Roblox, PLAYERUNKNOWN's Battlegrounds, Overwatch 2, Counter-Strike 2, Battlefield V, New World, Minecraft, Elden Ring, Rocket League, Baldur's Gate 3, Dota 2, HELLDIVERS 2, Monster Hunter, Palworld, Terraria, Rainbow Six Siege, Dragon's Dogma 2, and more at Ultra settings, detailed 1080p Full HD resolution, and smooth 60+ FPS gameplay.\n\nSPECIFICATIONS\n\nManufacturer Part#: ST-NEBULA-0819-B-AM\nProcessor: INTEL Core i5 13400F 2.5 GHz (4.6GHz Max Boost) CPU\nMemory: 16GB DDR4 RAM 3200 Gaming Memory with Heat Spreader\nVideo Card: NVIDIA Geforce RTX 4060 8GB GDDR6X Graphics Card (Brand may vary)\nSSD: 1TB NVME SSD\nOperating System: Microsoft windows 11 Home 64-bit\nCase: Skytech Nebula Gaming Case, Black\nWiFi: 802.11AC\nFans: 4 RGB Fans for Maximum Air Flow\n\nProduct images used on this page are for illustrative purposes only and do not indicate the exact components used at the time of manufacture. The component makes and models may vary from product depictions in product images but will adhere to the specification outlined in the product's main description. Particulars such as I/O ports may vary. Please get in touch with us for more details.",
+      "price": 101414,
+      "isFeatured": true,
+      "rating": 4.5,
+      "slug": "skytech-gaming-nebula-gaming-pc-desktop",
+      "category": {
+        "id": "computers-tablets"
+      }
+    },
+    {
+      "id": "9",
+      "name": "Android Tablet, 10 inch Tablets, 2GB+32GB Computer Tablet Support 512GB Expand, 2MP + 8MP Camera, IPS Screen, WiFi, Bluetooth, 6000mAh, Google GMS Certified Tableta Blue",
+      "summary": "Brand\tCOOPERS\nModel Name\tSACP10S\nMemory Storage Capacity\t32 GB\nScreen Size\t10 Inches\nDisplay Resolution Maximum\t1280 x 800 Pixels",
+      "description": "About this item\n【Android Tablet】Tablet featuring Android 10 operating system, More stable and smaller occupy. Powerful Quad core Processor which is more energy-saving. More Quicker and faster When open apps. Smooth when surfing ineternet.Google GMS Certified Tablet so that you can get apps such as Netflix, TikTok, Yahoo, Twitter from the Google Play.\n【10 inch IPS Display】Tablet equipped with a resolution 1280x800 IPS Screen. 10 inch Large screen, wide viewing angle, high resolution. Screen is clear, and colours are more vivid. With the Eye Health mode,bring you a comfortable for Reading.\n【Multifunctional 10 inch tablet】2.0 MP & 8.0 MP Dual Camera, Wifi, Bluetooth. And 6000mAh Big Capacity Battery ensures 8-10 hours mixed use. Suitable for most scenes in daily life. 550g lightweight so that you can carry it anywhere. Good for working, studying, entertainment when you travelling.\n【2GB+32GB and 512GB Expand】32GB ROM Tablet support Most 512GB MicroSD card (Card not included)storage your movies, musics, photos, anything you want. Bluetooth and Type C Cable so that you can Transfer your data from computer etc.\n【1 Year Warrnty】Tablet PC comes with 1* tablet, 1* cable, 1* charger and also include 1 year guarantee and Lifetime tech support. Any issue of the tablet during 365 days warranty, return it and Our team will repalce it for you.",
+      "price": 4499,
+      "isFeatured": false,
+      "rating": 3.6,
+      "slug": "android-tablet-10-inch-tablets",
+      "category": {
+        "id": "computers-tablets"
+      }
+    },
+    {
+      "id": "10",
+      "name": "Windows 11 Laptop Computer, 8GB RAM 128GB ROM, Intel Celeron Quad-Core Processors, 10' Netbook Computer with WiFi, Webcam and Bluetooth, Mini Laptop with Bag, Mouse, Headphone and Mouse Pad",
+      "summary": "\\nBrand\\tG-Anica\\nModel Name\\tN4020-win11-PK-CF2\\nScreen Size\\t10 Inches\\nColor\\tPink\\nHard Disk Size\\t128 GB\\nCPU Model\\tCeleron N4020\\nRam Memory Installed Size\\t8 GB",
+      "description": "About this item\n【Package Contents】The package includes 1*10-inch Windows 11 Laptop, 1*Laptop Bag, 1*Mouse, 1*Mouse Pad, 1*Earphone, and 1*User Manual. If you have any questions, please contact us promptly.\n【Fast & Efficient】Experience the swift and efficient performance of the laptop, fueled by the GMS-certified Windows 11 system and an Intel Quad-Core processor. With 8GB DDR4 RAM and a 128GB SSD, it ensures seamless multitasking, eliminating lag and enhancing overall system efficiency.\n【Great Visual Experience】:Experience the brilliance of G-Anica Windows 11 laptops featuring a 10-inch HD display for crystal-clear and vibrant visuals. With slim borders and a high screen-to-body ratio, dive into a broader and more captivating viewing experience. This widescreen, high-pixel laptop delivers the ultimate visual feast.\n【Portability】:G-Anica laptop comes with a built-in long battery life, perfect for on-the-go use. Its lightweight design ensures easy portability, allowing you to effortlessly carry your Windows 11 laptop in your backpack. A durable and lightweight companion for your journey.\n【Versatile Connectivity and Spacious Keyboard】: G-Anica traditional laptops offer seamless connectivity through WiFi, Bluetooth, and a range of interfaces including HDMI, headphone jack, USB, and TF card slot. The inclusion of a full-size keyboard enhances the convenience of work and study, ensuring a smooth and efficient experience on your laptop.",
+      "price": 19900,
+      "isFeatured": false,
+      "rating": 4.2,
+      "slug": "windows-11-laptop-computer",
+      "category": {
+        "id": "computers-tablets"
+      }
+    },
+    {
+      "id": "11",
+      "name": "Acer Nitro 17 Gaming Laptop AMD Ryzen 7 7840HS Octa-Core CPU 17.3' FHD 165Hz IPS Display NVIDIA GeForce RTX 4050 16GB DDR5 1TB SSD Wi-Fi 6E RGB Backlit KB AN17-41-R6L9",
+      "summary": "\nBrand\tacer\nModel Name\tNitro 17\nScreen Size\t17.3 Inches\nColor\tBlack\nHard Disk Size\t1 TB\nCPU Model\tAMD Ryzen 7\nRam Memory Installed Size\t16 GB\nOperating System\tWindows 11 Home\nSpecial Feature\tBacklit Keyboard, Memory Card Slot\nGraphics Card Description\tDedicated",
+      "description": "Go full throttle with the Acer Nitro 17 gaming laptop featuring the latest AMD Ryzen 7000 Series Processors and NVIDIA’s DLSS 3 technology – whether playing casually or ranking up online. The picture-perfect 17.3-inch FHD display with 165Hz refresh rates provides an immersive viewing experience while next-gen cooling, a 4-zone RGB keyboard and NitroSense software let you take command of the playing field.\nAMD Ryzen 7000 Series: Now featuring the AMD Ryzen 7 7840HS Octa-Core Processor delivering superior gaming performance where you need it most. With Precision Boost, get up to 5.1GHz for your high-demand games.\nAMD Ryzen AI: Present your best self with AI-enhanced video chat. Get a laptop that’s AI ready.\nBeyond Fast: The NVIDIA GeForce RTX 4050 Laptop GPU is beyond fast for gamers and creators. They're powered by the ultra-efficient NVIDIA Ada Lovelace architecture which delivers a quantum leap in both performance and AI-powered graphics. With the included MUX switch, you can disable the integrated graphics for an increase in gaming performance.\nBask in Visual Glory: With a lightning-quick 165Hz refresh rate, the 17.3' Full HD (1920 x 1080) display makes your game sessions fluid, unbroken, and unmatched. Now you can land those reflexive shots with pinpoint accuracy and minimal ghosting.\nInternal Specifications: 16GB DDR5 Memory; 1TB PCIe Gen 4 SSD; Wireless Wi-Fi 6E supports dual-stream Wi-Fi in the 2.4GHz, 5GHz and 6GHz bands, including 2x2 MU-MIMO Technology; Killer Ethernet E2600 10/100/1000; Bluetooth 5.1\nComplete Next-Gen Cooling: The newly refined chassis has a few extra tricks up its sleeve when it comes to cooling with dual-fan, dual-intakes (top and bottom), and a quad-exhaust port design. This also includes the chilling effects of liquid metal thermal grease which acts as a more efficient heat transfer between the CPU and the heatsink.\nThe Keys to Victory: Spice things up with the 4-zone RGB keyboard and take command of the inner workings of the laptop via the dedicated NitroSense Key. With the NitroSense utility app, you can control fan speeds, lighting, and more to push performance to its max.\nMax Your Speeds with Wi-Fi 6E: Get an edge online by taking control of your network and prioritizing your gameplay with Killer Ethernet E2600 and Wi-Fi 6E. Plug all your peripherals into the full range of ports, including HDMI 2.1, USB Type-C Port - supporting USB4 and the newest USB 3.2 standard with Gen 2 support. There’s even a MicroSD Card Reader should it be needed.\nPorts For All Your Accessories: 1 - USB Type-C Port - supporting USB4 (up to 40 Gbps), USB Charging & Power Delivery (Up to 65W), 1 - USB Type-C Port USB 3.2 Gen 2 (up to 10 Gbps) DisplayPort over USB Type-C, & USB Charging & Power Delivery (Up to 65W), 2 - USB 3.2 Gen 2 Ports (One Featuring Power-off Charging), 1 - USB 2.0 Port, 1 - HDMI 2.1 Port with HDCP Support, 1 - Ethernet (RJ-45) Port, 1 - Headphone/Microphone-in Jack",
+      "price": 98800,
+      "isFeatured": false,
+      "rating": 4.3,
+      "slug": "acer-nitro-17-gaming-laptop",
+      "category": {
+        "id": "computers-tablets"
+      }
+    },
+    {
+      "id": "12",
+      "name": "16GB DDR4 3200MHz PC4-25600 CL22 SODIMM 1.2V 260-Pin Non-ECC SODIMM Laptop Notebook RAM Memory Module",
+      "summary": "\\nBrand\\tDATO\\nComputer Memory Size\\t16 GB\\nRAM Memory Technology\\tDDR4 SODIMM 3200MHz\\nMemory Speed\\t3200 MHz\\nCompatible Devices\\tLaptop",
+      "description": "EMPOWERING EFFICIENCY: Stable speed running at 3200MHz, providing consistent efficiency for all uses\nECOLOGY & TECHNOLOGY: Low operation voltage of 1.2V, saving 20% of power consumption compared to DDR3\nQUALITY ASSURANCE: High quality ICs carefully selected and strictly tested to ensure high stability and durability, proudly backed with a 3 year limited warranty\nPREMIUM UPGRADE: End you lagging user experience effortlessly by upgrading it with a premium quality memory\nDO NOT MIX Memory Kits: Mixing memory kits might result in stability issues or system failure. Slide in a message for compatibility consultation if needed.",
+      "price": 2999,
+      "isFeatured": false,
+      "rating": 4.7,
+      "slug": "sodimm-laptop-notebook-ram-memory-module",
+      "category": {
+        "id": "computers-tablets"
+      }
+    },
+    {
+      "id": "13",
+      "name": "AMD Ryzen 7 7800X3D 8-Core, 16-Thread Desktop Processor",
+      "summary": "\\nBrand\\tAMD\\nCPU Manufacturer\\tAMD\\nCPU Model\\tRyzen 7\\nCPU Speed\\t5 GHz\\nCPU Socket\\tSocket AM5",
+      "description": "Processor provides dependable and fast execution of tasks with maximum efficiency.Graphics Frequency : 2200 MHZ.Number of CPU Cores : 8. Maximum Operating Temperature (Tjmax) : 89°C.\nRyzen 7 product line processor for better usability and increased efficiency\n5 nm process technology for reliable performance with maximum productivity\nOcta-core (8 Core) processor core allows multitasking with great reliability and fast processing speed\n8 MB L2 plus 96 MB L3 cache memory provides excellent hit rate in short access time enabling improved system performance\nProcessor with 4.20 GHz clock speed for reliable and fast execution of instructions to ensure maximum convenience and feasibility\nComes with AMD Radeon Graphics controller for amazing graphics output",
+      "price": 2999,
+      "isFeatured": true,
+      "rating": 4.7,
+      "slug": "amd-ryzen-7-7800x3d-8-core-16-thread-desktop-processor",
+      "category": {
+        "id": "computers-tablets"
+      }
+    },
+    {
+      "id": "14",
+      "name": "MSI Gaming GeForce RTX 3060 12GB 15 Gbps GDRR6 192-Bit HDMI/DP PCIe 4 Torx Twin Fan Ampere OC Graphics Card",
+      "summary": "\\nGraphics Coprocessor\\tNVIDIA GeForce RTX 3060\\nBrand\\tMSI\\nGraphics Ram Size\\t12 GB\\nGPU Clock Speed\\t1807 MHz\\nVideo Output Interface\\tDisplayPort, HDMI",
+      "description": "NVIDIA GeForce RTX 3060 12GB GDDR6 dedicated graphics card\n1710 MHz GPU clock speed and 1807 MHz memory clock speed\nDisplayPort x 3 (v1.4a) and HDMI 2.1 x 1 output interfaces\n7680 x 4320 maximum display resolution",
+      "price": 28999,
+      "isFeatured": false,
+      "rating": 4.7,
+      "slug": "amd-ryzen-7-7800x3d-8-core-16-thread-desktop-processor",
+      "category": {
+        "id": "computers-tablets"
+      }
+    },
+    {
+      "id": "15",
+      "name": "PNY GeForce RTX™ 4060 8GB XLR8 Gaming Verto RGB Triple Fan Graphics Card DLSS 3",
+      "summary": "\\nGraphics Coprocessor\\tNVIDIA GeForce RTX 4060\\nBrand\\tPNY\\nGraphics Ram Size\\t8 GB\\nGPU Clock Speed\\t1830 MHz\\nVideo Output Interface\\t3X DisplayPort 1.4, HDMI",
+      "description": "Powered by NVIDIA DLSS 3, ultra-efficient Ada Lovelace arch, and full ray tracing\nNVIDIA Ada Lovelace, with 1830MHz core clock and 2460MHz boost clock speeds to help meet the needs of demanding games.\n8GB GDDR6 (128-bit) on-board memory, plus 3072 CUDA processing cores and up to 272GB/sec of memory bandwidth provide the memory needed to create striking visual realism.\nPCI Express 4.0 interface x 16 with - Offers compatibility with a range of systems. Also includes DisplayPort and HDMI outputs for expanded connectivity.\nNVIDIA GeForce Experience - Capture and share videos, screenshots, and livestreams with friends. Keep your drivers up to date and optimize your game settings. It's the essential companion to your GeForce graphics card.\nPCI-Express 4.0 x16 (x8 Active)",
+      "price": 32999,
+      "isFeatured": true,
+      "rating": 4.7,
+      "slug": "pny-geforce-rtxtm-4060-8gb",
+      "category": {
+        "id": "computers-tablets"
+      }
+    },
+    {
+      "id": "16",
+      "name": "SAMSUNG Galaxy A54 5G A Series Cell Phone, Unlocked Android Smartphone, 128GB, 6.4” Fluid Display Screen, Pro Grade Camera, Long Battery Life, Refined Design, US Version, 2023, Awesome Black",
+      "summary": "\\nBrand\\tSAMSUNG\\nModel Name\\tGalaxy A54 5G\\nWireless Carrier\\tUnlocked for All Carriers\\nOperating System\\tAndroid 13.0\\nCellular Technology\\t5G\\nMemory Storage Capacity\\t128 GB",
+      "description": "CRISP DETAIL, CLEAR DISPLAY: Enjoy binge-watching on a clear, 6.4' screen* that provides a smooth entertainment experience; Scroll through social feeds and watch action-packed movies, catching all the details you need on your Galaxy A54 5G\nPRO SHOTS WITH EASE: Brilliant sunrises, awesome selfies — capture incredible content with Galaxy A54 5G; Snap clear images with Single Take** and OIS, and even take shots in low light with Nightography\nCHARGE UP AND CHARGE ON: Always be ready for an impromptu photo op or newly released video with a powerful battery that has your back; With a long-lasting, Super Fast Charging*** 5,000mAh battery, Galaxy A54 5G keeps you up and running\nPOWERFUL 5G PERFORMANCE: Do what you love most — play games, watch movies or post photos — at the speed of life with Galaxy A54 5G; Our best of Galaxy A Series powers your day with an impressive processor and virtually lag-free 5G****\nNEW LOOK, ADDED DURABILITY: Galaxy A54 5G is stylish and strong; Redesigned and refined, the best of our Galaxy A Series has a sleek, triple-lens design and front and back Gorilla Glass 5 that resists spills and dust*****\nSERIOUS ABOUT SECURITY: Galaxy A Series helps protect your data with multilayered Knox Security; With Private Share****** set time limits and expiration dates on shared files, revoke access, and ensure recipient can’t send or screenshot your stuff\nCARRY ESSENTIALS IN YOUR PHONE: Carry payment cards, digital keys, crypto and more in your phone’s Samsung Wallet; Plus, find savings at top merchants in the Perks tab, and earn interest on your bank balances with a Samsung Money account******\nROOM FOR ALL YOUR MEMORIES & MORE: Make every moment your favorite memory with Galaxy A54 5G; With expandable storage******** up to 1TB, you no longer have to choose which files to save and which to delete",
+      "price": 34999,
+      "isFeatured": false,
+      "rating": 4.3,
+      "slug": "samsung-galaxy-a54-5g",
+      "category": {
+        "id": "smartphones-accessories"
+      }
+    },
+    {
+      "id": "17",
+      "name": "SAMSUNG Galaxy Z Fold5 AI Phone, 512GB Unlocked Android Smartphone, Big 7.6” Screen for Streaming, Gaming, Dual App View, One-Hand Control, Hands-Free Use, US Version, 2023, Icy Blue",
+      "summary": "\\nBrand\\tSAMSUNG\\nModel Name\\tSamsung Galaxy Fold5\\nWireless Carrier\\tUnlocked for All Carriers\\nOperating System\\tAndroid 13.0\\nCellular Technology\\t5G\\nMemory Storage Capacity\\t512 GB",
+      "description": "GALAXY AI IS HERE: Search like never before¹, get real-time interpretation on a call², format your notes into a clear summary³, and effortlessly edit your photos⁴ - all from your smartphone, all with AI\nTHE FUTURE OF DOING MORE: With Dual-App Viewing, you can do more with more screen on Galaxy Z Fold5; Drag and drop photos into a text message, shop two sites side by side or stream videos while checking your feed\nIMPRESSIVE PRECISION. MORE PRODUCTIVITY: Precision meets portability with S Pen⁵ capability on Galaxy Z Fold5; Write directly on the large screen and go from to-do to done\nEXPANSIVE SCREEN, CINEMATIC EXPERIENCE: Streaming on the go with this big screen is a big deal; Unfold the massive 7.6' screen⁶ on Galaxy Z Fold5 and lose yourself in your favorite content, no matter where you are\nYOUR GAMING EXPERIENCE, ELEVATED: Enjoy mobile games on the cover screen or unfold the interior screen for a more immersive experience; With an impressive processor, power through with a high refresh rate and minimal input delays\nUNFOLD WITH CONFIDENCE: Meet our most durable Galaxy Fold yet; With Gorilla Glass Victus 2 external protection and IPX8 water resistance⁷, you can unfold your world no matter where life takes you\nFULL SCREEN OUTSIDE, MASSIVE SCREEN INSIDE: The 6.2” cover display⁶ is perfect for one-handed scrolling and quick tasks; Or unfold the massive 7.6” interior screen⁶ for everything else\nFLEX A WHOLE NEW WAY TO WATCH: Put Z Fold5 in Flex Mode and watch hands-free; Simply adjust the screen to your preferred angle and enjoy your favorites while eating, writing or just relaxing\nFOLD IT – DON’T HOLD IT: Put your Z Fold5 in Flex Mode and do more at once with hands-free video calling; Chat with your friends while searching for movie times; Or take notes during a video call; It’s easy with Galaxy Z Fold10\nTHIS BIG SCREEN IS A BIG DEAL: Impress everyone with the sleek design; Impress them even more when you unfold the massive 7.6' interior screen⁶; It’s easy to turn heads with Galaxy Fold5— now in three unique colors",
+      "price": 151999,
+      "isFeatured": true,
+      "rating": 4.4,
+      "slug": "samsung-galaxy-z-fold5-ai-phone",
+      "category": {
+        "id": "smartphones-accessories"
+      }
+    },
+    {
+      "id": "18",
+      "name": "Apple iPhone 15 Pro (128 GB)",
+      "summary": "\\nBrand\\tBoost Infinite\\nModel Name\\tiPhone 15 Pro\\nWireless Carrier\\tBoost Infinite\\nOperating System\\tiOS\\nCellular Technology\\t5G\\nMemory Storage Capacity\\t128 GB",
+      "description": "WHAT'S INCLUDED You get the new iPhone 15 Pro, complete with unlimited talk, text, and data on America's Smart Network. We make it easy to keep your existing number or get a new one if you prefer. Best of all You can upgrade to the latest iPhone every year—no trade-in required to get started. Yes, seriously.\nFORGED IN TITANIUM — iPhone 15 Pro has a strong and light aerospace-grade titanium design with a textured matte-glass back. It also features a Ceramic Shield front that’s tougher than any smartphone glass. And it’s splash, water, and dust resistant.\nADVANCED DISPLAY — The 6.1” Super Retina XDR display with ProMotion ramps up refresh rates to 120Hz when you need exceptional graphics performance. Dynamic Island bubbles up alerts and Live Activities. Plus, with Always-On display, your Lock Screen stays glanceable, so you don’t have to tap it to stay in the know.\nGAME-CHANGING A17 PRO CHIP — A Pro-class GPU makes mobile games feel so immersive, with rich environments and realistic characters. A17 Pro is also incredibly efficient and helps to deliver amazing all-day battery life.\nPOWERFUL PRO CAMERA SYSTEM — Get incredible framing flexibility with 7 pro lenses. Capture super high-resolution photos with more color and detail using the 48MP Main camera. And take sharp close-ups from far away with the 3x Telephoto camera on iPhone 15 Pro.\nCUSTOMIZABLE ACTION BUTTON — Action button is a fast track to your favorite feature. Just set the one you want, like Silent mode, Camera, Voice Memo, Shortcut, and more. Then press and hold to launch the action.\nUNLIMITED WIRELESS Absolutely, all powered by America'a Smart Network. We brought together three of America's 5G networks to give you unparalleled nationwide coverage. Now, you benefit from the combined strength of not just one, but three networks, ensuring seamless connectivity wherever you are.\nNEW iPHONE EVERY YEAR You got it. Your Infinite Access for iPhone plan comes with the perk of upgrading to the latest iPhone annually, courtesy of Boost Infinite.\nNO TRADE-IN REQUIRED That's right. Experience the convenience of having the newest iPhone delivered directly to your doorstep, with no trade-in required to get started.\nWHAT'S THE CATCH Believe it or not, there isn't one. This unbeatable deal you all these benefits under the Infinite Access for iPhone plan from Boost Infinite, starting at just Dollar 60 per month.",
+      "price": 99999,
+      "isFeatured": true,
+      "rating": 4.4,
+      "slug": "apple-iphone-15-pro-128-gb",
+      "category": {
+        "id": "smartphones-accessories"
+      }
+    },
+    {
+      "id": "19",
+      "name": "Apple iPhone 13 Pro",
+      "summary": "Brand\tApple\nModel Name\tiPhone 13 Pro\nWireless Carrier\tUnlocked for All Carriers\nOperating System\tiOS 15\nCellular Technology\t5G\nMemory Storage Capacity\t128 GB\nConnectivity Technology\tBluetooth, Wi-Fi\nColor\tSierra Blue\nScreen Size\t6.1 Inches\nWireless network technology\tLTE",
+      "description": "6.1' Super Retina XDR display with ProMotion. 5G Superfast downloads, high-quality streaming\nCinematic mode in 1080p at 30 fps. Dolby Vision HDR video recording up to 4K at 60 fps. 6X Optical zoom range\nA15 Bionic chip. New 6-core CPU with 2 performance and 4 efficiency cores. New 5-core GPU. New 16-core Neural Engine\nUp to 22 hours video playback. Face ID. Ceramic Shield front. Surgical-grade stainless steel\nWater resistant to a depth of 6 meters for up to 30 minutes. Compatible with MagSafe accessories and wireless chargers\n",
+      "price": 46073,
+      "isFeatured": true,
+      "rating": 4.1,
+      "slug": "apple-iphone-13-pro",
+      "category": {
+        "id": "smartphones-accessories"
+      }
+    },
+    {
+      "id": "20",
+      "name": "Phone Gimbal Stabilizer for iPhone 15 Pro Max Android Phones with Extension Rod 3-Axis Phone Gimbal Stabilizer with Follow Focus for Vlogging TikTok YouTube(Smart XE Combo1)",
+      "summary": "Brand\tAOCHUAN\nCompatible Devices\tCellphone\nItem Weight\t345 Grams\nMaximum Weight Recommendation\t250 Grams",
+      "description": "AOCHUAN Phone Gimbal Stabilizer for iPhone 15 Pro Max Android Phones with Extension Rod, SmartXE Combo1 is a 3-Axis Phone Gimbal Stabilizer with Follow Focus for Vlogging.Portable Foldable Design, Compact and Lightweight. Palm-size 3-axis foldable gimbal with a net weight of only 0.55 pounds but can carry a 250g payload. Innovative focus wheel and zoom slide empowers you to stabilize and create smooth and steady video shots.\nAI Face Track 4.0. Smart Gestural Control. All comes within our Intuitive AOCHUAN APP. Easily take any kind of shooting mode, including panorama, wide-angle, cinematic and movie mode, live-streaming, time-lapse, and motion-lapse, and optimize your smartphone's native camera settings. Tutorial videos available on our integrated app and YouTube channel.\n2600mAh big-capacity battery enables up to 10 hours of continuous video creation, making it perfect for videography, live-streaming, vlogging, YouTube and TikTok video creation. One-click video button to effortlessly switch from horizontal mode to vertical portrait mode, rapidly taking your videos in just a flash. Born for filmmakers, vloggers, TikToker, IGTV and YouTuber to shoot professional video all day long.\nEquipped with SMART 7.0 anti-shake algorithm and three enhanced powerful brush-less motors, you can use this gimbal comobo to generate smooth and steady video output for professional video. Start now to be a professional videographer. Package and Support. Includes AOCHUAN SMART XE gimbal stabilizer, extension rod, tripod, USB-C charging cable and user manual. Each AOCHUAN gimbal is granted with 12-month customer support.\nVersatile Compatibility with Most Smartphones.Create your own Hitchcock film. Besides, the phone gimbal stabilizer empowers you to shoot your own Hitchcock movies like a pro.AOCHUAN SmartXE Combo1 gimbal is suitable for vlogging,live-streaming,selfie,hiking,and sports scenarios. One-Click video button effortlessly switches between horizontal and vertical portrait mode for quick TikTok video.",
+      "price": 9999,
+      "isFeatured": false,
+      "rating": 4.3,
+      "slug": "phone-gimbal-stabilizer",
+      "category": {
+        "id": "smartphones-accessories"
+      }
+    },
+    {
+      "id": "21",
+      "name": "Turtle Beach Recon 50 Xbox Gaming Headset for Xbox Series X/ S, Xbox One, PS5, PS4, PlayStation, Nintendo Switch, Mobile & PC with 3.5mm - Removable Mic, 40mm Speakers - Black",
+      "summary": "Platform : Xbox One, PlayStation 5, Windows, PlayStation, Nintendo Switch, PlayStation 4, Xbox Series S, Xbox Series X",
+      "description": "Crystal Clear Chat: An adjustable, high sensitivity mic picks up your voice loud and clear, and can be removed when watching movies or listening to music\nHigh Quality 40 mm Speakers : Hear every crisp high and thundering low with these large 40 mm speakers\nLightweight and Comfortable: Play for hours (or days) in complete comfort\nConvenient In line Controls: Convenient in line controls place master volume and mic mute right at your fingertips\nVersatile Compatibility : Works great with Xbox Series X/ S, Xbox One, PS5, PS4, NSW Mobile & PC controllers with the 3.5 mm jack, and mobile/tablet devices with a 3.5 mm connection",
+      "price": 2495,
+      "isFeatured": false,
+      "rating": 4.4,
+      "slug": "turtle-beach-recon-50-xbox-gaming-headset",
+      "category": {
+        "id": "gaming"
+      }
+    },
+    {
+      "id": "22",
+      "name": "PlayStation DualSense Wireless Controller",
+      "summary": "Platform : PlayStation 5",
+      "description": "Haptic feedback - Feel physically responsive feedback to your in-game actions with dual actuators which replace traditional rumble motors. In your hands, these dynamic vibrations can simulate the feeling of everything from environments to the recoil of different weapons. .Operating temperature : 41 °F to 95 °F (5 °C to 35 °C)\nAdaptive triggers - Experience varying levels of force and tension as you interact with your in-game gear and environments. From pulling back an increasingly tight bowstring to hitting the brakes on a speeding car, feel physically connected to your on-screen actions.\nBuilt-in microphone and headset jack - Chat with friends online using the built-in microphone or by connecting a headset to the 3.5mm jack. Easily switch voice capture on and off at a moment’s notice with the dedicated mute button. Internet and account for PlayStation Network required.\nDualSense Controller PS5 and PC compatible. Not compatible with PS4.\nPS Remote Play requires Remote Play App connected to Wi-Fi, PS4 or PS5 console with the latest system software and compatible game. A PS4 or PS5 console with a wired connection via a LAN cable is recommended. Version 4.0 of the Remote Play App on iOS and iPadOS or version 4.1 on macOS is required for games to be playable with the controller over Bluetooth.\nDevices with macOS 11.3, iOS 14.5, iPadOS 14.5 or tvOS 14.5 or later supported.\nCable not included. To connect or charge the controller use the USB cable supplied with the PS5 console. Controllers sold separately.",
+      "price": 6999,
+      "isFeatured": false,
+      "rating": 4.7,
+      "slug": "playstation-dualsense-wireless-controller",
+      "category": {
+        "id": "gaming"
+      }
+    },
+    {
+      "id": "23",
+      "name": "PlayStation 5 Console - Marvel’s Spider-Man 2 Bundle (slim)",
+      "summary": "Platform : PlayStation 5",
+      "description": "Bundle includes Marvel’s Spider-Man 2 full game digital voucher\nSlim Design - With PS5, players get powerful gaming technology packed inside a sleek and compact console design.\n1TB of Storage - Keep your favorite games ready and waiting for you to jump in and play with 1TB of SSD storage built in.\nBox Contents - 1 DualSense Wireless Controller, 2 Horizontal Stand Feet, HDMI Cable, AC Power Cord, USB cable, printed materials, ASTRO’s PLAYROOM (Pre-installed game)\nPS5 console (CFI-2000 model group – slim). Vertical Stand sold separately.",
+      "price": 42748,
+      "isFeatured": false,
+      "rating": 4.7,
+      "slug": "playstation-5-console-marvels-spider-man-2-bundle",
+      "category": {
+        "id": "gaming"
+      }
+    },
+    {
+      "id": "24",
+      "name": "Star Wars Jedi: Survivor - PlayStation 5",
+      "summary": "Platform For Display: PlayStation 5",
+      "description": "Continue Cal’s Journey - No longer a Padawan, Cal has come into his own and grown into a powerful Jedi Knight.\nGo Beyond Your Training – The cinematic combat system returns with additional Force abilities and new lightsaber fighting styles.\nExplore an Untamed Galaxy – Discover new planets and familiar frontiers in the Star Wars galaxy, each with unique challenges, and enemies.\nThe Dark Times are closing in – with enemies surrounding him, Cal will need to decide how far he’s willing to go to save those closest to him.\nSome features may require an internet connection and an online subscription.",
+      "price": 2999,
+      "isFeatured": false,
+      "rating": 4.7,
+      "slug": "star-wars-jedi-survivor-playstation-5",
+      "category": {
+        "id": "gaming"
+      }
+    },
+    {
+      "id": "25",
+      "name": "Logitech G29 Driving Force Racing Wheel and Floor Pedals, Real Force Feedback, Stainless Steel Paddle Shifters, Leather Steering Wheel Cover for PS5, PS4, PC, Mac - Black",
+      "summary": "Brand\tLogitech G\nModel Name\tG29\nCompatible Devices\tPC, Playstation 4, Playstation 5, Mac\nController Type\tPaddle, Pedals, Steering Wheel\nConnectivity Technology\tUSB",
+      "description": "Immersive Gaming Experience: Perfect for PlayStation 5, PS4 and PC gaming titles, the Driving Force simulates the feeling of driving a real car with precision steering and pressure-sensitive pedals\nPremium Control: The Driving Force feedback racing wheel provides a detailed simulation of driving a real car, with helical gearing delivering smooth, quiet steering and a hand-stitched leather cover\nCustomizable Pedals: These pressure-sensitive nonlinear brake pedals provide a responsive, accurate braking feel on a sturdy base - with adjustable pedal faces for finer control\n900-Degree Rotation: Lock-to-lock rotation of the Driving Force means you can turn the wheel around two and a half times, hand over hand on wide turns - just like a real F1 race car\nUp Your Game: Take your racing simulation to the next level with Driving Force accessories like the Driving Force Shifter or desk and rig mounts\nThe plastic parts in G29 Driving Force include 52 percent certified post consumer recycled plastic..Certified carbon neutral.\nTotal Wheel Control: Control wheel sensitivity, force feedback levels, and button customization via powerful G HUB Gaming Software for PC. Download at logitechG /downloads\nWheel: Length: 10.24 in (260 mm) Height: 10.63 in (270 mm) Width: 10.94 in (278 mm) Weight without cables: 4.96 lb (2.25 Kg) Pedals: Length: 16.87 in (428.5 mm) Height: 6.57 in (167 mm) Width: 12.24 in (311 mm) Weight without cables: 6.83 (3.1 Kg)",
+      "price": 29999,
+      "isFeatured": false,
+      "rating": 4.7,
+      "slug": "logitech-g29-driving-force-racing-wheel-and-floor-pedals",
+      "category": {
+        "id": "gaming"
+      }
+    },
+    {
+      "id": "26",
+      "name": "Hogwarts Legacy - PlayStation 5 | English | EU Import Region Free",
+      "summary": "Platform : PlayStation 5|Rated: Teen",
+      "description": "EXPLORE AN OPEN WORLD. The wizarding world awaits you. Freely roam Hogwarts, Hogsmeade, the Forbidden Forest, and the surrounding Overland area.\nBE THE WITCH OR WIZARD YOU WANT TO BE. Learn spells, brew potions, grow plants, and tend to magical beasts along your journey. Get sorted into your house, forge relationships, and master skills to become the witch or wizard you want to be.\nEXPERIENCE A NEW WIZARDING WORLD ADVENTURE. Experience the wizarding world in an unexplored era to uncover a hidden truth from its past. Battle against trolls, Dark Wizards, goblins, and more as you face a dangerous villain threatening the fate of the wizarding world.\nPlease note that although this game is Region Free or Region Unlocked and will work on all systems, this is the international version and may differ from the local version in age rating, labeling or instructions. DLC content may not work unless using an EU Playstation account as stated this is an EU Import Region Free Version",
+      "price": 29999,
+      "isFeatured": false,
+      "rating": 4.7,
+      "slug": "hogwarts-legacy-playstation-5",
+      "category": {
+        "id": "gaming"
+      }
+    },
+    {
+      "id": "27",
+      "name": "CoBak case for Sony Playstation Portal, Silicone Shock-Absorption Anti-Fingerprint Scratch Resistant Cover Case for Playstation Portal - Black",
+      "summary": "Brand\tCoBak\nColor\tBlack\nCompatible Devices\tGame Consoles\nForm Factor\tCase\nShell Type\tSoft",
+      "description": "Compatible: Our protective case is custom-made for the PlayStation Portal, ensuring a precise fit and enabling easy access to all buttons.\nHigh-quality Material: Crafted from premium quality soft silicone material, this case provides a comfortable grip and is resistant to slips, sweat, dirt, shocks, and drops.\nPerfect Fit: Expertly crafted to flawlessly fit your Portal Game Console, allowing for uninterrupted signal and delivering optimal gaming performance for an immersive experience.\nEasy to Use: Protect your PS5 portal with ease by using our convenient case. With simple placement, you'll have full access to all buttons and ports without the need for removal.",
+      "price": 999,
+      "isFeatured": false,
+      "rating": 4.5,
+      "slug": "cobak-case-for-sony-playstation-portal",
+      "category": {
+        "id": "gaming"
+      }
+    },
+    {
+      "id": "28",
+      "name": "Logitech G502 HERO High Performance Wired Gaming Mouse, HERO 25K Sensor, 25,600 DPI, RGB, Adjustable Weights, 11 Programmable Buttons, On-Board Memory, PC / Mac",
+      "summary": "\\nBrand\\tLogitech G\\nColor\\tBlack\\nConnectivity Technology\\tUSB\\nSpecial Feature\\tProgrammable Buttons, Touch Scroll, LED Lights\\nMovement Detection Technology\\tOptical",
+      "description": "Hero 25K sensor through a software update from G HUB, this upgrade is free to all players: Our most advanced, with 1:1 tracking, 400-plus ips, and 100 - 25,600 max dpi sensitivity plus zero smoothing, filtering, or acceleration\n11 customizable buttons and onboard memory: Assign custom commands to the buttons and save up to five ready to play profiles directly to the mouse\nAdjustable weight system: Arrange up to five removable 3.6 grams weights inside the mouse for personalized weight and balance tuning\nProgrammable RGB Lighting and Lightsync technology: Customize lighting from nearly 16.8 million colors to match your team's colors, sport your own or sync colors with other Logitech G gear\nMechanical switch button tensioning: Metal spring tensioning system and pivot hinges are built into left and right gaming mouse buttons for a crisp, clean click feel with rapid click feedback\n1 year hardware limited warranty. USB report rate: 1000Hz (1ms)\nMicroprocessor: 32-bit ARM. Use Logitech G HUB to save your settings to the on board memory on the mouse and take them with you. Your saved settings will work on any PC without additional software or any login required.",
+      "price": 4495,
+      "isFeatured": false,
+      "rating": 4.7,
+      "slug": "logitech-g502-hero-high-performance-wired-gaming-mouse",
+      "category": {
+        "id": "gaming"
+      }
+    },
+    {
+      "id": "29",
+      "name": "STATSports APEX Athlete Series GPS Soccer Activity Tracker Stat Sports Football Performance Vest Wearable Technology",
+      "summary": "Brand\tSTATSports\nStyle\tModern\nColor\tBlack\nScreen Size\t27 Inches\nSpecial Feature\tGPS\nShape\tRectangular\nTarget Audience\tUnisex Adult\nAge Range (Description)\tYouth\nCompatible Devices\tSmartphone\nBand Color\tblack",
+      "description": "The STATSports Apex Athlete Series is the only tracker on the market with 16 key metrics. Our FIFA approved GPS tracker is the most powerful wearable in sport. Now it’s your turn to use the same technology as the Pro’s.\nUnderstand your stats to boost your game and take your performance to the next level. Measure your Total Distance, Max Speed, Sprints, Heatmaps & more. See what you need to be hitting to be the best.\nCompare live data with your friends and see how you rank against the pros with your own unique Pro Score, a new feature that allows you to track your performance with one overall rating. Forget the FIFA Ratings. Pro Score is what real ballers are measured by.\nWhats included? Package includes GPS Performance Tracker, Apex 2.0 Vest, Charging Cable and access to the STATSports Apex Athlete Series App - Available for iOS and Android (no additional subscription required).\nVest Size: Youth Small 25-27' inches - 63-69cm - Age 6/7 - If you are between sizes we recommend that you purchase the smaller of the two.",
+      "price": 29999,
+      "isFeatured": false,
+      "rating": 4.1,
+      "slug": "statsports-apex-athlete-series-gps-soccer-activity-tracker",
+      "category": {
+        "id": "wearables"
+      }
+    },
+    {
+      "id": "30",
+      "name": "Fitbit Inspire 3 Health &-Fitness-Tracker with Stress Management, Workout Intensity, Sleep Tracking, 24/7 Heart Rate and more, Midnight Zen/Black One Size (S & L Bands Included)",
+      "summary": "\\nBrand\\tFitbit\\nModel Name\\tInspire 3\\nStyle\\tMinimalist\\nColor\\tBlack/Midnight Zen\\nScreen Size\\t1968.51 Inches\\nSpecial Feature\\tHeart Rate Monitor\\nShape\\tRectangular\\nTarget Audience\\tTweens, Parents, College Students\\nAge Range (Description)\\tAdult\\nCompatible Devices\\tIOS and Android",
+      "description": "Inspire 3 is the tracker that helps you find your energy, do what you love and feel your best. All you have to do is wear it.Operating temperature: 0° to 40°C\nMove more: Daily Readiness Score(1), Active Zone Minutes, all-day activity tracking and 24/7 heart rate, 20+ exercise modes, automatic exercise tracking and reminders to move\nStress less: always-on wellness tracking, daily Stress Management Score, mindfulness sessions, relax breathing sessions, irregular heart rhythm notifications(2), SpO2(3), menstrual health tracking, resting heart rate and high/low heart rate notifications\nSleep better: automatic sleep tracking, personalized Sleep Profile(1), daily detailed Sleep Score, smart wake vibrating alarm, sleep mode\nComfortably connected day and night: calls, texts & smartphone app notifications(4), color touchscreen with customizable clock faces, super lightweight and water resistant to 50 meters, up to 10 day battery life(5)\nIncludes a 6-month Premium membership complete with personalized insights, advanced analytics and more (New & returning Premium users only. Must activate trial within 60-days of device activation. Content and features may change)",
+      "price": 9995,
+      "isFeatured": false,
+      "rating": 4.4,
+      "slug": "fitbit-inspire-3-health-and-fitness-tracker",
+      "category": {
+        "id": "wearables"
+      }
+    },
+    {
+      "id": "31",
+      "name": "𝟐𝟎𝟐𝟒 𝐔𝐩𝐠𝐫𝐚𝐝𝐞𝐝 for Apple Watch Charger Magnetic Fast Charging Cable [Portable] Magnetic Wireless Charging Compatible with iWatch Series Ultra/9/8/7/6/SE/SE2/5/4/3/2-[3.3FT] White",
+      "summary": "Brand\txiwxi\nConnectivity Technology\tWireless\nConnector Type\tUSB\nCompatible Devices\tApple Watch Series Ultra 2/Ultra/9/8/7/6/SE/5/4/3/2/1/Nike+\\nCompatible Phone Models\tApple Watch Series Ultra 2/Ultra/9/8/7/6/SE/5/4/3/2/1/Nike+\\nIncluded Components\tUSB CHARGER\nSpecial Feature\t✅Portable,✅Lightweight,✅Wireless,✅Magnetic,✅Fast Charging\nColor\tWhite\nInput Voltage\t9 Volts\nMounting Type\tWall Mount",
+      "description": "Wide Compatible】- Our wireless charger is compatible with iWatch series Ultra/9/8/7/6/SE2/SE/5/4/3/2/1 (including the 38 mm/40 mm/41 mm/42 mm/44 mm/45 mm Version)\n【Safe and Fast Wireless Watch Charging】- Our wireless charger provides a safer and faster charging mode, it only takes less than 3 hours to fully charge, for a more perfect charging experience,Please take off the watch case and use a 5V/1A adapter or original adapter.\n【Portable design】-This 1.2M iWatch charging cable is convenient to carry around, especially for traveling，and is suitable as a backup charger for your watch.\n【12-Month Quality Assurance 】- As a responsible brand seller, you will receive xiwxi's 12-month Quality assurance and lifetime friendly customer service.",
+      "price": 759,
+      "isFeatured": false,
+      "rating": 4.5,
+      "slug": "apple-watch-charger",
+      "category": {
+        "id": "wearables"
+      }
+    },
+    {
+      "id": "32",
+      "name": "Plantronics - Voyager 5200 (Poly) - Bluetooth Over-the-Ear (Monaural) Headset - Compatible to connect to Cell Phones - Noise Canceling",
+      "summary": "Brand\tPoly\nModel Name\tVoyager 5200\nColor\tBlack\nForm Factor\tIn Ear\nConnectivity Technology\tBluetooth, Bluetooth 5.0",
+      "description": "Connects To: For someone that needs to take and receive calls on a mobile phone.\nIdeal For: Mobile professional who relies on mobile phone for on-the-go communication.\nAudio Performance: Crystal clear Bluetooth audio quality with triple-mic active Digital Signal Processing (DSP), & wind canceling.\nTalk Time & Roaming Range: Up to 7 hours of talk time and you can roam up to 98 feet (30 meters).\nGlobal Warranty & Wearing Style: 1 year warranty U.S. For global warranty visit Poly.com; light weight over the ear headset.",
+      "price": 9995,
+      "isFeatured": false,
+      "rating": 4.1,
+      "slug": "plantronics-voyager-5200-poly",
+      "category": {
+        "id": "wearables"
+      }
+    },
+    {
+      "id": "33",
+      "name": "New bee Bluetooth Earpiece V5.0 Wireless Handsfree Headset with Microphone 24 Hrs Driving Headset 60 Days Standby Time for iPhone Android Samsung Laptop Trucker Driver (Black)",
+      "summary": "\\nBrand\\tNew bee\\nModel Name\\tB41\\nColor\\tBlack\\nForm Factor\\tIn Ear\\nConnectivity Technology\\tBluetooth 5.0",
+      "description": "[CVC 6.0 HANDS FREE TALKING] New bee hands-free headsets employs CVC 6.0 technology. The sound whilst on a call will be clear, both for you and the other end.\n[Comfortable Wearing Design] Lightweight New Bee B41 bluetooth headset (12g) does not cause any burden to your ears, thus providing lasting wearing comfort, good for drivers or businessmen; 360 angle adjustable earbud fits perfectly for your left or right ear.Three optional ear tips included small, medium, and large, choose the most comfortable earbuds to fit in either ear.\n[Wide Compatible] Wireless earphones compatible with Bluetooth-enabled devices. Designed for iPhone series, Samsung, HTC, LG, SONY, PC, Laptop, etc., iPad, iPod touch, LG G2, Samsung S7 S6, LG, Motorola, LG, SONY, and other Android cell phones, PC, Laptop, etc.\n[Long Lasting Battery Life] Only 2-3h charge time, 22h music time, 24h talk time, 60 days standby. The wireless headset takes little time to charge but can last for all days. Meets the need for daily use.\n[Dont Hesite to Order] Included case helps you keep the bluetooth earpiece secure and no worry to lose it. An extra earphone is there in case you want to enjoy music with both ears. 24 hours customer services and professional technology team are standing by.",
+      "price": 1699,
+      "isFeatured": false,
+      "rating": 4.1,
+      "slug": "new-bee-bluetooth-earpiece-v50-wireless-handsfree-headset",
+      "category": {
+        "id": "wearables"
+      }
+    },
+    {
+      "id": "34",
+      "name": "Lucyd - Bluetooth Audio Glasses - Women Smart Glasses w/UV Protection - Open Ear, Noise Canceling Wireless Mics, Quadrasonic Sound Speaker, Voice Assistants Compatible – Starlyte",
+      "summary": "Brand\tLucyd\nModel Name\tLcd006-100\nStyle\tModern\nColor\tStarlyte\nSpecial Feature\tAudio Canceling\nShape\tRectangular\nTarget Audience\tWomen\nAge Range (Description)\tAdult\nCompatible Devices\tLaptop, Smart TV, PC, Tablet\nDisplay Type\tNo Display",
+      "description": "🔊 IMMERSIVE AUDIO: Four speakers embedded in the temples provide lush, hi-fi music and calls that's perfect for you with a crystal-clear and immersive audio experience. With the open ear design, our audio glasses provide a safer, enhanced awareness listening experience compared to traditional headphones.\n☝️ TOUCH CONTROLS: Lucyd smart glasses provide hands-free and without any tangled wires listening experience. You can easily answer calls, play/pause your music, skip tracks, adjust the volume, and activate your voice assistant using the button located on each temple of the glasses.\n🔋 ALL-DAY BATTERY: These Bluetooth audio sunglasses provide up to 12 hours of playback per charge and over 160 hours of standby connection time. The typical user who listens to 1-2 hours of music daily will only need to charge the glasses once a week.\n☀️ UV PROTECTION & POLARIZED LENS: Our sunglasses with Bluetooth come standard with high-quality, TAC-polarized UV400 sunglass lenses with a fashionable gradient finish. With these lenses, you can enjoy premium clarity and reduced sun glare, while also protecting your eyes from harmful UV rays.\n🎙️ DUAL NOISE CANCELING MICROPHONES: These wearable tech sunglasses have dual noise-canceling mics for call and voice assistance. Lucid Eyewear improves call quality with enhanced clarity and ergonomics for longer-duration calls.\n💦 SPLASH-PROOF: Our lightweight eyewears are rated IP-56 water resistant. They are designed to easily resist sweat and rain, making them perfect for music and calls even under challenging weather conditions. You can even take these smart audio glasses with you poolside, but be sure not to submerge them.\nDIMENSIONS: The frame size dimensions are carefully designed; the lens size is 53mm, the bridge size is 16mm, and the temple length is 138mm. The frame width measures 135mm",
+      "price": 7999,
+      "isFeatured": false,
+      "rating": 3.4,
+      "slug": "lucyd-bluetooth-audio-glasses",
+      "category": {
+        "id": "wearables"
+      }
+    },
+    {
+      "id": "35",
+      "name": "DJI Mini 2 SE, Lightweight Mini Drone with QHD Video, 10km Max Video Transmission, 31-Min Flight Time, Under 249 g, Auto Return to Home, 3-Axis Gimbal Drone with EIS, Drone with Camera for Beginners",
+      "summary": "\nBrand\tDJI\nModel Name\tMT2SD\nSpecial Feature\tBeginner-Friendly, 10km Transmission Range, Wind Resistant, Lightweight, Foldable, Compact, One Button ReturnBeginner-Friendly, 10km Transmission Range, Wind Resistant, Lightweight, Foldable, Compact, One Button Return\nAge Range (Description)\tAdult\nColor\tGray\nVideo Capture Resolution\t1080p, 2.7K\nEffective Still Resolution\t12 MP\nConnectivity Technology\tUSB\nIncluded Components\tDJI RC-N1 RC Cable (USB-C Connector) x1, DJI RC-N1 RC Cable (Lightning Connector) x1, DJI RC-N1 RC Cable (Standard Micro-USB Connector) x1, DJI RC-N1 Remote Controller x1, DJI Mini 2 SE x1DJI RC-N1 RC Cable (USB-C Connector) x1, DJI RC-N1 RC Cable (Lightning Connector) x1, DJI RC-N1 RC Cable (Standard Micro-USB Connector) x1, DJI RC-N1 Remote Controller x1, DJI Mini 2 SE x1\nSkill Level\tBeginner",
+      "description": "𝗟𝗶𝗴𝗵𝘁𝘄𝗲𝗶𝗴𝗵𝘁 𝗮𝗻𝗱 𝗣𝗼𝗿𝘁𝗮𝗯𝗹𝗲 - The drone is lightweight and compact, weighing 𝗹𝗲𝘀𝘀 𝘁𝗵𝗮𝗻 𝟮𝟰𝟵 𝗴𝗿𝗮𝗺𝘀. It's perfect for taking on hikes, road trips, and other adventures, allowing you to capture stunning aerial moments from above wherever you go.\n𝗡𝗼 𝗥𝗲𝗴𝗶𝘀𝘁𝗿𝗮𝘁𝗶𝗼𝗻 𝗡𝗲𝗲𝗱𝗲𝗱 - Under 249 g, FAA Registration and Remote ID are not required if you fly for recreational purposes. Visit the FAA's official website for requirements related to drone registration and Remote ID.\n𝗘𝘅𝘁𝗲𝗻𝗱𝗲𝗱 𝗙𝗹𝗶𝗴𝗵𝘁 𝗧𝗶𝗺𝗲 - Enjoy longer flights with DJI Mini 2 SE, which offers a 31-min max flight time. Combo offers two additional Intelligent Flight Batteries (three in total) for up to 93 minutes of total flight time*. Explore and create more.\n𝗝𝘂𝘀𝘁 𝗮 𝗙𝗲𝘄 𝗧𝗮𝗽𝘀 𝗳𝗼𝗿 𝗘𝗽𝗶𝗰 𝗜𝗺𝗮𝗴𝗶𝗻𝗴 - The DJI Fly app has easy-to-use shooting templates that allow the drone to automatically fly, record, and generate professional-level videos that can be shared directly on social media.\n𝗔𝗱𝘃𝗮𝗻𝗰𝗲𝗱 𝗧𝗿𝗮𝗻𝘀𝗺𝗶𝘀𝘀𝗶𝗼𝗻 𝗥𝗮𝗻𝗴𝗲 - Get a 𝟭𝟬𝗸𝗺 𝗺𝗮𝘅 𝘁𝗿𝗮𝗻𝘀𝗺𝗶𝘀𝘀𝗶𝗼𝗻 𝗿𝗮𝗻𝗴𝗲 to reliably fly further and capture more. Compared to Wi-Fi, DJI OcuSync is significantly stronger, offering enhanced transmission and stronger anti-interference compatibilities.\n𝟯𝟴𝗸𝗽𝗵 (𝗟𝗲𝘃𝗲𝗹 𝟱) 𝗪𝗶𝗻𝗱 𝗥𝗲𝘀𝗶𝘀𝘁𝗮𝗻𝗰𝗲 - DJI Mini 2 SE flies with reliable stability even in winds up to 38kph, letting you fly and capture content more reliably in more places.\n𝗕𝗲𝗴𝗶𝗻𝗻𝗲𝗿-𝗙𝗿𝗶𝗲𝗻𝗱𝗹𝘆 - With simplified operations, the drone is easy to learn and master quickly, making it ideal for beginners. It has a 𝗥𝗲𝘁𝘂𝗿𝗻 𝘁𝗼 𝗛𝗼𝗺𝗲 𝗳𝘂𝗻𝗰𝘁𝗶𝗼𝗻 𝗳𝗼𝗿 𝗮𝗱𝗱𝗲𝗱 𝘀𝗮𝗳𝗲𝘁𝘆, ensuring a worry-free flying experience.\nDue to platform compatibility issue, the DJI Fly app has been removed from Google Play. To ensure a better product usage experience, please log in to the DJI official website to download the latest version of DJI Fly.",
+      "price": 27900,
+      "isFeatured": false,
+      "rating": 4.5,
+      "slug": "dji-mini-2-se",
+      "category": {
+        "id": "cameras-drones"
+      }
+    },
+    {
+      "id": "36",
+      "name": "DJI Mini 3, Lightweight Mini Drone with 4K HDR Video, 38-min Flight Time, True Vertical Shooting, Return to Home, up to 10km Video Transmission, Drone with Camera for Beginners",
+      "summary": "Brand\tDJI\nModel Name\tDJIMINI3RCN1\nAge Range (Description)\tAdult\nVideo Capture Resolution\t4K\nEffective Still Resolution\t12\nIncluded Components\tDJI Mini 3 x1, Screwdriver x1, Type-C to Type-C PD Cable x1, DJI RC-N1 RC Cable (USB Type-C Connector) x1, DJI RC-N1 RC Cable (Lightning Connector) x1, Intelligent Flight Battery x1, DJI RC-N1 RC Cable (Standard Micro-USB Connector) x1, Gimbal Protector x1, DJI RC-N1 Remote Controller x1, Spare Propellers (Pair) x1, Spare Screws x6DJI Mini 3 x1, Screwdriver x1, Type-C to Type-C PD Cable x1, DJI RC-N1 RC Cable (USB Type-C Connector) x1, DJI RC-N1 RC Cable (Lightning Connector) x1, Intelligent Flight Battery x1, DJI RC-N1 RC Cable (Standard Micro-USB Co… See more\nItem Weight\t634 Grams\nVideo Capture Format\t4k\nControl Type\tRemote Control\nMedia Type\tSD",
+      "description": "Lightweight and Compact - Mini 3 weighs under 249 g. Perfect for taking with you on your adventures, from hikes, road trips, and beach days.\nDJI Mini 3's flight time can be extended up to 51 mins with the Intelligent Flight Battery Plus (sold separately and only in select countries), but the aircraft will weigh more than 249 g.\nFor the latest aircraft firmware, the Remote ID will only be activated when the Intelligent Flight Battery Plus is used. If your drone needs to be registered, such as flights for commercial purposes, please fly with the Intelligent Flight Battery Plus.\nStunning Imagery - Film in 4K HDR Video for crystal clear aerial shots. Capture details in highlights and shadows, both day and night.\nStriking Vertical Videos are Ready to Share - With True Vertical Shooting, you can easily capture tall landmarks like skyscrapers and waterfalls. And after capturing, it's in the perfect orientation to post to Instagram or TikTok.\nCreative Features for Advanced Shots - Epic shots are at your fingertips. Use QuickShots to choose dynamic flight patterns or capture a stunning view with Panorama.\n38kph (level 5) Wind Resistance for Stable Flight - Don't let a little wind get in your way. Mini 3 is resistant to 38kph winds (levl 5), so you can stay steady and capture your shot.\nIncludes DJI RC-N1 allowing you to pack light and enjoy the creative experience.",
+      "price": 41900,
+      "isFeatured": false,
+      "rating": 4.5,
+      "slug": "dji-mini-3",
+      "category": {
+        "id": "cameras-drones"
+      }
+    },
+    {
+      "id": "37",
+      "name": "Drone X Pro LIMITLESS 4S Camera Drone for Adults - GPS 4K UHD Drones with Obstacle Avoidance - 3-Axis Gimbal - Auto Return and Follow Mode - Long Flight Time & Control Range - Live Video",
+      "summary": "Brand\tDrone-Clone Xperts\nModel Name\tLIMITLESS 4\nAge Range (Description)\tAdult\nVideo Capture Resolution\t4K\nConnectivity Technology\tWi-Fi\nItem Weight\t1.2 Pounds\nBattery Capacity\t5000 Milliamp Hours\nVideo Capture Format\t4k\nControl Type\tcontrol\nMedia Type\tSD",
+      "description": "ADVANCED OBSTACLE AVOIDANCE & EXTENDED RANGE: Our drone with camera 4K, features 360° obstacle avoidance technology - A built-in laser scans the flight path, effortlessly avoiding obstacles with an incredible 3-mile flight range, allowing you to explore farther than ever before with our GPS drone.\nGPS PRECISION & AUTO RETURN HOME: Our 4K drone effortlessly tracks and records your flight with real-time on-screen data. The long range drone's Return to Home (RTH) feature ensures a safe return to the take-off point with a single button press, even in low battery or signal loss situations.\nEXTENDED FLIGHT & POWERFUL MOTORS: Drone-Clone Xperts LIMITLESS 4S drone boasts a 5,000mAh battery, granting 30 minutes of flight per charge. Our GPS drone with 4k camera for adults is powered by powerful brushless motors, enjoy reduced noise, prolonged battery life, and unmatched control.\nCINEMATIC 4K UHD VIDEO & SMOOTH 3-AXIS GIMBAL: With a 3-axis gimbal and 4K UHD resolution, get super-smooth, pro-quality footage. Enhanced EIS delivers added stability, and dual cameras provide versatile shooting angles. Our drones with camera and video features, allow you to instantly view and share your content on your smartphone via wireless transfer.\nINTUITIVE GESTURE CONTROL & DYNAMIC FOLLOW-ME TECHNOLOGY: Our drones with camera for adults 4k intuitively follows your gestures and commands, capturing your moments seamlessly. Engage SURROUND mode for captivating point-of-interest orbits with you in the frame.",
+      "price": 54999,
+      "isFeatured": true,
+      "rating": 4.4,
+      "slug": "drone-x-pro-limitless-4s-camera-drone-for-adults",
+      "category": {
+        "id": "cameras-drones"
+      }
+    },
+    {
+      "id": "38",
+      "name": "Mini Drone with Camera - 1080P HD Foldable Drone with Stable Hover, Gravity Control, Auto-Follow, Trajectory Flight, 90° Adjustable Lens, One Key Take Off, 2 Batteries, Drones for Adults Kids",
+      "summary": "\nBrand\tRADCLO\nModel Name\tX-28\nAge Range (Description)\tAdult\nColor\tBlue\nVideo Capture Resolution\t1080p\nConnectivity Technology\tWi-Fi\nControl Type\tRemote Control\nMedia Type\tSD\nWireless Communication Technology\tWi-Fi\nAre Batteries Included\tNo",
+      "description": "【Stable Hover & User Friendly】: Equipped with an optical flow positioning camera, the drone has a more stable hover altitude ability, which will bring a nice experience to you, especially for beginners. One-key takeoff/landing function can help users to start flying easily, the altitude hold feature allows the drone to hover in the air.\n【1080P FPV Image & Video and 90° Electric Adjustable Camera】: Our RADCLO drone is equipped with an HD 1080P camera, which assists you in catching every wonderful moment from a birds-eye perspective. The camera angle can be adjusted remotely up to 90 degrees. Combined with the upgraded hover system and optical flow positioning technology, the camera drone is more stable when shooting. You can enjoy a real-time panoramic view, and share them on your social media with ease.\n【Multiple Functions Drone】: Based on the newest upgraded chip on the market, our drone has multiple interesting functions. Such as 3D flip, headless mode, trajectory flight, gravity control, auto-follow function, 3 speeds mode, one key takeoff/landing, gesture photo, and even VR! Whether you're a beginner or a skilled player, our drone promises an enjoyable flying adventure. (Some functions should be controlled by the app.) It is also a great gift for birthdays and holidays.\n【Long Battery Life & Cool Remote Control】: With two rechargeable drone batteries, this kid's drone extends the flight time to approximately 25-30 minutes, providing a worry-free flying experience. Features with over-current protection and an emergency stop to ensure a safe and reliable flight. The Controller is so cool and gives you a familiar pleasure like dominating the game.\n【APP & After Sales Guarantee】The APP name is ''RADXFLY'', after downloading, open the mobile phone's wifi list, look for the wifi starting with ''RADXFLY_X-28_XXXXXX'', and connect directly. (Note: there might be wind interference when using outdoors) If the drone/remote control/APP has any issues during flight, do not hesitate to contact the seller. Against product problems, we'll provide 24-hour technical support, quality warranty, and money-back service.",
+      "price": 4999,
+      "isFeatured": false,
+      "rating": 4.8,
+      "slug": "drone-x-pro-limitless-4s-camera-drone-for-adults",
+      "category": {
+        "id": "cameras-drones"
+      }
+    },
+    {
+      "id": "39",
+      "name": "Insta360 X4 Get-Set Bundle - 8K Waterproof 360 Action Camera, 4K Wide-Angle Video, Invisible Selfie Stick, Removable Lens Guards, 135 Min Battery Life, AI Editing, Stabilization",
+      "summary": "\\nMedia Type\\tMicro SD Card\\nConnectivity Technology\\tUSB\\nBrand\\tInsta360\\nItem Weight\\t203 Grams\\nScreen Size\\t2.5 Inches",
+      "description": "IMMERSIVE 360 VIDEO - The 8K era is here. Insta360 X4 delivers 360° video in stunning 8K or 5.7K60fps! Use Active HDR to keep shots color accurate too, even in action scenarios.\nSIMPLE, EASY REFRAMING - With Insta360 X4, get out there and shoot, not having to worry about lining up a shot. Shoot first, then reframe easily after, all in the AI-powered Insta360 app.\nINVISIBLE SELFIE STICK - The signature third-person Insta360 shot, a specialty of 360 cameras. Immerse your viewers in obstruction-free 360° video, just like you're using a drone or as if you have your own film crew.\n4K & 170° ULTRA-WIDE POV - X4 can also be used as a wide-angle 4K action camera at a whopping 4K60fps, or get super wide views with the incredible 170° MaxView at 4K30fps.\nULTRA STABLE FOOTAGE - FlowState Stabilization and 360° Horizon Lock deliver smooth, level shots, no matter how intense the action is.\nSMARTER, RUGGED BUILD - X4 withstands bumps and hardcore action like a pro. The lens guards are also upgraded, now easier to apply and remove on the go.\nCOLD RESISTANT & WATERPROOF - X4 can handle temperatures as low as -4ºF (-20ºC) with ease. You can also take X4 down to 33ft (10m) without a dive case or 164ft (60m) with the Invisible Dive Case.\nIMPROVED 2290MAH BATTERY, FAST CHARGING - Compared to Insta360 X3, X4 offers 67% longer run time. Capture up to 135 minutes on one charge, with fast charging to get back out there faster than ever.\n2.5'' GORILLA GLASS TOUCHSCREEN - X4 is equipped with an ultra bright 2.5'' touchscreen with strong Corning Gorilla Glass. Rock solid protection that's easy to use and control.\nIN THE BOX - 1x Insta360 X4, 1x Standard Lens Guards, 1x 114cm Invisible Selfie Stick, 1x Lens Cap and 1x 256GB microSD Card.",
+      "price": 56000,
+      "isFeatured": true,
+      "rating": 3.0,
+      "slug": "insta360-x4-get-set-bundle",
+      "category": {
+        "id": "cameras-drones"
+      }
+    },
+    {
+      "id": "40",
+      "name": "Canon EOS Rebel T7 DSLR Camera with 18-55mm Lens | Built-in Wi-Fi | 24.1 MP CMOS Sensor | DIGIC 4+ Image Processor and Full HD Videos",
+      "summary": "Brand\tCanon\nModel Name\tEOS REBEL T7 18-55mm f/3.5-5.6 IS II Kit\nPhoto Sensor Size\tAPS-H\nImage Stabilization\ttrue\nMax Shutter Speed\t30 seconds\nMin Shutter Speed\t1/4000 seconds\nMetering Description\taverage,center-weighted,multi-zone,partial,spot\nExposure Control Type\tManual\nForm Factor\tDSLR\nEffective Still Resolution\t24.1 MP",
+      "description": "24.1 Megapixel CMOS (APS-C) sensor with is 100–6400 (H: 12800)\nBuilt-in Wi-Fi and NFC technology\n9-Point AF system and AI Servo AF\nOptical Viewfinder with approx 95% viewing coverage\nUse the EOS Utility Webcam Beta Software (Mac and Windows) to turn your compatible Canon camera into a high-quality webcam. Compatible Lenses- Canon EF Lenses (including EF-S lenses, excluding EF-M lenses)",
+      "price": 47900,
+      "isFeatured": true,
+      "rating": 4.7,
+      "slug": "canon-eos-rebel-t7-dslr-camera",
+      "category": {
+        "id": "cameras-drones"
+      }
+    },
+    {
+      "id": "41",
+      "name": "blurams Security Camera, 2K Indoor Camera 360° Pet Camera for Home Security w/Motion Tracking, Phone App, 2-Way Audio, IR Night Vision, Siren, Works with Alexa & Google Assistant(2.4GHz ONLY)",
+      "summary": "\\nRecommended Uses For Product\\tPet Monitoring, Baby Monitoring, Indoor Security\\nBrand\\tblurams\\nModel Name\\tPTZ Dome Security Camera\\nConnectivity Technology\\tWi-Fi\\nSpecial Feature\\t2 Way Audio,HD Resolution,Night Vision,Motion Sensor,Pan & Tilt",
+      "description": "360°Coverage with 2K Resolution - blurams security camera automatically tracks the motion if detect motion. Features in IR-CUT function to capture crisp videos and photos from the day to night, even in the dim condition. Turn on privacy mode to protect your privacy.\nSmart AI Detection & Instant Alerts - Receive instant alerts on your phone if human, motion or abnormal sound detected in your house. Automatically record a 10-15 seconds alert video to the cloud and it will be saved for 24 hours (no subscription or monthly fees required).\nSmart Integration - Use your simple voice command to view blurams baby monitor live stream on Alexa or Google Assistant device with a screen or on your phone or tablet. Works with IFTTT lets you link just about any set of smart devices so they can work together, make your home more relaxing.\nEnhanced blurams App - Live viewing 4 dog cameras simultaneously on App or official web portal. Share your camera with unlimited family members. Two-way audio allows you to receive and transmit audio from anywhere at any time. Works with 2.4GHz Wi-Fi networks only (does not support 5GHz Wi-Fi).\nOptional Cloud & Local Storage - 24/7 CVR enables the indoor security camera to keep a nonstop recording in the cloud, avoid the risk of losing video footage from a microSD card. According to the time, events type or the camera name’s to search the specific event quickly. Supports up to 128GB SD card(buy separately).",
+      "price": 3499,
+      "isFeatured": false,
+      "rating": 4.2,
+      "slug": "blurams-security-camera",
+      "category": {
+        "id": "cameras-drones"
+      }
+    }
+  ],
+  "images": [
+    {
+      "url": "https://m.media-amazon.com/images/I/615NBdTLP6L._AC_SL1500_.jpg",
+      "alt": "Pico 4 128GB",
+      "product": {
+        "id": "1"
+      }
+    },
+    {
+      "url": "https://m.media-amazon.com/images/I/615NBdTLP6L._AC_SL1500_.jpg",
+      "alt": "Pico 4 256GB",
+      "product": {
+        "id": "2"
+      }
+    },
+    {
+      "url": "https://m.media-amazon.com/images/I/61KC7rKQFpL._SL1500_.jpg",
+      "alt": "Meta Quest 3 128GB",
+      "product": {
+        "id": "3"
+      }
+    },
+    {
+      "url": "https://m.media-amazon.com/images/I/61KC7rKQFpL._SL1500_.jpg",
+      "alt": "Meta Quest 3 256GB",
+      "product": {
+        "id": "4"
+      }
+    },
+    {
+      "url": "https://m.media-amazon.com/images/I/61GhF+JUXGL._AC_SL1500_.jpg",
+      "alt": "Meta Quest 2 128GB",
+      "product": {
+        "id": "5"
+      }
+    },
+    {
+      "url": "https://m.media-amazon.com/images/I/61GhF+JUXGL._AC_SL1500_.jpg",
+      "alt": "Meta Quest 2 256GB",
+      "product": {
+        "id": "6"
+      }
+    },
+    {
+      "url": "https://m.media-amazon.com/images/I/71cB2K-NGcL._AC_SL1500_.jpg",
+      "alt": "Dell OptiPlex Micro 7010 Desktop Computer",
+      "product": {
+        "id": "7"
+      }
+    },
+    {
+      "url": "https://m.media-amazon.com/images/I/61INtCQzv2L._AC_SL1000_.jpg",
+      "alt": "Skytech Gaming Nebula Gaming PC Desktop – Intel Core i5 13400F 2.5 GHz, NVIDIA RTX 4060, 1TB NVME SSD, 16GB DDR4 RAM 3200, 600W Gold PSU, 11AC Wi-Fi, Windows 11 Home 64-bit,Black",
+      "product": {
+        "id": "8"
+      }
+    },
+    {
+      "url": "https://m.media-amazon.com/images/I/612TYxTQW1L._AC_SL1500_.jpg",
+      "alt": "Android Tablet, 10 inch Tablets, 2GB+32GB Computer Tablet Support 512GB Expand, 2MP + 8MP Camera, IPS Screen, WiFi, Bluetooth, 6000mAh, Google GMS Certified Tableta Blue",
+      "product": {
+        "id": "9"
+      }
+    },
+    {
+      "url": "https://m.media-amazon.com/images/I/71Wti-9hbgL._AC_SL1500_.jpg",
+      "alt": "Windows 11 Laptop Computer, 8GB RAM 128GB ROM, Intel Celeron Quad-Core Processors, 10' Netbook Computer with WiFi, Webcam and Bluetooth, Mini Laptop with Bag, Mouse, Headphone and Mouse Pad",
+      "product": {
+        "id": "10"
+      }
+    },
+    {
+      "url": "https://m.media-amazon.com/images/I/711+0tgn+6L._AC_SY300_SX300_.jpg",
+      "alt": "Acer Nitro 17 Gaming Laptop AMD Ryzen 7 7840HS Octa-Core CPU 17.3' FHD 165Hz IPS Display NVIDIA GeForce RTX 4050 16GB DDR5 1TB SSD Wi-Fi 6E RGB Backlit KB AN17-41-R6L9",
+      "product": {
+        "id": "11"
+      }
+    },
+    {
+      "url": "https://m.media-amazon.com/images/I/51WbPcPCM2L._AC_SL1000_.jpg",
+      "alt": "16GB DDR4 3200MHz PC4-25600 CL22 SODIMM 1.2V 260-Pin Non-ECC SODIMM Laptop Notebook RAM Memory Module",
+      "product": {
+        "id": "12"
+      }
+    },
+    {
+      "url": "https://m.media-amazon.com/images/I/51HqC0rU9HL._AC_SL1500_.jpg",
+      "alt": "AMD Ryzen 7 7800X3D 8-Core, 16-Thread Desktop Processor",
+      "product": {
+        "id": "13"
+      }
+    },
+    {
+      "url": "https://m.media-amazon.com/images/I/71tduSp8ooL._AC_SL1500_.jpg",
+      "alt": "MSI Gaming GeForce RTX 3060 12GB 15 Gbps GDRR6 192-Bit HDMI/DP PCIe 4 Torx Twin Fan Ampere OC Graphics Card",
+      "product": {
+        "id": "14"
+      }
+    },
+    {
+      "url": "https://m.media-amazon.com/images/I/612oDqQGkaL._AC_SL1000_.jpg",
+      "alt": "PNY GeForce RTX™ 4060 8GB XLR8 Gaming Verto RGB Triple Fan Graphics Card DLSS 3",
+      "product": {
+        "id": "15"
+      }
+    },
+    {
+      "url": "https://m.media-amazon.com/images/I/61MEp5HIdBL._AC_SL1500_.jpg",
+      "alt": "SAMSUNG Galaxy A54 5G A Series Cell Phone, Unlocked Android Smartphone, 128GB, 6.4” Fluid Display Screen, Pro Grade Camera, Long Battery Life, Refined Design, US Version, 2023, Awesome Black",
+      "product": {
+        "id": "16"
+      }
+    },
+    {
+      "url": "https://m.media-amazon.com/images/I/61LyIe34PVL._AC_SL1500_.jpg",
+      "alt": "SAMSUNG Galaxy Z Fold5 AI Phone, 512GB Unlocked Android Smartphone, Big 7.6” Screen for Streaming, Gaming, Dual App View, One-Hand Control, Hands-Free Use, US Version, 2023, Icy Blue",
+      "product": {
+        "id": "17"
+      }
+    },
+    {
+      "url": "https://m.media-amazon.com/images/I/811HsP3uZ6L._AC_SL1500_.jpg",
+      "alt": "Apple iPhone 15 Pro (128 GB)",
+      "product": {
+        "id": "18"
+      }
+    },
+    {
+      "url": "https://m.media-amazon.com/images/I/61AwGDDZd3L._AC_SL1500_.jpg",
+      "alt": "Apple iPhone 13 Pro",
+      "product": {
+        "id": "19"
+      }
+    },
+    {
+      "url": "https://m.media-amazon.com/images/I/71b4bNCd+WL._AC_SL1500_.jpg",
+      "alt": "Phone Gimbal Stabilizer for iPhone 15 Pro Max Android Phones with Extension Rod 3-Axis Phone Gimbal Stabilizer with Follow Focus for Vlogging TikTok YouTube(Smart XE Combo1)",
+      "product": {
+        "id": "20"
+      }
+    },
+    {
+      "url": "https://m.media-amazon.com/images/I/81APVcnj-EL._SL1500_.jpg",
+      "alt": "Turtle Beach Recon 50 Xbox Gaming Headset for Xbox Series X/ S, Xbox One, PS5, PS4, PlayStation, Nintendo Switch, Mobile & PC with 3.5mm - Removable Mic, 40mm Speakers - Black",
+      "product": {
+        "id": "21"
+      }
+    },
+    {
+      "url": "https://m.media-amazon.com/images/I/61uQKdWCfAL._SL1500_.jpg",
+      "alt": "PlayStation DualSense Wireless Controller",
+      "product": {
+        "id": "22"
+      }
+    },
+    {
+      "url": "https://m.media-amazon.com/images/I/71rWPpdhwgL._SL1500_.jpg",
+      "alt": "PlayStation 5 Console - Marvel’s Spider-Man 2 Bundle (slim)",
+      "product": {
+        "id": "23"
+      }
+    },
+    {
+      "url": "https://m.media-amazon.com/images/I/61LyJxQ7y5L._SL1264_.jpg",
+      "alt": "Star Wars Jedi: Survivor - PlayStation 5",
+      "product": {
+        "id": "24"
+      }
+    },
+    {
+      "url": "https://m.media-amazon.com/images/I/61IwZwlTopL._AC_SL1500_.jpg",
+      "alt": "Logitech G29 Driving Force Racing Wheel and Floor Pedals, Real Force Feedback, Stainless Steel Paddle Shifters, Leather Steering Wheel Cover for PS5, PS4, PC, Mac - Black",
+      "product": {
+        "id": "25"
+      }
+    },
+    {
+      "url": "https://m.media-amazon.com/images/I/711LbTnKy7L._SL1500_.jpg",
+      "alt": "Hogwarts Legacy - PlayStation 5 | English | EU Import Region Free",
+      "product": {
+        "id": "26"
+      }
+    },
+    {
+      "url": "https://m.media-amazon.com/images/I/618WRtXysiL._AC_SL1500_.jpg",
+      "alt": "CoBak case for Sony Playstation Portal, Silicone Shock-Absorption Anti-Fingerprint Scratch Resistant Cover Case for Playstation Portal - Black",
+      "product": {
+        "id": "27"
+      }
+    },
+    {
+      "url": "https://m.media-amazon.com/images/I/61mpMH5TzkL._AC_SL1500_.jpg",
+      "alt": "Logitech G502 HERO High Performance Wired Gaming Mouse, HERO 25K Sensor, 25,600 DPI, RGB, Adjustable Weights, 11 Programmable Buttons, On-Board Memory, PC / Mac",
+      "product": {
+        "id": "28"
+      }
+    },
+    {
+      "url": "https://m.media-amazon.com/images/I/61+WqWvgWrL._AC_SL1100_.jpg",
+      "alt": "STATSports APEX Athlete Series GPS Soccer Activity Tracker Stat Sports Football Performance Vest Wearable Technology",
+      "product": {
+        "id": "29"
+      }
+    },
+    {
+      "url": "https://m.media-amazon.com/images/I/61gFrSlmofL._AC_SL1500_.jpg",
+      "alt": "Fitbit Inspire 3 Health &-Fitness-Tracker with Stress Management, Workout Intensity, Sleep Tracking, 24/7 Heart Rate and more, Midnight Zen/Black One Size (S & L Bands Included)",
+      "product": {
+        "id": "30"
+      }
+    },
+    {
+      "url": "https://m.media-amazon.com/images/I/610Jjd8Uy7L._AC_SL1500_.jpg",
+      "alt": "𝟐𝟎𝟐𝟒 𝐔𝐩𝐠𝐫𝐚𝐝𝐞𝐝 for Apple Watch Charger Magnetic Fast Charging Cable [Portable] Magnetic Wireless Charging Compatible with iWatch Series Ultra/9/8/7/6/SE/SE2/5/4/3/2-[3.3FT] White",
+      "product": {
+        "id": "31"
+      }
+    },
+    {
+      "url": "https://m.media-amazon.com/images/I/615NBdTLP6L._AC_SL1500_.jpg",
+      "alt": "Plantronics - Voyager 5200 (Poly) - Bluetooth Over-the-Ear (Monaural) Headset - Compatible to connect to Cell Phones - Noise Canceling",
+      "product": {
+        "id": "32"
+      }
+    },
+    {
+      "url": "https://m.media-amazon.com/images/I/51Nvb4Dvu+L._AC_SL1000_.jpg",
+      "alt": "New bee Bluetooth Earpiece V5.0 Wireless Handsfree Headset with Microphone 24 Hrs Driving Headset 60 Days Standby Time for iPhone Android Samsung Laptop Trucker Driver (Black)",
+      "product": {
+        "id": "33"
+      }
+    },
+    {
+      "url": "https://m.media-amazon.com/images/I/61MBP8nTBoL._AC_SL1500_.jpg",
+      "alt": "Lucyd - Bluetooth Audio Glasses - Women Smart Glasses w/UV Protection - Open Ear, Noise Canceling Wireless Mics, Quadrasonic Sound Speaker, Voice Assistants Compatible – Starlyte",
+      "product": {
+        "id": "34"
+      }
+    },
+    {
+      "url": "https://m.media-amazon.com/images/I/51KA0bQmPDL._AC_SL1500_.jpg",
+      "alt": "DJI Mini 2 SE, Lightweight Mini Drone with QHD Video, 10km Max Video Transmission, 31-Min Flight Time, Under 249 g, Auto Return to Home, 3-Axis Gimbal Drone with EIS, Drone with Camera for Beginners",
+      "product": {
+        "id": "35"
+      }
+    },
+    {
+      "url": "https://m.media-amazon.com/images/I/51+tLzdYBAL._AC_SL1500_.jpg",
+      "alt": "DJI Mini 3, Lightweight Mini Drone with 4K HDR Video, 38-min Flight Time, True Vertical Shooting, Return to Home, up to 10km Video Transmission, Drone with Camera for Beginners",
+      "product": {
+        "id": "36"
+      }
+    },
+    {
+      "url": "https://m.media-amazon.com/images/I/61fIb7v3CZL._AC_SL1000_.jpg",
+      "alt": "Drone X Pro LIMITLESS 4S Camera Drone for Adults - GPS 4K UHD Drones with Obstacle Avoidance - 3-Axis Gimbal - Auto Return and Follow Mode - Long Flight Time & Control Range - Live Video",
+      "product": {
+        "id": "37"
+      }
+    },
+    {
+      "url": "https://m.media-amazon.com/images/I/71s8FuNnfpL._AC_SL1500_.jpg",
+      "alt": "Mini Drone with Camera - 1080P HD Foldable Drone with Stable Hover, Gravity Control, Auto-Follow, Trajectory Flight, 90° Adjustable Lens, One Key Take Off, 2 Batteries, Drones for Adults Kids",
+      "product": {
+        "id": "38"
+      }
+    },
+    {
+      "url": "https://m.media-amazon.com/images/I/61cJR2RKsgL._AC_SL1500_.jpg",
+      "alt": "Insta360 X4 Get-Set Bundle - 8K Waterproof 360 Action Camera, 4K Wide-Angle Video, Invisible Selfie Stick, Removable Lens Guards, 135 Min Battery Life, AI Editing, Stabilization",
+      "product": {
+        "id": "39"
+      }
+    },
+    {
+      "url": "https://m.media-amazon.com/images/I/71Is-Zv6A0L._AC_SL1500_.jpg",
+      "alt": "Canon EOS Rebel T7 DSLR Camera with 18-55mm Lens | Built-in Wi-Fi | 24.1 MP CMOS Sensor | DIGIC 4+ Image Processor and Full HD Videos",
+      "product": {
+        "id": "40"
+      }
+    },
+    {
+      "url": "https://m.media-amazon.com/images/I/61dTJ44uXJL._AC_SL1500_.jpg",
+      "alt": "blurams Security Camera, 2K Indoor Camera 360° Pet Camera for Home Security w/Motion Tracking, Phone App, 2-Way Audio, IR Night Vision, Siren, Works with Alexa & Google Assistant(2.4GHz ONLY)",
+      "product": {
+        "id": "41"
+      }
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "firstName": "John",
+      "lastName": "Doe",
+      "email": "user@example.com",
+      "phoneNumber": "123456789",
+      "country": "Poland",
+      "city": "Legnica",
+      "streetAddress": "Some Street 1/2",
+      "postCode": "59-220",
+      "password": "$argon2id$v=19$m=65536,t=3,p=4$oN4oOpMsfK/FPrndTE2ZdQ$ZMjr/oODV5wjzGOCpsGpI8aPweKtfnDHbiSIZzDbT2o"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "1",
+      "title": "Impressive VR Experience",
+      "content": "The Pico 4 128GB offers a seamless and immersive VR experience with its high-resolution display and comfortable design. Great value for the price.",
+      "rating": 5,
+      "product": {
+        "id": "1"
+      },
+      "user": {
+        "id": "1"
+      }
+    },
+    {
+      "id": "2",
+      "title": "Enhanced VR Storage",
+      "content": "The Pico 4 256GB takes virtual reality to the next level with ample storage for all my favorite games and apps. The visuals are crisp, and the headset is comfortable for long sessions.",
+      "rating": 5,
+      "product": {
+        "id": "2"
+      },
+      "user": {
+        "id": "1"
+      }
+    },
+    {
+      "id": "3",
+      "title": "Next-Level Gaming",
+      "content": "The Meta Quest 3 128GB takes virtual reality gaming to new heights with its advanced features and intuitive controls. A must-have for VR enthusiasts.",
+      "rating": 5,
+      "product": {
+        "id": "3"
+      },
+      "user": {
+        "id": "1"
+      }
+    },
+    {
+      "id": "4",
+      "title": "Top-Tier VR Experience",
+      "content": "Meta Quest 3 256GB offers an unparalleled VR experience with its high-capacity storage and improved performance. The graphics and tracking are incredibly smooth.",
+      "rating": 5,
+      "product": {
+        "id": "4"
+      },
+      "user": {
+        "id": "1"
+      }
+    },
+    {
+      "id": "5",
+      "title": "Reliable VR Entry Point",
+      "content": "Meta Quest 2 128GB remains a solid choice for those new to VR. It's user-friendly, has a great library of content, and provides a quality VR experience at an affordable price.",
+      "rating": 5,
+      "product": {
+        "id": "5"
+      },
+      "user": {
+        "id": "1"
+      }
+    },
+    {
+      "id": "6",
+      "title": "Ample VR Space",
+      "content": "The Meta Quest 2 256GB is perfect for VR enthusiasts with a large collection of games. The extra storage means I never have to worry about running out of space.",
+      "rating": 5,
+      "product": {
+        "id": "6"
+      },
+      "user": {
+        "id": "1"
+      }
+    },
+    {
+      "id": "7",
+      "title": "Solid Performance Desktop",
+      "content": "The Dell OptiPlex Micro 7010 Desktop Computer is a reliable workhorse that offers consistent performance for everyday tasks. A great choice for office use.",
+      "rating": 4,
+      "product": {
+        "id": "7"
+      },
+      "user": {
+        "id": "1"
+      }
+    },
+    {
+      "id": "8",
+      "title": "Powerful Gaming Rig",
+      "content": "Skytech Gaming Nebula Gaming PC Desktop is a beast when it comes to gaming. The RTX 4060 and the latest Intel Core i5 make it a top-notch choice for gamers.",
+      "rating": 5,
+      "product": {
+        "id": "8"
+      },
+      "user": {
+        "id": "1"
+      }
+    },
+    {
+      "id": "9",
+      "title": "Affordable Android Tablet",
+      "content": "This Android Tablet is budget-friendly and offers decent performance for casual use. The screen quality and battery life are impressive for its price range.",
+      "rating": 4,
+      "product": {
+        "id": "9"
+      },
+      "user": {
+        "id": "1"
+      }
+    },
+    {
+      "id": "10",
+      "title": "Compact and Efficient",
+      "content": "The Windows 11 Laptop Computer is compact, efficient, and comes with all necessary accessories. It's perfect for students and professionals on the go.",
+      "rating": 4,
+      "product": {
+        "id": "10"
+      },
+      "user": {
+        "id": "1"
+      }
+    },
+    {
+      "id": "11",
+      "title": "Gaming Laptop Excellence",
+      "content": "The Acer Nitro 17 Gaming Laptop with its AMD Ryzen 7 processor and RTX 4050 graphics card delivers an exceptional gaming experience. The 165Hz display is a game-changer.",
+      "rating": 5,
+      "product": {
+        "id": "11"
+      },
+      "user": {
+        "id": "1"
+      }
+    },
+    {
+      "id": "12",
+      "title": "Reliable RAM Upgrade",
+      "content": "The 16GB DDR4 3200MHz RAM module provided a noticeable performance boost to my laptop. Installation was a breeze and the system stability is excellent.",
+      "rating": 5,
+      "product": {
+        "id": "12"
+      },
+      "user": {
+        "id": "1"
+      }
+    },
+    {
+      "id": "13",
+      "title": "Powerful Processor",
+      "content": "The AMD Ryzen 7 7800X3D processor is a powerhouse for both gaming and productivity. The 3D V-Cache technology really sets it apart from the competition.",
+      "rating": 5,
+      "product": {
+        "id": "13"
+      },
+      "user": {
+        "id": "1"
+      }
+    },
+    {
+      "id": "14",
+      "title": "Stunning Graphics Performance",
+      "content": "The MSI Gaming GeForce RTX 3060 graphics card has transformed my PC gaming setup. The visuals are stunning, and the card runs cool and quiet.",
+      "rating": 5,
+      "product": {
+        "id": "14"
+      },
+      "user": {
+        "id": "1"
+      }
+    },
+    {
+      "id": "15",
+      "title": "Sleek and Stylish Smartphone",
+      "content": "The SAMSUNG Galaxy A54 5G combines style with functionality. The camera quality is superb, and the battery life lasts all day. It's a great choice for anyone looking for a reliable mid-range phone.",
+      "rating": 5,
+      "product": {
+        "id": "15"
+      },
+      "user": {
+        "id": "1"
+      }
+    },
+    {
+      "id": "16",
+      "title": "Futuristic Foldable Phone",
+      "content": "The SAMSUNG Galaxy Z Fold5 AI Phone is a marvel of technology. Its foldable screen is not just a gimmick but a real game-changer for multitasking and media consumption.",
+      "rating": 5,
+      "product": {
+        "id": "16"
+      },
+      "user": {
+        "id": "1"
+      }
+    },
+    {
+      "id": "17",
+      "title": "Pro Photography Partner",
+      "content": "Apple iPhone 15 Pro's camera system is a photographer's dream. The image quality is outstanding, and the ProMotion display makes everything look incredibly smooth.",
+      "rating": 5,
+      "product": {
+        "id": "17"
+      },
+      "user": {
+        "id": "1"
+      }
+    },
+    {
+      "id": "20",
+      "title": "Stable and Smooth",
+      "content": "The Phone Gimbal Stabilizer is a must-have for any mobile videographer. It's easy to use and helps produce professional-looking, stable footage with ease.",
+      "rating": 5,
+      "product": {
+        "id": "20"
+      },
+      "user": {
+        "id": "1"
+      }
+    },
+    {
+      "id": "21",
+      "title": "Immersive Gaming Audio",
+      "content": "The Turtle Beach Recon 50 Xbox Gaming Headset provides an immersive audio experience that enhances gaming sessions. The comfort and sound quality are top-notch.",
+      "rating": 5,
+      "product": {
+        "id": "21"
+      },
+      "user": {
+        "id": "1"
+      }
+    },
+    {
+      "id": "22",
+      "title": "Precision Gaming Control",
+      "content": "The PlayStation DualSense Wireless Controller offers precise control and immersive haptic feedback that enhances the gaming experience on the PS5.",
+      "rating": 5,
+      "product": {
+        "id": "22"
+      },
+      "user": {
+        "id": "1"
+      }
+    },
+    {
+      "id": "23",
+      "title": "Epic Spider-Man Adventure",
+      "content": "The PlayStation 5 Console - Marvel’s Spider-Man 2 Bundle provides an epic gaming experience with stunning graphics and engaging gameplay. A must-have for fans of the franchise.",
+      "rating": 5,
+      "product": {
+        "id": "23"
+      },
+      "user": {
+        "id": "1"
+      }
+    },
+    {
+      "id": "24",
+      "title": "Jedi Gaming at its Best",
+      "content": "Star Wars Jedi: Survivor for PlayStation 5 is an incredible sequel with improved mechanics, deeper storytelling, and breathtaking visuals.",
+      "rating": 5,
+      "product": {
+        "id": "24"
+      },
+      "user": {
+        "id": "1"
+      }
+    },
+    {
+      "id": "25",
+      "title": "Realistic Racing Experience",
+      "content": "The Logitech G29 Driving Force Racing Wheel provides a realistic and immersive racing experience. The build quality and force feedback are exceptional.",
+      "rating": 5,
+      "product": {
+        "id": "25"
+      },
+      "user": {
+        "id": "1"
+      }
+    },
+    {
+      "id": "26",
+      "title": "Magical Gaming Adventure",
+      "content": "Hogwarts Legacy for PlayStation 5 is an enchanting journey through the wizarding world. The graphics are stunning, and the gameplay is both fun and engaging.",
+      "rating": 5,
+      "product": {
+        "id": "26"
+      },
+      "user": {
+        "id": "1"
+      }
+    },
+    {
+      "id": "28",
+      "title": "High-Performance Gaming Mouse",
+      "content": "The Logitech G502 HERO Gaming Mouse offers exceptional precision and customizable features, making it a top choice for gamers seeking performance and comfort.",
+      "rating": 5,
+      "product": {
+        "id": "28"
+      },
+      "user": {
+        "id": "1"
+      }
+    },
+    {
+      "id": "29",
+      "title": "Advanced Soccer Tracker",
+      "content": "The STATSports APEX Athlete Series GPS Tracker is a game-changer for soccer enthusiasts looking to track and improve their performance with precision.",
+      "rating": 5,
+      "product": {
+        "id": "29"
+      },
+      "user": {
+        "id": "1"
+      }
+    },
+    {
+      "id": "31",
+      "title": "Efficient Apple Watch Charger",
+      "content": "The 2024 Upgraded Apple Watch Charger provides fast and reliable charging. Its portability and magnetic design make it a convenient accessory for Apple Watch users.",
+      "rating": 5,
+      "product": {
+        "id": "31"
+      },
+      "user": {
+        "id": "1"
+      }
+    },
+    {
+      "id": "32",
+      "title": "Clear Communication Headset",
+      "content": "The Plantronics Voyager 5200 Bluetooth Headset offers clear audio and noise-canceling features that ensure seamless communication in any environment.",
+      "rating": 5,
+      "product": {
+        "id": "32"
+      },
+      "user": {
+        "id": "1"
+      }
+    },
+    {
+      "id": "33",
+      "title": "Versatile Bluetooth Earpiece",
+      "content": "The New bee Bluetooth Earpiece V5.0 offers remarkable clarity and comfort. Its long battery life and lightweight design make it ideal for extended use.",
+      "rating": 4,
+      "product": {
+        "id": "33"
+      },
+      "user": {
+        "id": "1"
+      }
+    },
+    {
+      "id": "34",
+      "title": "Stylish Audio Glasses",
+      "content": "Lucyd's Bluetooth Audio Glasses are a perfect blend of fashion and function. The open-ear design and voice assistant compatibility are impressive features.",
+      "rating": 4,
+      "product": {
+        "id": "34"
+      },
+      "user": {
+        "id": "1"
+      }
+    },
+    {
+      "id": "35",
+      "title": "Compact Drone Powerhouse",
+      "content": "The DJI Mini 2 SE is an excellent drone for beginners, offering great video quality and a stable flight experience in a compact size.",
+      "rating": 5,
+      "product": {
+        "id": "35"
+      },
+      "user": {
+        "id": "1"
+      }
+    },
+    {
+      "id": "36",
+      "title": "Superior Drone for Starters",
+      "content": "DJI Mini 3 is the go-to drone for new pilots. It's easy to fly, captures stunning 4K HDR videos, and has a long flight time for extended exploration.",
+      "rating": 5,
+      "product": {
+        "id": "36"
+      },
+      "user": {
+        "id": "1"
+      }
+    },
+    {
+      "id": "37",
+      "title": "Advanced Obstacle Avoidance",
+      "content": "Drone X Pro LIMITLESS 4S is a top-tier drone with advanced features like obstacle avoidance and a high-quality camera, making it safe and fun to fly.",
+      "rating": 5,
+      "product": {
+        "id": "37"
+      },
+      "user": {
+        "id": "1"
+      }
+    },
+    {
+      "id": "38",
+      "title": "Fun and Easy to Fly",
+      "content": "The Mini Drone with Camera is perfect for beginners. It's easy to control, takes decent photos, and the foldable design makes it incredibly portable.",
+      "rating": 4,
+      "product": {
+        "id": "38"
+      },
+      "user": {
+        "id": "1"
+      }
+    },
+    {
+      "id": "39",
+      "title": "Innovative 360 Camera",
+      "content": "The Insta360 X4 Get-Set Bundle is a versatile camera that captures everything around you in stunning detail. The editing software is also very user-friendly.",
+      "rating": 5,
+      "product": {
+        "id": "39"
+      },
+      "user": {
+        "id": "1"
+      }
+    },
+    {
+      "id": "40",
+      "title": "Great Entry-Level DSLR",
+      "content": "The Canon EOS Rebel T7 is a fantastic choice for those new to DSLR photography. It offers great image quality and ease of use at an affordable price.",
+      "rating": 4,
+      "product": {
+        "id": "40"
+      },
+      "user": {
+        "id": "1"
+      }
+    },
+    {
+      "id": "41",
+      "title": "Reliable Home Security",
+      "content": "The blurams Security Camera provides peace of mind with its clear 2K video, motion tracking, and compatibility with smart home systems.",
+      "rating": 5,
+      "product": {
+        "id": "41"
+      },
+      "user": {
+        "id": "1"
+      }
+    }
+  ],
+  "orders": [
+    {
+      "id": "1b26f398-debe-46dd-a473-a7570fd0a4e2",
+      "paymentIntentId": "pi_3PRCSPCiQ4WVfoFr1vzkatyL",
+      "status": "Received",
+      "deliveryPrice": 0,
+      "totalPrice": 115240,
+      "created_at": "2024-06-13T12:09:13.763Z",
+      "updated_at": "2024-06-13T12:09:13.763Z",
+      "user": {
+        "id": "1"
+      }
+    }
+  ],
+  "orderItems": [
+    {
+      "id": "499ff1da-1fa4-44de-a08e-08afc291d7e2",
+      "quantity": 1,
+      "created_at": "2024-06-13T12:09:13.809Z",
+      "updated_at": "2024-06-13T12:09:13.809Z",
+      "product": {
+        "id": "24"
+      },
+      "order": {
+        "id": "1b26f398-debe-46dd-a473-a7570fd0a4e2"
+      }
+    },
+    {
+      "id": "53b5c859-4c57-4f37-969d-f4c50aaafc1e",
+      "quantity": 1,
+      "created_at": "2024-06-13T12:09:13.805Z",
+      "updated_at": "2024-06-13T12:09:13.805Z",
+      "product": {
+        "id": "23"
+      },
+      "order": {
+        "id": "1b26f398-debe-46dd-a473-a7570fd0a4e2"
+      }
+    },
+    {
+      "id": "ac4ca789-19da-49c3-b759-a46ae09473b2",
+      "quantity": 1,
+      "created_at": "2024-06-13T12:09:13.809Z",
+      "updated_at": "2024-06-13T12:09:13.809Z",
+      "product": {
+        "id": "21"
+      },
+      "order": {
+        "id": "1b26f398-debe-46dd-a473-a7570fd0a4e2"
+      }
+    },
+    {
+      "id": "ef78fab0-fc3c-430c-9449-10af0646b1b7",
+      "quantity": 1,
+      "created_at": "2024-06-13T12:09:13.808Z",
+      "updated_at": "2024-06-13T12:09:13.808Z",
+      "product": {
+        "id": "22"
+      },
+      "order": {
+        "id": "1b26f398-debe-46dd-a473-a7570fd0a4e2"
+      }
+    },
+    {
+      "id": "fb4836ed-8405-4caa-970f-08d945c14bf0",
+      "quantity": 1,
+      "created_at": "2024-06-13T12:09:13.804Z",
+      "updated_at": "2024-06-13T12:09:13.804Z",
+      "product": {
+        "id": "4"
+      },
+      "order": {
+        "id": "1b26f398-debe-46dd-a473-a7570fd0a4e2"
+      }
+    }
+  ]
+}

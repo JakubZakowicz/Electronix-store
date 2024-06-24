@@ -11,6 +11,7 @@ import { convertPrice } from '@/src/utils/functions.utils';
 import { useAddToCart, useGetCartData } from '@/src/api/cart';
 import { notificationMessages } from '@/src/utils/notificationMessages.utils';
 import Reviews from '@/src/components/Reviews';
+import { noImageObject } from '@/src/utils/constants';
 
 interface ProductPageProps {
   params: { slug: string };
@@ -62,7 +63,9 @@ const ProductPage = ({ params }: ProductPageProps) => {
       <Grid container marginTop={10} columnSpacing={6}>
         <Grid item xl={6}>
           <Box maxWidth="730px" width="100vw">
-            <SwiperGallery images={images} />
+            <SwiperGallery
+              images={images?.length === 0 ? [noImageObject] : images}
+            />
           </Box>
         </Grid>
         <Grid item xl={6}>

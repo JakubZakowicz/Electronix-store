@@ -34,9 +34,9 @@ const SwiperGallery = ({ images }: SwiperGalleryProps) => {
         modules={[FreeMode, Navigation, Thumbs]}
         className="mySwiper2"
       >
-        {images?.map(({ id, url }) => (
+        {images?.map(({ id, url, alt }) => (
           <SwiperSlide key={id}>
-            <Image src={url} width={730} height={730} alt="VR" />
+            <Image src={url} width={730} height={730} alt={alt} />
           </SwiperSlide>
         ))}
       </Swiper>
@@ -49,9 +49,9 @@ const SwiperGallery = ({ images }: SwiperGalleryProps) => {
         modules={[FreeMode, Navigation, Thumbs]}
         className="mySwiper"
       >
-        {images?.map(({ id, url }) => (
+        {images?.map(({ id, url, alt }) => (
           <SwiperSlide key={id}>
-            <Image src={url} width={730} height={730} alt="VR" />
+            <Image src={url} width={730} height={730} alt={alt} />
           </SwiperSlide>
         ))}
       </Swiper>

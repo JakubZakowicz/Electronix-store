@@ -4,7 +4,6 @@ import SearchIcon from '@mui/icons-material/Search';
 import { pageRoutes } from '@/src/routes/pageRoutes';
 import Link from 'next/link';
 import Image from 'next/image';
-import VRHeadset from '../../images/HP_Reverb.png';
 import { useGetProducts } from '@/src/api/products';
 
 const CustomPaper = ({ children }: PaperProps) => {
@@ -33,9 +32,10 @@ const CustomPaper = ({ children }: PaperProps) => {
 
 const SearchBar = () => {
   const { data } = useGetProducts();
-  const products = data?.products?.map((product) => ({
-    name: product.name,
-    link: pageRoutes.products(product.id),
+  const products = data?.products?.map(({ id, name, images }) => ({
+    imageUrl: images[0].url,
+    name: name,
+    link: pageRoutes.products(id),
   }));
 
   return (
@@ -46,20 +46,20 @@ const SearchBar = () => {
       getOptionLabel={(option) =>
         typeof option === 'string' ? '' : option.name
       }
-      renderOption={(props, option) => (
+      renderOption={(props, { imageUrl, link, name }) => (
         <li {...props}>
           <Link
-            href={option.link}
+            href={link}
             style={{ color: 'white', textDecoration: 'none', width: '100%' }}
           >
             <Box sx={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
               <Image
-                src={VRHeadset}
+                src={imageUrl}
                 alt="Apple vision"
                 height={50}
                 width={50}
               />
-              <Box>{option.name}</Box>
+              <Box>{name}</Box>
             </Box>
           </Link>
         </li>
