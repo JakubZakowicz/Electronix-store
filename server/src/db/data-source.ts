@@ -12,6 +12,9 @@ import ProductSeeder from './seeds/product.seeder';
 import CategorySeeder from './seeds/category.seeder';
 import UserSeeder from './seeds/user.seeder';
 import ImageSeeder from './seeds/image.seeder';
+import OrderSeeder from './seeds/order.seeder';
+import OrderItemSeeder from './seeds/order-item.seeder';
+import ReviewSeeder from './seeds/review.seeder';
 
 const configService = new ConfigService();
 
@@ -24,7 +27,15 @@ export const dataSourceOptions: DataSourceOptions & SeederOptions = {
   database: configService.get<string>('DB_NAME') || 'ecommerce',
   entities: [Category, User, Product, Review, Order, OrderItem, Image],
   synchronize: true,
-  seeds: [CategorySeeder, ProductSeeder, ImageSeeder, UserSeeder],
+  seeds: [
+    CategorySeeder,
+    ProductSeeder,
+    ImageSeeder,
+    UserSeeder,
+    OrderSeeder,
+    OrderItemSeeder,
+    ReviewSeeder,
+  ],
 };
 
 export const dataSource = new DataSource(dataSourceOptions);
