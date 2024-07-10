@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { Box, Grid, Tab, Typography } from '@mui/material';
 import { TabContext, TabList, TabPanel } from '@mui/lab';
 import { toast } from 'react-toastify';
+import ReactMarkdown from 'react-markdown';
 import ProductCounter from '@/src/components/ProductCounter';
 import SwiperGallery from '@/src/components/SwiperGallery';
 import { useGetProduct } from '@/src/api/products';
@@ -84,9 +85,9 @@ const ProductPage = ({ params }: ProductPageProps) => {
             paragraph
             marginTop={5}
             marginBottom={5}
-            sx={{ lineHeight: '28px' }}
+            sx={{ whiteSpace: 'pre-wrap', lineHeight: '30px' }}
           >
-            {summary}
+            <ReactMarkdown>{summary}</ReactMarkdown>
           </Typography>
           <ProductCounter
             count={quantity}
@@ -119,7 +120,11 @@ const ProductPage = ({ params }: ProductPageProps) => {
               />
             </TabList>
           </Box>
-          <TabPanel value="1">{description}</TabPanel>
+          <TabPanel value="1">
+            <Box sx={{ whiteSpace: 'pre-wrap' }}>
+              <ReactMarkdown>{description}</ReactMarkdown>
+            </Box>
+          </TabPanel>
           <TabPanel value="2">
             {product && <Reviews product={product} />}
           </TabPanel>
