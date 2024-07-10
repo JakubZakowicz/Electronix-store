@@ -85,7 +85,7 @@ const ProductPage = ({ params }: ProductPageProps) => {
             paragraph
             marginTop={5}
             marginBottom={5}
-            sx={{ whiteSpace: 'pre-wrap' }}
+            sx={{ whiteSpace: 'pre-wrap', lineHeight: '30px' }}
           >
             <ReactMarkdown>{summary}</ReactMarkdown>
           </Typography>
