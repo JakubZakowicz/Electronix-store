@@ -866,6 +866,7 @@
       "city": "Legnica",
       "streetAddress": "Some Street 1/2",
       "postCode": "59-220",
+      "isConfirmed": true,
       "password": "$argon2id$v=19$m=65536,t=3,p=4$oN4oOpMsfK/FPrndTE2ZdQ$ZMjr/oODV5wjzGOCpsGpI8aPweKtfnDHbiSIZzDbT2o"
     }
   ],
