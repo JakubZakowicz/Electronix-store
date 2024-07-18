@@ -3,12 +3,16 @@ import { JwtService } from '@nestjs/jwt';
 import * as argon2 from 'argon2';
 import { UserService } from '../user/user.service';
 import { User } from 'src/user/user.entity';
+import { MailerService } from '@nestjs-modules/mailer';
+import { ConfigService } from '@nestjs/config';
 
 @Injectable()
 export class AuthService {
   constructor(
     private readonly userService: UserService,
     private readonly jwtService: JwtService,
+    private readonly mailerService: MailerService,
+    private readonly configService: ConfigService,
   ) {}
 
   async validateUser(email: string, password: string) {
@@ -41,10 +45,39 @@ export class AuthService {
     } else {
       const hashedPassword = await argon2.hash(password);
 
-      return this.userService.create({
+      this.userService.create({
         email,
         password: hashedPassword,
       });
+
+      return this.sendVerificationEmail(email);
+    }
+  }
+
+  async sendVerificationEmail(email: string) {
+    try {
+      const token = await this.jwtService.signAsync(
+        { user: 'id' },
+        {
+          secret: this.configService.get('JWT_SECRET'),
+          expiresIn: '1d',
+        },
+      );
+
+      const url = `http://localhost:3000/confirmation/${token}`;
+
+      await this.mailerService.sendMail({
+        to: email,
+        subject: 'Confirm Email',
+        html: `Please click this link to confirm your email: <a href="${url}">${url}</a>`,
+      });
+      return {
+        message:
+          'New account is created and verification email is sent successfully',
+      };
+    } catch (error) {
+      console.error('Error sending verification email:', error);
+      throw new Error('Failed to send verification email');
     }
   }
 }
