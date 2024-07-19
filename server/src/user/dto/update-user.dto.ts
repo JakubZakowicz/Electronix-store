@@ -12,4 +12,5 @@ export class UpdateUserDto {
   readonly city: string;
   readonly streetAddress: string;
   readonly postCode: string;
+  readonly isConfirmed: boolean;
 }

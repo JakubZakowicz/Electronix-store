@@ -69,7 +69,7 @@ export class UserService {
     return this.userRepository.save(newUser);
   }
 
-  async update(id: string, userData: UpdateUserDto) {
+  async update(id: string, userData: Partial<UpdateUserDto>) {
     const user = await this.userRepository.preload({ id, ...userData });
 
     if (!user) {
