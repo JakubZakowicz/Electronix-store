@@ -57,7 +57,7 @@ const SignInPage = () => {
             <Typography
               sx={{ color: 'red', textAlign: 'center', marginBottom: 2 }}
             >
-              Incorrect login or password!
+              {signInError.response.data.message}
             </Typography>
           )}
           <Typography></Typography>
