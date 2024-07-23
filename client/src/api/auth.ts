@@ -1,7 +1,7 @@
 import { apiRoutes } from '../routes/apiRoutes';
 import { useFetch, usePost, useUpdate } from '../utils/reactQuery.utils';
 import { pathToUrl } from '../utils/router.utils';
-import { User } from '../utils/types';
+import { EmailConfirmationResult, User } from '../utils/types';
 
 export const useSignIn = () =>
   usePost(apiRoutes.signIn, undefined, { withCredentials: true });
@@ -30,4 +30,9 @@ export const useUpdateUser = (userId?: string) =>
     {
       withCredentials: true,
     }
+  );
+
+export const useConfirmEmail = (token: string) =>
+  useFetch<EmailConfirmationResult>(
+    pathToUrl(apiRoutes.confirmEmail, { token })
   );

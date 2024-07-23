@@ -129,3 +129,7 @@ export interface OrderItem {
 export interface StripeConfig {
   publishableKey: string;
 }
+
+export interface EmailConfirmationResult {
+  message: string;
+}

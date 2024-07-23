@@ -87,7 +87,7 @@ export class AuthService {
 
       const url = `${this.configService.get(
         'CORS_ORIGIN',
-      )}/confirmation/${token}`;
+      )}/email-confirmation/${token}`;
 
       await this.mailerService.sendMail({
         to: email,
@@ -119,7 +119,7 @@ export class AuthService {
 
       if (user.isConfirmed) {
         return {
-          message: 'Email is already confirmed',
+          message: 'Email address is already confirmed!',
         };
       }
 
