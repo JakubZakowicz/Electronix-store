@@ -2,6 +2,7 @@ import {
   Body,
   Controller,
   Get,
+  Param,
   Post,
   Req,
   Res,
@@ -55,5 +56,10 @@ export class AuthController {
     res
       .clearCookie('access_token')
       .send({ message: 'User signed out successfully' });
+  }
+
+  @Get('confirmation/:token')
+  async verifyEmail(@Param('token') token: string) {
+    return this.authService.verifyEmail(token);
   }
 }

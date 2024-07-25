@@ -15,6 +15,7 @@ import { CheckoutModule } from './checkout/checkout.module';
 import { RedisModule } from './redis/redis.module';
 import { validate } from './config/env.validation';
 import { DbModule } from './db/db.module';
+import { MailModule } from './mail/mail.module';
 
 @Module({
   imports: [
@@ -31,6 +32,7 @@ import { DbModule } from './db/db.module';
     ImageModule,
     CheckoutModule,
     RedisModule,
+    MailModule,
   ],
   controllers: [AppController],
   providers: [AppService],

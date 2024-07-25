@@ -41,6 +41,9 @@ export class User {
   @Column()
   password: string;
 
+  @Column({ default: false })
+  isConfirmed: boolean;
+
   @OneToMany(() => Review, (review: Review) => review.user)
   reviews: Review[];
 
