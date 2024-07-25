@@ -87,7 +87,15 @@ const Products = ({
                       height="200"
                       alt={images[0]?.alt}
                     />
-                    <Typography fontSize="20px" margin="10px 0">
+                    <Typography
+                      sx={{
+                        fontSize: '20px',
+                        margin: '10px 0',
+                        height: '90px',
+                        overflow: 'hidden',
+                        textOverflow: 'ellipsis',
+                      }}
+                    >
                       {name}
                     </Typography>
                     <Rating
