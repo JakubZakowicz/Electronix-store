@@ -66,7 +66,7 @@ export class AuthController {
     return this.authService.verifyEmail(token);
   }
 
-  @Get('forgot-password')
+  @Post('forgot-password')
   async forgotPassword(@Body() forgotPasswordData: ForgotPasswordDto) {
     return this.authService.sendForgotPasswordEmail(forgotPasswordData.email);
   }

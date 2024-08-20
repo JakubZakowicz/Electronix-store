@@ -60,7 +60,6 @@ const SignInPage = () => {
               {signInError.response.data.message}
             </Typography>
           )}
-          <Typography></Typography>
           <form onSubmit={handleSubmit(onSubmit)}>
             <Controller
               name="email"
