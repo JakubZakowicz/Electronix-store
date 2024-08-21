@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState } from 'react';
-import Link from 'next/link';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Box, Container, Typography } from '@mui/material';
@@ -10,13 +9,12 @@ import DefaultButton from '@/src/components/DefaultButton';
 import InputField from '@/src/components/InputField';
 import { ForgotPasswordSchema } from '@/src/utils/types';
 import { forgotPasswordSchema } from '@/src/utils/validationSchemas';
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import { pageRoutes } from '@/src/routes/pageRoutes';
 import FormErrorMessage from '@/src/components/FormErrorMessage';
+import ResultMessage from '@/src/components/ResultMessage';
 
 const ForgotPasswordPage = () => {
   const [isSuccessfullMessage, setIsSuccessfullMessage] = useState(false);
-  const [resultMessage, setResultMessage] = useState(false);
+  const [resultMessage, setResultMessage] = useState('');
 
   const {
     mutate: sendResetPasswordEmail,
@@ -40,26 +38,7 @@ const ForgotPasswordPage = () => {
   return (
     <Container>
       {isSuccessfullMessage ? (
-        <Box
-          sx={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            flexDirection: 'column',
-            color: '#2EDC4A',
-          }}
-        >
-          <CheckCircleIcon sx={{ fontSize: 200, marginTop: 5 }} />
-          <Typography variant="h2" sx={{ fontSize: 30, marginTop: 3 }}>
-            {resultMessage}
-          </Typography>
-          <Link href={pageRoutes.root()}>
-            <DefaultButton
-              style={{ marginTop: '40px' }}
-              name="Go Back to main page"
-            />
-          </Link>
-        </Box>
+        <ResultMessage message={resultMessage} />
       ) : (
         <>
           <Typography

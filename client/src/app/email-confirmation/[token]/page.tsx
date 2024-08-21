@@ -2,12 +2,12 @@
 
 import React from 'react';
 import { Box, Typography } from '@mui/material';
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CancelIcon from '@mui/icons-material/Cancel';
 import DefaultButton from '@/src/components/DefaultButton';
 import Link from 'next/link';
 import { pageRoutes } from '@/src/routes/pageRoutes';
 import { useConfirmEmail } from '@/src/api/auth';
+import ResultMessage from '@/src/components/ResultMessage';
 
 interface EmailConfirmationProps {
   params: { token: string };
@@ -25,26 +25,7 @@ const EmailConfirmation = ({ params }: EmailConfirmationProps) => {
   return (
     <>
       {emailConfirmationResult && (
-        <Box
-          sx={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            flexDirection: 'column',
-            color: '#2EDC4A',
-          }}
-        >
-          <CheckCircleIcon sx={{ fontSize: 200, marginTop: 5 }} />
-          <Typography variant="h2" sx={{ fontSize: 40, marginTop: 3 }}>
-            {emailConfirmationResult?.message}
-          </Typography>
-          <Link href={pageRoutes.root()}>
-            <DefaultButton
-              style={{ marginTop: '40px' }}
-              name="Go Back to main page"
-            />
-          </Link>
-        </Box>
+        <ResultMessage message={emailConfirmationResult?.message} />
       )}
       {isEmailConfirmationError && (
         <Box

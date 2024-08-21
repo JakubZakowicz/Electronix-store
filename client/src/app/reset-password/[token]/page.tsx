@@ -1,18 +1,16 @@
 'use client';
 
 import React, { useState } from 'react';
-import Link from 'next/link';
 import { Box, Grid, Typography } from '@mui/material';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import InputField from '@/src/components/InputField';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { resetPasswordSchema } from '@/src/utils/validationSchemas';
 import { ResetPasswordSchema } from '@/src/utils/types';
 import DefaultButton from '@/src/components/DefaultButton';
-import { pageRoutes } from '@/src/routes/pageRoutes';
 import { useResetPassword } from '@/src/api/auth';
 import FormErrorMessage from '@/src/components/FormErrorMessage';
+import ResultMessage from '@/src/components/ResultMessage';
 
 interface ResetPasswordProps {
   params: { token: string };
@@ -21,7 +19,7 @@ interface ResetPasswordProps {
 const ResetPasswordPage = ({ params }: ResetPasswordProps) => {
   const { token } = params;
   const [isSuccessfullMessage, setIsSuccessfullMessage] = useState(false);
-  const [resultMessage, setResultMessage] = useState(false);
+  const [resultMessage, setResultMessage] = useState('');
 
   const {
     mutate: resetPassword,
@@ -51,26 +49,7 @@ const ResetPasswordPage = ({ params }: ResetPasswordProps) => {
   return (
     <Box>
       {isSuccessfullMessage ? (
-        <Box
-          sx={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            flexDirection: 'column',
-            color: '#2EDC4A',
-          }}
-        >
-          <CheckCircleIcon sx={{ fontSize: 200, marginTop: 5 }} />
-          <Typography variant="h2" sx={{ fontSize: 30, marginTop: 3 }}>
-            {resultMessage}
-          </Typography>
-          <Link href={pageRoutes.root()}>
-            <DefaultButton
-              style={{ marginTop: '40px' }}
-              name="Go Back to main page"
-            />
-          </Link>
-        </Box>
+        <ResultMessage message={resultMessage} />
       ) : (
         <>
           <Typography
