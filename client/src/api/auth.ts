@@ -39,3 +39,5 @@ export const useConfirmEmail = (token: string) =>
 
 export const useForgotPassword = () =>
   usePost(apiRoutes.forgotPassword);
+
+export const useResetPassword = () => useUpdate(apiRoutes.resetPassword, undefined, { method: 'PATCH' })

@@ -24,6 +24,11 @@ export interface ForgotPasswordSchema {
   email: string;
 }
 
+export interface ResetPasswordSchema {
+  newPassword: string;
+  confirmNewPassword: string;
+}
+
 interface DataDefaultProps {
   total: number;
   page: number;

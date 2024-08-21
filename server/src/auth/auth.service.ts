@@ -167,7 +167,7 @@ export class AuthService {
 
       const url = `${this.configService.get(
         'CORS_ORIGIN',
-      )}/forgot-password/${token}`;
+      )}/reset-password/${token}`;
 
       await this.mailerService.sendMail({
         to: email,
