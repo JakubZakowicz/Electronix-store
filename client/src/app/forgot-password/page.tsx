@@ -12,10 +12,11 @@ import { ForgotPasswordSchema } from '@/src/utils/types';
 import { forgotPasswordSchema } from '@/src/utils/validationSchemas';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import { pageRoutes } from '@/src/routes/pageRoutes';
+import FormErrorMessage from '@/src/components/FormErrorMessage';
 
 const ForgotPasswordPage = () => {
   const [isSuccessfullMessage, setIsSuccessfullMessage] = useState(false);
-  const [resultMessage, setResultMessage] = useState(false)
+  const [resultMessage, setResultMessage] = useState(false);
 
   const {
     mutate: sendResetPasswordEmail,
@@ -70,11 +71,9 @@ const ForgotPasswordPage = () => {
             Forgot Password
           </Typography>
           {isSendResetPasswordEmailError && (
-            <Typography
-              sx={{ color: 'red', textAlign: 'center', marginBottom: 2 }}
-            >
-              {sendResetPasswordEmailError.response.data.message}
-            </Typography>
+            <FormErrorMessage
+              message={sendResetPasswordEmailError.response.data.message}
+            />
           )}
           <Typography paragraph sx={{ textAlign: 'center', marginTop: '30px' }}>
             Fill in your email below to request a new password. An email will be

@@ -14,6 +14,7 @@ import DefaultButton from '@/src/components/DefaultButton';
 import { pageRoutes } from '@/src/routes/pageRoutes';
 import { useGetMe, useSignIn } from '@/src/api/auth';
 import { notificationMessages } from '@/src/utils/notificationMessages.utils';
+import FormErrorMessage from '@/src/components/FormErrorMessage';
 
 const SignInPage = () => {
   const {
@@ -33,7 +34,7 @@ const SignInPage = () => {
       onSuccess: () => {
         router.push(pageRoutes.root());
         refetch();
-        toast.success(notificationMessages.success.signedIn)
+        toast.success(notificationMessages.success.signedIn);
       },
     });
   };
@@ -54,11 +55,7 @@ const SignInPage = () => {
       <Grid container spacing={20} sx={{ marginTop: '-50px' }}>
         <Grid item xs={12} lg={6}>
           {isSignInError && (
-            <Typography
-              sx={{ color: 'red', textAlign: 'center', marginBottom: 2 }}
-            >
-              {signInError.response.data.message}
-            </Typography>
+            <FormErrorMessage message={signInError.response.data.message} />
           )}
           <form onSubmit={handleSubmit(onSubmit)}>
             <Controller

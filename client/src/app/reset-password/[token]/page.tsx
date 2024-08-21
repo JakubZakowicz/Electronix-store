@@ -12,6 +12,7 @@ import { ResetPasswordSchema } from '@/src/utils/types';
 import DefaultButton from '@/src/components/DefaultButton';
 import { pageRoutes } from '@/src/routes/pageRoutes';
 import { useResetPassword } from '@/src/api/auth';
+import FormErrorMessage from '@/src/components/FormErrorMessage';
 
 interface ResetPasswordProps {
   params: { token: string };
@@ -88,11 +89,9 @@ const ResetPasswordPage = ({ params }: ResetPasswordProps) => {
           >
             <Grid item xs={6}>
               {isResetPasswordError && (
-                <Typography
-                  sx={{ color: 'red', textAlign: 'center', marginBottom: 2 }}
-                >
-                  {resetPasswordError.response.data.message}
-                </Typography>
+                <FormErrorMessage
+                  message={resetPasswordError.response.data.message}
+                />
               )}
               <form onSubmit={handleSubmit(onSubmit)}>
                 <Box marginTop="50px">

@@ -13,6 +13,7 @@ import DefaultButton from '@/src/components/DefaultButton';
 import { pageRoutes } from '@/src/routes/pageRoutes';
 import { useSignUp } from '@/src/api/auth';
 import { notificationMessages } from '@/src/utils/notificationMessages.utils';
+import FormErrorMessage from '@/src/components/FormErrorMessage';
 
 const SignUpPage = () => {
   const {
@@ -32,7 +33,7 @@ const SignUpPage = () => {
     signUp(data, {
       onSuccess: () => {
         router.push(pageRoutes.singIn());
-        toast.success(notificationMessages.success.signedUp)
+        toast.success(notificationMessages.success.signedUp);
       },
     });
   };
@@ -59,13 +60,7 @@ const SignUpPage = () => {
         sx={{ marginTop: '-50px', justifyContent: 'center' }}
       >
         <Grid item xs={6}>
-          {isSignUpError && (
-            <Typography
-              sx={{ color: 'red', textAlign: 'center', marginBottom: 2 }}
-            >
-              User already exists!
-            </Typography>
-          )}
+          {isSignUpError && <FormErrorMessage message="User already exists!" />}
           <form onSubmit={handleSubmit(onSubmit)}>
             <Controller
               name="email"
