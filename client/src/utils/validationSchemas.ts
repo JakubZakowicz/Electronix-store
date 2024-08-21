@@ -38,3 +38,12 @@ export const reviewSchema = z.object({
   content: z.string(),
   rating: z.number().min(1).max(5),
 });
+
+export const resetPasswordSchema = z.object({
+  newPassword: z.string({
+    required_error: 'Mew password is a required field!',
+  }),
+  confirmNewPassword: z.string({
+    required_error: 'New password must be confirmed!',
+  }),
+});

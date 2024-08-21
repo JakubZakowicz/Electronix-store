@@ -36,3 +36,8 @@ export const useConfirmEmail = (token: string) =>
   useFetch<EmailConfirmationResult>(
     pathToUrl(apiRoutes.confirmEmail, { token })
   );
+
+export const useForgotPassword = () =>
+  usePost(apiRoutes.forgotPassword);
+
+export const useResetPassword = () => useUpdate(apiRoutes.resetPassword, undefined, { method: 'PATCH' })

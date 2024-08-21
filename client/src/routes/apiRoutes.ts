@@ -16,6 +16,8 @@ export const apiRoutes = {
   signUp: '/auth/sign-up',
   signOut: '/auth/sign-out',
   confirmEmail: '/auth/confirmation/:token',
+  forgotPassword: '/auth/forgot-password',
+  resetPassword: '/auth/reset-password',
   getMe: '/auth/profile',
   getUser: '/users/:userId',
   updateUser: '/users/:userId',
