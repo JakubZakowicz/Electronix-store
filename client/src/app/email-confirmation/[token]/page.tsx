@@ -24,11 +24,11 @@ const EmailConfirmation = ({ params }: EmailConfirmationProps) => {
       )}
       {isEmailConfirmationError && (
         <ResultMessage
+          isSuccess={false}
           message={
             (emailConfirmationError?.response?.data as { message: string })
               ?.message
           }
-          isSuccess={false}
         />
       )}
     </>
