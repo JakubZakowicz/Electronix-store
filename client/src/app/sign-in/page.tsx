@@ -19,6 +19,7 @@ import FormErrorMessage from '@/src/components/FormErrorMessage';
 const SignInPage = () => {
   const {
     mutate: signIn,
+    isLoading: isSignInLoading,
     isError: isSignInError,
     error: signInError,
   } = useSignIn();
@@ -95,7 +96,11 @@ const SignInPage = () => {
                 marginTop: '30px',
               }}
             >
-              <DefaultButton type="submit" name="Sign in" />
+              <DefaultButton
+                type="submit"
+                name="Sign in"
+                isLoading={isSignInLoading}
+              />
               <Link
                 href={pageRoutes.forgotPassword()}
                 style={{ color: 'white', marginTop: '10px' }}

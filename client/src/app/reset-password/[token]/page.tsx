@@ -23,6 +23,7 @@ const ResetPasswordPage = ({ params }: ResetPasswordProps) => {
 
   const {
     mutate: resetPassword,
+    isLoading: isResetPasswordLoading,
     isError: isResetPasswordError,
     error: resetPasswordError,
   } = useResetPassword();
@@ -111,7 +112,11 @@ const ResetPasswordPage = ({ params }: ResetPasswordProps) => {
                   }}
                 >
                   <Box>
-                    <DefaultButton type="submit" name="Reset Password" />
+                    <DefaultButton
+                      type="submit"
+                      name="Reset Password"
+                      isLoading={isResetPasswordLoading}
+                    />
                   </Box>
                 </Box>
               </form>

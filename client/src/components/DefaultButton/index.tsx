@@ -2,14 +2,21 @@
 
 import React from 'react';
 import { Button, ButtonProps } from '@mui/material';
+import Loader from '../Loader';
 
 interface DefaultButtonProps extends ButtonProps {
   name?: string;
+  isLoading?: boolean;
 }
 
-const DefaultButton = ({ name = 'Button', ...props }: DefaultButtonProps) => {
+const DefaultButton = ({
+  name = 'Button',
+  isLoading = false,
+  ...props
+}: DefaultButtonProps) => {
   return (
     <Button
+      disabled={isLoading}
       sx={{
         color: 'white',
         padding: '6px 50px',
@@ -22,6 +29,12 @@ const DefaultButton = ({ name = 'Button', ...props }: DefaultButtonProps) => {
       }}
       {...props}
     >
+      {isLoading && (
+        <Loader
+          size={30}
+          style={{ position: 'absolute', left: '10px', display: 'block' }}
+        />
+      )}
       {name}
     </Button>
   );
