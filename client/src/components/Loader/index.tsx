@@ -12,7 +12,6 @@ const Loader = ({ size = 200, style }: LoaderProps) => {
     <Box
       sx={{
         width: '100%',
-        // margin: '200px 0',
         display: 'flex',
         justifyContent: 'center',
         ...style
