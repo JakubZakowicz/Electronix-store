@@ -41,6 +41,7 @@ const Navbar = ({ children }: NavbarProps) => {
     data: categories,
     isLoading: isCategoriesLoading,
     isError: isCategoriesError,
+    error: categoriesError
   } = useGetCategories();
   const { data: me } = useGetMe();
 
@@ -56,6 +57,8 @@ const Navbar = ({ children }: NavbarProps) => {
 
   const theme = useTheme();
   const isMobileView = useMediaQuery(theme.breakpoints.down('md'));
+
+  if (isCategoriesError) throw new Error(categoriesError.message)
 
   return (
     <Box>
@@ -137,7 +140,7 @@ const Navbar = ({ children }: NavbarProps) => {
               <Loader size={80} style={{ margin: '80px 0' }} />
             )}
             {categories &&
-              !isCategoriesError &&
+              !isCategoriesLoading &&
               categories.categories?.map(({ id, slug, name }) => (
                 <List
                   key={id}

@@ -13,6 +13,7 @@ import { useAddToCart, useGetCartData } from '@/src/api/cart';
 import { notificationMessages } from '@/src/utils/notificationMessages.utils';
 import Reviews from '@/src/components/Reviews';
 import { noImageObject } from '@/src/utils/constants';
+import Loader from '@/src/components/Loader';
 
 interface ProductPageProps {
   params: { slug: string };
@@ -25,6 +26,7 @@ const ProductPage = ({ params }: ProductPageProps) => {
 
   const {
     data: product,
+    isLoading: isProductLoading,
     isError: isProductError,
     error: productError,
   } = useGetProduct(slug);
@@ -54,6 +56,8 @@ const ProductPage = ({ params }: ProductPageProps) => {
       }
     );
   };
+
+  if (isProductLoading) return <Loader style={{ margin: '200px 0' }} />;
 
   if (isProductError) throw new Error(productError?.message);
 
