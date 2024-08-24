@@ -20,14 +20,18 @@ import { useGetCartData } from '@/src/api/cart';
 import { convertPrice } from '@/src/utils/functions.utils';
 import CartProductCounter from '@/src/components/CartProductCounter';
 import DeleteCartProduct from '@/src/components/DeleteCartProduct';
+import Loader from '@/src/components/Loader';
 
 const CartPage = () => {
   const {
     data: cartData,
+    isLoading: isCartDataLoading,
     isError: isCartDataError,
     error: cartDataError,
   } = useGetCartData();
   const { products, subtotal, shipping, total } = cartData || {};
+
+  if (isCartDataLoading) return <Loader style={{ margin: '200px 0' }} />;
 
   if (!products || products.length === 0)
     return (
@@ -66,6 +70,7 @@ const CartPage = () => {
             </TableRow>
           </TableHead>
           <TableBody>
+            {isCartDataLoading && <Loader style={{ margin: '200px 0' }} />}
             {products?.map(({ id, name, price, quantity, images }) => (
               <TableRow
                 key={id}

@@ -17,9 +17,11 @@ import { convertPrice } from '@/src/utils/functions.utils';
 import Pagination from '../Pagination';
 import SortInput from '../SortInput';
 import { noImageObject } from '@/src/utils/constants';
+import Loader from '../Loader';
 
 interface ProductsInterface {
   name: string;
+  isLoading: boolean;
   productsData?: ProductData;
   disabledSorting?: boolean;
 }
@@ -27,9 +29,12 @@ interface ProductsInterface {
 const Products = ({
   name,
   productsData,
+  isLoading,
   disabledSorting = false,
 }: ProductsInterface) => {
   const { products, pageCount } = productsData || {};
+
+  if (isLoading) return <Loader style={{ margin: '200px 0' }} />;
 
   if (products?.length === 0)
     return (

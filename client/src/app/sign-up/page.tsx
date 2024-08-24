@@ -18,6 +18,7 @@ import FormErrorMessage from '@/src/components/FormErrorMessage';
 const SignUpPage = () => {
   const {
     mutate: signUp,
+    isLoading: isSignUpLoading,
     isError: isSignUpError,
     error: signUpError,
   } = useSignUp();
@@ -112,7 +113,11 @@ const SignUpPage = () => {
               }}
             >
               <Box>
-                <DefaultButton type="submit" name="Create Account" />
+                <DefaultButton
+                  type="submit"
+                  name="Create Account"
+                  isLoading={isSignUpLoading}
+                />
                 <Typography sx={{ marginTop: '10px' }}>
                   Do you have an account? &nbsp;
                   <Link

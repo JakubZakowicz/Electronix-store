@@ -18,6 +18,7 @@ const ForgotPasswordPage = () => {
 
   const {
     mutate: sendResetPasswordEmail,
+    isLoading: isSendResetPasswordLoading,
     isError: isSendResetPasswordEmailError,
     error: sendResetPasswordEmailError,
   } = useForgotPassword();
@@ -73,7 +74,11 @@ const ForgotPasswordPage = () => {
                   />
                 )}
               />
-              <DefaultButton name="Reset Password" style={{ width: '300px' }} />
+              <DefaultButton
+                name="Reset Password"
+                isLoading={isSendResetPasswordLoading}
+                style={{ width: '300px' }}
+              />
             </Box>
           </form>
         </>

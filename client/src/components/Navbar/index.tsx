@@ -26,6 +26,7 @@ import { useGetMe } from '@/src/api/auth';
 import UserMenu from '../UserMenu';
 import SearchBar from '../SearchBar';
 import ShoppingCart from '../ShoppingCart';
+import Loader from '../Loader';
 
 interface NavbarProps {
   children: React.ReactNode;
@@ -36,7 +37,12 @@ const Navbar = ({ children }: NavbarProps) => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [isUser, setIsUser] = useState(false);
 
-  const { data: categories } = useGetCategories();
+  const {
+    data: categories,
+    isLoading: isCategoriesLoading,
+    isError: isCategoriesError,
+    error: categoriesError
+  } = useGetCategories();
   const { data: me } = useGetMe();
 
   useEffect(() => {
@@ -51,6 +57,8 @@ const Navbar = ({ children }: NavbarProps) => {
 
   const theme = useTheme();
   const isMobileView = useMediaQuery(theme.breakpoints.down('md'));
+
+  if (isCategoriesError) throw new Error(categoriesError.message)
 
   return (
     <Box>
@@ -128,7 +136,11 @@ const Navbar = ({ children }: NavbarProps) => {
             {open ? <ExpandLess /> : <ExpandMore />}
           </ListItemButton>
           <Collapse in={open} timeout="auto" unmountOnExit>
+            {isCategoriesLoading && (
+              <Loader size={80} style={{ margin: '80px 0' }} />
+            )}
             {categories &&
+              !isCategoriesLoading &&
               categories.categories?.map(({ id, slug, name }) => (
                 <List
                   key={id}

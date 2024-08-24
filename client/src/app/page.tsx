@@ -17,6 +17,7 @@ import { useGetProducts } from '../api/products';
 export default function Home() {
   const {
     data: productsData,
+    isLoading: isProductsLoading,
     isError: isProductsError,
     error: productError,
   } = useGetProducts();
@@ -83,6 +84,7 @@ export default function Home() {
       </Card>
       <Products
         name="Top Products"
+        isLoading={isProductsLoading}
         productsData={featuredProductsData}
         disabledSorting
       />

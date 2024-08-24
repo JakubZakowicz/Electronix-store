@@ -18,6 +18,7 @@ const ProductsPage = ({ params }: ProductsPageProps) => {
 
   const {
     data: category,
+    isLoading: isCategoryLoading,
     isError: isCategoryError,
     error: categoryError,
   } = useGetCategory(slug);
@@ -30,6 +31,7 @@ const ProductsPage = ({ params }: ProductsPageProps) => {
     <div>
       <Products
         name={`${category?.name} Products`}
+        isLoading={isCategoryLoading}
         productsData={productsData}
       />
     </div>
