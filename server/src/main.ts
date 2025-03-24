@@ -1,20 +1,11 @@
 import { NestFactory } from '@nestjs/core';
 import * as cookieParser from 'cookie-parser';
 import * as session from 'express-session';
-import * as fs from 'fs';
-import * as path from 'path';
 import { AppModule } from './app.module';
 import { redisStore } from './redis/redisStore';
 
 async function bootstrap() {
-  const httpsOptions = {
-    key: fs.readFileSync(path.join(__dirname, process.env.SSL_KEY_PATH || '')),
-    cert: fs.readFileSync(
-      path.join(__dirname, process.env.SSL_CERT_PATH || ''),
-    ),
-  };
-
-  const app = await NestFactory.create(AppModule, { httpsOptions });
+  const app = await NestFactory.create(AppModule);
   app.enableCors({
     credentials: true,
     origin: process.env.CORS_ORIGIN,
